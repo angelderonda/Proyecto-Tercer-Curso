@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="proyecto.jpa" transaction-type="RESOURCE_LOCAL">
-	
+	<persistence-unit name="proyecto.jpa" transaction-type="RESOURCE_LOCAL">	
 		<class>proyecto.jpa.Alumno</class>		
 		<class>proyecto.jpa.Asignatura</class>		
 		<class>proyecto.jpa.AsignaturasMatricula</class>		
@@ -14,8 +13,7 @@
 		<class>proyecto.jpa.GruposAsignatura</class>		
 		<class>proyecto.jpa.Matricula</class>		
 		<class>proyecto.jpa.Optativa</class>		
-		<class>proyecto.jpa.Titulacion</class>			
-		
+		<class>proyecto.jpa.Titulacion</class>	
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>

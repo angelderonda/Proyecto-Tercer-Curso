@@ -118,63 +118,31 @@ public class Matricula {
 				+ ", nuevoIngreso=" + nuevoIngreso + "]";
 	}
 	
-	//HashCode & Equals
-	
-	
+	//HashCode & Equals	
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result + ((fechaMatricula == null) ? 0 : fechaMatricula.hashCode());
-		result = prime * result + ((nuevoIngreso == null) ? 0 : nuevoIngreso.hashCode());
-		result = prime * result + ((numeroArchivo == null) ? 0 : numeroArchivo.hashCode());
-		result = prime * result + ((turnoPreferente == null) ? 0 : turnoPreferente.hashCode());
-		return result;
-	}
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Matricula other = (Matricula) obj;
-		if (cursoAcademico == null) {
-			if (other.cursoAcademico != null)
-				return false;
-		} else if (!cursoAcademico.equals(other.cursoAcademico))
-			return false;
-		if (estado == null) {
-			if (other.estado != null)
-				return false;
-		} else if (!estado.equals(other.estado))
-			return false;
-		if (fechaMatricula == null) {
-			if (other.fechaMatricula != null)
-				return false;
-		} else if (!fechaMatricula.equals(other.fechaMatricula))
-			return false;
-		if (nuevoIngreso == null) {
-			if (other.nuevoIngreso != null)
-				return false;
-		} else if (!nuevoIngreso.equals(other.nuevoIngreso))
-			return false;
-		if (numeroArchivo == null) {
-			if (other.numeroArchivo != null)
-				return false;
-		} else if (!numeroArchivo.equals(other.numeroArchivo))
-			return false;
-		if (turnoPreferente == null) {
-			if (other.turnoPreferente != null)
-				return false;
-		} else if (!turnoPreferente.equals(other.turnoPreferente))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Matricula other = (Matricula) obj;
+        if (cursoAcademico == null) {
+            if (other.cursoAcademico != null)
+                return false;
+        } else if (!cursoAcademico.equals(other.cursoAcademico))
+            return false;
+        return true;
+    }
 	
 }

@@ -51,41 +51,30 @@ public class Encuesta {
 	//HashCode and Equals
 	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((expedienteEncuesta == null) ? 0 : expedienteEncuesta.hashCode());
-		result = prime * result + ((fechaEnvio == null) ? 0 : fechaEnvio.hashCode());
-		result = prime * result + ((gruposAsignaturaEncuesta == null) ? 0 : gruposAsignaturaEncuesta.hashCode());
-		return result;
-	}
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((fechaEnvio == null) ? 0 : fechaEnvio.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Encuesta other = (Encuesta) obj;
-		if (expedienteEncuesta == null) {
-			if (other.expedienteEncuesta != null)
-				return false;
-		} else if (!expedienteEncuesta.equals(other.expedienteEncuesta))
-			return false;
-		if (fechaEnvio == null) {
-			if (other.fechaEnvio != null)
-				return false;
-		} else if (!fechaEnvio.equals(other.fechaEnvio))
-			return false;
-		if (gruposAsignaturaEncuesta == null) {
-			if (other.gruposAsignaturaEncuesta != null)
-				return false;
-		} else if (!gruposAsignaturaEncuesta.equals(other.gruposAsignaturaEncuesta))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Encuesta other = (Encuesta) obj;
+
+        if (fechaEnvio == null) {
+            if (other.fechaEnvio != null)
+                return false;
+        } else if (!fechaEnvio.equals(other.fechaEnvio))
+            return false;
+        return true;
+    }
 	
 	
 
