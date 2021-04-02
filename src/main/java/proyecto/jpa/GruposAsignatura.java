@@ -19,18 +19,22 @@ public class GruposAsignatura {
 	@Column(name = "OFERTA")	
 	private char oferta;
 	
-	//Relacion muchos a muchos con encuesta REVISAR!!!
+	//Relacion muchos a muchos con encuesta
 	@ManyToMany
 	private List<Encuesta> encuestaGruposAsignatura;
 	
 	
 	//Relacion muchos a uno con grupo
 	@ManyToOne(optional = false)
+	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="REFERENCIA")
 	private Grupo grupoGruposAsignatura;
 	
 	//Relacion muchos a uno con asignatura
 	@ManyToOne(optional = false)
+	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="REFERENCIA")
 	private Asignatura asignaturaGruposAsignatura;
+	
+	
 	
 	
 	//Getters and Setters

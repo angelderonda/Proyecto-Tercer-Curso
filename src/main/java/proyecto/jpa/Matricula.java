@@ -29,13 +29,19 @@ public class Matricula {
 	
 	
 	
+	
+	
 	//Relacion muchos a uno con expediente
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false)	
+	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="NUMERO_EXPEDIENTE")
 	private Expediente expedienteMatricula;
 	
 	//Relacion uno a muchos con asignaturaMatricula
 	@OneToMany(mappedBy="matriculaAsignaturasMatricula")
 	private List<AsignaturasMatricula> asignaturasMatriculaMatricula;
+	
+
+	
 	
 	//Getters y Setters
 

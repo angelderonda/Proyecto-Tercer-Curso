@@ -22,7 +22,9 @@ public class Encuesta {
 	private List<GruposAsignatura> gruposAsignaturaEncuesta;
 	
 	@ManyToOne(optional = false)
+	@PrimaryKeyJoinColumn(name="FECHA_ENVIO", referencedColumnName="NUMERO_EXPEDIENTE")
 	private Expediente expedienteEncuesta;
+	
 	
 	//Getters and Setters
 	
