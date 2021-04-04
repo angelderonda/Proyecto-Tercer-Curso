@@ -32,11 +32,11 @@ public class AsignaturasMatricula {
 	//Relacion muchos a uno con matricula
 	@ManyToOne(optional = false)
 	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="CURSO_ACADEMICO")
-	private Asignatura matriculaAsignaturasMatricula;
+	private Matricula matriculaAsignaturasMatricula;
 	
 	//Relacion muchos a uno con grupo
 	@ManyToOne(optional = false)
 	@PrimaryKeyJoinColumn(name="NUMERO_EXPEDIENTE", referencedColumnName="NUMERO_EXPEDIENTE")
-	private Asignatura grupoAsignaturasMatricula;
+	private Grupo grupoAsignaturasMatricula;
 	
 }
