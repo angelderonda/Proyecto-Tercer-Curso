@@ -3,14 +3,13 @@
 	<persistence-unit name="proyecto.jpa" transaction-type="RESOURCE_LOCAL">	
 		<class>proyecto.jpa.Alumno</class>		
 		<class>proyecto.jpa.Asignatura</class>		
-		<class>proyecto.jpa.AsignaturasMatricula</class>		
+		<class>proyecto.jpa.AsignaturasMatricula</class>	
 		<class>proyecto.jpa.Centro</class>		
 		<class>proyecto.jpa.Clase</class>		
-		<class>proyecto.jpa.ClaseID</class>		
 		<class>proyecto.jpa.Encuesta</class>		
 		<class>proyecto.jpa.Expediente</class>		
 		<class>proyecto.jpa.Grupo</class>		
-		<class>proyecto.jpa.GruposAsignatura</class>		
+		<class>proyecto.jpa.GruposAsignatura</class>				
 		<class>proyecto.jpa.Matricula</class>		
 		<class>proyecto.jpa.Optativa</class>		
 		<class>proyecto.jpa.Titulacion</class>	
