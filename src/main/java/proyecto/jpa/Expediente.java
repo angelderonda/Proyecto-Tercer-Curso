@@ -22,7 +22,7 @@ public class Expediente {
 	private Long notaMediaProvisional;
 	@Column(name = "CREDITOS_SUPERADOS")
 	private Integer creditosSuperados;
-	@Column(name = "CREDITOS_SUPERADOS")
+	@Column(name = "CREDITOS_FB")
 	private Integer creditosFB;
 	@Column(name = "CREDITOS_MO")
 	private Integer creditosMO;
