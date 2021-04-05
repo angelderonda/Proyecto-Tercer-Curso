@@ -1,5 +1,6 @@
 package proyecto.jpa;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -11,7 +12,19 @@ import javax.persistence.*;
 */
 
 @Entity
-public class Matricula {
+@IdClass(Matricula.MatriculaId.class)
+public class Matricula implements Serializable{
+	
+	public static class MatriculaId implements Serializable{
+
+		private static final long serialVersionUID = 1L;
+		@SuppressWarnings("unused")
+		private Integer cursoAcademico;
+		@SuppressWarnings("unused")
+		private Integer numeroExpediente;
+	}
+	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
 	private Integer cursoAcademico;
@@ -32,8 +45,8 @@ public class Matricula {
 	
 	
 	//Relacion muchos a uno con expediente
+	@Id
 	@ManyToOne(optional = false)	
-	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="NUMERO_EXPEDIENTE")
 	private Expediente expedienteMatricula;
 	
 	//Relacion uno a muchos con asignaturaMatricula

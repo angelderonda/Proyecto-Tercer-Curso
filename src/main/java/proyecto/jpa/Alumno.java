@@ -1,5 +1,6 @@
 package proyecto.jpa;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -11,9 +12,9 @@ import javax.persistence.*;
 */
 
 @Entity
-public class Alumno{
+public class Alumno implements Serializable{
 
-	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="ID", nullable = false)
 	private Integer id;

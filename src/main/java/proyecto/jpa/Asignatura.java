@@ -1,5 +1,6 @@
 package proyecto.jpa;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -14,7 +15,9 @@ import javax.persistence.*;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="disc", discriminatorType = DiscriminatorType.CHAR )
 @DiscriminatorValue("A")
-public class Asignatura {
+public class Asignatura implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="REFERENCIA", nullable = false)
 	private Long referencia;

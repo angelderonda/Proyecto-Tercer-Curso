@@ -1,5 +1,7 @@
 package proyecto.jpa;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -10,7 +12,9 @@ import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("O")
-public class Optativa extends Asignatura{
+public class Optativa extends Asignatura implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	@Column(name = "PLAZAS", nullable = false)
 	private Integer plazas;
 	@Column(name = "MENCION")

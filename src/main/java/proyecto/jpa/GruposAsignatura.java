@@ -1,4 +1,5 @@
 package proyecto.jpa;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -11,39 +12,54 @@ import javax.persistence.*;
 */
 
 @Entity
-public class GruposAsignatura {
+@IdClass(GruposAsignatura.GruposAsignaturaId.class)
+public class GruposAsignatura implements Serializable{
 	
+	public static class GruposAsignaturaId implements Serializable{
+		private static final long serialVersionUID = 1L;
+		@SuppressWarnings("unused")
+		private Integer cursoAcademico;
+		//PK de grupo
+		@SuppressWarnings("unused")
+		private Integer id;
+		//PK de asignatura
+		@SuppressWarnings("unused")
+		private Long referencia;	
+	}
+	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
-	private Integer curso_academico;
+	private Integer cursoAcademico;
 	@Column(name = "OFERTA")	
 	private char oferta;
+
+	
+	
+	//Relacion muchos a uno con grupo
+	@Id
+	@ManyToOne(optional = false)
+	private Grupo grupoGruposAsignatura;
+	
+	//Relacion muchos a uno con asignatura
+	@Id
+	@ManyToOne(optional = false)
+	private Asignatura asignaturaGruposAsignatura;
+
 	
 	//Relacion muchos a muchos con encuesta
 	@ManyToMany
 	private List<Encuesta> encuestaGruposAsignatura;
 	
 	
-	//Relacion muchos a uno con grupo
-	@ManyToOne(optional = false)
-	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="REFERENCIA")
-	private Grupo grupoGruposAsignatura;
-	
-	//Relacion muchos a uno con asignatura
-	@ManyToOne(optional = false)
-	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="REFERENCIA")
-	private Asignatura asignaturaGruposAsignatura;
-	
-	
-	
 	
 	//Getters and Setters
 	
 	public Integer getCurso_academico() {
-		return curso_academico;
+		return cursoAcademico;
 	}
-	public void setCurso_academico(Integer curso_academico) {
-		this.curso_academico = curso_academico;
+	public void setCurso_academico(Integer cursoAcademico) {
+		this.cursoAcademico = cursoAcademico;
 	}
 	public char getOferta() {
 		return oferta;
@@ -56,7 +72,7 @@ public class GruposAsignatura {
 	
 	@Override
 	public String toString() {
-		return "GruposAsignatura [curso_academico=" + curso_academico + ", oferta=" + oferta + "]";
+		return "GruposAsignatura [curso_academico=" + cursoAcademico + ", oferta=" + oferta + "]";
 	}
 	
 	//HashCode and Equals
@@ -65,7 +81,7 @@ public class GruposAsignatura {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((curso_academico == null) ? 0 : curso_academico.hashCode());
+		result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
 		return result;
 	}
 	
@@ -78,10 +94,10 @@ public class GruposAsignatura {
 		if (getClass() != obj.getClass())
 			return false;
 		GruposAsignatura other = (GruposAsignatura) obj;
-		if (curso_academico == null) {
-			if (other.curso_academico != null)
+		if (cursoAcademico == null) {
+			if (other.cursoAcademico != null)
 				return false;
-		} else if (!curso_academico.equals(other.curso_academico))
+		} else if (!cursoAcademico.equals(other.cursoAcademico))
 			return false;
 		return true;
 	}

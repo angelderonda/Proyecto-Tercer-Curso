@@ -1,5 +1,8 @@
 package proyecto.jpa;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 /**
@@ -9,10 +12,27 @@ import javax.persistence.*;
 */
 
 @Entity
-@IdClass(AsignaturasMatriculaId.class)
-public class AsignaturasMatricula {
+@IdClass(AsignaturasMatricula.AsignaturasMatriculaId.class)
+public class AsignaturasMatricula implements Serializable{
 	
+	public static class AsignaturasMatriculaId implements Serializable{
+
+		private static final long serialVersionUID = 1L;
+		//PK de asignatura
+		//@Column(name="REFERENCIA", nullable = false)
+		@SuppressWarnings("unused")
+		private Long referencia;
+		
+		//PK de matricula
+		//@Column(name = "CURSO_ACADEMICO", nullable = false)
+		@SuppressWarnings("unused")
+		private Integer cursoAcademico;
+		//@Column(name = "NUMERO_EXPEDIENTE", nullable = false)
+		@SuppressWarnings("unused")
+		private Long numeroExpediente;
+	}
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="REFERENCIA", nullable = false)
 	private Long referencia;
@@ -25,18 +45,17 @@ public class AsignaturasMatricula {
 		
 	
 	//Relacion muchos a uno con asignatura
+	@Id
 	@ManyToOne(optional = false)
-	@PrimaryKeyJoinColumn(name="REFERENCIA", referencedColumnName="REFERENCIA")
 	private Asignatura asignaturaAsignaturasMatricula;
 	
 	//Relacion muchos a uno con matricula
+	@Id
 	@ManyToOne(optional = false)
-	@PrimaryKeyJoinColumn(name="CURSO_ACADEMICO", referencedColumnName="CURSO_ACADEMICO")
 	private Matricula matriculaAsignaturasMatricula;
 	
 	//Relacion muchos a uno con grupo
 	@ManyToOne(optional = false)
-	@PrimaryKeyJoinColumn(name="NUMERO_EXPEDIENTE", referencedColumnName="NUMERO_EXPEDIENTE")
 	private Grupo grupoAsignaturasMatricula;
 	
 }

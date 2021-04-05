@@ -1,5 +1,6 @@
 package proyecto.jpa;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import java.util.List;
@@ -12,7 +13,20 @@ import javax.persistence.*;
 */
 
 @Entity
-public class Encuesta {
+@IdClass(Encuesta.EncuestaId.class)
+public class Encuesta implements Serializable{
+
+	public static class EncuestaId implements Serializable{
+
+		private static final long serialVersionUID = 1L;
+		@SuppressWarnings("unused")
+		private Date fechaEnvio;
+		@SuppressWarnings("unused")
+		private Integer numeroExpediente;
+	}
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Temporal(TemporalType.DATE)
 	@Column(name="FECHA_ENVIO", nullable = false)
@@ -21,8 +35,8 @@ public class Encuesta {
 	@ManyToMany(mappedBy = "encuestaGruposAsignatura")
 	private List<GruposAsignatura> gruposAsignaturaEncuesta;
 	
+	@Id
 	@ManyToOne(optional = false)
-	@PrimaryKeyJoinColumn(name="FECHA_ENVIO", referencedColumnName="NUMERO_EXPEDIENTE")
 	private Expediente expedienteEncuesta;
 	
 	
