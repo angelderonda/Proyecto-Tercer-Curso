@@ -33,7 +33,7 @@ public class Titulacion implements Serializable{
 	
 	//Relacion muchos a muchos con centro
 	@ManyToMany
-	@JoinTable()
+	@JoinTable(name = "TITULACION_CENTRO",joinColumns = @JoinColumn(name = "TITULACION_CODIGO"),inverseJoinColumns = @JoinColumn(name = "CENTRO_ID"))
 	private List<Centro> centroTitulacion;
 	
 	//Relacion uno a muchos con grupo
