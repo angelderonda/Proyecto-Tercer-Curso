@@ -16,7 +16,7 @@ public class Titulacion implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name = "CÓDIGO", nullable = false)
+	@Column(name = "CODIGO", nullable = false)
 	private Long codigo;
 	@Column(name = "NOMBRE", nullable = false)
 	private String nombre;
@@ -33,6 +33,7 @@ public class Titulacion implements Serializable{
 	
 	//Relacion muchos a muchos con centro
 	@ManyToMany
+	@JoinTable()
 	private List<Centro> centroTitulacion;
 	
 	//Relacion uno a muchos con grupo
