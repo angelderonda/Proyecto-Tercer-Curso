@@ -22,7 +22,7 @@ public class Encuesta implements Serializable{
 		@SuppressWarnings("unused")
 		private Date fechaEnvio;
 		@SuppressWarnings("unused")
-		private Integer numeroExpediente;
+		private Long expedienteEncuesta;
 	}
 	
 	private static final long serialVersionUID = 1L;

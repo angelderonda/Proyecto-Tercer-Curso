@@ -21,7 +21,7 @@ public class Matricula implements Serializable{
 		@SuppressWarnings("unused")
 		private Integer cursoAcademico;
 		@SuppressWarnings("unused")
-		private Integer numeroExpediente;
+		private Long expedienteMatricula;
 	}
 	
 	private static final long serialVersionUID = 1L;

@@ -21,10 +21,10 @@ public class GruposAsignatura implements Serializable{
 		private Integer cursoAcademico;
 		//PK de grupo
 		@SuppressWarnings("unused")
-		private Integer id;
+		private Integer grupoGruposAsignatura;
 		//PK de asignatura
 		@SuppressWarnings("unused")
-		private Long referencia;	
+		private Long asignaturaGruposAsignatura;	
 	}
 	
 	private static final long serialVersionUID = 1L;

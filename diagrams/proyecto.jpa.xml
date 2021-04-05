@@ -1,3 +1,144 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<entities>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
+	<entity>
+		<entity-name>proyecto.jpa.Alumno</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>246</entity-height>
+		<entity-X-Coordinate>974</entity-X-Coordinate>
+		<entity-Y-Coordinate>56</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Asignatura</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>326</entity-height>
+		<entity-X-Coordinate>50</entity-X-Coordinate>
+		<entity-Y-Coordinate>410</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.AsignaturasMatricula</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>128</entity-height>
+		<entity-X-Coordinate>439</entity-X-Coordinate>
+		<entity-Y-Coordinate>1274</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Centro</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>186</entity-height>
+		<entity-X-Coordinate>287</entity-X-Coordinate>
+		<entity-Y-Coordinate>-10</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Clase</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>33</entity-X-Coordinate>
+		<entity-Y-Coordinate>1130</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Encuesta</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>128</entity-height>
+		<entity-X-Coordinate>1238</entity-X-Coordinate>
+		<entity-Y-Coordinate>461</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Expediente</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>366</entity-height>
+		<entity-X-Coordinate>592</entity-X-Coordinate>
+		<entity-Y-Coordinate>-20</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Grupo</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>366</entity-height>
+		<entity-X-Coordinate>1372</entity-X-Coordinate>
+		<entity-Y-Coordinate>834</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.GruposAsignatura</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>186</entity-height>
+		<entity-X-Coordinate>914</entity-X-Coordinate>
+		<entity-Y-Coordinate>549</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Matricula</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>246</entity-height>
+		<entity-X-Coordinate>569</entity-X-Coordinate>
+		<entity-Y-Coordinate>827</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Optativa</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>90</entity-height>
+		<entity-X-Coordinate>160</entity-X-Coordinate>
+		<entity-Y-Coordinate>850</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.Titulacion</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>226</entity-height>
+		<entity-X-Coordinate>60</entity-X-Coordinate>
+		<entity-Y-Coordinate>139</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>proyecto.jpa.ClaseId</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>90</entity-height>
+		<entity-X-Coordinate>246</entity-X-Coordinate>
+		<entity-Y-Coordinate>1066</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
 </entities>

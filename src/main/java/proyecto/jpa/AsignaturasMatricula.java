@@ -1,9 +1,9 @@
 package proyecto.jpa;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.*;
+
+import proyecto.jpa.Matricula.MatriculaId;
 
 /**
 * @author Los Datografos 
@@ -18,30 +18,16 @@ public class AsignaturasMatricula implements Serializable{
 	public static class AsignaturasMatriculaId implements Serializable{
 
 		private static final long serialVersionUID = 1L;
-		//PK de asignatura
-		//@Column(name="REFERENCIA", nullable = false)
-		@SuppressWarnings("unused")
-		private Long referencia;
+				
 		
-		//PK de matricula
-		//@Column(name = "CURSO_ACADEMICO", nullable = false)
 		@SuppressWarnings("unused")
-		private Integer cursoAcademico;
-		//@Column(name = "NUMERO_EXPEDIENTE", nullable = false)
+		private MatriculaId matriculaAsignaturasMatricula;
+		
 		@SuppressWarnings("unused")
-		private Long numeroExpediente;
+		private Long asignaturaAsignaturasMatricula;
 	}
 	
 	private static final long serialVersionUID = 1L;
-	@Id
-	@Column(name="REFERENCIA", nullable = false)
-	private Long referencia;
-	@Id
-	@Column(name = "CURSO_ACADEMICO", nullable = false)
-	private Integer cursoAcademico;
-	@Id
-	@Column(name = "NUMERO_EXPEDIENTE", nullable = false)
-	private Long numeroExpediente;
 		
 	
 	//Relacion muchos a uno con asignatura
