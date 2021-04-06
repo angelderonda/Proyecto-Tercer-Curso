@@ -31,9 +31,8 @@ public class Titulacion implements Serializable{
 	@OneToMany(mappedBy="titulacionExpediente")
 	private List<Expediente> expedienteTitulacion;
 	
-	//Relacion muchos a muchos con centro
+	//Relacion muchos a muchos con centro (la obligatoriedad se indica mediante la aplicación, aquí no es posible)
 	@ManyToMany
-	@JoinTable(name = "TITULACION_CENTRO",joinColumns = @JoinColumn(name = "TITULACION_CODIGO"),inverseJoinColumns = @JoinColumn(name = "CENTRO_ID"))
 	private List<Centro> centroTitulacion;
 	
 	//Relacion uno a muchos con grupo

@@ -45,14 +45,12 @@ public class GruposAsignatura implements Serializable{
 	@Id
 	@ManyToOne(optional = false)
 	private Asignatura asignaturaGruposAsignatura;
-
+	
 	
 	//Relacion muchos a muchos con encuesta
 	@ManyToMany
 	private List<Encuesta> encuestaGruposAsignatura;
-	
-	
-	
+		
 	//Getters and Setters
 	
 	public Integer getCurso_academico() {

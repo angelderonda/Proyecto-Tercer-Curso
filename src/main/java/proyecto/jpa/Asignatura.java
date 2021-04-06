@@ -13,7 +13,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="disc", discriminatorType = DiscriminatorType.CHAR )
+@DiscriminatorColumn(name="DISCRIMINANTE_OPTATIVA", discriminatorType = DiscriminatorType.CHAR )
 @DiscriminatorValue("A")
 public class Asignatura implements Serializable{
 
