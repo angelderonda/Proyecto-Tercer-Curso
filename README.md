@@ -1,7 +1,11 @@
-# proyecto
+# Proyecto_Secretaria
 
 ## Aclaración sobre la nomenclatura de las variables que mapean relaciones en JPA
 
 Sea una relación entre la clase 'A' y la clase 'B':
 * El atributo representante de dicha relación dentro de la clase A tendrá como nombre: aB 
 * El atributo representante de dicha relación dentro de la clase B tendrá como nombre: bA 
+
+## Aclaración sobre diagramas E/R 
+
+El primer diagrama E/R creado con DataModeler: *Diagrama E/R DM*, presenta la siguiente diferencia con respecto al generado a partir de JPA: *Diagrama E/R* JPA. En este caso la tabla optativa, subentidad de Asignatura no la hemos generado como una tabla, sino que hemos utilizado la estrategia **single-table**, con una columna llamada DISCRIMINANTE_OPTATIVA de tipo CHAR que tomará el valor 'A' si la fila se trata de una asignatura y el valor 'O' si se trata de una asignatura optativa. Esto se debe a que en nuestro sistema predominan las asignaturas normales sobre las optativas y consideramos que es mas eficiente no generar mas tablas para ello.
