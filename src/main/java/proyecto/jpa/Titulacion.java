@@ -31,7 +31,7 @@ public class Titulacion implements Serializable{
 	@OneToMany(mappedBy="titulacionExpediente")
 	private List<Expediente> expedienteTitulacion;
 	
-	//Relacion muchos a muchos con centro (la obligatoriedad se indica mediante la aplicación, aquí no es posible)
+	//Relacion muchos a muchos con centro
 	@ManyToMany
 	private List<Centro> centroTitulacion;
 	
