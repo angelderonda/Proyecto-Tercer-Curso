@@ -13,3 +13,10 @@ Sea una relación entre la clase 'A' y la clase 'B':
 * La obligatoriedad se indica mediante la aplicación en las relaciones ManyToMany, no se puede modelar usando JPA.
 
 * Hemos probado usando la herramienta DataModeler a introducir nuestras sentencias DML y el resultado del modelo parece verse alterado. Para ver completamente mejor el diagrama se puede usar la herramienta JPA Content (click derecho 'open diagram') dentro de nuestro proyecto JPA.
+
+
+* El nombre de las relaciones en el digrama E/R siguen el esquema "de que entidad sale la relaciónHacia que entidad se dirige la relación" (ejemplo aclaratorio: si tenemos dos entidades clase y alumno relacionadas y la relacion va de Clase a Alumno se especificaría como **claseAlumno**) sin embargo, en el esquema generado por Eclipse automaticamente aparecen al contrario. Además cabe destacar que eclipse genera algunas tablas necesarias para la generacion de algunas relaciones por lo que, hay más tabla en este que en el que realizamos en la asignatura de administración de base de datos.
+
+## Aclaración sobre scripts generados
+
+* El archivo con nombre *generacion-DM.ddl* es el que genera el DataModeler y el que tiene el nombre *proyecto.sql* es el que genera Eclipse.
