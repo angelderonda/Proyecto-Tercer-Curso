@@ -22,14 +22,30 @@ public class Alumno implements Serializable{
 	private String dni;
 	@Column(name="NOMBRE_COMPLETO")
 	private String nombreCompleto;
+	@Column(name="APELLIDO_1")
+	private String apellido1;
+	@Column(name="APELLIDO_2")
+	private String apellido2;
 	@Column(name="EMAIL_INSTITUCIONAL")
 	private String emailInstitucional;
 	@Column(name="EMAIL_PERSONAL")
 	private String emailPersonal;
-	@Column(name="NUMERO_TELEFONO")
-	private Long numeroTelefono;
+	@Column(name="NUMERO_ARCHIVO")
+	private String numeroArchivo;
 	@Column(name="NUMERO_MOVIL")
-	private Long numeroMovil;
+	private Integer numeroMovil;
+	@Column(name="NUMERO_TELEFONO")
+	private Integer numeroTelefono;
+	@Column(name="DIRECCION")
+	private String direccion;
+	@Column(name="LOCALIDAD")
+	private String localidad;
+	@Column(name="PROVINCIA")
+	private String provincia;
+	@Column(name="CP")
+	private Integer cp;
+	
+
 	
 	
 	@OneToMany(mappedBy = "alumnoExpediente")
@@ -37,7 +53,8 @@ public class Alumno implements Serializable{
 	
 	//Getter y setters
 	
-	public Integer getId() {
+
+    public Integer getId() {
 		return id;
 	}
 
@@ -61,6 +78,22 @@ public class Alumno implements Serializable{
 		this.nombreCompleto = nombreCompleto;
 	}
 
+	public String getApellido1() {
+		return apellido1;
+	}
+
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
+	}
+
+	public String getApellido2() {
+		return apellido2;
+	}
+
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+
 	public String getEmailInstitucional() {
 		return emailInstitucional;
 	}
@@ -77,29 +110,80 @@ public class Alumno implements Serializable{
 		this.emailPersonal = emailPersonal;
 	}
 
-	public Long getNumeroTelefono() {
-		return numeroTelefono;
+	public String getNumeroArchivo() {
+		return numeroArchivo;
 	}
 
-	public void setNumeroTelefono(Long numeroTelefono) {
-		this.numeroTelefono = numeroTelefono;
+	public void setNumeroArchivo(String numeroArchivo) {
+		this.numeroArchivo = numeroArchivo;
 	}
 
-	public Long getNumeroMovil() {
+	public Integer getNumeroMovil() {
 		return numeroMovil;
 	}
 
-	public void setNumeroMovil(Long numeroMovil) {
+	public void setNumeroMovil(Integer numeroMovil) {
 		this.numeroMovil = numeroMovil;
+	}
+
+	public Integer getNumeroTelefono() {
+		return numeroTelefono;
+	}
+
+	public void setNumeroTelefono(Integer numeroTelefono) {
+		this.numeroTelefono = numeroTelefono;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public Integer getCp() {
+		return cp;
+	}
+
+	public void setCp(Integer cp) {
+		this.cp = cp;
+	}
+
+	public List<Expediente> getExpedienteAlumno() {
+		return expedienteAlumno;
+	}
+
+	public void setExpedienteAlumno(List<Expediente> expedienteAlumno) {
+		this.expedienteAlumno = expedienteAlumno;
 	}
 	
 	//toString
 
+
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", emailInstitucional="
-				+ emailInstitucional + ", emailPersonal=" + emailPersonal + ", numeroTelefono=" + numeroTelefono
-				+ ", numeroMovil=" + numeroMovil + ", expedienteAlumno=" + expedienteAlumno + "]";
+		return "Alumno [id=" + id + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", apellido1=" + apellido1
+				+ ", apellido2=" + apellido2 + ", emailInstitucional=" + emailInstitucional + ", emailPersonal="
+				+ emailPersonal + ", numeroArchivo=" + numeroArchivo + ", numeroMovil=" + numeroMovil
+				+ ", numeroTelefono=" + numeroTelefono + ", direccion=" + direccion + ", localidad=" + localidad
+				+ ", provincia=" + provincia + ", cp=" + cp + ", expedienteAlumno=" + expedienteAlumno + "]";
 	}
 	
 	//HashCode and Equals
@@ -112,7 +196,8 @@ public class Alumno implements Serializable{
         return result;
     }
 
-    @Override
+
+	@Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -128,10 +213,6 @@ public class Alumno implements Serializable{
             return false;
         return true;
     }
-	
-	
-	
-	
 	
 	
 	

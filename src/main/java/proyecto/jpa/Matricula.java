@@ -21,7 +21,7 @@ public class Matricula implements Serializable{
 		@SuppressWarnings("unused")
 		private Integer cursoAcademico;
 		@SuppressWarnings("unused")
-		private Long expedienteMatricula;
+		private Integer expedienteMatricula;
 	}
 	
 	private static final long serialVersionUID = 1L;
@@ -32,18 +32,16 @@ public class Matricula implements Serializable{
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
 	private String fechaMatricula;
+	@Column(name = "NUEVO_INGRESO", columnDefinition = "char(1) default '0'" )
+	private char nuevoIngreso;
 	@Column(name = "NUMERO_ARCHIVO")
 	private Integer numeroArchivo;
 	@Column(name = "TURNO_PREFERENTE")
 	private String turnoPreferente;
-	@Column(name = "NUEVO_INGRESO")
-	private Boolean nuevoIngreso;
+
 	
-	
-	
-	
-	
-	
+
+
 	//Relacion muchos a uno con expediente
 	@Id
 	@ManyToOne(optional = false)	
@@ -98,11 +96,11 @@ public class Matricula implements Serializable{
 		this.turnoPreferente = turnoPreferente;
 	}
 
-	public Boolean getNuevoIngreso() {
+	public char getNuevoIngreso() {
 		return nuevoIngreso;
 	}
 
-	public void setNuevoIngreso(Boolean nuevoIngreso) {
+	public void setNuevoIngreso(char nuevoIngreso) {
 		this.nuevoIngreso = nuevoIngreso;
 	}
 
@@ -127,35 +125,43 @@ public class Matricula implements Serializable{
 	@Override
 	public String toString() {
 		return "Matricula [cursoAcademico=" + cursoAcademico + ", estado=" + estado + ", fechaMatricula="
-				+ fechaMatricula + ", numeroArchivo=" + numeroArchivo + ", turnoPreferente=" + turnoPreferente
-				+ ", nuevoIngreso=" + nuevoIngreso + "]";
+				+ fechaMatricula + ", nuevoIngreso=" + nuevoIngreso + ", numeroArchivo=" + numeroArchivo
+				+ ", turnoPreferente=" + turnoPreferente + ", expedienteMatricula=" + expedienteMatricula
+				+ ", asignaturasMatriculaMatricula=" + asignaturasMatriculaMatricula + "]";
 	}
+	
 	
 	//HashCode & Equals	
 
 	@Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
-        return result;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
+		result = prime * result + ((expedienteMatricula == null) ? 0 : expedienteMatricula.hashCode());
+		return result;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Matricula other = (Matricula) obj;
-        if (cursoAcademico == null) {
-            if (other.cursoAcademico != null)
-                return false;
-        } else if (!cursoAcademico.equals(other.cursoAcademico))
-            return false;
-        return true;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Matricula other = (Matricula) obj;
+		if (cursoAcademico == null) {
+			if (other.cursoAcademico != null)
+				return false;
+		} else if (!cursoAcademico.equals(other.cursoAcademico))
+			return false;
+		if (expedienteMatricula == null) {
+			if (other.expedienteMatricula != null)
+				return false;
+		} else if (!expedienteMatricula.equals(other.expedienteMatricula))
+			return false;
+		return true;
+	}
 	
 }

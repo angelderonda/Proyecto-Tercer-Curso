@@ -19,24 +19,27 @@ public class Expediente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "NUMERO_EXPEDIENTE", nullable = false)
-	private Long numeroExpediente;
-	private Boolean activo;
-	@Column(name = "NOTA_MEDIA_PROVISIONAL")
-	private Long notaMediaProvisional;
-	@Column(name = "CREDITOS_SUPERADOS")
-	private Integer creditosSuperados;
+	private Integer numeroExpediente;
+	@Column(name = "ACTIVO", columnDefinition = "char(1) default '0'")
+	private char activo;
+	@Column(name = "CREDITOS_CF")
+	private Integer creditosCF;
 	@Column(name = "CREDITOS_FB")
 	private Integer creditosFB;
 	@Column(name = "CREDITOS_MO")
 	private Integer creditosMO;
 	@Column(name = "CREDITOS_OP")
 	private Integer creditosOP;
-	@Column(name = "CREDITOS_CF")
-	private Integer creditosCF;
 	@Column(name = "CREDITOS_PE")
 	private Integer creditosPE;
+	@Column(name = "CREDITOS_SUPERADOS")
+	private Integer creditosSuperados;
 	@Column(name = "CREDITOS_TF")
 	private Integer creditosTF;
+	@Column(name = "NOTA_MEDIA_PROVISIONAL")
+	private Integer notaMediaProvisional;
+
+
 
 	// Relacion muchos a uno con titulacion
 	@ManyToOne(optional = false)
@@ -56,36 +59,28 @@ public class Expediente implements Serializable{
 
 	//Getters y Setters
 	
-	public Long getNumeroExpediente() {
+	public Integer getNumeroExpediente() {
 		return numeroExpediente;
 	}
 
-	public void setNumeroExpediente(Long numeroExpediente) {
+	public void setNumeroExpediente(Integer numeroExpediente) {
 		this.numeroExpediente = numeroExpediente;
 	}
 
-	public Boolean getActivo() {
+	public char getActivo() {
 		return activo;
 	}
 
-	public void setActivo(Boolean activo) {
+	public void setActivo(char activo) {
 		this.activo = activo;
 	}
 
-	public Long getNotaMediaProvisional() {
-		return notaMediaProvisional;
+	public Integer getCreditosCF() {
+		return creditosCF;
 	}
 
-	public void setNotaMediaProvisional(Long notaMediaProvisional) {
-		this.notaMediaProvisional = notaMediaProvisional;
-	}
-
-	public Integer getCreditosSuperados() {
-		return creditosSuperados;
-	}
-
-	public void setCreditosSuperados(Integer creditosSuperados) {
-		this.creditosSuperados = creditosSuperados;
+	public void setCreditosCF(Integer creditosCF) {
+		this.creditosCF = creditosCF;
 	}
 
 	public Integer getCreditosFB() {
@@ -112,14 +107,6 @@ public class Expediente implements Serializable{
 		this.creditosOP = creditosOP;
 	}
 
-	public Integer getCreditosCF() {
-		return creditosCF;
-	}
-
-	public void setCreditosCF(Integer creditosCF) {
-		this.creditosCF = creditosCF;
-	}
-
 	public Integer getCreditosPE() {
 		return creditosPE;
 	}
@@ -128,12 +115,28 @@ public class Expediente implements Serializable{
 		this.creditosPE = creditosPE;
 	}
 
+	public Integer getCreditosSuperados() {
+		return creditosSuperados;
+	}
+
+	public void setCreditosSuperados(Integer creditosSuperados) {
+		this.creditosSuperados = creditosSuperados;
+	}
+
 	public Integer getCreditosTF() {
 		return creditosTF;
 	}
 
 	public void setCreditosTF(Integer creditosTF) {
 		this.creditosTF = creditosTF;
+	}
+
+	public Integer getNotaMediaProvisional() {
+		return notaMediaProvisional;
+	}
+
+	public void setNotaMediaProvisional(Integer notaMediaProvisional) {
+		this.notaMediaProvisional = notaMediaProvisional;
 	}
 
 	public Titulacion getTitulacionExpediente() {
@@ -167,21 +170,20 @@ public class Expediente implements Serializable{
 	public void setMatriculaExpediente(List<Matricula> matriculaExpediente) {
 		this.matriculaExpediente = matriculaExpediente;
 	}
-	
 
 	//toString
 	
 	@Override
 	public String toString() {
-		return "Expediente [numeroExpediente=" + numeroExpediente + ", activo=" + activo + ", notaMediaProvisional="
-				+ notaMediaProvisional + ", creditosSuperados=" + creditosSuperados + ", creditosFB=" + creditosFB
-				+ ", creditosMO=" + creditosMO + ", creditosOP=" + creditosOP + ", creditosCF=" + creditosCF
-				+ ", creditosPE=" + creditosPE + ", creditosTF=" + creditosTF + ", titulacionExp=" + titulacionExpediente
-				+ "]";
+		return "Expediente [numeroExpediente=" + numeroExpediente + ", activo=" + activo + ", creditosCF=" + creditosCF
+				+ ", creditosFB=" + creditosFB + ", creditosMO=" + creditosMO + ", creditosOP=" + creditosOP
+				+ ", creditosPE=" + creditosPE + ", creditosSuperados=" + creditosSuperados + ", creditosTF="
+				+ creditosTF + ", notaMediaProvisional=" + notaMediaProvisional + ", titulacionExpediente="
+				+ titulacionExpediente + ", alumnoExpediente=" + alumnoExpediente + ", encuestaExpediente="
+				+ encuestaExpediente + ", matriculaExpediente=" + matriculaExpediente + "]";
 	}
 	
 	//HashCode and Equals
-	
 	
 
 	@Override

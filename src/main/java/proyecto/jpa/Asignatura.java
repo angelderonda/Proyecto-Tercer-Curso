@@ -1,6 +1,7 @@
 package proyecto.jpa;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -12,31 +13,50 @@ import javax.persistence.*;
 */
 
 @Entity
+@IdClass(Asignatura.AsignaturaId.class)
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="DISCRIMINANTE_OPTATIVA", discriminatorType = DiscriminatorType.CHAR )
 @DiscriminatorValue("A")
 public class Asignatura implements Serializable{
 
+	
+	public static class AsignaturaId implements Serializable{
+
+		private static final long serialVersionUID = 1L;
+		@SuppressWarnings("unused")
+		private Integer referencia;
+		@SuppressWarnings("unused")
+		private Integer titulacionAsignatura;
+	}
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="REFERENCIA", nullable = false)
-	private Long referencia;
+	private Integer referencia;
 	@Column(name="CODIGO", nullable = false)
 	private Integer codigo;
-	@Column(name="CREDITOS", nullable = false)
-	private Integer creditos;
-	@Column(name="OFERTADA", nullable = false)
-	private Boolean ofertada;
-	@Column(name="NOMBRE", nullable = false)
-	private String nombre;
 	@Column(name="CURSO")
 	private Integer curso;
+	@Column(name="CREDITOS_TEORIA", nullable = false)
+	private Integer creditosTeoria;
+	@Column(name="CREDITOS_PRACTICAS", nullable = false)
+	private Integer creditosPracticas;
+	@Column(name="NOMBRE", nullable = false)
+	private String nombre;
+	@Column(name="DURACION", nullable = false)
+	private String duracion;
+	@Column(name="OFERTADA", nullable = false)
+	private String ofertada;
 	@Column(name="TIPO")
 	private String tipo; //Mat basica, optativa,tfg...
-	@Column(name="DURACION")
-	private String duracion;
+	@Column(name="PLAZAS")
+	private String plazas;
+	@Column(name="OTROS_IDIOMAS")
+	private String otros_idiomas;
+
 	
 	//Relacion muchos a uno con titulacion
+	@Id
 	@ManyToOne(optional = false)
 	private Titulacion titulacionAsignatura;
 	
@@ -54,143 +74,121 @@ public class Asignatura implements Serializable{
 
 	//Getters and Setters
 	
-	public Long getReferencia() {
+	public Integer getReferencia() {
 		return referencia;
 	}
 
-
-
-	public void setReferencia(Long referencia) {
+	public void setReferencia(Integer referencia) {
 		this.referencia = referencia;
 	}
-
-
 
 	public Integer getCodigo() {
 		return codigo;
 	}
 
-
-
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
-
-
-
-	public Integer getCreditos() {
-		return creditos;
-	}
-
-
-
-	public void setCreditos(Integer creditos) {
-		this.creditos = creditos;
-	}
-
-
-
-	public Boolean getOfertada() {
-		return ofertada;
-	}
-
-
-
-	public void setOfertada(Boolean ofertada) {
-		this.ofertada = ofertada;
-	}
-
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
 
 	public Integer getCurso() {
 		return curso;
 	}
 
-
-
 	public void setCurso(Integer curso) {
 		this.curso = curso;
 	}
 
-
-
-	public String getTipo() {
-		return tipo;
+	public Integer getCreditosTeoria() {
+		return creditosTeoria;
 	}
 
-
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setCreditosTeoria(Integer creditosTeoria) {
+		this.creditosTeoria = creditosTeoria;
 	}
 
+	public Integer getCreditosPracticas() {
+		return creditosPracticas;
+	}
 
+	public void setCreditosPracticas(Integer creditosPracticas) {
+		this.creditosPracticas = creditosPracticas;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
 	public String getDuracion() {
 		return duracion;
 	}
 
-
-
 	public void setDuracion(String duracion) {
 		this.duracion = duracion;
 	}
 
+	public String getOfertada() {
+		return ofertada;
+	}
 
+	public void setOfertada(String ofertada) {
+		this.ofertada = ofertada;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getPlazas() {
+		return plazas;
+	}
+
+	public void setPlazas(String plazas) {
+		this.plazas = plazas;
+	}
+
+	public String getOtros_idiomas() {
+		return otros_idiomas;
+	}
+
+	public void setOtros_idiomas(String otros_idiomas) {
+		this.otros_idiomas = otros_idiomas;
+	}
 
 	public Titulacion getTitulacionAsignatura() {
 		return titulacionAsignatura;
 	}
 
-
-
 	public void setTitulacionAsignatura(Titulacion titulacionAsignatura) {
 		this.titulacionAsignatura = titulacionAsignatura;
 	}
-
-
 
 	public List<Clase> getClaseAsignatura() {
 		return claseAsignatura;
 	}
 
-
-
 	public void setClaseAsignatura(List<Clase> claseAsignatura) {
 		this.claseAsignatura = claseAsignatura;
 	}
-
-
 
 	public List<GruposAsignatura> getGruposAsignaturaAsignatura() {
 		return gruposAsignaturaAsignatura;
 	}
 
-
-
 	public void setGruposAsignaturaAsignatura(List<GruposAsignatura> gruposAsignaturaAsignatura) {
 		this.gruposAsignaturaAsignatura = gruposAsignaturaAsignatura;
 	}
 
-
-
 	public List<AsignaturasMatricula> getAsignaturasMatriculaAsignatura() {
 		return asignaturasMatriculaAsignatura;
 	}
-
-
 
 	public void setAsignaturasMatriculaAsignatura(List<AsignaturasMatricula> asignaturasMatriculaAsignatura) {
 		this.asignaturasMatriculaAsignatura = asignaturasMatriculaAsignatura;
@@ -198,43 +196,52 @@ public class Asignatura implements Serializable{
 
 	
 	//toString
-		
+	
 	@Override
 	public String toString() {
-		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", creditos=" + creditos + ", ofertada="
-				+ ofertada + ", nombre=" + nombre + ", curso=" + curso + ", tipo=" + tipo + ", duracion=" + duracion
-				+ ", titulacionAsignatura=" + titulacionAsignatura + ", claseAsignatura=" + claseAsignatura
-				+ ", gruposAsignaturaAsignatura=" + gruposAsignaturaAsignatura + ", asignaturasMatriculaAsignatura="
-				+ asignaturasMatriculaAsignatura + "]";
-	}	
-	
+		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", curso=" + curso + ", creditosTeoria="
+				+ creditosTeoria + ", creditosPracticas=" + creditosPracticas + ", nombre=" + nombre + ", duracion="
+				+ duracion + ", ofertada=" + ofertada + ", tipo=" + tipo + ", plazas=" + plazas + ", otros_idiomas="
+				+ otros_idiomas + ", titulacionAsignatura=" + titulacionAsignatura + ", claseAsignatura="
+				+ claseAsignatura + ", gruposAsignaturaAsignatura=" + gruposAsignaturaAsignatura
+				+ ", asignaturasMatriculaAsignatura=" + asignaturasMatriculaAsignatura + "]";
+	}
 
 	//HashCode and Equals
 	
 	@Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((referencia == null) ? 0 : referencia.hashCode());
-        return result;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((referencia == null) ? 0 : referencia.hashCode());
+		result = prime * result + ((titulacionAsignatura == null) ? 0 : titulacionAsignatura.hashCode());
+		return result;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Asignatura other = (Asignatura) obj;
-        if (referencia == null) {
-            if (other.referencia != null)
-                return false;
-        } else if (!referencia.equals(other.referencia))
-            return false;
-        return true;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Asignatura other = (Asignatura) obj;
+		if (referencia == null) {
+			if (other.referencia != null)
+				return false;
+		} else if (!referencia.equals(other.referencia))
+			return false;
+		if (titulacionAsignatura == null) {
+			if (other.titulacionAsignatura != null)
+				return false;
+		} else if (!titulacionAsignatura.equals(other.titulacionAsignatura))
+			return false;
+		return true;
+	}
+
+
+	
 	
 	
 }

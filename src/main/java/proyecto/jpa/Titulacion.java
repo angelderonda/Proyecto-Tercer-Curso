@@ -17,11 +17,12 @@ public class Titulacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CODIGO", nullable = false)
-	private Long codigo;
-	@Column(name = "NOMBRE", nullable = false)
-	private String nombre;
+	private Integer codigo;
 	@Column(name = "CREDITOS", nullable = false)
 	private Integer creditos;
+	@Column(name = "NOMBRE", nullable = false)
+	private String nombre;
+
 	
 	//Relacion uno a muchos con asignatura
 	@OneToMany(mappedBy="titulacionAsignatura")
@@ -41,11 +42,11 @@ public class Titulacion implements Serializable{
 	
 	//Getters y Setters
 	
-	public Long getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -99,11 +100,10 @@ public class Titulacion implements Serializable{
 	
 	
 	//toString
-	
 
 	@Override
 	public String toString() {
-		return "Titulacion [codigo=" + codigo + ", nombre=" + nombre + ", creditos=" + creditos
+		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre
 				+ ", asignaturaTitulacion=" + asignaturaTitulacion + ", expedienteTitulacion=" + expedienteTitulacion
 				+ ", centroTitulacion=" + centroTitulacion + ", grupoTitulacion=" + grupoTitulacion + "]";
 	}

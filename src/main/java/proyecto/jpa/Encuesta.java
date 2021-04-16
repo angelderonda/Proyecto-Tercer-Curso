@@ -22,7 +22,7 @@ public class Encuesta implements Serializable{
 		@SuppressWarnings("unused")
 		private Date fechaEnvio;
 		@SuppressWarnings("unused")
-		private Long expedienteEncuesta;
+		private Integer expedienteEncuesta;
 	}
 	
 	private static final long serialVersionUID = 1L;
@@ -58,37 +58,43 @@ public class Encuesta implements Serializable{
 	public String toString() {
 		return "Encuesta [fechaEnvio=" + fechaEnvio + ", grupoAsignaturaEncuesta=" + gruposAsignaturaEncuesta
 				+ ", expedienteEncuesta=" + expedienteEncuesta + "]";
-	}
-
-	
+	}	
 	
 	//HashCode and Equals
 	
+	
 	@Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((fechaEnvio == null) ? 0 : fechaEnvio.hashCode());
-        return result;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((expedienteEncuesta == null) ? 0 : expedienteEncuesta.hashCode());
+		result = prime * result + ((fechaEnvio == null) ? 0 : fechaEnvio.hashCode());
+		return result;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Encuesta other = (Encuesta) obj;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Encuesta other = (Encuesta) obj;
+		if (expedienteEncuesta == null) {
+			if (other.expedienteEncuesta != null)
+				return false;
+		} else if (!expedienteEncuesta.equals(other.expedienteEncuesta))
+			return false;
+		if (fechaEnvio == null) {
+			if (other.fechaEnvio != null)
+				return false;
+		} else if (!fechaEnvio.equals(other.fechaEnvio))
+			return false;
+		return true;
+	}
 
-        if (fechaEnvio == null) {
-            if (other.fechaEnvio != null)
-                return false;
-        } else if (!fechaEnvio.equals(other.fechaEnvio))
-            return false;
-        return true;
-    }
+
 	
 	
 

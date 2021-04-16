@@ -31,7 +31,7 @@ public class GruposAsignatura implements Serializable{
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
 	private Integer cursoAcademico;
-	@Column(name = "OFERTA")	
+	@Column(name = "OFERTA", columnDefinition = "char(1)")	
 	private char oferta;
 
 	

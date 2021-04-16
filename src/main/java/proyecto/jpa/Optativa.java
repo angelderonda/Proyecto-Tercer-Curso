@@ -16,16 +16,16 @@ public class Optativa extends Asignatura implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Column(name = "PLAZAS", nullable = false)
-	private Integer plazas;
+	private String plazas;
 	@Column(name = "MENCION")
 	private String mencion;	
 	
 	
 	//Getters and Setters
-	public Integer getPlazas() {
+	public String getPlazas() {
 		return plazas;
 	}
-	public void setPlazas(Integer plazas) {
+	public void setPlazas(String plazas) {
 		this.plazas = plazas;
 	}
 	public String getMencion() {
@@ -34,7 +34,6 @@ public class Optativa extends Asignatura implements Serializable{
 	public void setMencion(String mencion) {
 		this.mencion = mencion;
 	}
-	
 	
 	//toString
 	
