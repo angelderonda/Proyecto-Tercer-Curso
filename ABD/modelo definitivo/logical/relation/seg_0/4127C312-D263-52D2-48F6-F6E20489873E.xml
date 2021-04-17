@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="asignaturasmatricula_grupo_fk" directorySegmentName="seg_0" id="4127C312-D263-52D2-48F6-F6E20489873E">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>BC498C94-3F39-29B1-C641-687F96076D03</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<sourcePk>00AF8637-F621-6902-F3B4-6727A07E20BB</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5A36F1B5-162B-5E3A-5312-BF7074B6DA2C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>03923C5B-E55F-51D6-B179-D5D2E0AB6565</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

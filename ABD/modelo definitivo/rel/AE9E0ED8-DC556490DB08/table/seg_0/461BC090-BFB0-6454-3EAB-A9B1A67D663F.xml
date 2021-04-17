@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="461BC090-BFB0-6454-3EAB-A9B1A67D663F" name="optativa">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>1AF21609-570D-2DD6-DE4C-0436E61C4EE2</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="asignatura_referencia" id="6AE32E34-9B42-BDBE-6D15-43CEF958C49C">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>E1E09D3F-BAAD-42AD-7B75-9F7038568040</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BE3C32B6-85FE-AACB-5163-03909D428F74" referredColumn="36215EB0-2444-0275-697D-17C454E4A4DB"/>
+</associations>
+</Column>
+<Column name="plazas" id="28511A51-8D58-7E9D-F5E6-F831BBBCF696">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7F5FF7A3-E23C-B9F7-CBF9-3C3F4AADE55E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4BBEDC87-8285-6F1B-066F-EEF4ED2E97D5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mencion" id="3771F489-751B-55A4-B354-DADCD3CAA3CE">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7322BD84-2802-3A2D-AF43-F83B06ADF0B9</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4BBEDC87-8285-6F1B-066F-EEF4ED2E97D5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="asignatura_titulacion_codigo" id="1FE49885-E136-BC15-A687-696975480509">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>BC85847B-686F-66C6-193E-276D01BCE8BE</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BE3C32B6-85FE-AACB-5163-03909D428F74" referredColumn="36A489B3-79CC-BE88-9B1E-D1E60E075A4E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BA5E3858-0865-55A1-B3E6-BCD06CB9B879" name="optativa_PK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>9E29EE51-5AD5-756D-13A4-B7FFB8878B0B</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6AE32E34-9B42-BDBE-6D15-43CEF958C49C"/>
+<colUsage columnID="1FE49885-E136-BC15-A687-696975480509"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AFB0A998-92D7-1457-55DF-D10C1AAA122D" name="optativa_asignatura_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>C903FB11-B852-7613-C61C-70630ED40B15</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6AE32E34-9B42-BDBE-6D15-43CEF958C49C"/>
+<colUsage columnID="1FE49885-E136-BC15-A687-696975480509"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

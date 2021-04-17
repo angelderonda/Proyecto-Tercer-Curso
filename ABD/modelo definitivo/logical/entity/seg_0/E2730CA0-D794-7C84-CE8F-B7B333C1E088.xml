@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E2730CA0-D794-7C84-CE8F-B7B333C1E088" name="clase">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>5C6F5A71-6AC7-A2F1-02F0-CDDAC2E3640B</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="hora fin" id="C9737CDB-524F-0604-67F1-492AA8B5C97C">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>1D27450E-0861-603D-CA0E-D57D046FBB45</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>86FC5CDC-85CE-9D29-2E47-777A82EF6759</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dia" id="E94D3079-331D-89A7-02B1-59B9E9A81DC0">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>B40BE5E1-7867-FAD2-AA42-AF0126648869</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>86FC5CDC-85CE-9D29-2E47-777A82EF6759</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hora inicio" id="2E4794F1-5DBD-CCEE-E865-40121B4A832B">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>42B1AEA2-FE87-D451-35DC-F711CAF61416</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>86FC5CDC-85CE-9D29-2E47-777A82EF6759</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="asignatura referencia" id="7FED2C86-528F-D349-A08E-4EEA20D9A4B3">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>3BCEA131-286B-036C-EC89-85EE4371F383</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>59A7C81A-3568-E750-BE68-22509C09C07B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="grupo id" id="870D69B7-B365-4D6E-6F75-BE76259A5F0F">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>CAB02584-485C-67B1-4479-E67E7C286332</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>66E34E76-693D-5E66-8991-B3FEC74DAD32</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulacion codigo" id="09E3279A-1586-A426-7A94-BA66DF6A4887">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:57 UTC</createdTime>
+<generatorID>3BCEA131-286B-036C-EC89-85EE4371F383</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>09573F24-FF11-C4B1-D3A3-EB7693161BDC</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="71C102BE-D119-6B59-5183-7F85DB2CFFA8" name="clase pk">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>E1651447-46DA-DE10-4831-3271094A97E3</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E94D3079-331D-89A7-02B1-59B9E9A81DC0</attributeRef>
+<attributeRef>2E4794F1-5DBD-CCEE-E865-40121B4A832B</attributeRef>
+<attributeRef>870D69B7-B365-4D6E-6F75-BE76259A5F0F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

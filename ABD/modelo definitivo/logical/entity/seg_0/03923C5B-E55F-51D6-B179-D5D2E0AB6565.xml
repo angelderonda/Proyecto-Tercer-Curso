@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="03923C5B-E55F-51D6-B179-D5D2E0AB6565" name="asignaturasmatricula">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>AB25DAD9-5164-E716-F64D-7C79101FB11A</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="asignatura referencia" id="BAEFBB34-37D3-0640-CA55-9A9DCB107DAC">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>D807909C-EFEB-450D-C311-5C9E1736790E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>59A7C81A-3568-E750-BE68-22509C09C07B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="grupo id" id="49C3FE0A-2FAF-9B41-9089-6D4F9A664043">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>4127C312-D263-52D2-48F6-F6E20489873E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>66E34E76-693D-5E66-8991-B3FEC74DAD32</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="matricula curso academico" id="B11FC321-0DCA-864E-630F-B48BB00FD5B2">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>88ED801A-CEDF-80FB-58CA-915C335FB5A4</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>187750ED-81F0-07B6-2915-E57E4CA33A6C</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="matricula expedientematricula numero expediente" id="9D4B81EF-D834-C414-C7A5-B754A9D0419D">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>88ED801A-CEDF-80FB-58CA-915C335FB5A4</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>5F1A94C1-19D4-AC8D-4077-276CF27BCD1B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulacion codigo" id="6BA0FB6B-6010-4431-A602-05FFEC7C1D99">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:57 UTC</createdTime>
+<generatorID>D807909C-EFEB-450D-C311-5C9E1736790E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>09573F24-FF11-C4B1-D3A3-EB7693161BDC</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8BFFE6D2-3610-C09B-7D8F-C7F3E12B3DA9" name="asignaturasmatricula pk">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>25D8BBBA-F890-B6C0-7F8A-E71057C6B125</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BAEFBB34-37D3-0640-CA55-9A9DCB107DAC</attributeRef>
+<attributeRef>6BA0FB6B-6010-4431-A602-05FFEC7C1D99</attributeRef>
+<attributeRef>B11FC321-0DCA-864E-630F-B48BB00FD5B2</attributeRef>
+<attributeRef>9D4B81EF-D834-C414-C7A5-B754A9D0419D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

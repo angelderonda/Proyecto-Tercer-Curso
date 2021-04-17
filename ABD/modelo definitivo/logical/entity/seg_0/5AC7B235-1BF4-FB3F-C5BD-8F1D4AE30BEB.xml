@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5AC7B235-1BF4-FB3F-C5BD-8F1D4AE30BEB" name="gruposasignatura encuesta">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>51D55F16-DC2F-BD4D-BA0B-735FE54AC8C5</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="encuesta fecha envio" id="D6155662-E1D0-E3DA-52C0-7B1D14923B5E">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>3277D0C5-D200-9B4F-2F04-6D6CE81FAC33</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>09115DE0-AC94-062F-964F-3E8F1D44A68B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>86FC5CDC-85CE-9D29-2E47-777A82EF6759</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="encuesta expedienteencuesta numero expediente" id="0597CADD-1412-D265-71C2-8FCCF7F09021">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>3277D0C5-D200-9B4F-2F04-6D6CE81FAC33</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>E39BDADC-499B-9B86-18C4-58CAB362546E</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gruposasignatura curso academico" id="321C2310-437B-0051-7888-AD14FC5052C0">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>9071EE69-C69F-A78C-1936-237C29EFD24D</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>5F45B898-3401-5F82-1B33-8A5DDC53ADB8</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gruposasignatura grupogruposasignatura id" id="944FFD02-0482-C09B-4FE2-7E8AA9015E44">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>9071EE69-C69F-A78C-1936-237C29EFD24D</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>3AC37E2F-F316-AA99-A63D-9396F0AEEBC4</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gruposasignatura asignaturagruposasignatura referencia" id="46DD5F9E-1591-DFF5-7E4D-885F3A7A49EB">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>9071EE69-C69F-A78C-1936-237C29EFD24D</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>E87AE11A-5132-2492-106D-299B8A83AF31</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulacion codigo" id="A0C9EF56-BAB9-6447-4C5B-7FEF4C2CC34A">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:57 UTC</createdTime>
+<generatorID>9071EE69-C69F-A78C-1936-237C29EFD24D</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<referedAttribute>2367EFA1-E074-06EF-06A8-AF70660D6D24</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4F11E828-ED71-15E5-38B5-CF683938CE19" name="gruposasignatura encuesta pk">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>612B6A3B-9BC2-E60B-53BB-F6E091D6DAED</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D6155662-E1D0-E3DA-52C0-7B1D14923B5E</attributeRef>
+<attributeRef>0597CADD-1412-D265-71C2-8FCCF7F09021</attributeRef>
+<attributeRef>321C2310-437B-0051-7888-AD14FC5052C0</attributeRef>
+<attributeRef>944FFD02-0482-C09B-4FE2-7E8AA9015E44</attributeRef>
+<attributeRef>46DD5F9E-1591-DFF5-7E4D-885F3A7A49EB</attributeRef>
+<attributeRef>A0C9EF56-BAB9-6447-4C5B-7FEF4C2CC34A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

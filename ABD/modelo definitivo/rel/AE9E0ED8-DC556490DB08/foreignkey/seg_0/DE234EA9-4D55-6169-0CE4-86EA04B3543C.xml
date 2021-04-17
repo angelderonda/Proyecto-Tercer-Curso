@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DE234EA9-4D55-6169-0CE4-86EA04B3543C" containerWithKeyObject="AD50A015-D9FA-84AD-E76D-4251237069F2" localFKIndex="30BB1908-4417-73B5-A470-1AC67B932985" name="gruposasignatura_encuesta_gruposasignatura_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>9071EE69-C69F-A78C-1936-237C29EFD24D</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<referredTableLongName>gruposasignatura</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>EC8F3E91-F2E6-EE51-B3C9-AC509A43C2F9</referredTableID>
+<keyObject>B70468B7-5760-ED9E-84D6-85FAA1A5C4EE</keyObject>
+<referredKeyID>B70468B7-5760-ED9E-84D6-85FAA1A5C4EE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>curso_academico,asignatura_referencia,asignatura_titulacion_codigo,grupo_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

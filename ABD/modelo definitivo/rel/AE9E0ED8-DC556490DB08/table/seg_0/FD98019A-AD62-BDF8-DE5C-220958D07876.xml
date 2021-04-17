@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FD98019A-AD62-BDF8-DE5C-220958D07876" name="asignaturasmatricula">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>03923C5B-E55F-51D6-B179-D5D2E0AB6565</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="asignatura_referencia" id="E7F13826-4355-964D-A2DE-92C4B2F1CF80">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>BAEFBB34-37D3-0640-CA55-9A9DCB107DAC</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5792FC88-4B65-C867-0F89-3517E8A771E9" referredColumn="36215EB0-2444-0275-697D-17C454E4A4DB"/>
+</associations>
+</Column>
+<Column name="grupo_id" id="8FD688A8-5780-7BB2-6556-6B00E1B26128">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>49C3FE0A-2FAF-9B41-9089-6D4F9A664043</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1FC59B2B-9A62-ED72-1ED2-876EAD92908E" referredColumn="2D382D75-6EF3-9910-050E-10658E6879A4"/>
+</associations>
+</Column>
+<Column name="matricula_curso_academico" id="4733E5D2-438D-E541-231A-577F3233DE2D">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>B11FC321-0DCA-864E-630F-B48BB00FD5B2</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E4E2DC95-A224-4F2D-92E0-240B224BFAD0" referredColumn="768A1E52-24A1-203B-2167-60579FD654C7"/>
+</associations>
+</Column>
+<Column name="matricula_expediente_numero_expediente" id="8E87F660-3A2B-A2B0-D83E-C9515FB2F9C6">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>9D4B81EF-D834-C414-C7A5-B754A9D0419D</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E4E2DC95-A224-4F2D-92E0-240B224BFAD0" referredColumn="8E5E0979-8B6E-4847-DA77-0433FDCFD63A"/>
+</associations>
+</Column>
+<Column name="asignatura_titulacion_codigo" id="FBA6A7F5-DAFF-5C6B-66DD-254093F1F978">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>6BA0FB6B-6010-4431-A602-05FFEC7C1D99</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5792FC88-4B65-C867-0F89-3517E8A771E9" referredColumn="36A489B3-79CC-BE88-9B1E-D1E60E075A4E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84325E6C-3B55-E1D1-BE6F-7F6D2015D429" name="asignaturasmatricula_PK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>8BFFE6D2-3610-C09B-7D8F-C7F3E12B3DA9</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7F13826-4355-964D-A2DE-92C4B2F1CF80"/>
+<colUsage columnID="FBA6A7F5-DAFF-5C6B-66DD-254093F1F978"/>
+<colUsage columnID="4733E5D2-438D-E541-231A-577F3233DE2D"/>
+<colUsage columnID="8E87F660-3A2B-A2B0-D83E-C9515FB2F9C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9255A2F7-24AE-E8BB-FE4D-FCE78DB6F2C0" name="asignaturasmatricula_asignatura_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>D807909C-EFEB-450D-C311-5C9E1736790E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7F13826-4355-964D-A2DE-92C4B2F1CF80"/>
+<colUsage columnID="FBA6A7F5-DAFF-5C6B-66DD-254093F1F978"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C3961AC-EB5C-93C7-D8B6-0093A8C39937" name="asignaturasmatricula_grupo_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>4127C312-D263-52D2-48F6-F6E20489873E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FD688A8-5780-7BB2-6556-6B00E1B26128"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A4FF8009-3613-78E4-4B99-7CFDF50F9CBA" name="asignaturasmatricula_matricula_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>88ED801A-CEDF-80FB-58CA-915C335FB5A4</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4733E5D2-438D-E541-231A-577F3233DE2D"/>
+<colUsage columnID="8E87F660-3A2B-A2B0-D83E-C9515FB2F9C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="expediente_alumno_fk" directorySegmentName="seg_0" id="BC4C991B-DBCB-FE49-FF75-BD480DF278AC">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>FEC60D7B-97D9-1D4E-F9BA-3593E8AA2B2A</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<sourcePk>AB6A27FA-E678-4A1E-CB1B-DFE7F00FA4A5</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A3C3E885-CD7C-5B12-3CB4-2620F864EF67</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B958144C-0404-A061-B16F-0CB1856A98C0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

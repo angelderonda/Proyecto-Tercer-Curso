@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="grupo_grupo_fk" directorySegmentName="seg_0" id="6C75EF54-400D-5A9D-43A4-9C0A3D573853">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>0EA6B283-F80D-DE97-7731-8F021917EE15</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<targetPk>00AF8637-F621-6902-F3B4-6727A07E20BB</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5A36F1B5-162B-5E3A-5312-BF7074B6DA2C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5A36F1B5-162B-5E3A-5312-BF7074B6DA2C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

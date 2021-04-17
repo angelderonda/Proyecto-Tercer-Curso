@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="242000B1-5291-7D29-BD28-4B5246E2EEB1" name="titulacion_centro">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>DFC35831-4334-43C2-24F2-405DB70BC7F9</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="centro_id" id="4682132A-5AE1-367E-E244-84BD27BCF65C">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>520B7212-FEF5-9974-BAA3-126A418A49C4</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4C14F1D1-059D-9534-4766-8AA4D14F60E9" referredColumn="AC12F8A8-CAE1-8684-2859-52553839AA38"/>
+</associations>
+</Column>
+<Column name="titulacion_codigo" id="3B6AEB65-873A-A4C7-B4A9-D21079F0C5A9">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>31B8746B-50DE-A9F4-406D-62C75C56DC94</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E83C5102-9244-E59F-BA04-4B5FE0F24470" referredColumn="7349F13F-B7E1-A376-AAA1-376AC197FD54"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84470CD6-16D5-072E-7371-6287C28B95FE" name="titulacion_centro_PK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>A6E64E7A-187C-1649-B609-5181CE2603E4</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4682132A-5AE1-367E-E244-84BD27BCF65C"/>
+<colUsage columnID="3B6AEB65-873A-A4C7-B4A9-D21079F0C5A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B4899128-B3ED-952C-446F-6C52BB667E55" name="titulacion_centro_centro_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>250634E3-399F-9578-BE88-7161CFDC12A3</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4682132A-5AE1-367E-E244-84BD27BCF65C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F0FB435-CDF5-6BDD-00EA-3618E1ACA145" name="titulacion_centro_titulacion_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7448644E-4D79-C7EE-5499-C984075FEBBF</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B6AEB65-873A-A4C7-B4A9-D21079F0C5A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

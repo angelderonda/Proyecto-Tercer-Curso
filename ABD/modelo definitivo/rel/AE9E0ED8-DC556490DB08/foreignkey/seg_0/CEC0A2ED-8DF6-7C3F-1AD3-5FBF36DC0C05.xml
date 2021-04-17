@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CEC0A2ED-8DF6-7C3F-1AD3-5FBF36DC0C05" containerWithKeyObject="AD50A015-D9FA-84AD-E76D-4251237069F2" localFKIndex="7DC47866-3AD4-269B-F9E7-D542746FA831" name="gruposasignatura_encuesta_encuesta_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>3277D0C5-D200-9B4F-2F04-6D6CE81FAC33</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<referredTableLongName>encuesta</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7F33A7C0-801A-90A5-7C70-C9711635D3D0</referredTableID>
+<keyObject>A1415A26-1798-D14C-C113-4E1A223966BC</keyObject>
+<referredKeyID>A1415A26-1798-D14C-C113-4E1A223966BC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>fecha_envio,expediente_numero_expediente</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

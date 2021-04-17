@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="clase_asignatura_fk" directorySegmentName="seg_0" id="3BCEA131-286B-036C-EC89-85EE4371F383">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>C838711A-A14B-C83C-546D-979275CF700E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<sourcePk>792BBAE2-AD31-4B06-D982-157CCD67731D</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>EEA67E1F-78D9-36A8-BF12-F64425FD5E94</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E2730CA0-D794-7C84-CE8F-B7B333C1E088</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,198 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="568B263F-36AF-890F-0227-B0C563D571F1" name="expediente">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>B958144C-0404-A061-B16F-0CB1856A98C0</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numero_expediente" id="2ADE640A-B3F4-DF8A-358A-B9BFE62A0C94">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7D649FB0-112A-CE9E-04F1-F8CA40AD81E2</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="activo" id="81CAC17A-F253-55B0-760E-ACF6552996B6">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7B517C03-F0F7-AF73-DE67-90624B5CAD42</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C01A78D4-3181-7C43-D7BB-7ED04DF8348F</domain>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_cf" id="0EA2FB39-3BAC-20B8-6B1D-149DED4A4821">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>22EF88E3-43D7-1E6E-8560-C6F272B45838</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_fb" id="63C42BFD-0861-4285-42F0-0AEA43A59055">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7BBC81D4-9BA1-E3F0-B016-E02C45E6F573</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_mo" id="CEA5D366-1167-B127-1C8E-31065F64FDAB">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>8093C225-039A-B3EF-CD6D-5F51DAA93950</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_op" id="A703A95E-1BE2-E44E-A3F1-829BFFAA9481">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>D137EC66-4D20-8D5C-A348-99F5ED59C9AC</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_pe" id="368319DF-9831-32FD-98AB-DBDD001976BE">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>0CFE336B-B146-7DF2-7784-72361D729EC6</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_superados" id="AE328FCB-2640-7FBF-BABA-5589B93CE033">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>2954A286-7E30-D39E-6A9B-DDF2373F2618</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos_tf" id="C4AF7762-E17E-B207-3C1E-7B23A9B20EA4">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>DF688D29-E073-4D42-E05D-ABCC20335BBD</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nota_media_provisional" id="E1A11A7E-03F4-E7E0-97D9-AB008F766681">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>41B7CAF9-2000-6F04-48C4-D4B567FF8C00</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="alumno_id" id="32B33418-366E-60FA-2F14-F84A80C89D98">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>1654C2E1-4674-C472-A81E-C8E67923B2BC</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5317C0E1-6F02-B440-5AE6-53D9C8101C5D" referredColumn="38FE8AC8-1B2F-6AD0-4786-CBFE5A2CE7E9"/>
+</associations>
+</Column>
+<Column name="titulacion_codigo" id="EC2589C9-12E3-701E-957F-8728F9FE5844">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>D6713D83-9F76-94B9-7DA0-93FCAD1BCB43</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DBC27EB8-7B98-DE68-C444-047D0087C3D0" referredColumn="7349F13F-B7E1-A376-AAA1-376AC197FD54"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FFBF7CF1-5454-C500-D758-FC1DEA1F024F" name="expediente_PK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>99353343-FB60-055D-456B-0992D9B47F54</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2ADE640A-B3F4-DF8A-358A-B9BFE62A0C94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="06CAC3D3-B532-F2FD-75A8-35CF03C6D6D2" name="expediente_alumno_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>BC4C991B-DBCB-FE49-FF75-BD480DF278AC</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="32B33418-366E-60FA-2F14-F84A80C89D98"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0C497EB1-D30C-B267-0EF1-39116FE98250" name="expediente_titulacion_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>27C376CA-5BA0-69A6-161D-12C9B8FE766B</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC2589C9-12E3-701E-957F-8728F9FE5844"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

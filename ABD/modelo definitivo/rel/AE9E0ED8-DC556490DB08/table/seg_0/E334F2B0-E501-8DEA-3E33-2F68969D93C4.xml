@@ -1,0 +1,193 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E334F2B0-E501-8DEA-3E33-2F68969D93C4" name="grupo">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>5A36F1B5-162B-5E3A-5312-BF7074B6DA2C</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2D382D75-6EF3-9910-050E-10658E6879A4">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>66E34E76-693D-5E66-8991-B3FEC74DAD32</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="asignar" id="219201A1-2782-0D7E-2AEA-48E13B10E968">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>20C46864-1127-3ACC-1FC8-203A3F4BC3CC</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4BBEDC87-8285-6F1B-066F-EEF4ED2E97D5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="curso" id="6ADB3C03-7ED2-F151-AE42-44EA333729DA">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>7A0874D1-C9B2-F90C-820B-921C720FFAA9</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ingles" id="CEE6026C-42B6-E759-4D4C-154BD2433438">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>ED8FB9A9-1DA8-5D18-F1EE-48B9DA556657</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C01A78D4-3181-7C43-D7BB-7ED04DF8348F</domain>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="letra" id="5FCBBF6C-1101-5A57-9C3E-28FFFF0E2A45">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>9C2DB705-54DD-576E-0E69-1D6B8147A2A9</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C01A78D4-3181-7C43-D7BB-7ED04DF8348F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plazas" id="A6264F3B-2A53-D420-A443-E938EBA6DBE1">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>17C8287B-8101-DFED-10A3-AE3EDB9A50B1</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4BBEDC87-8285-6F1B-066F-EEF4ED2E97D5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="turno_tarde_manana" id="39778B03-8112-839E-A975-32CC419192E0">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>70749121-D6A5-DB5E-A0F5-38476B4867DC</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4BBEDC87-8285-6F1B-066F-EEF4ED2E97D5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="visible" id="43C59F28-D327-72FA-6D32-2FDEA2442581">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>AEF9D62E-754D-72D8-96CB-0F4E195D08D7</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C01A78D4-3181-7C43-D7BB-7ED04DF8348F</domain>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="grupo_id" id="2D039FD4-C1CD-1C28-D055-9D57F7242788">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>3E435EBB-63BF-5B35-FBED-B2C20E3B045A</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="526BA505-7FE8-49D7-8CC6-954DE70E1D85" referredColumn="2D382D75-6EF3-9910-050E-10658E6879A4"/>
+</associations>
+</Column>
+<Column name="titulacion_codigo" id="B4CB89A1-A59E-EA64-ADC9-C4F31DD1B8CC">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>C5927F53-12F2-B1C4-9437-FFFF0DFDC636</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1689077D-BD25-9B1D-2CAA-193DCD00D880" referredColumn="7349F13F-B7E1-A376-AAA1-376AC197FD54"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="119FA43D-140D-48A0-E813-72B58B82498D" name="grupo_PK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>00AF8637-F621-6902-F3B4-6727A07E20BB</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D382D75-6EF3-9910-050E-10658E6879A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="720568F4-383D-99DC-54D0-6457CD44F9EA" name="grupo_curso_UN">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>C9A58E1C-FEAA-E850-627A-14C2517ED6E6</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6ADB3C03-7ED2-F151-AE42-44EA333729DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="98888F72-E25A-48D7-0747-17ADA62B9AC1" name="grupo_letra_UN">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>36E02159-D9F8-FE2D-819E-729E6A0B983E</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5FCBBF6C-1101-5A57-9C3E-28FFFF0E2A45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="520C57FB-E2E1-55E0-633E-21D5C415551E" name="grupo_grupo_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>6C75EF54-400D-5A9D-43A4-9C0A3D573853</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D039FD4-C1CD-1C28-D055-9D57F7242788"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F2A90B66-22A3-BD44-829A-7F1997B552A9" name="grupo_titulacion_FK">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 16:09:41 UTC</createdTime>
+<generatorID>75BE8AA2-20E5-CD1A-2936-C41330CEC378</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B4CB89A1-A59E-EA64-ADC9-C4F31DD1B8CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

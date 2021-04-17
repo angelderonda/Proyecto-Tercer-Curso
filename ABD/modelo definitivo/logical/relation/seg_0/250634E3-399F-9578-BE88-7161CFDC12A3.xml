@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="titulacion_centro_centro_fk" directorySegmentName="seg_0" id="250634E3-399F-9578-BE88-7161CFDC12A3">
+<createdBy>Angelito</createdBy>
+<createdTime>2021-04-15 14:53:17 UTC</createdTime>
+<generatorID>53C4D768-06C6-67E3-74D2-4EA541A016E9</generatorID>
+<ownerDesignName>modelo definitivo</ownerDesignName>
+<engineerTo>
+<item key="AE9E0ED8-73D2-A924-03A6-DC556490DB08" value="true"/>
+</engineerTo>
+<sourcePk>C4BDE5A9-FC2F-0ED6-4E04-17EF1411F344</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D081D2C3-0067-B89A-1053-1681E38014E6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>DFC35831-4334-43C2-24F2-405DB70BC7F9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
