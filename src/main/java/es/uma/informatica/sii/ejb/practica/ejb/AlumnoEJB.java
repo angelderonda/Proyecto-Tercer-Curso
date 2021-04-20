@@ -41,7 +41,6 @@ public class AlumnoEJB implements GestionAlumno {
 
 	@Override
 	public Alumno readAlumno(Integer  idAlumno) throws ObjetoNoExistenteException {
-		
 		Alumno aux = em.find(Alumno.class, idAlumno);
 		if(aux == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
@@ -52,15 +51,11 @@ public class AlumnoEJB implements GestionAlumno {
 
 	@Override
 	public void updateAlumno(Alumno alumno) throws ObjetoNoExistenteException {
-		
 		Alumno aux = em.find(Alumno.class, alumno.getId());
 		if(aux == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
-		}		
-		//aux = alumno;
+		}
 		em.merge(alumno);
-		
-		
 	}
 
 	@Override
@@ -78,7 +73,6 @@ public class AlumnoEJB implements GestionAlumno {
 	public void asignarGrupo(Alumno alumno, Grupo grupo) throws ProyectoException {
 		// TODO Auto-generated method stub
 		
-
 	}
 
 	@Override

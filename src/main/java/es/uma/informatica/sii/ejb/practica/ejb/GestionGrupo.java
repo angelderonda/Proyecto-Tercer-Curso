@@ -2,6 +2,8 @@ package es.uma.informatica.sii.ejb.practica.ejb;
 
 
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
@@ -9,6 +11,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteExcep
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
+import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 
 @Local
 public interface GestionGrupo {
@@ -20,10 +23,10 @@ public interface GestionGrupo {
 	
 	
 	//RF 9
-	public void gestionarCambioGrupo(Integer idAlumno, Integer idGrupo) throws ProyectoException;
+	public void gestionarCambioGrupo(Integer idAlumno, List<GruposAsignatura> lista, boolean cambioAceptado) throws ProyectoException;
 	
 	//RF 10
-	public void incluirAlumno(Alumno alumno, Grupo grupo) throws ProyectoException;
+	//public void incluirAlumno(Alumno alumno, Grupo grupo) throws ProyectoException;
 	
 	
 }

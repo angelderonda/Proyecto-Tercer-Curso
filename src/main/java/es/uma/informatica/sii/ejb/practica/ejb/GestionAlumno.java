@@ -31,7 +31,7 @@ public interface GestionAlumno {
 	public List<Alumno> listarAlumnos(TipoFiltro filtro, int parametro) throws ProyectoException;
 	
 	//RF 12 - REVISA
-	public void solicitarCambioDeGrupo(Integer idAlumno, Integer idGrupo) throws ProyectoException;
+	public void solicitarCambioDeGrupo(Integer idAlumno, List<GruposAsignatura> lista) throws ProyectoException;
 	
 	//RF 14
 	/**
