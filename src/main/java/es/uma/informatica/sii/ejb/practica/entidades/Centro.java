@@ -1,4 +1,4 @@
-package proyecto.jpa;
+package es.uma.informatica.sii.ejb.practica.entidades;
 
 
 import java.io.Serializable;

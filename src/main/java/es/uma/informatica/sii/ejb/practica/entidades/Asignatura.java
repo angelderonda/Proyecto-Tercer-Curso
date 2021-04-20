@@ -1,4 +1,4 @@
-package proyecto.jpa;
+package es.uma.informatica.sii.ejb.practica.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -23,10 +23,50 @@ public class Asignatura implements Serializable{
 	public static class AsignaturaId implements Serializable{
 
 		private static final long serialVersionUID = 1L;
-		@SuppressWarnings("unused")
 		private Integer referencia;
-		@SuppressWarnings("unused")
 		private Integer titulacionAsignatura;
+		
+		public AsignaturaId() {
+			super();
+		}
+				
+		public AsignaturaId(Integer referencia, Integer titulacionAsignatura) {
+			this.referencia = referencia;
+			this.titulacionAsignatura = titulacionAsignatura;
+		}
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((referencia == null) ? 0 : referencia.hashCode());
+			result = prime * result + ((titulacionAsignatura == null) ? 0 : titulacionAsignatura.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			AsignaturaId other = (AsignaturaId) obj;
+			if (referencia == null) {
+				if (other.referencia != null)
+					return false;
+			} else if (!referencia.equals(other.referencia))
+				return false;
+			if (titulacionAsignatura == null) {
+				if (other.titulacionAsignatura != null)
+					return false;
+			} else if (!titulacionAsignatura.equals(other.titulacionAsignatura))
+				return false;
+			return true;
+		}
+		
+		
+		
 	}
 	
 	private static final long serialVersionUID = 1L;

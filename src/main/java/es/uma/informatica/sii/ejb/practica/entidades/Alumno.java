@@ -1,8 +1,7 @@
-package proyecto.jpa;
+package es.uma.informatica.sii.ejb.practica.entidades;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.*;
 
 /**
@@ -12,7 +11,20 @@ import javax.persistence.*;
 */
 
 @Entity
-public class Alumno implements Serializable{
+@NamedQueries({
+    @NamedQuery(name="TODOS", query="SELECT a FROM Alumno a"),
+    @NamedQuery(name="NUEVOS_O_VETERANOS", query="SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
+    		+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND m.nuevoIngreso = 0 "),
+    @NamedQuery(name="FECHA_DE_MATRICULACIÓN", query="SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
+    		+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente ORDER BY m.fechaMatricula ASC"),//COMPROBAR QUE ASC ESTA OK
+   // SELECT d FROM Employee e, Department d WHERE e.department = d
+    @NamedQuery(name="NOTA_MEDIA", query= "SELECT a FROM Alumno a, Expediente e WHERE e.alumnoExpediente.id = a.id AND e.notaMediaProvisional > :nota"),
+    @NamedQuery(name="CREDITOS_SUPERADOS", query="SELECT a FROM Alumno a, Expediente e WHERE e.alumnoExpediente.id = a.id ORDER BY e.creditosSuperados DESC"), 
+    @NamedQuery(name="TITULACION", query="SELECT a FROM Alumno a, Expediente e, Titulacion t WHERE"
+    		+ " e.alumnoExpediente.id = a.id AND e.titulacionExpediente = t AND t.codigo = :codigo"),
+    //@NamedQuery(name="GRUPO", query="SELECT u FROM USERS u WHERE u.email = :email")
+})
+public class Alumno implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -172,6 +184,22 @@ public class Alumno implements Serializable{
 
 	public void setExpedienteAlumno(List<Expediente> expedienteAlumno) {
 		this.expedienteAlumno = expedienteAlumno;
+	}
+	
+	/**
+	 * Obtiene el expediente activo del alumno aux
+	 * @param aux
+	 * @return
+	 */
+	public Expediente getExpedienteActivo() {
+		Expediente res=null;
+		for(Expediente e : expedienteAlumno) {
+			if(e.getActivo() == '0') { //ENTENDEMOS QUE 0 ES ACTIVO
+				res = e;
+				break;
+			}
+		}
+		return res;
 	}
 	
 	//toString

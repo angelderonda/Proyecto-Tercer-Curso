@@ -1,4 +1,4 @@
-package proyecto.jpa;
+package es.uma.informatica.sii.ejb.practica.entidades;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,10 +18,50 @@ public class Matricula implements Serializable{
 	public static class MatriculaId implements Serializable{
 
 		private static final long serialVersionUID = 1L;
-		@SuppressWarnings("unused")
-		private Integer cursoAcademico;
-		@SuppressWarnings("unused")
+	
+		private Integer cursoAcademico;		
 		private Integer expedienteMatricula;
+		
+		public MatriculaId() {
+			super();
+		}
+		
+		public MatriculaId(Integer cursoAcademico, Integer expedienteMatricula) {
+			super();
+			this.cursoAcademico = cursoAcademico;
+			this.expedienteMatricula = expedienteMatricula;
+		}
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
+			result = prime * result + ((expedienteMatricula == null) ? 0 : expedienteMatricula.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			MatriculaId other = (MatriculaId) obj;
+			if (cursoAcademico == null) {
+				if (other.cursoAcademico != null)
+					return false;
+			} else if (!cursoAcademico.equals(other.cursoAcademico))
+				return false;
+			if (expedienteMatricula == null) {
+				if (other.expedienteMatricula != null)
+					return false;
+			} else if (!expedienteMatricula.equals(other.expedienteMatricula))
+				return false;
+			return true;
+		}
+		
+		
 	}
 	
 	private static final long serialVersionUID = 1L;
@@ -32,8 +72,8 @@ public class Matricula implements Serializable{
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
 	private String fechaMatricula;
-	@Column(name = "NUEVO_INGRESO", columnDefinition = "char(1) default '0'" )
-	private char nuevoIngreso;
+	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 0" )
+	private Integer nuevoIngreso;
 	@Column(name = "NUMERO_ARCHIVO")
 	private Integer numeroArchivo;
 	@Column(name = "TURNO_PREFERENTE")
@@ -96,11 +136,11 @@ public class Matricula implements Serializable{
 		this.turnoPreferente = turnoPreferente;
 	}
 
-	public char getNuevoIngreso() {
+	public Integer getNuevoIngreso() {
 		return nuevoIngreso;
 	}
 
-	public void setNuevoIngreso(char nuevoIngreso) {
+	public void setNuevoIngreso(Integer nuevoIngreso) {
 		this.nuevoIngreso = nuevoIngreso;
 	}
 

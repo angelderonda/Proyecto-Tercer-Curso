@@ -1,4 +1,4 @@
-package proyecto.jpa;
+package es.uma.informatica.sii.ejb.practica.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,13 +19,46 @@ public class Clase implements Serializable{
 	public static class ClaseId implements Serializable{
 		
 		private static final long serialVersionUID = 1L;
-		@SuppressWarnings("unused")
-		private Date dia;
-		@SuppressWarnings("unused")
-		private Date horaInicio;
-		@SuppressWarnings("unused")
-		private Integer id;
 		
+		private Date dia;		
+		private Date horaInicio;		
+		private Integer grupoClase;
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((dia == null) ? 0 : dia.hashCode());
+			result = prime * result + ((grupoClase == null) ? 0 : grupoClase.hashCode());
+			result = prime * result + ((horaInicio == null) ? 0 : horaInicio.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			ClaseId other = (ClaseId) obj;
+			if (dia == null) {
+				if (other.dia != null)
+					return false;
+			} else if (!dia.equals(other.dia))
+				return false;
+			if (grupoClase == null) {
+				if (other.grupoClase != null)
+					return false;
+			} else if (!grupoClase.equals(other.grupoClase))
+				return false;
+			if (horaInicio == null) {
+				if (other.horaInicio != null)
+					return false;
+			} else if (!horaInicio.equals(other.horaInicio))
+				return false;
+			return true;
+		}		
+					
 	}
 
 	private static final long serialVersionUID = 1L;
