@@ -104,6 +104,31 @@ public class GruposAsignatura implements Serializable{
 		this.oferta = oferta;
 	}
 	
+	public Integer getCursoAcademico() {
+		return cursoAcademico;
+	}
+	public void setCursoAcademico(Integer cursoAcademico) {
+		this.cursoAcademico = cursoAcademico;
+	}
+	public Grupo getGrupoGruposAsignatura() {
+		return grupoGruposAsignatura;
+	}
+	public void setGrupoGruposAsignatura(Grupo grupoGruposAsignatura) {
+		this.grupoGruposAsignatura = grupoGruposAsignatura;
+	}
+	public Asignatura getAsignaturaGruposAsignatura() {
+		return asignaturaGruposAsignatura;
+	}
+	public void setAsignaturaGruposAsignatura(Asignatura asignaturaGruposAsignatura) {
+		this.asignaturaGruposAsignatura = asignaturaGruposAsignatura;
+	}
+	public List<Encuesta> getEncuestaGruposAsignatura() {
+		return encuestaGruposAsignatura;
+	}
+	public void setEncuestaGruposAsignatura(List<Encuesta> encuestaGruposAsignatura) {
+		this.encuestaGruposAsignatura = encuestaGruposAsignatura;
+	}
+	
 	//toString
 	
 	@Override

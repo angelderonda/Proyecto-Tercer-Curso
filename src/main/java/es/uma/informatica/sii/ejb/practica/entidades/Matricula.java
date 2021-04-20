@@ -68,7 +68,7 @@ public class Matricula implements Serializable{
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
 	private Integer cursoAcademico;
-	@Column(name = "ESTADO", nullable = false)
+	@Column(name = "ESTADO", nullable = false, columnDefinition = "VARCHAR2(100) DEFAULT 'Activa'")
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
 	private String fechaMatricula;
@@ -160,6 +160,7 @@ public class Matricula implements Serializable{
 		this.asignaturasMatriculaMatricula = asignaturasMatriculaMatricula;
 	}
 	
+	
 	//toString
 	
 	@Override
@@ -203,5 +204,7 @@ public class Matricula implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
 	
 }

@@ -25,8 +25,4 @@ public interface GestionGrupo {
 	//RF 9
 	public void gestionarCambioGrupo(Integer idAlumno, List<GruposAsignatura> lista, boolean cambioAceptado) throws ProyectoException;
 	
-	//RF 10
-	//public void incluirAlumno(Alumno alumno, Grupo grupo) throws ProyectoException;
-	
-	
 }

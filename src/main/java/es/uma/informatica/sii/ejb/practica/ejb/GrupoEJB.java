@@ -1,5 +1,6 @@
 package es.uma.informatica.sii.ejb.practica.ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -10,8 +11,11 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteExcep
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
+import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
+import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 
 @Stateless
 public class GrupoEJB implements GestionGrupo{
@@ -62,13 +66,40 @@ public class GrupoEJB implements GestionGrupo{
 		if(alumno == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
 		}
+		Expediente expediente = alumno.getExpedienteActivo();
+		if(expediente == null) {
+			throw new ObjetoNoExistenteException("El expediente que buscas no existe");
+		}
+		List<Expediente> listaExpedienteAlumno = alumno.getExpedienteAlumno();
+		listaExpedienteAlumno.remove(expediente);
+		Matricula matricula = expediente.getMatriculaActiva();
+		if(matricula == null) {
+			throw new ObjetoNoExistenteException("El matricula que buscas no existe");
+		}
+		List<Matricula> listaMatriculasExpediente = expediente.getMatriculaExpediente();
+		listaMatriculasExpediente.remove(matricula);
 		if(cambioAceptado) { //Cambiamos al alumno de grupo
 			//tenemos la lista de asignaturas y grupo al que vamos a cambiar al alumno
+			List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();
+			for(GruposAsignatura grupoAsignatura : lista) {
 			//accedemos a su expediente, su matricula, y en su matricula cambiamos la lista de asignaturasMatricula
 			//Por las que creamos usando las que aparecen en el param lista. Ahi modificamos su matricula su expediente y el alumno y listo
-			//Podriamos mandar tb correo diciendo q cambio bien hecho
-		}else { //mandamos correo al email de alumno diciendole q el cambio ha sido aceptado
-			
+				AsignaturasMatricula asignaturaMatricula = new AsignaturasMatricula();
+				asignaturaMatricula.setAsignaturaAsignaturasMatricula(grupoAsignatura.getAsignaturaGruposAsignatura());
+				asignaturaMatricula.setMatriculaAsignaturasMatricula(matricula);
+				asignaturaMatricula.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());
+				listaAsignaturasMatricula.add(asignaturaMatricula);
+			}
+		matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
+		listaMatriculasExpediente.add(matricula);
+		//listaMatriculasExpediente.add
+		expediente.setMatriculaExpediente(listaMatriculasExpediente);
+		listaExpedienteAlumno.add(expediente);
+		alumno.setExpedienteAlumno(listaExpedienteAlumno);
+		//Merge
+		em.merge(alumno);
+		em.merge(expediente);
+		em.merge(matricula);
 		}
 	}
 

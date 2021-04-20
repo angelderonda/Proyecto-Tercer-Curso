@@ -69,11 +69,7 @@ public class AlumnoEJB implements GestionAlumno {
 
 	}
 
-	@Override
-	public void asignarGrupo(Alumno alumno, Grupo grupo) throws ProyectoException {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public List<Alumno> listarAlumnos(TipoFiltro filtro, int parametro) throws ProyectoException {
@@ -112,12 +108,6 @@ public class AlumnoEJB implements GestionAlumno {
 		return res;
 	}
 	
-
-	@Override
-	public void solicitarCambioDeGrupo(Integer idAlumno, Integer idGrupo) throws ProyectoException {
-		//POSIBLE INNECESARIO ESTUDIAR
-	}
-
 	@Override
 	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista) throws ProyectoException {
 		// TODO Auto-generated method stub
@@ -142,6 +132,31 @@ public class AlumnoEJB implements GestionAlumno {
 		em.merge(aux);
 		em.merge(exp);
 		em.merge(encuesta);
+	}
+
+	@Override
+	public void solicitarCambioDeGrupo(Integer idAlumno, List<GruposAsignatura> lista) throws ProyectoException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, Encuesta encuesta, boolean manualmente)
+			throws ProyectoException {
+		// TODO Auto-generated method stub
+		GrupoEJB grupoEjb = new GrupoEJB();
+		if(!manualmente) {
+			 List<GruposAsignatura> listaAlgoritmo = algoritmo(idAlumno, encuesta);
+			 grupoEjb.gestionarCambioGrupo(idAlumno, listaAlgoritmo, true);
+		}else grupoEjb.gestionarCambioGrupo(idAlumno, lista, true);
+	}
+	/**
+	 * 
+	 * @param idAlumno
+	 * @param encuesta
+	 * @return
+	 */
+	private List<GruposAsignatura> algoritmo(Integer idAlumno, Encuesta encuesta){
+		return null;
 	}
 	
 }

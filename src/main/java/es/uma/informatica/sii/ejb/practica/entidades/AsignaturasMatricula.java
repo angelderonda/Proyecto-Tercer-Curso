@@ -83,5 +83,30 @@ public class AsignaturasMatricula implements Serializable{
 	//Relacion muchos a uno con grupo
 	@ManyToOne(optional = false)
 	private Grupo grupoAsignaturasMatricula;
+
+	//Getters y Setters
 	
+	public Asignatura getAsignaturaAsignaturasMatricula() {
+		return asignaturaAsignaturasMatricula;
+	}
+
+	public void setAsignaturaAsignaturasMatricula(Asignatura asignaturaAsignaturasMatricula) {
+		this.asignaturaAsignaturasMatricula = asignaturaAsignaturasMatricula;
+	}
+
+	public Matricula getMatriculaAsignaturasMatricula() {
+		return matriculaAsignaturasMatricula;
+	}
+
+	public void setMatriculaAsignaturasMatricula(Matricula matriculaAsignaturasMatricula) {
+		this.matriculaAsignaturasMatricula = matriculaAsignaturasMatricula;
+	}
+
+	public Grupo getGrupoAsignaturasMatricula() {
+		return grupoAsignaturasMatricula;
+	}
+
+	public void setGrupoAsignaturasMatricula(Grupo grupoAsignaturasMatricula) {
+		this.grupoAsignaturasMatricula = grupoAsignaturasMatricula;
+	}
 }

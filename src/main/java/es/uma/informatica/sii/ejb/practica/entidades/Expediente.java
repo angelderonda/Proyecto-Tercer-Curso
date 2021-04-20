@@ -210,7 +210,22 @@ public class Expediente implements Serializable{
 			return false;
 		return true;
 	}
-		
+	
+	/**
+	 * Obtiene la Matricula activa del expediente
+	 * @param aux
+	 * @return
+	 */
+	public Matricula getMatriculaActiva() {
+		Matricula res=null;
+		for(Matricula m : matriculaExpediente) {
+			if(m.getEstado().contentEquals("Activa")) { 
+				res = m;
+				break;
+			}
+		}
+		return res;
+	}
 
 }
 

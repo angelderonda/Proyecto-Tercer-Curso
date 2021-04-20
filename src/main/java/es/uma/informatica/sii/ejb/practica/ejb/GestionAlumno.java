@@ -1,9 +1,5 @@
 package es.uma.informatica.sii.ejb.practica.ejb;
 
-
-
-
-
 import javax.ejb.Local;
 
 import java.util.List;
@@ -25,7 +21,7 @@ public interface GestionAlumno {
 	public void deleteAlumno(Integer  idAlumno) throws ObjetoNoExistenteException;
 	
 	//RF 10
-	public void asignarGrupo(Alumno alumno, Grupo grupo) throws ProyectoException;
+	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, Encuesta encuesta, boolean manualmente) throws ProyectoException;
 	
 	//RF 11
 	public List<Alumno> listarAlumnos(TipoFiltro filtro, int parametro) throws ProyectoException;
