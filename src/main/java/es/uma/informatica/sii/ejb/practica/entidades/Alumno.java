@@ -14,7 +14,7 @@ import javax.persistence.*;
 @NamedQueries({
     @NamedQuery(name="TODOS", query="SELECT a FROM Alumno a"),
     @NamedQuery(name="NUEVOS_O_VETERANOS", query="SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
-    		+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND m.nuevoIngreso = 0 "),
+    		+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND m.nuevoIngreso = 1 "),
     @NamedQuery(name="FECHA_DE_MATRICULACIÓN", query="SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
     		+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente ORDER BY m.fechaMatricula ASC"),//COMPROBAR QUE ASC ESTA OK
    // SELECT d FROM Employee e, Department d WHERE e.department = d
@@ -194,7 +194,7 @@ public class Alumno implements Serializable {
 	public Expediente getExpedienteActivo() {
 		Expediente res=null;
 		for(Expediente e : expedienteAlumno) {
-			if(e.getActivo() == '0') { //ENTENDEMOS QUE 0 ES ACTIVO
+			if(e.getActivo() == '1') { //ENTENDEMOS QUE 1 ES ACTIVO
 				res = e;
 				break;
 			}

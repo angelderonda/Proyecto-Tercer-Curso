@@ -20,7 +20,7 @@ public class Expediente implements Serializable{
 	@Id
 	@Column(name = "NUMERO_EXPEDIENTE", nullable = false)
 	private Integer numeroExpediente;
-	@Column(name = "ACTIVO", columnDefinition = "char(1) default '0'")
+	@Column(name = "ACTIVO", columnDefinition = "char(1) default '1'")
 	private char activo;
 	@Column(name = "CREDITOS_CF")
 	private Integer creditosCF;

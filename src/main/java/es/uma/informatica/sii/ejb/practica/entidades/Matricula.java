@@ -72,7 +72,7 @@ public class Matricula implements Serializable{
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
 	private String fechaMatricula;
-	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 0" )
+	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 1" )
 	private Integer nuevoIngreso;
 	@Column(name = "NUMERO_ARCHIVO")
 	private Integer numeroArchivo;
