@@ -31,9 +31,7 @@ public class Expediente implements Serializable{
 	@Column(name = "CREDITOS_OP")
 	private Integer creditosOP;
 	@Column(name = "CREDITOS_PE")
-	private Integer creditosPE;
-	@Column(name = "CREDITOS_SUPERADOS")
-	private Integer creditosSuperados;
+	private Integer creditosPE;	
 	@Column(name = "CREDITOS_TF")
 	private Integer creditosTF;
 	@Column(name = "NOTA_MEDIA_PROVISIONAL")
@@ -115,14 +113,7 @@ public class Expediente implements Serializable{
 		this.creditosPE = creditosPE;
 	}
 
-	public Integer getCreditosSuperados() {
-		return creditosSuperados;
-	}
-
-	public void setCreditosSuperados(Integer creditosSuperados) {
-		this.creditosSuperados = creditosSuperados;
-	}
-
+	
 	public Integer getCreditosTF() {
 		return creditosTF;
 	}
@@ -177,7 +168,7 @@ public class Expediente implements Serializable{
 	public String toString() {
 		return "Expediente [numeroExpediente=" + numeroExpediente + ", activo=" + activo + ", creditosCF=" + creditosCF
 				+ ", creditosFB=" + creditosFB + ", creditosMO=" + creditosMO + ", creditosOP=" + creditosOP
-				+ ", creditosPE=" + creditosPE + ", creditosSuperados=" + creditosSuperados + ", creditosTF="
+				+ ", creditosPE=" + creditosPE + ", creditosTF="
 				+ creditosTF + ", notaMediaProvisional=" + notaMediaProvisional + ", titulacionExpediente="
 				+ titulacionExpediente + ", alumnoExpediente=" + alumnoExpediente + ", encuestaExpediente="
 				+ encuestaExpediente + ", matriculaExpediente=" + matriculaExpediente + "]";

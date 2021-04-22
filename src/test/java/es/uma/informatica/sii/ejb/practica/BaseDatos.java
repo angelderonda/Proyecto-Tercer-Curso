@@ -17,6 +17,7 @@ import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Centro;
 import es.uma.informatica.sii.ejb.practica.entidades.Clase;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
+import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.Ingrediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Lote;
@@ -31,47 +32,110 @@ public class BaseDatos {
 		
 		em.getTransaction().begin();
 		
-		//Titulacion
-		Titulacion informatica = new Titulacion ();
-		informatica.setCodigo(1041);
-		informatica.setCreditos(240);
-		informatica.setNombre("Informatica");
-		informatica.setAsignaturaTitulacion();
-		informatica.setCentroTitulacion();
-		informatica.setExpedienteTitulacion();
-		informatica.setGrupoTitulacion();
+		
 		
 		//Asignatura
 		Asignatura asignatura = new Asignatura();
-        asignatura.setAsignaturasMatriculaAsignatura(asignaturasMatriculaAsignatura);
-        asignatura.setClaseAsignatura(claseAsignatura);
-        asignatura.setCodigo(codigo);
-        asignatura.setCreditosPracticas(creditosPracticas);
-        asignatura.setCreditosTeoria(creditosTeoria);
-        asignatura.setCurso(curso);
-        asignatura.setDuracion(duracion);
-        asignatura.setGruposAsignaturaAsignatura(gruposAsignaturaAsignatura);
-        asignatura.setNombre(nombre);
-        asignatura.setOfertada(ofertada);
-        asignatura.setOtros_idiomas(otros_idiomas);
-        asignatura.setPlazas(plazas);
+		List<Asignatura> listaAsignatura = new ArrayList<Asignatura>();
+		
+		//Centro
+		Centro centro = new Centro();
+		List<Centro> listaCentro= new ArrayList<Centro>();
+		
+		//Grupo
+		Grupo grupo = new Grupo();
+		List<Grupo> listaGrupo = new ArrayList<Grupo>();
+		
+		//Titulacion
+		Titulacion titulacion = new Titulacion ();
+		
+		 //Matricula
+        Matricula matricula = new Matricula();
+        
+        //Clase
+      	Clase clase1 = new Clase();
+      	List<Clase> listaClase = new ArrayList<Clase>();
+      	
+      	//Expediente
+      	Expediente expediente = new Expediente();
+      	
+      	//AsignaturasMatricula
+        AsignaturasMatricula asignaturasMatricula = new AsignaturasMatricula();        
+        List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();        
+        listaAsignaturasMatricula.add(asignaturasMatricula);
+		
+        asignatura.setAsignaturasMatriculaAsignatura(listaAsignaturasMatricula);
+        asignatura.setClaseAsignatura(listaClase);
+        asignatura.setCodigo(1456156);
+        asignatura.setCreditosPracticas(6);
+        asignatura.setCreditosTeoria(6);
+        asignatura.setCurso();
+        asignatura.setDuracion("1º cuatrimestre");
+        asignatura.setGruposAsignaturaAsignatura();
+        asignatura.setNombre("Cálculo");
+        asignatura.setOfertada("Si");
+        asignatura.setOtros_idiomas("Inglés");
+        asignatura.setPlazas("25");
         asignatura.setReferencia(564846687);
-        asignatura.setTipo(tipo);
-        asignatura.setTitulacionAsignatura(titulacion);
-        asignatura.setAsignaturasMatriculaAsignatura(asignaturasMatriculaAsignatura);
+        asignatura.setTipo("Obligatoria");
+        asignatura.setTitulacionAsignatura(titulacion);     
+        asignatura.setAsignaturasMatriculaAsignatura(listaAsignaturasMatricula);
+        
 		
         
-        //AsignaturasMatricula
-        AsignaturasMatricula asignaturasMatricula = new AsignaturasMatricula();
-        asignaturasMatricula.setAsignaturaAsignaturasMatricula();
-        asignaturasMatricula.setGrupoAsignaturasMatricula();
-        asignaturasMatricula.setMatriculaAsignaturasMatricula();
+		
+		
+		centro.setId(1041);
+		centro.setDireccion("Calle Malaga");
+		centro.setNombre("Centro Informatica");
+		centro.setTelefono_conserjeria("690329116");
+		
+		
+		
+        expediente.setActivo('1');
+        expediente.setAlumnoExpediente(alumno);
+        expediente.setCreditosCF(5);
+        expediente.setCreditosFB(5);
+        expediente.setCreditosMO(5);
+        expediente.setCreditosOP(5);
+        expediente.setCreditosPE(5);        
+        expediente.setCreditosTF(5);
+        expediente.setEncuestaExpediente(listaEncuesta);
+        expediente.setMatriculaExpediente(listaMatricula);
+        expediente.setNotaMediaProvisional(9);
+        expediente.setNumeroExpediente(102474112);
+        expediente.setTitulacionExpediente(titulacion);
+		
+		
+		
+		grupo.setAsignar("Si");
+		grupo.setAsignaturasMatriculaGrupo(listaAsignaturasMatricula);
+		grupo.setClasesGrupo(listaClase);
+		grupo.setCurso();
+		grupo.setGrupoGrupo();
+		grupo.setGrupoReflexiva();
+		grupo.setGruposAsignaturaGrupo();
+		grupo.setId(1231546);
+		grupo.setIngles('0');
+		grupo.setLetra('A');
+		grupo.setPlazas("25");
+		grupo.setTitulacionGrupo(titulacion);
+		grupo.setTurno_mañana_tarde("Mañana");
+		grupo.setVisible('1');
+				
+		
+
+		
+		titulacion.setCodigo(1041);
+		titulacion.setCreditos(240);
+		titulacion.setNombre("Informatica");
+		titulacion.setAsignaturaTitulacion(listaAsignatura);
+		titulacion.setCentroTitulacion(listaCentro);
+		titulacion.setExpedienteTitulacion(listaExpediente);
+		titulacion.setGrupoTitulacion(listaGrupo);
         
-        List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();
-        listaAsignaturasMatricula.add(asignaturasMatricula);
         
-        //Matricula
-        Matricula matricula = new Matricula();
+       
         
         matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
         matricula.setCursoAcademico("2020/2021");
@@ -82,40 +146,25 @@ public class BaseDatos {
         matricula.setNumeroArchivo(123344556);
         matricula.setTurnoPreferente("Mañana");
 		
-		//Centro
-		Centro centro = new Centro();
-		centro.setId(1041);
-		centro.setDireccion("Calle Malaga");
-		centro.setNombre("Centro Informatica");
-		centro.setTelefono_conserjeria("690329116");
 		
 		
-		//Clase
-		Clase clase1 = new Clase();
-		clase1.setAsignaturaClase();
-		clase1.setDia();
-		clase1.setGrupoClase();
-		clase1.setHoraFin();
-		clase1.setHoraInicio();
-		
-		//Grupo
-		Grupo grupo = new Grupo();
-		grupo.setAsignar(asignar);
-		grupo.setAsignaturasMatriculaGrupo(asignaturasMatriculaGrupo);
-		grupo.setClasesGrupo(clasesGrupo);
-		grupo.setCurso(curso);
-		grupo.setGrupoGrupo(grupoGrupo);
-		grupo.setGrupoReflexiva(grupoReflexiva);
-		grupo.setGruposAsignaturaGrupo(gruposAsignaturaGrupo);
-		grupo.setId(id);
-		grupo.setIngles(ingles);
-		grupo.setLetra(letra);
-		grupo.setPlazas(plazas);
-		grupo.setTitulacionGrupo(titulacionGrupo);
-		grupo.setTurno_mañana_tarde(turno_mañana_tarde);
-		grupo.setVisible(visible);
 		
 		
+		clase1.setAsignaturaClase(asignatura);		
+		clase1.setDia(new Date(2021,9,17));
+		clase1.setGrupoClase(grupo);
+		clase1.setHoraFin(new Date());
+		clase1.setHoraInicio(new Date());
+		
+		
+		
+		
+		       
+		asignaturasMatricula.setAsignaturaAsignaturasMatricula(asignatura);
+        asignaturasMatricula.setGrupoAsignaturasMatricula(grupo);
+        asignaturasMatricula.setMatriculaAsignaturasMatricula(matricula);
+        
+        
 		
 		for (Ingrediente ingrediente: new Ingrediente [] {carne, pimienta, especias, pimenton, sal, azucar, perejil}) {
 			em.persist(ingrediente);
