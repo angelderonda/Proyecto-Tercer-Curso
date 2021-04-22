@@ -75,8 +75,7 @@ public class TitulacionPrueba {
 	@Test
 	public void testModificarTitulacion(){
 		try {
-			Titulacion t = new Titulacion();
-			t.setCodigo(123);
+			Titulacion t = gestionTitulacion.readTitulacion(123);
 			t.setCreditos(9);
 			t.setNombre("ale");
 			gestionTitulacion.updateTitulacion(t);
@@ -88,8 +87,8 @@ public class TitulacionPrueba {
 	@Test
 	public void testModificarTitulacionNoExistente(){
 		try {
-			Titulacion t = new Titulacion();
-			t.setCodigo(291643562);
+			Titulacion t = gestionTitulacion.readTitulacion(123);
+			t.setCodigo(415);			
 			gestionTitulacion.updateTitulacion(t);
 			fail("Debería lanzarse una excepción");
 		}catch(ObjetoNoExistenteException e) {
