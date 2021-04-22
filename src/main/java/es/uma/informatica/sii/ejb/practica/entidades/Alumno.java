@@ -32,8 +32,8 @@ public class Alumno implements Serializable {
 	private Integer id;
 	@Column(name="DNI", unique = true, nullable = false)
 	private String dni;
-	@Column(name="NOMBRE_COMPLETO")
-	private String nombreCompleto;
+	@Column(name="NOMBRE")
+	private String nombre;
 	@Column(name="APELLIDO_1")
 	private String apellido1;
 	@Column(name="APELLIDO_2")
@@ -45,9 +45,9 @@ public class Alumno implements Serializable {
 	@Column(name="NUMERO_ARCHIVO")
 	private String numeroArchivo;
 	@Column(name="NUMERO_MOVIL")
-	private Integer numeroMovil;
+	private String numeroMovil;
 	@Column(name="NUMERO_TELEFONO")
-	private Integer numeroTelefono;
+	private String numeroTelefono;
 	@Column(name="DIRECCION")
 	private String direccion;
 	@Column(name="LOCALIDAD")
@@ -82,12 +82,12 @@ public class Alumno implements Serializable {
 		this.dni = dni;
 	}
 
-	public String getNombreCompleto() {
-		return nombreCompleto;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
+	public void setNombreCompleto(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getApellido1() {
@@ -130,19 +130,19 @@ public class Alumno implements Serializable {
 		this.numeroArchivo = numeroArchivo;
 	}
 
-	public Integer getNumeroMovil() {
+	public String getNumeroMovil() {
 		return numeroMovil;
 	}
 
-	public void setNumeroMovil(Integer numeroMovil) {
+	public void setNumeroMovil(String numeroMovil) {
 		this.numeroMovil = numeroMovil;
 	}
 
-	public Integer getNumeroTelefono() {
+	public String getNumeroTelefono() {
 		return numeroTelefono;
 	}
 
-	public void setNumeroTelefono(Integer numeroTelefono) {
+	public void setNumeroTelefono(String numeroTelefono) {
 		this.numeroTelefono = numeroTelefono;
 	}
 
@@ -207,7 +207,7 @@ public class Alumno implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", apellido1=" + apellido1
+		return "Alumno [id=" + id + ", dni=" + dni + ", nombreCompleto=" + nombre + ", apellido1=" + apellido1
 				+ ", apellido2=" + apellido2 + ", emailInstitucional=" + emailInstitucional + ", emailPersonal="
 				+ emailPersonal + ", numeroArchivo=" + numeroArchivo + ", numeroMovil=" + numeroMovil
 				+ ", numeroTelefono=" + numeroTelefono + ", direccion=" + direccion + ", localidad=" + localidad

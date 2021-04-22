@@ -1,6 +1,7 @@
 package es.uma.informatica.sii.ejb.practica.entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -71,7 +72,7 @@ public class Matricula implements Serializable{
 	@Column(name = "ESTADO", nullable = false, columnDefinition = "VARCHAR2(100) DEFAULT 'Activa'")
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
-	private String fechaMatricula;
+	private Date fechaMatricula;
 	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 1" )
 	private Integer nuevoIngreso;
 	@Column(name = "NUMERO_ARCHIVO")
@@ -112,11 +113,11 @@ public class Matricula implements Serializable{
 		this.estado = estado;
 	}
 
-	public String getFechaMatricula() {
+	public Date getFechaMatricula() {
 		return fechaMatricula;
 	}
 
-	public void setFechaMatricula(String fechaMatricula) {
+	public void setFechaMatricula(Date fechaMatricula) {
 		this.fechaMatricula = fechaMatricula;
 	}
 

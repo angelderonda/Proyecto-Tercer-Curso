@@ -19,10 +19,8 @@ public class GruposAsignatura implements Serializable{
 	
 	public static class GruposAsignaturaId implements Serializable{
 		private static final long serialVersionUID = 1L;		
-		private Integer cursoAcademico;
-		//PK de grupo		
-		private Integer grupoGruposAsignatura;
-		//PK de asignatura		
+		private Integer cursoAcademico;		
+		private Integer grupoGruposAsignatura;			
 		private AsignaturaId asignaturaGruposAsignatura;
 		
 		@Override
@@ -68,7 +66,7 @@ public class GruposAsignatura implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
-	private Integer cursoAcademico;
+	private String cursoAcademico;
 	@Column(name = "OFERTA", columnDefinition = "char(1)")	
 	private char oferta;
 
@@ -91,12 +89,8 @@ public class GruposAsignatura implements Serializable{
 		
 	//Getters and Setters
 	
-	public Integer getCurso_academico() {
-		return cursoAcademico;
-	}
-	public void setCurso_academico(Integer cursoAcademico) {
-		this.cursoAcademico = cursoAcademico;
-	}
+	
+	
 	public char getOferta() {
 		return oferta;
 	}
@@ -104,10 +98,10 @@ public class GruposAsignatura implements Serializable{
 		this.oferta = oferta;
 	}
 	
-	public Integer getCursoAcademico() {
+	public String getCursoAcademico() {
 		return cursoAcademico;
 	}
-	public void setCursoAcademico(Integer cursoAcademico) {
+	public void setCursoAcademico(String cursoAcademico) {
 		this.cursoAcademico = cursoAcademico;
 	}
 	public Grupo getGrupoGruposAsignatura() {

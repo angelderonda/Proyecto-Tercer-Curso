@@ -21,10 +21,8 @@ public class AsignaturasMatricula implements Serializable{
 		private static final long serialVersionUID = 1L;
 				
 		
-		@SuppressWarnings("unused")
-		private MatriculaId matriculaAsignaturasMatricula;
 		
-		@SuppressWarnings("unused")
+		private MatriculaId matriculaAsignaturasMatricula;	
 		private AsignaturaId asignaturaAsignaturasMatricula;
 
 		@Override

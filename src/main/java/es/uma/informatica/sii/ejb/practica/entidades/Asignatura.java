@@ -1,7 +1,6 @@
 package es.uma.informatica.sii.ejb.practica.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -91,8 +90,8 @@ public class Asignatura implements Serializable{
 	private String tipo; //Mat basica, optativa,tfg...
 	@Column(name="PLAZAS")
 	private String plazas;
-	@Column(name="OTROS_IDIOMAS")
-	private String otros_idiomas;
+	@Column(name="OTRO_IDIOMAS")
+	private String otro_idioma;
 
 	
 	//Relacion muchos a uno con titulacion
@@ -194,12 +193,12 @@ public class Asignatura implements Serializable{
 		this.plazas = plazas;
 	}
 
-	public String getOtros_idiomas() {
-		return otros_idiomas;
+	public String getOtro_idioma() {
+		return otro_idioma;
 	}
 
-	public void setOtros_idiomas(String otros_idiomas) {
-		this.otros_idiomas = otros_idiomas;
+	public void setOtro_idioma(String otro_idioma) {
+		this.otro_idioma = otro_idioma;
 	}
 
 	public Titulacion getTitulacionAsignatura() {
@@ -241,8 +240,8 @@ public class Asignatura implements Serializable{
 	public String toString() {
 		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", curso=" + curso + ", creditosTeoria="
 				+ creditosTeoria + ", creditosPracticas=" + creditosPracticas + ", nombre=" + nombre + ", duracion="
-				+ duracion + ", ofertada=" + ofertada + ", tipo=" + tipo + ", plazas=" + plazas + ", otros_idiomas="
-				+ otros_idiomas + ", titulacionAsignatura=" + titulacionAsignatura + ", claseAsignatura="
+				+ duracion + ", ofertada=" + ofertada + ", tipo=" + tipo + ", plazas=" + plazas + ", otro_idioma="
+				+ otro_idioma + ", titulacionAsignatura=" + titulacionAsignatura + ", claseAsignatura="
 				+ claseAsignatura + ", gruposAsignaturaAsignatura=" + gruposAsignaturaAsignatura
 				+ ", asignaturasMatriculaAsignatura=" + asignaturasMatriculaAsignatura + "]";
 	}
@@ -279,6 +278,8 @@ public class Asignatura implements Serializable{
 			return false;
 		return true;
 	}
+
+	
 
 
 	

@@ -35,7 +35,7 @@ public class Expediente implements Serializable{
 	@Column(name = "CREDITOS_TF")
 	private Integer creditosTF;
 	@Column(name = "NOTA_MEDIA_PROVISIONAL")
-	private Integer notaMediaProvisional;
+	private Float notaMediaProvisional;
 
 
 
@@ -122,11 +122,11 @@ public class Expediente implements Serializable{
 		this.creditosTF = creditosTF;
 	}
 
-	public Integer getNotaMediaProvisional() {
+	public Float getNotaMediaProvisional() {
 		return notaMediaProvisional;
 	}
 
-	public void setNotaMediaProvisional(Integer notaMediaProvisional) {
+	public void setNotaMediaProvisional(Float notaMediaProvisional) {
 		this.notaMediaProvisional = notaMediaProvisional;
 	}
 
