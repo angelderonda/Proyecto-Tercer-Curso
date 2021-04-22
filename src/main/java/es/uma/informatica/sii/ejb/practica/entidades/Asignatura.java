@@ -14,9 +14,9 @@ import javax.persistence.*;
 
 @Entity
 @IdClass(Asignatura.AsignaturaId.class)
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="DISCRIMINANTE_OPTATIVA", discriminatorType = DiscriminatorType.CHAR )
-@DiscriminatorValue("A")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(name="DISCRIMINANTE_OPTATIVA", discriminatorType = DiscriminatorType.CHAR )
+//@DiscriminatorValue("A")
 public class Asignatura implements Serializable{
 
 	

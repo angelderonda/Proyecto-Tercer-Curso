@@ -24,7 +24,7 @@ public class Centro implements Serializable{
 	@Column(name="NOMBRE",nullable = false, unique = true)
 	private String nombre;
 	@Column(name="TELEFONO_CONSERJERIA")
-	private Integer telefonoConserjeria;
+	private String telefonoConserjeria;
 	
 	
 	@ManyToMany(mappedBy = "centroTitulacion")
@@ -56,11 +56,11 @@ public class Centro implements Serializable{
 		this.direccion = direccion;
 	}
 
-	public Integer getTelefonoConserjeria() {
+	public String getTelefonoConserjeria() {
 		return telefonoConserjeria;
 	}
 
-	public void setTelefono_conserjeria(Integer telefonoConserjeria) {
+	public void setTelefono_conserjeria(String telefonoConserjeria) {
 		this.telefonoConserjeria = telefonoConserjeria;
 	}
 

@@ -19,14 +19,14 @@ public class Matricula implements Serializable{
 
 		private static final long serialVersionUID = 1L;
 	
-		private Integer cursoAcademico;		
+		private String cursoAcademico;		
 		private Integer expedienteMatricula;
 		
 		public MatriculaId() {
 			super();
 		}
 		
-		public MatriculaId(Integer cursoAcademico, Integer expedienteMatricula) {
+		public MatriculaId(String cursoAcademico, Integer expedienteMatricula) {
 			super();
 			this.cursoAcademico = cursoAcademico;
 			this.expedienteMatricula = expedienteMatricula;
@@ -67,7 +67,7 @@ public class Matricula implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
-	private Integer cursoAcademico;
+	private String cursoAcademico;
 	@Column(name = "ESTADO", nullable = false, columnDefinition = "VARCHAR2(100) DEFAULT 'Activa'")
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
@@ -96,11 +96,11 @@ public class Matricula implements Serializable{
 	
 	//Getters y Setters
 
-	public Integer getCursoAcademico() {
+	public String getCursoAcademico() {
 		return cursoAcademico;
 	}
 
-	public void setCursoAcademico(Integer cursoAcademico) {
+	public void setCursoAcademico(String cursoAcademico) {
 		this.cursoAcademico = cursoAcademico;
 	}
 
