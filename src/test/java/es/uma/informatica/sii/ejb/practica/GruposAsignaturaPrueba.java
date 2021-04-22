@@ -7,11 +7,11 @@ import org.junit.Test;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 
-public class GrupoAsignaturaPrueba {
+public class GruposAsignaturaPrueba {
 
 	//RF 4 - CREATE
 	
-	@Test
+	/*@Test
 	public void testCrearGrupoAsignatura(){
 		try {
 			
@@ -87,5 +87,5 @@ public class GrupoAsignaturaPrueba {
 		}catch(ObjetoNoExistenteException e) {
 			//OK
 		}
-	}
+	}*/
 }

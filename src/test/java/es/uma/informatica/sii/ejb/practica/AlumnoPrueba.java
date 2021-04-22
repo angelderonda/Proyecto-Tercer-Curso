@@ -1,5 +1,7 @@
 package es.uma.informatica.sii.ejb.practica;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -7,6 +9,8 @@ import org.junit.Test;
 import es.uma.informatica.sii.ejb.practica.ejb.AlumnoEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
+import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
+import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class AlumnoPrueba {
 
@@ -17,7 +21,11 @@ public class AlumnoPrueba {
 		@Test
 		public void testCrearAlumno(){
 			try {
-				
+				Alumno a = new Alumno();
+				a.setId(12);
+				a.setDni("678435610");
+				a.setNombreCompleto("Alejandro");
+				gestionAlumnos.createAlumno(a);
 			}catch(ObjetoYaExistenteException e) {
 				fail("No debería lanzarse excepción.");
 			}
@@ -26,7 +34,12 @@ public class AlumnoPrueba {
 		@Test
 		public void testCrearAlumnoYaExistente(){
 			try {
-				
+				Alumno a = new Alumno();
+				a.setId(1);
+				a.setDni("254789E");
+				a.setNombreCompleto("Pepito");
+				gestionAlumnos.createAlumno(a);
+				fail("Debería lanzarse una excepción");
 			}catch(ObjetoYaExistenteException e) {
 				//OK
 			}
@@ -37,6 +50,10 @@ public class AlumnoPrueba {
 		@Test
 		public void testLeerAlumno(){
 			try {
+				Alumno a = gestionAlumnos.readAlumno(1);
+				assertEquals("254789E",a.getDni());
+				assertEquals("Pepito", a.getNombre());
+				assertTrue(Integer.valueOf(1).compareTo(a.getId())==0);
 				
 			}catch(ObjetoNoExistenteException e) {
 				fail("No debería lanzarse excepción");
@@ -46,7 +63,8 @@ public class AlumnoPrueba {
 		@Test
 		public void testLeerAlumnoNoExistente(){
 			try {
-				
+				Alumno a = gestionAlumnos.readAlumno(901);
+				fail("Debería lanzarse una excepción");
 			}catch(ObjetoNoExistenteException e) {
 				//OK
 			}
@@ -57,6 +75,9 @@ public class AlumnoPrueba {
 		@Test
 		public void testModificarAlumno(){
 			try {
+				Alumno a = gestionAlumnos.readAlumno(1);
+				a.setNombreCompleto("Pablo");
+				gestionAlumnos.updateAlumno(a);
 				
 			}catch(ObjetoNoExistenteException e) {
 				fail("No debería lanzarse excepción");
@@ -66,7 +87,10 @@ public class AlumnoPrueba {
 		@Test
 		public void testModificarAlumnoNoExistente(){
 			try {
-				
+				Alumno a = gestionAlumnos.readAlumno(12);
+				a.setId(10);			
+				gestionAlumnos.updateAlumno(a);
+				fail("Debería lanzarse una excepción");
 			}catch(ObjetoNoExistenteException e) {
 				//OK
 			}
@@ -77,7 +101,7 @@ public class AlumnoPrueba {
 		@Test
 		public void testEliminarAlumno(){
 			try {
-				
+				gestionAlumnos.deleteAlumno(1);
 			}catch(ObjetoNoExistenteException e) {
 				fail("No debería lanzarse excepción");
 			}
@@ -86,13 +110,14 @@ public class AlumnoPrueba {
 		@Test
 		public void testEliminarAlumnoNoExistente(){
 			try {
-				
+				gestionAlumnos.deleteAlumno(1929);
+				fail("Debería lanzarse una excepción");
 			}catch(ObjetoNoExistenteException e) {
 				//OK
 			}
 		}
 		//RF 10
-		
+	/*	
 		@Test
 		public void testAsignarGrupo(){
 			try {
@@ -168,7 +193,7 @@ public class AlumnoPrueba {
 			}catch(ObjetoNoExistenteException e) {
 				//OK
 			}
-		}*/
+		}
 		
 		//RF 14
 		
@@ -188,5 +213,5 @@ public class AlumnoPrueba {
 			}catch(ObjetoNoExistenteException e) {
 				//OK
 			}
-		}
+		}*/
 }

@@ -28,7 +28,7 @@ public class MatriculaEJB implements GestionMatricula{
 	}
 
 	@Override
-	public Matricula readMatricula(Integer idMatricula) throws ObjetoNoExistenteException {
+	public Matricula readMatricula(MatriculaId idMatricula) throws ObjetoNoExistenteException {
 		
 		Matricula aux = em.find(Matricula.class, idMatricula);
 		if(aux == null) {
@@ -51,7 +51,7 @@ public class MatriculaEJB implements GestionMatricula{
 	}
 
 	@Override
-	public void deleteMatricula(Integer idMatricula) throws ObjetoNoExistenteException {
+	public void deleteMatricula(MatriculaId idMatricula) throws ObjetoNoExistenteException {
 
 		Matricula aux = em.find(Matricula.class,idMatricula);
 		if(aux == null) {

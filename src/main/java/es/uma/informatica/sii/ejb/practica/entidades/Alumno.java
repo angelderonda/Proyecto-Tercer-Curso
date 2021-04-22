@@ -19,7 +19,7 @@ import javax.persistence.*;
     		+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente ORDER BY m.fechaMatricula ASC"),//COMPROBAR QUE ASC ESTA OK
    // SELECT d FROM Employee e, Department d WHERE e.department = d
     @NamedQuery(name="NOTA_MEDIA", query= "SELECT a FROM Alumno a, Expediente e WHERE e.alumnoExpediente.id = a.id AND e.notaMediaProvisional > :nota"),
-    @NamedQuery(name="CREDITOS_SUPERADOS", query="SELECT a FROM Alumno a, Expediente e WHERE e.alumnoExpediente.id = a.id ORDER BY e.creditosSuperados DESC"), 
+    //@NamedQuery(name="CREDITOS_SUPERADOS", query="SELECT a FROM Alumno a, Expediente e WHERE e.alumnoExpediente.id = a.id ORDER BY e.creditosSuperados DESC"), 
     @NamedQuery(name="TITULACION", query="SELECT a FROM Alumno a, Expediente e, Titulacion t WHERE"
     		+ " e.alumnoExpediente.id = a.id AND e.titulacionExpediente = t AND t.codigo = :codigo"),
     //@NamedQuery(name="GRUPO", query="SELECT u FROM USERS u WHERE u.email = :email")

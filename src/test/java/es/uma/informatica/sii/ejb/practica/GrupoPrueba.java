@@ -22,12 +22,12 @@ public class GrupoPrueba {
 	public void testCrearGrupo(){
 		try {
 			Grupo grupo = new Grupo();				
-			grupo.setCurso(2021);
+			grupo.setCurso(2020);
 			/*grupo.setGrupoGrupo();
 			grupo.setGrupoReflexiva();*/			
-			grupo.setId(1231546);
+			grupo.setId(745505);
 			grupo.setIngles('0');
-			grupo.setLetra('A');
+			grupo.setLetra('B');
 			grupo.setPlazas("25");			
 			grupo.setTurno_mañana_tarde("Mañana");
 			gestionGrupo.createGrupo(grupo);
@@ -85,13 +85,11 @@ public class GrupoPrueba {
 	@Test
 	public void testModificarGrupo(){
 		try {
-			Grupo grupo = new Grupo();				
-			grupo.setCurso(2021);
-			grupo.setId(1231546);
-			grupo.setIngles('0');
-			grupo.setLetra('A');
-			grupo.setPlazas("25");			
-			grupo.setTurno_mañana_tarde("Mañana");
+			Grupo grupo = gestionGrupo.readGrupo(2021);				
+			grupo.setIngles('1');
+			grupo.setLetra('B');
+			grupo.setPlazas("15");			
+			grupo.setTurno_mañana_tarde("Tarde");
 			gestionGrupo.updateGrupo(grupo);
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
@@ -102,9 +100,9 @@ public class GrupoPrueba {
 	public void testModificarGrupoNoExistente(){
 		try {
 			Grupo grupo = gestionGrupo.readGrupo(1231546);				
-			grupo.setId(2020);
+			grupo.setId(2019);
 			gestionGrupo.updateGrupo(grupo);
-			
+			fail("No debería lanzarse excepción");
 		}catch(ObjetoNoExistenteException e) {
 			//OK
 		}
@@ -115,7 +113,7 @@ public class GrupoPrueba {
 	@Test
 	public void testEliminarGrupo(){
 		try {
-			
+			gestionGrupo.deleteGrupo(2021);
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -124,13 +122,14 @@ public class GrupoPrueba {
 	@Test
 	public void testEliminarGrupoNoExistente(){
 		try {
-			
+			gestionGrupo.deleteGrupo(2018);
+			fail("Debería lanzarse una excepción");
 		}catch(ObjetoNoExistenteException e) {
 			//OK
 		}
 	}
 
-	
+	/*
 	
 	//RF 9
 
@@ -150,6 +149,6 @@ public class GrupoPrueba {
 		}catch(ObjetoNoExistenteException e) {
 			//OK
 		}
-	}
+	}*/
 
 }

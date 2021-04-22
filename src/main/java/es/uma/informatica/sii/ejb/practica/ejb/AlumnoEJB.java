@@ -16,6 +16,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteExcep
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
@@ -88,10 +89,10 @@ public class AlumnoEJB implements GestionAlumno {
 			query = em.createNamedQuery("NOTA_MEDIA", Alumno.class);
 			res = query.setParameter("nota", parametro).getResultList();
 			break;
-		case CREDITOS_SUPERADOS:
+		/*case CREDITOS_SUPERADOS:
 			query = em.createNamedQuery("CREDITOS_SUPERADOS", Alumno.class);
 			res = query.getResultList();
-			break;
+			break;*/
 		case TITULACION:
 			query = em.createNamedQuery("TITULACION", Alumno.class);
 			res = query.setParameter("codigo", parametro).getResultList();
@@ -139,26 +140,45 @@ public class AlumnoEJB implements GestionAlumno {
 		// TODO Auto-generated method stub
 	}
 
-	@Override
-	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, Encuesta encuesta, boolean manualmente)
-			throws ProyectoException {
-		// TODO Auto-generated method stub
-		GrupoEJB grupoEjb = new GrupoEJB();
-		if(!manualmente) {
-			 List<GruposAsignatura> listaAlgoritmo = algoritmo(idAlumno, encuesta);
-			 grupoEjb.gestionarCambioGrupo(idAlumno, listaAlgoritmo, true);
-		}else grupoEjb.gestionarCambioGrupo(idAlumno, lista, true);
-	}
 	/**
-	 * 
-	 * @param idAlumno
-	 * @param encuesta
-	 * @return
-	 */
-	private List<GruposAsignatura> algoritmo(Integer idAlumno, Encuesta encuesta){
-		return null;
-	}
-	
+    * Si es manual, secretaria manda directamente la lista de gruposAsignatura si no llamamos a algoritmo, aunque el
+    * comportamiento de algoritmo ahora mismo es no es el final debido a que nos tiene q ser explicado. 
+    * En este metodo llamamos internamente a otro metodo de otro EJB porque queremos realizar la misma funcion. Ese
+    * metodo es gestionarCambioGrupo que dados un idAlumno y una lista de asignaturas, realiza un cambio de grupo para 
+    * ese alumno si el tercer parametro está a true 
+    * @param idAlumno
+    * @param lista
+    * @param idEncuesta
+    * @param manualmente
+    * @throws ProyectoException
+    */
+   @Override
+   public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, EncuestaId idEncuesta, boolean manualmente)
+           throws ProyectoException {
+       // TODO Auto-generated method stub
+       GrupoEJB grupoEjb = new GrupoEJB();
+       if(!manualmente) {
+            List<GruposAsignatura> listaAlgoritmo = algoritmo(idAlumno, idEncuesta);
+            grupoEjb.gestionarCambioGrupo(idAlumno, listaAlgoritmo, true);
+       }else grupoEjb.gestionarCambioGrupo(idAlumno, lista, true);
+   }
+   /**
+    * Algoritmo para asignar grupo, ahora mismo a falta de ser explicado el algoritmo solamente le asignamos al
+    * alumno el grupo que ha elegido en su encuesta por lo que devolvemos de su encuesta simplemente la lista de 
+    * gruposAsignatura
+    * @param idAlumno
+    * @param idEncuesta
+    * @return
+    * @throws ObjetoNoExistenteException
+    */
+   private List<GruposAsignatura> algoritmo(Integer idAlumno, EncuestaId idEncuesta) throws ObjetoNoExistenteException{
+       Encuesta aux = em.find(Encuesta.class, idEncuesta);
+       if(aux == null) {
+           throw new ObjetoNoExistenteException("La encuesta que buscas no existe");
+       }
+       return aux.getGruposAsignaturaEncuesta();
+   }
+
 }
 
 

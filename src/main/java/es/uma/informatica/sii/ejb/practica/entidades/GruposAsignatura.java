@@ -17,11 +17,23 @@ import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
 @IdClass(GruposAsignatura.GruposAsignaturaId.class)
 public class GruposAsignatura implements Serializable{
 	
+
 	public static class GruposAsignaturaId implements Serializable{
 		private static final long serialVersionUID = 1L;		
-		private Integer cursoAcademico;		
-		private Integer grupoGruposAsignatura;			
+		private String cursoAcademico;
+		//PK de grupo		
+		private Integer grupoGruposAsignatura;
+		//PK de asignatura		
 		private AsignaturaId asignaturaGruposAsignatura;
+		
+		public GruposAsignaturaId() {
+			super();
+		}
+		public GruposAsignaturaId(String cursoAcademico,Integer grupoGruposAsignatura,AsignaturaId asignaturaGruposAsignatura) {
+			this.cursoAcademico = cursoAcademico;
+			this.grupoGruposAsignatura = grupoGruposAsignatura;
+			this.asignaturaGruposAsignatura = asignaturaGruposAsignatura;
+		}
 		
 		@Override
 		public int hashCode() {
@@ -88,8 +100,6 @@ public class GruposAsignatura implements Serializable{
 	private List<Encuesta> encuestaGruposAsignatura;
 		
 	//Getters and Setters
-	
-	
 	
 	public char getOferta() {
 		return oferta;

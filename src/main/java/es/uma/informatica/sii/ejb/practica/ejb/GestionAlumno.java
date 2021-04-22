@@ -9,6 +9,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteExcep
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 
@@ -21,9 +22,9 @@ public interface GestionAlumno {
 	public void deleteAlumno(Integer  idAlumno) throws ObjetoNoExistenteException;
 	
 	//RF 10
-	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, Encuesta encuesta, boolean manualmente) throws ProyectoException;
+	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, EncuestaId idEncuesta, boolean manualmente) throws ProyectoException;
 	
-	//RF 11
+	//RF 11I
 	public List<Alumno> listarAlumnos(TipoFiltro filtro, int parametro) throws ProyectoException;
 	
 	//RF 12 - REVISA
