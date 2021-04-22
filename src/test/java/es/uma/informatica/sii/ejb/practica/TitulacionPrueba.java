@@ -4,18 +4,37 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Properties;
 
+import javax.ejb.embeddable.EJBContainer;
+import javax.naming.NamingException;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import es.uma.informatica.sii.ejb.practica.ejb.TitulacionEJB;
+
+import java.util.logging.Logger;
+
+import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class TitulacionPrueba {
 
-	private TitulacionEJB gestionTitulacion;
+	private GestionTitulacion gestionTitulacion;
+	
+	
+	private static final Logger LOG = Logger.getLogger(TitulacionPrueba.class.getCanonicalName());
+	private static final String TITULACION_EJB = "java:global/classes/TitulacionEJB";
+	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
+	
+	@Before
+	public void setUp() throws NamingException{
+		gestionTitulacion = (GestionTitulacion) SuiteTest.ctx.lookup(TITULACION_EJB);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
+	}
 	
 	
 	//RF 7 - CREATE
@@ -32,7 +51,7 @@ public class TitulacionPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 }
-	
+	/*
 	@Test
 	public void testCrearTitulacionYaExistente(){
 		try {
@@ -116,6 +135,6 @@ public class TitulacionPrueba {
 			//OK
 		}
 	}
-	
+	*/
 	
 }

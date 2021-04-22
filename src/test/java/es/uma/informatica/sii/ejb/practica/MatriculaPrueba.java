@@ -3,18 +3,38 @@ package es.uma.informatica.sii.ejb.practica;
 import static org.junit.Assert.fail;
 
 import java.util.Date;
+import java.util.logging.Logger;
 
+import javax.naming.NamingException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.sii.ejb.practica.entidades.*;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula.MatriculaId;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionMatricula;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.MatriculaEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 
 public class MatriculaPrueba {
 
-	private MatriculaEJB gestionMatricula;
+
+	
+	private GestionMatricula gestionMatricula;
+	
+	
+	private static final Logger LOG = Logger.getLogger(MatriculaPrueba.class.getCanonicalName());
+	private static final String MATRICULA_EJB = "java:global/classes/MatriculaEJB";
+	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
+	
+	@Before
+	public void setUp() throws NamingException{
+		gestionMatricula = (GestionMatricula) SuiteTest.ctx.lookup(MATRICULA_EJB);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
+	}
+	
 	
 	//RF 6 - CREATE
 	

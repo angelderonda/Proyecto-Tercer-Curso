@@ -2,16 +2,36 @@ package es.uma.informatica.sii.ejb.practica;
 
 import static org.junit.Assert.fail;
 
+import java.util.logging.Logger;
+
+import javax.naming.NamingException;
+
+import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.ejb.practica.ejb.GestionGruposAsignatura;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 
 public class GruposAsignaturaPrueba {
+	/*
+	private GestionGruposAsignatura gestionGruposAsignatura;
+	
+	
+	private static final Logger LOG = Logger.getLogger(GruposAsignaturaPrueba.class.getCanonicalName());
+	private static final String GRUPOSASIGNATURA_EJB = "java:global/classes/GruposAsignaturaEJB";
+	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
+	
+	@Before
+	public void setUp() throws NamingException{
+		gestionGruposAsignatura = (GestionGruposAsignatura) SuiteTest.ctx.lookup(GRUPOSASIGNATURA_EJB);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
+	}
 
 	//RF 4 - CREATE
 	
-	/*@Test
+	@Test
 	public void testCrearGrupoAsignatura(){
 		try {
 			

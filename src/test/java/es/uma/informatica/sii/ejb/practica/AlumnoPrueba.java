@@ -4,9 +4,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.logging.Logger;
+
+import javax.naming.NamingException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.sii.ejb.practica.ejb.AlumnoEJB;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionAlumno;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
@@ -14,7 +21,20 @@ import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class AlumnoPrueba {
 
-	private AlumnoEJB gestionAlumnos;
+	private GestionAlumno gestionAlumnos;
+	
+		
+	
+	private static final Logger LOG = Logger.getLogger(AlumnoPrueba.class.getCanonicalName());
+	private static final String ALUMNO_EJB = "java:global/classes/AlumnoEJB";
+	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
+	
+	@Before
+	public void setUp() throws NamingException{
+		gestionAlumnos = (GestionAlumno) SuiteTest.ctx.lookup(ALUMNO_EJB);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
+	}
+	
 	
 	//RF 2 - CREATE
 	

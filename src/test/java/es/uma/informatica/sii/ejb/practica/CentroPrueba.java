@@ -4,16 +4,35 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.logging.Logger;
+
+import javax.naming.NamingException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.sii.ejb.practica.ejb.CentroEJB;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionCentro;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.Centro;
 
 public class CentroPrueba {
 
-	private CentroEJB gestionCentro;
+	private GestionCentro gestionCentro;
+	
+	
+	
+	private static final Logger LOG = Logger.getLogger(CentroPrueba.class.getCanonicalName());
+	private static final String CENTRO_EJB = "java:global/classes/CentroEJB";
+	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
+	
+	@Before
+	public void setUp() throws NamingException{
+		gestionCentro = (GestionCentro) SuiteTest.ctx.lookup(CENTRO_EJB);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
+	}
 	
 
 	//RF 8 - CREATE
