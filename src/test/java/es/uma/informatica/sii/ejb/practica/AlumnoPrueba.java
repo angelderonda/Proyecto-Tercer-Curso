@@ -13,6 +13,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.AlumnoEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAlumno;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
@@ -46,7 +47,7 @@ public class AlumnoPrueba {
 	
 	
 	//RF 2 - CREATE
-	
+		@Requisitos({"RF2"})
 		@Test
 		public void testCrearAlumno(){
 			try {
@@ -59,7 +60,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción.");
 			}
 		}
-		
+		@Requisitos({"RF2"})
 		@Test
 		public void testCrearAlumnoYaExistente(){
 			try {
@@ -75,7 +76,7 @@ public class AlumnoPrueba {
 		}
 		
 		//RF 2 - READ
-		
+		@Requisitos({"RF2"})
 		@Test
 		public void testLeerAlumno(){
 			try {
@@ -88,7 +89,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF2"})
 		@Test
 		public void testLeerAlumnoNoExistente(){
 			try {
@@ -100,7 +101,7 @@ public class AlumnoPrueba {
 		}
 			
 		//RF 2 - UPDATE
-		
+		@Requisitos({"RF2"})
 		@Test
 		public void testModificarAlumno(){
 			try {
@@ -112,7 +113,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF2"})
 		@Test
 		public void testModificarAlumnoNoExistente(){
 			try {
@@ -126,7 +127,7 @@ public class AlumnoPrueba {
 		}
 			
 		//RF 2 - DELETE
-			
+		@Requisitos({"RF2"})	
 		@Test
 		public void testEliminarAlumno(){
 			try {
@@ -135,7 +136,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF2"})
 		@Test
 		public void testEliminarAlumnoNoExistente(){
 			try {
@@ -147,7 +148,7 @@ public class AlumnoPrueba {
 		}
 		
 		//RF 14
-		
+		@Requisitos({"RF14"})
 		@Test
 		public void testRealizarEncuestaPreferencia(){
 			try {
@@ -166,7 +167,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF14"})
 		@Test
 		public void testRealizarEncuestaPreferenciaNoExistente(){
 			try {
@@ -206,7 +207,7 @@ public class AlumnoPrueba {
 			}
 		}
 		//RF 10
-	/*	
+	/*	@Requisitos({"RF10"})
 		@Test
 		public void testAsignarGrupo(){
 			try {
@@ -215,7 +216,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF10"})
 		@Test
 		public void testAsignarGrupoNoExistente(){
 			try {
@@ -225,7 +226,7 @@ public class AlumnoPrueba {
 			}
 		}
 		//RF 11
-		
+		@Requisitos({"RF11"})
 		@Test
 		public void testGestionarListadoAlumnos(){
 			try {
@@ -234,7 +235,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF11"})
 		@Test
 		public void testGestionarListadoAlumnosNoExistente(){
 			try {
@@ -245,7 +246,7 @@ public class AlumnoPrueba {
 		}
 		
 		//RF 12
-		
+		@Requisitos({"RF12"})
 		@Test
 		public void testSolicitarCambioGrupo(){
 			try {
@@ -254,7 +255,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF12"})
 		@Test
 		public void testSolicitarCambioGrupoNoExistente(){
 			try {
@@ -266,6 +267,7 @@ public class AlumnoPrueba {
 
 		//RF 13
 		/*
+		@Requisitos({"RF13"})
 		@Test
 		public void testNotificarColisionHorario(){
 			try {
@@ -274,7 +276,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF13"})
 		@Test
 		public void testNotificarColisionHorarioNoExistente(){
 			try {
@@ -285,7 +287,7 @@ public class AlumnoPrueba {
 		}
 		
 		//RF 14
-		
+		@Requisitos({"RF14"})
 		@Test
 		public void testRealizarEncuestaPreferencia(){
 			try {
@@ -294,7 +296,7 @@ public class AlumnoPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF14"})
 		@Test
 		public void testRealizarEncuestaPreferenciaNoExistente(){
 			try {

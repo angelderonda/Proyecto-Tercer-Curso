@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.CentroEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAsignatura;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionCentro;
@@ -37,7 +38,7 @@ public class CentroPrueba {
 	
 
 	//RF 8 - CREATE
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testCrearCentro(){
 		try {
@@ -50,7 +51,7 @@ public class CentroPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testCrearCentroYaExistente(){
 		try {
@@ -64,7 +65,7 @@ public class CentroPrueba {
 	}
 	
 	//RF 8 - READ
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testLeerCentro(){
 		try {
@@ -78,7 +79,7 @@ public class CentroPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testLeerCentroNoExistente(){
 		try {
@@ -90,7 +91,7 @@ public class CentroPrueba {
 	}
 	
 	//RF 8 - UPDATE
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testModificarCentro(){
 		try {
@@ -102,7 +103,7 @@ public class CentroPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testModificarCentroNoExistente(){
 		try {
@@ -116,7 +117,7 @@ public class CentroPrueba {
 	}
 	
 	//RF 8 - DELETE
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testEliminarCentro(){
 		try {
@@ -125,7 +126,7 @@ public class CentroPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF8"})
 	@Test
 	public void testEliminarCentroNoExistente(){
 		try {

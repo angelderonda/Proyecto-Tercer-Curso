@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionGrupo;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.GrupoEJB;
@@ -38,7 +39,7 @@ public class GrupoPrueba {
 	
 	
 	//RF 3 - CREATE
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testCrearGrupo(){
 		try {
@@ -57,7 +58,7 @@ public class GrupoPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testCrearGrupoYaExistente(){
 		try {
@@ -76,7 +77,7 @@ public class GrupoPrueba {
 	}
 	
 	//RF 3 - READ
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testLeerGrupo(){
 		try {
@@ -91,7 +92,7 @@ public class GrupoPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testLeerGrupoNoExistente(){
 		try {
@@ -102,7 +103,7 @@ public class GrupoPrueba {
 		}
 	}
 	//RF 3 - UPDATE
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testModificarGrupo(){
 		try {
@@ -116,7 +117,7 @@ public class GrupoPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testModificarGrupoNoExistente(){
 		try {
@@ -130,7 +131,7 @@ public class GrupoPrueba {
 	}
 	
 	//RF 3- DELETE
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testEliminarGrupo(){
 		try {
@@ -139,7 +140,7 @@ public class GrupoPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF3"})
 	@Test
 	public void testEliminarGrupoNoExistente(){
 		try {
@@ -153,7 +154,7 @@ public class GrupoPrueba {
 	/*
 	
 	//RF 9
-
+	@Requisitos({"RF9"})
 	@Test
 	public void testGestionSolicitudCambioGrupo(){
 		try {
@@ -162,7 +163,7 @@ public class GrupoPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF9"})
 	@Test
 	public void testGestionSolicitudCambioGrupoNoExistente(){
 		try {

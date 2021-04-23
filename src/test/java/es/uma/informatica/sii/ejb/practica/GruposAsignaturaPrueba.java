@@ -2,13 +2,14 @@ package es.uma.informatica.sii.ejb.practica;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.GruposAsignaturaEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
@@ -29,6 +30,7 @@ public class GruposAsignaturaPrueba {
 	
 	//RF 4 - CREATE
 	/* 
+	@Requisitos({"RF4"})
 	@Test
 	public void testCrearGrupoAsignatura(){
 		try {
@@ -64,7 +66,7 @@ public class GruposAsignaturaPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testCrearGrupoAsignaturaYaExistente(){
 		try {
@@ -100,7 +102,7 @@ public class GruposAsignaturaPrueba {
 	}
 	
 	//RF 4 - READ
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testLeerGrupoAsignatura(){
 		try {
@@ -112,7 +114,7 @@ public class GruposAsignaturaPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testLeerGrupoAsignaturaNoExistente(){
 		try {
@@ -125,7 +127,7 @@ public class GruposAsignaturaPrueba {
 	}
 	
 	//RF 4 - UPDATE
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testModificarGrupoAsignatura(){
 		try {
@@ -137,7 +139,7 @@ public class GruposAsignaturaPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testModificarGrupoAsignaturaNoExistente(){
 		try {
@@ -152,7 +154,7 @@ public class GruposAsignaturaPrueba {
 	}
 	
 	//RF 4 - DELETE
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testEliminarGrupoAsignatura(){
 		try {
@@ -161,7 +163,7 @@ public class GruposAsignaturaPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF4"})
 	@Test
 	public void testEliminarGrupoAsignaturaNoExistente(){
 		try {

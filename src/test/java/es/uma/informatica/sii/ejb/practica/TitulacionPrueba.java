@@ -16,6 +16,7 @@ import org.junit.Test;
 
 import java.util.logging.Logger;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
@@ -38,7 +39,7 @@ public class TitulacionPrueba {
 	
 	
 	//RF 7 - CREATE
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testCrearTitulacion(){
 		try {
@@ -51,7 +52,7 @@ public class TitulacionPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testCrearTitulacionYaExistente(){
 		try {
@@ -65,7 +66,7 @@ public class TitulacionPrueba {
 	}
 	
 	//RF 7 - READ
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testLeerTitulacion(){
 		try {
@@ -76,7 +77,7 @@ public class TitulacionPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testLeerTitulacionNoExistente(){
 		try {
@@ -88,7 +89,7 @@ public class TitulacionPrueba {
 	}
 	
 	//RF 7 - UPDATE
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testModificarTitulacion(){
 		try {
@@ -100,7 +101,7 @@ public class TitulacionPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testModificarTitulacionNoExistente(){
 		try {
@@ -114,7 +115,7 @@ public class TitulacionPrueba {
 	}
 	
 	//RF 7 - DELETE
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testEliminarTitulacion(){
 		try {
@@ -123,7 +124,7 @@ public class TitulacionPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF7"})
 	@Test
 	public void testEliminarTitulacionNoExistente(){
 		try {

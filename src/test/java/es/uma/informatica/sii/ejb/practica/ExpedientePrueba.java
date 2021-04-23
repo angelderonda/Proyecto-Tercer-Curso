@@ -10,6 +10,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.ExpedienteEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionExpediente;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
@@ -35,7 +36,7 @@ public class ExpedientePrueba {
 	}
 	
 	//RF 5 - CREATE
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testCrearExpediente(){
 		try {
@@ -48,7 +49,7 @@ public class ExpedientePrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testCrearExpedienteYaExistente(){
 		try {
@@ -64,7 +65,7 @@ public class ExpedientePrueba {
 	}
 	
 	//RF 5 - READ
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testLeerExpediente(){
 		try {
@@ -74,7 +75,7 @@ public class ExpedientePrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testLeerExpedienteNoExistente(){
 		try {
@@ -86,7 +87,7 @@ public class ExpedientePrueba {
 	}
 	
 	//RF 5 - UPDATE
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testModificarExpediente(){
 		try {
@@ -97,7 +98,7 @@ public class ExpedientePrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testModificarExpedienteNoExistente(){
 		try {
@@ -111,7 +112,7 @@ public class ExpedientePrueba {
 	}
 	
 	//RF 5 - DELETE
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testEliminarExpediente(){
 		try {
@@ -120,7 +121,7 @@ public class ExpedientePrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF5"})
 	@Test
 	public void testEliminarExpedienteNoExistente(){
 		try {

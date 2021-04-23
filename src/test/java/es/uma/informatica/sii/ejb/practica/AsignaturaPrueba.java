@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.AsignaturaEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAsignatura;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
@@ -41,7 +42,7 @@ public class AsignaturaPrueba {
 	
 
 	//RF 1 - CREATE
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testCrearAsignatura(){
 		try {
@@ -62,7 +63,7 @@ public class AsignaturaPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testCrearAsignaturaYaExistente(){
 		try {
@@ -89,7 +90,7 @@ public class AsignaturaPrueba {
 	}
 	
 	//RF 1 - READ
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testLeerAsignatura(){
 		try {
@@ -101,7 +102,7 @@ public class AsignaturaPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testLeerAsignaturaNoExistente(){
 		try {
@@ -114,7 +115,7 @@ public class AsignaturaPrueba {
 	}
 	
 	//RF 1 - UPDATE
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testModificarAsignatura(){
 		try {
@@ -126,7 +127,7 @@ public class AsignaturaPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testModificarAsignaturaNoExistente(){
 		try {
@@ -141,7 +142,7 @@ public class AsignaturaPrueba {
 	}
 	
 	//RF 1 - DELETE
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testEliminarAsignatura(){
 		try {
@@ -152,7 +153,7 @@ public class AsignaturaPrueba {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Requisitos({"RF1"})
 	@Test
 	public void testEliminarAsignaturaNoExistente(){
 		try {

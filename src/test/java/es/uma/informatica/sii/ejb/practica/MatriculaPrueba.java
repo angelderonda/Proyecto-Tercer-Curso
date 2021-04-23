@@ -16,6 +16,7 @@ import org.junit.Test;
 
 import es.uma.informatica.sii.ejb.practica.entidades.*;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula.MatriculaId;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.ExpedienteEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionMatricula;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
@@ -43,7 +44,7 @@ public class MatriculaPrueba {
 	
 	
 	//RF 6 - CREATE
-	
+		@Requisitos({"RF6"})
 		@Test
 		public void testCrearMatricula(){
 			try {
@@ -63,7 +64,7 @@ public class MatriculaPrueba {
 			}
 			
 		}
-	
+		@Requisitos({"RF6"})
 		@Test
 		public void testCrearMatriculaYaExistente(){
 			try {
@@ -83,7 +84,7 @@ public class MatriculaPrueba {
 		}
 		
 		//RF 6 - READ
-		
+		@Requisitos({"RF6"})
 		@Test
 		public void testLeerMatricula(){
 			try {
@@ -93,7 +94,7 @@ public class MatriculaPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF6"})
 		@Test
 		public void testLeerMatriculaNoExistente(){
 			try {
@@ -106,7 +107,7 @@ public class MatriculaPrueba {
 		}
 		
 		//RF 6 - UPDATE
-		
+		@Requisitos({"RF6"})
 		@Test
 		public void testModificarMatricula(){
 			try {
@@ -118,7 +119,7 @@ public class MatriculaPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF6"})
 		@Test
 		public void testModificarMatriculaNoExistente(){
 			try {
@@ -133,7 +134,7 @@ public class MatriculaPrueba {
 		}
 		
 		//RF 6 - DELETE
-		
+		@Requisitos({"RF6"})
 		@Test
 		public void testEliminarMatricula(){
 			try {
@@ -143,7 +144,7 @@ public class MatriculaPrueba {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		
+		@Requisitos({"RF6"})
 		@Test
 		public void testEliminarMatriculaNoExistente(){
 			try {
