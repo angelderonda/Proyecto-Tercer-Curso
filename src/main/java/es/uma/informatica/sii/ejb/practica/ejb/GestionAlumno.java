@@ -22,13 +22,10 @@ public interface GestionAlumno {
 	public void deleteAlumno(Integer  idAlumno) throws ObjetoNoExistenteException;
 	
 	//RF 10
-	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, EncuestaId idEncuesta, boolean manualmente) throws ProyectoException;
+	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, EncuestaId idEncuesta, boolean manualmente) throws ObjetoNoExistenteException;
 	
-	//RF 11I
+	//RF 11
 	public List<Alumno> listarAlumnos(TipoFiltro filtro, int parametro) throws ProyectoException;
-	
-	//RF 12 - REVISA
-	public void solicitarCambioDeGrupo(Integer idAlumno, List<GruposAsignatura> lista) throws ProyectoException;
 	
 	//RF 14
 	/**

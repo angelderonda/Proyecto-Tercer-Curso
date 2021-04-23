@@ -4,11 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.naming.NamingException;
+import javax.validation.constraints.AssertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +20,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.AlumnoEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAlumno;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.GruposAsignaturaEJB;
+import es.uma.informatica.sii.ejb.practica.ejb.TipoFiltro;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
@@ -25,6 +28,8 @@ import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura.GruposAsignaturaId;
@@ -249,103 +254,119 @@ public class AlumnoPrueba {
 				//OK
 			}
 		}
-		//RF 10
-	/*	@Requisitos({"RF10"})
-		@Test
-		public void testAsignarGrupo(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				fail("No debería lanzarse excepción");
-			}
-		}
+		
 		@Requisitos({"RF10"})
 		@Test
-		public void testAsignarGrupoNoExistente(){
+		public void testAsignarGrupoExistenteNoManual(){
 			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				//OK
-			}
-		}
-		//RF 11
-		@Requisitos({"RF11"})
-		@Test
-		public void testGestionarListadoAlumnos(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
+				/*GruposAsignatura ga = new GruposAsignatura();
+				ga.setCursoAcademico("2021");
+				Grupo grupo = new Grupo();
+				grupo.setCurso(2020);
+				grupo.setId(1231546);
+				grupo.setIngles('0');
+				grupo.setLetra('A');
+				grupo.setPlazas("25");
+				grupo.setTurno_mañana_tarde("Mañana");
+				ga.setGrupoGruposAsignatura(grupo);
+				Asignatura asignatura = new Asignatura();
+		        asignatura.setCodigo(1456156);
+		        asignatura.setCreditosPracticas(6);
+		        asignatura.setCreditosTeoria(6);
+		        asignatura.setDuracion("1º cuatrimestre");
+		        asignatura.setNombre("Cálculo");
+		        asignatura.setOfertada("Si");
+		        asignatura.setReferencia(564846687);
+		        Titulacion t = new Titulacion();
+		        t.setCodigo(1041);
+				t.setCreditos(240);
+				t.setNombre("Informatica");
+		        asignatura.setTitulacionAsignatura(t);     
+		        ga.setAsignaturaGruposAsignatura(asignatura);
+				*/
+				GruposAsignatura ga = new GruposAsignatura();
+				ga.setCursoAcademico("2021");
+				Grupo grupo = new Grupo();
+				grupo.setCurso(2020);
+				grupo.setId(1231546);
+				grupo.setIngles('0');
+				grupo.setLetra('A');
+				grupo.setPlazas("25");
+				grupo.setTurno_mañana_tarde("Mañana");
+				ga.setGrupoGruposAsignatura(grupo);
+				Asignatura asignatura = new Asignatura();
+		        asignatura.setCodigo(1456156);
+		        asignatura.setCreditosPracticas(6);
+		        asignatura.setCreditosTeoria(6);
+		        asignatura.setDuracion("1º cuatrimestre");
+		        asignatura.setNombre("Cálculo");
+		        asignatura.setOfertada("Si");
+		        asignatura.setReferencia(564846687);
+		        Titulacion t = new Titulacion();
+		        t.setCodigo(1041);
+				t.setCreditos(240);
+				t.setNombre("Informatica");
+		        asignatura.setTitulacionAsignatura(t);     
+		        ga.setAsignaturaGruposAsignatura(asignatura);
+				List<GruposAsignatura> listaGa = new ArrayList<GruposAsignatura>();
+				listaGa.add(ga);
+				gestionAlumnos.asignarGrupo(1, listaGa, new EncuestaId(new Date(18 / 05 / 2021),102474112), false);
+			}catch(ProyectoException e) {
 				fail("No debería lanzarse excepción");
-			}
-		}
-		@Requisitos({"RF11"})
-		@Test
-		public void testGestionarListadoAlumnosNoExistente(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				//OK
-			}
-		}
-		
-		//RF 12
-		@Requisitos({"RF12"})
-		@Test
-		public void testSolicitarCambioGrupo(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				fail("No debería lanzarse excepción");
-			}
-		}
-		@Requisitos({"RF12"})
-		@Test
-		public void testSolicitarCambioGrupoNoExistente(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				//OK
 			}
 		}
 
-		//RF 13
-		/*
-		@Requisitos({"RF13"})
+		@Requisitos({"RF10"})
 		@Test
-		public void testNotificarColisionHorario(){
+		public void testAsignarGruponNoExistenteManual(){
 			try {
+				GruposAsignatura ga = new GruposAsignatura();
+				ga.setCursoAcademico("1");
+				Grupo grupo = new Grupo();
+				grupo.setCurso(2020);
+				grupo.setId(1231546);
+				grupo.setIngles('0');
+				grupo.setLetra('A');
+				grupo.setPlazas("25");
+				grupo.setTurno_mañana_tarde("Mañana");
+				ga.setGrupoGruposAsignatura(grupo);
+				Asignatura asignatura = new Asignatura();
+		        asignatura.setCodigo(1456156);
+		        asignatura.setCreditosPracticas(6);
+		        asignatura.setCreditosTeoria(6);
+		        asignatura.setDuracion("1º cuatrimestre");
+		        asignatura.setNombre("Cálculo");
+		        asignatura.setOfertada("Si");
+		        asignatura.setReferencia(564846687);
+		        Titulacion t = new Titulacion();
+		        t.setCodigo(1041);
+				t.setCreditos(240);
+				t.setNombre("Informatica");
+		        asignatura.setTitulacionAsignatura(t);     
+		        ga.setAsignaturaGruposAsignatura(asignatura);
 				
-			}catch(ObjetoNoExistenteException e) {
+				List<GruposAsignatura> listaGa = new ArrayList<GruposAsignatura>();
+				listaGa.add(ga);
+				gestionAlumnos.asignarGrupo(1, listaGa, null, true);
 				fail("No debería lanzarse excepción");
-			}
-		}
-		@Requisitos({"RF13"})
-		@Test
-		public void testNotificarColisionHorarioNoExistente(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				//OK
+			}catch(ProyectoException e) {
+				//Ok
 			}
 		}
 		
-		//RF 14
-		@Requisitos({"RF14"})
+		@Requisitos({"RF11"})
 		@Test
-		public void testRealizarEncuestaPreferencia(){
+		public void testGestionarListadoAlumnos(){
+			//Como solo hay un alumno en el banco de pruebas esto debe ser el alumno 
 			try {
-				
-			}catch(ObjetoNoExistenteException e) {
+				assertTrue(Integer.valueOf(1).compareTo(gestionAlumnos.listarAlumnos(TipoFiltro.TODOS, -1).get(0).getId())==0);
+			}catch (ProyectoException e) {
 				fail("No debería lanzarse excepción");
 			}
 		}
-		@Requisitos({"RF14"})
-		@Test
-		public void testRealizarEncuestaPreferenciaNoExistente(){
-			try {
-				
-			}catch(ObjetoNoExistenteException e) {
-				//OK
-			}
-		}*/
+	
+		
+		
+		
+
 }

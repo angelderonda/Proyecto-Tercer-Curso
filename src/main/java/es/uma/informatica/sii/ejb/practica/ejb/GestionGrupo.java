@@ -23,6 +23,6 @@ public interface GestionGrupo {
 	
 	
 	//RF 9
-	public void gestionarCambioGrupo(Integer idAlumno, List<GruposAsignatura> lista, boolean cambioAceptado) throws ProyectoException;
+	public void gestionarCambioGrupo(Integer idAlumno, List<GruposAsignatura> lista, boolean cambioAceptado) throws ObjetoNoExistenteException;
 	
 }

@@ -16,6 +16,8 @@ import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
+import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
+import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura.GruposAsignaturaId;
 
 @Stateless
 public class GrupoEJB implements GestionGrupo{
@@ -61,8 +63,17 @@ public class GrupoEJB implements GestionGrupo{
 	}
 
 	@Override
-	public void gestionarCambioGrupo(Integer idAlumno, List<GruposAsignatura> lista, boolean cambioAceptado) throws ProyectoException {
+	public void gestionarCambioGrupo(Integer idAlumno, List<GruposAsignatura> lista, boolean cambioAceptado) throws ObjetoNoExistenteException {
 		Alumno alumno = em.find(Alumno.class, idAlumno);
+		for (GruposAsignatura ga : lista) {
+			GruposAsignatura auxga = em.find(GruposAsignatura.class,
+					new GruposAsignaturaId(ga.getCursoAcademico(), ga.getGrupoGruposAsignatura().getId(),
+							new AsignaturaId(ga.getAsignaturaGruposAsignatura().getReferencia(),
+									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
+			if (auxga == null) {
+				throw new ObjetoNoExistenteException("El grupo asignatura no existe: " + auxga);
+			}
+		}
 		if(alumno == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
 		}
@@ -74,7 +85,7 @@ public class GrupoEJB implements GestionGrupo{
 		listaExpedienteAlumno.remove(expediente);
 		Matricula matricula = expediente.getMatriculaActiva();
 		if(matricula == null) {
-			throw new ObjetoNoExistenteException("El matricula que buscas no existe");
+			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}
 		List<Matricula> listaMatriculasExpediente = expediente.getMatriculaExpediente();
 		listaMatriculasExpediente.remove(matricula);

@@ -85,7 +85,7 @@ public class BaseDatos {
 		listaMatricula.add(matricula);
 
 		matricula.setCursoAcademico("2020/2021");
-		matricula.setEstado("Activo");
+		matricula.setEstado("Activa");
 		matricula.setExpedienteMatricula(expediente);
 		matricula.setFechaMatricula(new Date(14 / 11 / 2021));
 		matricula.setNuevoIngreso(1);
@@ -163,6 +163,7 @@ public class BaseDatos {
 		
 		em.persist(gruposAsignatura);
 
+		encuesta.setGruposAsignaturaEncuesta(listaGruposAsignatura);
 		// AsignaturasMatricula
 		AsignaturasMatricula asignaturasMatricula = new AsignaturasMatricula();
 		List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();

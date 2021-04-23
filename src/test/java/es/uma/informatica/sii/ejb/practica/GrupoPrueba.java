@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.naming.NamingException;
@@ -17,7 +19,10 @@ import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.GrupoEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
+import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
+import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class GrupoPrueba {
 	
@@ -151,26 +156,42 @@ public class GrupoPrueba {
 		}
 	}
 
-	/*
-	
-	//RF 9
 	@Requisitos({"RF9"})
 	@Test
 	public void testGestionSolicitudCambioGrupo(){
 		try {
+			GruposAsignatura ga = new GruposAsignatura();
+			ga.setCursoAcademico("2021");
+			Grupo grupo = new Grupo();
+			grupo.setCurso(2020);
+			grupo.setId(1231546);
+			grupo.setIngles('0');
+			grupo.setLetra('A');
+			grupo.setPlazas("25");
+			grupo.setTurno_mañana_tarde("Mañana");
+			ga.setGrupoGruposAsignatura(grupo);
+			Asignatura asignatura = new Asignatura();
+	        asignatura.setCodigo(1456156);
+	        asignatura.setCreditosPracticas(6);
+	        asignatura.setCreditosTeoria(6);
+	        asignatura.setDuracion("1º cuatrimestre");
+	        asignatura.setNombre("Cálculo");
+	        asignatura.setOfertada("Si");
+	        asignatura.setReferencia(564846687);
+	        Titulacion t = new Titulacion();
+	        t.setCodigo(1041);
+			t.setCreditos(240);
+			t.setNombre("Informatica");
+	        asignatura.setTitulacionAsignatura(t);     
+	        ga.setAsignaturaGruposAsignatura(asignatura);
 			
+			List<GruposAsignatura> listaGa = new ArrayList<GruposAsignatura>();
+			listaGa.add(ga);
+			gestionGrupo.gestionarCambioGrupo(1, listaGa, true);
 		}catch(ObjetoNoExistenteException e) {
-			fail("No debería lanzarse excepción");
+			fail("No deberia lanzarse esta excepcion");
 		}
 	}
-	@Requisitos({"RF9"})
-	@Test
-	public void testGestionSolicitudCambioGrupoNoExistente(){
-		try {
-			
-		}catch(ObjetoNoExistenteException e) {
-			//OK
-		}
-	}*/
+	
 
 }

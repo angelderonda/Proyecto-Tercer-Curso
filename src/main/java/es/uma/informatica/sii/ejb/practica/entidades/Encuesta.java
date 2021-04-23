@@ -23,6 +23,16 @@ public class Encuesta implements Serializable{
 		private Date fechaEnvio;
 		
 		private Integer expedienteEncuesta;
+		
+		public EncuestaId() {
+			super();
+		}
+		
+		public EncuestaId(Date fechaEnvio, Integer expedienteEncuesta) {
+			super();
+			this.fechaEnvio = fechaEnvio;
+			this.expedienteEncuesta = expedienteEncuesta;
+		}
 		@Override
 		public int hashCode() {
 			final int prime = 31;
