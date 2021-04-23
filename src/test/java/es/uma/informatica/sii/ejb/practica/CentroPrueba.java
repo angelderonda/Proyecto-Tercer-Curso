@@ -12,19 +12,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.sii.ejb.practica.ejb.CentroEJB;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionAsignatura;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionCentro;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.Centro;
+import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class CentroPrueba {
-
-	private GestionCentro gestionCentro;
+	private GestionCentro gestionCentro;	
 	
 	
 	
-	private static final Logger LOG = Logger.getLogger(CentroPrueba.class.getCanonicalName());
+	//private static final Logger LOG = Logger.getLogger(CentroPrueba.class.getCanonicalName());
 	private static final String CENTRO_EJB = "java:global/classes/CentroEJB";
 	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
 	
@@ -45,7 +46,6 @@ public class CentroPrueba {
 			centro.setDireccion("Calle Miramar");
 			centro.setNombre("E.T.S.I");
 			gestionCentro.createCentro(centro);
-			
 		}catch(ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
@@ -55,10 +55,7 @@ public class CentroPrueba {
 	public void testCrearCentroYaExistente(){
 		try {
 			Centro centro = new Centro();
-			centro.setId(1842);
-			centro.setDireccion("Calle Malaga");
-			centro.setNombre("Centro Informatica");
-			centro.setTelefono_conserjeria("690329116");
+			centro.setId(1041);
 			gestionCentro.createCentro(centro);
 			fail("No debería lanzarse excepción");
 		}catch(ObjetoYaExistenteException e) {
@@ -71,8 +68,8 @@ public class CentroPrueba {
 	@Test
 	public void testLeerCentro(){
 		try {
-			Centro centro = gestionCentro.readCentro(1842);
-			assertTrue(Integer.valueOf(1842).compareTo(centro.getId())==0);			
+			Centro centro = gestionCentro.readCentro(1041);
+			assertTrue(Integer.valueOf(1041).compareTo(centro.getId())==0);			
 			assertEquals("Calle Malaga",centro.getDireccion());
 			assertEquals("Centro Informatica",centro.getNombre());
 			assertEquals("690329116",centro.getTelefonoConserjeria());
@@ -97,7 +94,7 @@ public class CentroPrueba {
 	@Test
 	public void testModificarCentro(){
 		try {
-			Centro centro = gestionCentro.readCentro(1842);
+			Centro centro = gestionCentro.readCentro(1041);
 			centro.setNombre("Salud");
 			centro.setTelefono_conserjeria("7458710");
 			gestionCentro.updateCentro(centro);
@@ -109,7 +106,7 @@ public class CentroPrueba {
 	@Test
 	public void testModificarCentroNoExistente(){
 		try {
-			Centro centro = gestionCentro.readCentro(1842);
+			Centro centro = gestionCentro.readCentro(1041);
 			centro.setId(4178);
 			gestionCentro.updateCentro(centro);
 			fail("No debería lanzarse excepción");
@@ -123,7 +120,7 @@ public class CentroPrueba {
 	@Test
 	public void testEliminarCentro(){
 		try {
-			gestionCentro.deleteCentro(1842);
+			gestionCentro.deleteCentro(1041);
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}

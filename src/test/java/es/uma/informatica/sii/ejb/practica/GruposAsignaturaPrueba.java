@@ -53,7 +53,7 @@ public class GruposAsignaturaPrueba {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	
+	/*
 	@Test
 	public void testCrearGrupoAsignaturaYaExistente(){
 		try {
@@ -160,5 +160,5 @@ public class GruposAsignaturaPrueba {
 		}catch(ObjetoNoExistenteException e) {
 			//OK
 		}
-	}
+	}*/
 }

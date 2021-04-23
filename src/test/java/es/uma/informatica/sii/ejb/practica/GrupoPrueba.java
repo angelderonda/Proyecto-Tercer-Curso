@@ -80,7 +80,7 @@ public class GrupoPrueba {
 	@Test
 	public void testLeerGrupo(){
 		try {
-			Grupo grupo = gestionGrupo.readGrupo(2021);				
+			Grupo grupo = gestionGrupo.readGrupo(1231546);				
 			assertTrue(Integer.valueOf(2021).compareTo(grupo.getCurso())==0);
 			assertTrue(Integer.valueOf(1231546).compareTo(grupo.getId())==0);
 			assertEquals('0',grupo.getIngles());
@@ -106,7 +106,7 @@ public class GrupoPrueba {
 	@Test
 	public void testModificarGrupo(){
 		try {
-			Grupo grupo = gestionGrupo.readGrupo(2021);				
+			Grupo grupo = gestionGrupo.readGrupo(1231546);				
 			grupo.setIngles('1');
 			grupo.setLetra('B');
 			grupo.setPlazas("15");			
@@ -134,7 +134,7 @@ public class GrupoPrueba {
 	@Test
 	public void testEliminarGrupo(){
 		try {
-			gestionGrupo.deleteGrupo(2021);
+			gestionGrupo.deleteGrupo(1231546);
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -143,7 +143,7 @@ public class GrupoPrueba {
 	@Test
 	public void testEliminarGrupoNoExistente(){
 		try {
-			gestionGrupo.deleteGrupo(2018);
+			gestionGrupo.deleteGrupo(1);
 			fail("Debería lanzarse una excepción");
 		}catch(ObjetoNoExistenteException e) {
 			//OK

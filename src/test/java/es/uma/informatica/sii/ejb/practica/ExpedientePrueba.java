@@ -55,7 +55,7 @@ public class ExpedientePrueba {
 			Expediente e = new Expediente();
 			e.setActivo('1');
 			e.setNotaMediaProvisional(8.9f);
-			e.setNumeroExpediente(12345);
+			e.setNumeroExpediente(102474112);
 			gestionExpediente.createExpediente(e);
 			fail("Debería lanzarse una excepción");
 		}catch(ObjetoYaExistenteException e) {

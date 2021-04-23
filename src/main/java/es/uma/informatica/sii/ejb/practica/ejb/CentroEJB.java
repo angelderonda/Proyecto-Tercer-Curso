@@ -1,5 +1,6 @@
 package es.uma.informatica.sii.ejb.practica.ejb;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -8,6 +9,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteExcep
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Centro;
 
+@Stateless
 public class CentroEJB implements GestionCentro{
 	
 	@PersistenceContext(name="Secretaria")
