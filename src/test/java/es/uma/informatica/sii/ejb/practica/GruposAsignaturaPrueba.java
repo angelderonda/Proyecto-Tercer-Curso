@@ -6,10 +6,16 @@ import es.uma.informatica.sii.anotaciones.Requisitos;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
+import javax.naming.NamingException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionGruposAsignatura;
+import es.uma.informatica.sii.ejb.practica.ejb.GestionMatricula;
 import es.uma.informatica.sii.ejb.practica.ejb.GruposAsignaturaEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
@@ -27,13 +33,24 @@ public class GruposAsignaturaPrueba {
 	
 	// Nos da nullPointer en todas y no conseguimos encontrar donde por eso no la hemos incluido en SuiteTest
 	
-	private GruposAsignaturaEJB gestionGruposAsignatura;
+	private GestionGruposAsignatura gestionGruposAsignatura;
 	
-	//RF 4 - CREATE
+	
+	private static final Logger LOG = Logger.getLogger(GruposAsignaturaPrueba.class.getCanonicalName());
+	private static final String GRUPOSASIGNATURA_EJB = "java:global/classes/GruposAsignaturaEJB";
+	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
+	
+	@Before
+	public void setUp() throws NamingException{
+		gestionGruposAsignatura = (GestionGruposAsignatura) SuiteTest.ctx.lookup(GRUPOSASIGNATURA_EJB);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
+	}
+		
+	
 
 	@Requisitos({"RF4"})
 	@Test
-	public void testCrearGrupoAsignatura(){
+	public void testCrearGruposAsignatura(){
 		try {
 			Titulacion t = new Titulacion();
 			t.setCodigo(1041);
@@ -78,13 +95,13 @@ public class GruposAsignaturaPrueba {
 		}catch(ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
-	}	/* 
+	}	
 	@Requisitos({"RF4"})
 	@Test
-	public void testCrearGrupoAsignaturaYaExistente(){
+	public void testCrearGruposAsignaturaYaExistente(){
 		try {
 			GruposAsignatura ga = new GruposAsignatura();
-			ga.setCursoAcademico("2020/2021");
+			ga.setCursoAcademico("2021");
 			
 			Grupo grupo = new Grupo();
 			grupo.setCurso(2020);
@@ -118,7 +135,7 @@ public class GruposAsignaturaPrueba {
 	//RF 4 - READ
 	@Requisitos({"RF4"})
 	@Test
-	public void testLeerGrupoAsignatura(){
+	public void testLeerGruposAsignatura(){
 		try {
 			GruposAsignaturaId gai = new GruposAsignaturaId("2021",1231546, new AsignaturaId(564846687,1041));
 			GruposAsignatura ga = gestionGruposAsignatura.readGrupoAsignatura(gai);
@@ -130,7 +147,7 @@ public class GruposAsignaturaPrueba {
 	}
 	@Requisitos({"RF4"})
 	@Test
-	public void testLeerGrupoAsignaturaNoExistente(){
+	public void testLeerGruposAsignaturaNoExistente(){
 		try {
 			GruposAsignaturaId gai = new GruposAsignaturaId("2000/2001",1231543, new AsignaturaId(564846689,1042));
 			GruposAsignatura ga = gestionGruposAsignatura.readGrupoAsignatura(gai);
@@ -143,9 +160,9 @@ public class GruposAsignaturaPrueba {
 	//RF 4 - UPDATE
 	@Requisitos({"RF4"})
 	@Test
-	public void testModificarGrupoAsignatura(){
+	public void testModificarGruposAsignatura(){
 		try {
-			GruposAsignaturaId gai = new GruposAsignaturaId("2020/2021",1231546, new AsignaturaId(564846687,1041));
+			GruposAsignaturaId gai = new GruposAsignaturaId("2021",1231546, new AsignaturaId(564846687,1041));
 			GruposAsignatura ga = gestionGruposAsignatura.readGrupoAsignatura(gai);
 			ga.setOferta('0');
 			gestionGruposAsignatura.updateGrupoAsignatura(ga);
@@ -155,9 +172,9 @@ public class GruposAsignaturaPrueba {
 	}
 	@Requisitos({"RF4"})
 	@Test
-	public void testModificarGrupoAsignaturaNoExistente(){
+	public void testModificarGruposAsignaturaNoExistente(){
 		try {
-			GruposAsignaturaId gai = new GruposAsignaturaId("2020/2021",1231546, new AsignaturaId(564846687,1041));
+			GruposAsignaturaId gai = new GruposAsignaturaId("2021",1231546, new AsignaturaId(564846687,1041));
 			GruposAsignatura ga = gestionGruposAsignatura.readGrupoAsignatura(gai);
 			ga.setCursoAcademico("2000/2001");
 			gestionGruposAsignatura.updateGrupoAsignatura(ga);
@@ -170,9 +187,10 @@ public class GruposAsignaturaPrueba {
 	//RF 4 - DELETE
 	@Requisitos({"RF4"})
 	@Test
-	public void testEliminarGrupoAsignatura(){
+	public void testEliminarGruposAsignatura(){
 		try {
-			gestionGruposAsignatura.deleteGrupoAsignatura(new GruposAsignaturaId("2020/2021",12345, new AsignaturaId(564846687,1041)));
+			gestionGruposAsignatura.deleteGrupoAsignatura(new GruposAsignaturaId("2021",1231546, new AsignaturaId(564846687,1041)));
+			
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -186,5 +204,5 @@ public class GruposAsignaturaPrueba {
 		}catch(ObjetoNoExistenteException e) {
 			//OK
 		}
-	}*/
+	}
 }

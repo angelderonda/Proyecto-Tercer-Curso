@@ -157,7 +157,7 @@ public class AlumnoPrueba {
 				a.setId(1);
 				
 				GruposAsignatura ga = new GruposAsignatura();
-				ga.setCursoAcademico("2020/2021");
+				ga.setCursoAcademico("2021");
 				
 				Grupo grupo = new Grupo();
 				grupo.setCurso(2020);
@@ -215,7 +215,7 @@ public class AlumnoPrueba {
 		public void testRealizarEncuestaPreferenciaNoExistente(){
 			try {
 				GruposAsignatura ga = new GruposAsignatura();
-				ga.setCursoAcademico("2019/2020");
+				ga.setCursoAcademico("2145");
 				Grupo grupo = new Grupo();
 				grupo.setCurso(2020);
 				grupo.setId(1231546);
