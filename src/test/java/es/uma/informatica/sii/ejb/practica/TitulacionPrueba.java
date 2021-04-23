@@ -26,7 +26,7 @@ public class TitulacionPrueba {
 	private GestionTitulacion gestionTitulacion;
 	
 	
-	private static final Logger LOG = Logger.getLogger(TitulacionPrueba.class.getCanonicalName());
+	//private static final Logger LOG = Logger.getLogger(TitulacionPrueba.class.getCanonicalName());
 	private static final String TITULACION_EJB = "java:global/classes/TitulacionEJB";
 	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
 	
@@ -50,15 +50,13 @@ public class TitulacionPrueba {
 		}catch(ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
-}
-	/*
+	}
+	
 	@Test
 	public void testCrearTitulacionYaExistente(){
 		try {
 			Titulacion t = new Titulacion();
-			t.setCodigo(123);
-			t.setCreditos(6);
-			t.setNombre("pablo");
+			t.setCodigo(1041);			
 			gestionTitulacion.createTitulacion(t);
 			fail("Debería lanzarse una excepción");
 		}catch(ObjetoYaExistenteException e) {
@@ -71,9 +69,9 @@ public class TitulacionPrueba {
 	@Test
 	public void testLeerTitulacion(){
 		try {
-			Titulacion t = gestionTitulacion.readTitulacion(123);
-			assertTrue(Integer.valueOf(6).compareTo(t.getCreditos())==0);
-			assertEquals("pablo", t.getNombre());
+			Titulacion t = gestionTitulacion.readTitulacion(1041);
+			assertTrue(Integer.valueOf(240).compareTo(t.getCreditos())==0);
+			assertEquals("Informatica", t.getNombre());
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -94,9 +92,9 @@ public class TitulacionPrueba {
 	@Test
 	public void testModificarTitulacion(){
 		try {
-			Titulacion t = gestionTitulacion.readTitulacion(123);
+			Titulacion t = gestionTitulacion.readTitulacion(1041);
 			t.setCreditos(9);
-			t.setNombre("ale");
+			t.setNombre("Tecno");
 			gestionTitulacion.updateTitulacion(t);
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
@@ -106,7 +104,7 @@ public class TitulacionPrueba {
 	@Test
 	public void testModificarTitulacionNoExistente(){
 		try {
-			Titulacion t = gestionTitulacion.readTitulacion(123);
+			Titulacion t = gestionTitulacion.readTitulacion(1041);
 			t.setCodigo(415);			
 			gestionTitulacion.updateTitulacion(t);
 			fail("Debería lanzarse una excepción");
@@ -120,7 +118,7 @@ public class TitulacionPrueba {
 	@Test
 	public void testEliminarTitulacion(){
 		try {
-			gestionTitulacion.deleteTitulacion(123);
+			gestionTitulacion.deleteTitulacion(1041);
 		}catch(ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -135,6 +133,6 @@ public class TitulacionPrueba {
 			//OK
 		}
 	}
-	*/
+	
 	
 }

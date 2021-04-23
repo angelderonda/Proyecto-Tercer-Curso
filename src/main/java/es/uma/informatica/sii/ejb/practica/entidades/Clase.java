@@ -77,12 +77,12 @@ public class Clase implements Serializable{
 
 	
 	//Relacion muchos a uno con Asignatura
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Asignatura asignaturaClase;
 	
 	//Relacion muchos a uno con Grupo
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Grupo grupoClase;
 	
 	//Getters and Setters
@@ -142,8 +142,7 @@ public class Clase implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Clase [horaFin=" + horaFin + ", horaInicio=" + horaInicio + ", dia=" + dia + ", asignaturaClase="
-				+ asignaturaClase + ", grupoClase=" + grupoClase + "]";
+		return "Clase [horaInicio=" + horaInicio + ", dia=" + dia + "]";
 	}
 
 	

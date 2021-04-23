@@ -207,11 +207,7 @@ public class Alumno implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", dni=" + dni + ", nombreCompleto=" + nombre + ", apellido1=" + apellido1
-				+ ", apellido2=" + apellido2 + ", emailInstitucional=" + emailInstitucional + ", emailPersonal="
-				+ emailPersonal + ", numeroArchivo=" + numeroArchivo + ", numeroMovil=" + numeroMovil
-				+ ", numeroTelefono=" + numeroTelefono + ", direccion=" + direccion + ", localidad=" + localidad
-				+ ", provincia=" + provincia + ", cp=" + cp + ", expedienteAlumno=" + expedienteAlumno + "]";
+		return "Alumno [id=" + id + ", dni=" + dni + "]";
 	}
 	
 	//HashCode and Equals

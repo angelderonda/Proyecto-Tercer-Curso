@@ -21,9 +21,9 @@ public class GruposAsignatura implements Serializable{
 	public static class GruposAsignaturaId implements Serializable{
 		private static final long serialVersionUID = 1L;		
 		private String cursoAcademico;
-		//PK de grupo		
+			
 		private Integer grupoGruposAsignatura;
-		//PK de asignatura		
+			
 		private AsignaturaId asignaturaGruposAsignatura;
 		
 		public GruposAsignaturaId() {
@@ -86,17 +86,17 @@ public class GruposAsignatura implements Serializable{
 	
 	//Relacion muchos a uno con grupo
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Grupo grupoGruposAsignatura;
 	
 	//Relacion muchos a uno con asignatura
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Asignatura asignaturaGruposAsignatura;
 	
 	
 	//Relacion muchos a muchos con encuesta
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.REMOVE)
 	private List<Encuesta> encuestaGruposAsignatura;
 		
 	//Getters and Setters
@@ -137,7 +137,7 @@ public class GruposAsignatura implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "GruposAsignatura [curso_academico=" + cursoAcademico + ", oferta=" + oferta + "]";
+		return "GruposAsignatura [curso_academico=" + cursoAcademico + "]";
 	}
 	
 	//HashCode and Equals

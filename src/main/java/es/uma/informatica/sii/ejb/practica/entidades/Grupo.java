@@ -34,26 +34,26 @@ public class Grupo implements Serializable{
 
 		
 	//Relacion reflexiva
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.REMOVE)
 	@JoinColumn(name = "grupoReflexiva")
 	private Grupo grupoReflexiva;
-	@OneToMany(mappedBy = "grupoReflexiva")
+	@OneToMany(mappedBy = "grupoReflexiva",cascade=CascadeType.REMOVE)
 	private List<Grupo> grupoGrupo;	
 	
 	//Relacion muchos a uno con titulacion
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Titulacion titulacionGrupo;
 	
 	//Relacion uno a muchos con clase
-	@OneToMany(mappedBy="grupoClase")
+	@OneToMany(mappedBy="grupoClase",cascade=CascadeType.REMOVE)
 	private List<Clase> clasesGrupo;
 	
 	//Relacion uno a muchos con Asignaturas_Matricula
-	@OneToMany(mappedBy="grupoAsignaturasMatricula")
+	@OneToMany(mappedBy="grupoAsignaturasMatricula",cascade=CascadeType.REMOVE)
 	private List<AsignaturasMatricula> asignaturasMatriculaGrupo;
 	
 	//Relacion uno a muchos con gruposAsignatura
-	@OneToMany(mappedBy="grupoGruposAsignatura")
+	@OneToMany(mappedBy="grupoGruposAsignatura",cascade=CascadeType.REMOVE)
 	private List<GruposAsignatura> gruposAsignaturaGrupo;
 	
 	//Getters and Setters
@@ -202,11 +202,8 @@ public class Grupo implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Grupo [id=" + id + ", asignar=" + asignar + ", curso=" + curso + ", ingles=" + ingles + ", letra="
-				+ letra + ", plazas=" + plazas + ", turno_mañana_tarde=" + turno_mañana_tarde + ", visible=" + visible
-				+ ", grupoReflexiva=" + grupoReflexiva + ", grupoGrupo=" + grupoGrupo + ", titulacionGrupo="
-				+ titulacionGrupo + ", clasesGrupo=" + clasesGrupo + ", asignaturasMatriculaGrupo="
-				+ asignaturasMatriculaGrupo + ", gruposAsignaturaGrupo=" + gruposAsignaturaGrupo + "]";
+		return "Grupo [id=" + id +  ", curso=" + curso + ", letra="
+				+ letra + "]";
 	}
 
 

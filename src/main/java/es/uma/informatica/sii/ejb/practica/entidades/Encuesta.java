@@ -19,9 +19,9 @@ public class Encuesta implements Serializable{
 	public static class EncuestaId implements Serializable{
 
 		private static final long serialVersionUID = 1L;
-		@SuppressWarnings("unused")
+		
 		private Date fechaEnvio;
-		@SuppressWarnings("unused")
+		
 		private Integer expedienteEncuesta;
 		@Override
 		public int hashCode() {
@@ -64,11 +64,11 @@ public class Encuesta implements Serializable{
 	@Column(name="FECHA_ENVIO", nullable = false)
 	private Date fechaEnvio;
 		
-	@ManyToMany(mappedBy = "encuestaGruposAsignatura")
+	@ManyToMany(mappedBy = "encuestaGruposAsignatura",cascade=CascadeType.REMOVE)
 	private List<GruposAsignatura> gruposAsignaturaEncuesta;
 	
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Expediente expedienteEncuesta;
 	
 	
@@ -103,8 +103,7 @@ public class Encuesta implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Encuesta [fechaEnvio=" + fechaEnvio + ", grupoAsignaturaEncuesta=" + gruposAsignaturaEncuesta
-				+ ", expedienteEncuesta=" + expedienteEncuesta + "]";
+		return "Encuesta [fechaEnvio=" + fechaEnvio + "]";
 	}	
 	
 	//HashCode and Equals

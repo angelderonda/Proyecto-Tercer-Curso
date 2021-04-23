@@ -30,7 +30,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	public Titulacion readTitulacion(Integer codigo) throws ObjetoNoExistenteException {
 		
 		Titulacion aux = em.find(Titulacion.class,codigo);
-		if(aux != null) {
+		if(aux == null) {
 			throw new ObjetoNoExistenteException("Titulación no encontrada");
 		}		
 		return aux;
@@ -41,7 +41,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	public void updateTitulacion(Titulacion titulacion) throws ObjetoNoExistenteException {
 		
 		Titulacion aux = em.find(Titulacion.class,titulacion.getCodigo());
-		if(aux != null) {
+		if(aux == null) {
 			throw new ObjetoNoExistenteException("Titulación no encontrada");
 		}		
 		//aux = codigo;
@@ -53,10 +53,11 @@ public class TitulacionEJB implements GestionTitulacion {
 	public void deleteTitulacion(Integer codigo) throws ObjetoNoExistenteException {
 		
 		Titulacion aux = em.find(Titulacion.class,codigo);
-		if(aux != null) {
+		if(aux == null) {
 			throw new ObjetoNoExistenteException("Titulación no encontrada");
-		}		
-		em.remove(aux);		
+		}	
+		em.remove(aux);
+		//em.remove(em.merge(aux));		
 
 	}
 

@@ -25,19 +25,19 @@ public class Titulacion implements Serializable{
 
 	
 	//Relacion uno a muchos con asignatura
-	@OneToMany(mappedBy="titulacionAsignatura")
+	@OneToMany(mappedBy="titulacionAsignatura",cascade=CascadeType.REMOVE)
 	private List<Asignatura> asignaturaTitulacion;
 	
 	//Relacion uno a muchos con expediente
-	@OneToMany(mappedBy="titulacionExpediente")
+	@OneToMany(mappedBy="titulacionExpediente",cascade=CascadeType.REMOVE)
 	private List<Expediente> expedienteTitulacion;
 	
 	//Relacion muchos a muchos con centro
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.REMOVE)
 	private List<Centro> centroTitulacion;
 	
 	//Relacion uno a muchos con grupo
-	@OneToMany(mappedBy = "titulacionGrupo")
+	@OneToMany(mappedBy = "titulacionGrupo",cascade=CascadeType.REMOVE)
 	private List<Grupo> grupoTitulacion;
 	
 	//Getters y Setters
@@ -103,9 +103,7 @@ public class Titulacion implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre
-				+ ", asignaturaTitulacion=" + asignaturaTitulacion + ", expedienteTitulacion=" + expedienteTitulacion
-				+ ", centroTitulacion=" + centroTitulacion + ", grupoTitulacion=" + grupoTitulacion + "]";
+		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre +  "]";
 	}
 	
 	

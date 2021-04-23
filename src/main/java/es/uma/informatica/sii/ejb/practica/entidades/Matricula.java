@@ -85,11 +85,11 @@ public class Matricula implements Serializable{
 
 	//Relacion muchos a uno con expediente
 	@Id
-	@ManyToOne(optional = false)	
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)	
 	private Expediente expedienteMatricula;
 	
 	//Relacion uno a muchos con asignaturaMatricula
-	@OneToMany(mappedBy="matriculaAsignaturasMatricula")
+	@OneToMany(mappedBy="matriculaAsignaturasMatricula",cascade=CascadeType.REMOVE)
 	private List<AsignaturasMatricula> asignaturasMatriculaMatricula;
 	
 
@@ -166,10 +166,7 @@ public class Matricula implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Matricula [cursoAcademico=" + cursoAcademico + ", estado=" + estado + ", fechaMatricula="
-				+ fechaMatricula + ", nuevoIngreso=" + nuevoIngreso + ", numeroArchivo=" + numeroArchivo
-				+ ", turnoPreferente=" + turnoPreferente + ", expedienteMatricula=" + expedienteMatricula
-				+ ", asignaturasMatriculaMatricula=" + asignaturasMatriculaMatricula + "]";
+		return "Matricula [cursoAcademico=" + cursoAcademico + "]";
 	}
 	
 	

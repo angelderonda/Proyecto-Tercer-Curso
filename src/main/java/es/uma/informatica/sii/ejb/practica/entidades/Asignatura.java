@@ -96,19 +96,19 @@ public class Asignatura implements Serializable{
 	
 	//Relacion muchos a uno con titulacion
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Titulacion titulacionAsignatura;
 	
 	//Relacion uno a muchos con clase
-	@OneToMany(mappedBy="asignaturaClase")
+	@OneToMany(mappedBy="asignaturaClase",cascade=CascadeType.REMOVE)
 	private List<Clase> claseAsignatura;
 
 	//Relacion uno a muchos con gruposAsignatura
-	@OneToMany(mappedBy="asignaturaGruposAsignatura")
+	@OneToMany(mappedBy="asignaturaGruposAsignatura",cascade=CascadeType.REMOVE)
 	private List<GruposAsignatura> gruposAsignaturaAsignatura;
 		
 	//Relacion uno a muchos con asignaturaMatricula
-	@OneToMany(mappedBy="asignaturaAsignaturasMatricula")
+	@OneToMany(mappedBy="asignaturaAsignaturasMatricula",cascade=CascadeType.REMOVE)
 	private List<AsignaturasMatricula> asignaturasMatriculaAsignatura;
 
 	//Getters and Setters
@@ -238,12 +238,7 @@ public class Asignatura implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", curso=" + curso + ", creditosTeoria="
-				+ creditosTeoria + ", creditosPracticas=" + creditosPracticas + ", nombre=" + nombre + ", duracion="
-				+ duracion + ", ofertada=" + ofertada + ", tipo=" + tipo + ", plazas=" + plazas + ", otro_idioma="
-				+ otro_idioma + ", titulacionAsignatura=" + titulacionAsignatura + ", claseAsignatura="
-				+ claseAsignatura + ", gruposAsignaturaAsignatura=" + gruposAsignaturaAsignatura
-				+ ", asignaturasMatriculaAsignatura=" + asignaturasMatriculaAsignatura + "]";
+		return "Asignatura [referencia=" + referencia + "]";
 	}
 
 	//HashCode and Equals

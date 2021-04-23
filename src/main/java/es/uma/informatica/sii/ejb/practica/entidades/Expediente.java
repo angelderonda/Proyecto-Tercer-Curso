@@ -40,19 +40,19 @@ public class Expediente implements Serializable{
 
 
 	// Relacion muchos a uno con titulacion
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Titulacion titulacionExpediente;
 
 	// Relacion muchos a uno con Alumnos
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Alumno alumnoExpediente;
 
 	//Relacion uno a muchos con Encuesta
-	@OneToMany(mappedBy = "expedienteEncuesta")
+	@OneToMany(mappedBy = "expedienteEncuesta",cascade=CascadeType.REMOVE)
 	private List<Encuesta> encuestaExpediente;
 	
 	// Relacion uno a muchos con Matricula
-	@OneToMany(mappedBy = "expedienteMatricula")
+	@OneToMany(mappedBy = "expedienteMatricula",cascade=CascadeType.REMOVE)
 	private List<Matricula> matriculaExpediente;
 
 	//Getters y Setters
@@ -169,9 +169,7 @@ public class Expediente implements Serializable{
 		return "Expediente [numeroExpediente=" + numeroExpediente + ", activo=" + activo + ", creditosCF=" + creditosCF
 				+ ", creditosFB=" + creditosFB + ", creditosMO=" + creditosMO + ", creditosOP=" + creditosOP
 				+ ", creditosPE=" + creditosPE + ", creditosTF="
-				+ creditosTF + ", notaMediaProvisional=" + notaMediaProvisional + ", titulacionExpediente="
-				+ titulacionExpediente + ", alumnoExpediente=" + alumnoExpediente + ", encuestaExpediente="
-				+ encuestaExpediente + ", matriculaExpediente=" + matriculaExpediente + "]";
+				+ creditosTF + ", notaMediaProvisional=" + notaMediaProvisional + "]";
 	}
 	
 	//HashCode and Equals

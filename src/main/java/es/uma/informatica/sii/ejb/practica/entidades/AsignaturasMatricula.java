@@ -70,16 +70,16 @@ public class AsignaturasMatricula implements Serializable{
 	
 	//Relacion muchos a uno con asignatura
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Asignatura asignaturaAsignaturasMatricula;
 	
 	//Relacion muchos a uno con matricula
 	@Id
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Matricula matriculaAsignaturasMatricula;
 	
 	//Relacion muchos a uno con grupo
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
 	private Grupo grupoAsignaturasMatricula;
 
 	//Getters y Setters
@@ -107,4 +107,46 @@ public class AsignaturasMatricula implements Serializable{
 	public void setGrupoAsignaturasMatricula(Grupo grupoAsignaturasMatricula) {
 		this.grupoAsignaturasMatricula = grupoAsignaturasMatricula;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((asignaturaAsignaturasMatricula == null) ? 0 : asignaturaAsignaturasMatricula.hashCode());
+		result = prime * result
+				+ ((matriculaAsignaturasMatricula == null) ? 0 : matriculaAsignaturasMatricula.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AsignaturasMatricula other = (AsignaturasMatricula) obj;
+		if (asignaturaAsignaturasMatricula == null) {
+			if (other.asignaturaAsignaturasMatricula != null)
+				return false;
+		} else if (!asignaturaAsignaturasMatricula.equals(other.asignaturaAsignaturasMatricula))
+			return false;
+		if (matriculaAsignaturasMatricula == null) {
+			if (other.matriculaAsignaturasMatricula != null)
+				return false;
+		} else if (!matriculaAsignaturasMatricula.equals(other.matriculaAsignaturasMatricula))
+			return false;
+		return true;
+	}
+	
+	//NO NECESITA DE TO STRING AL SER UNA TABLA INTERMEDIA
+	
+	
+	
+	
+	
+	
+	
 }

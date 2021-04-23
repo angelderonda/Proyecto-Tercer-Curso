@@ -27,7 +27,7 @@ public class Centro implements Serializable{
 	private String telefonoConserjeria;
 	
 	
-	@ManyToMany(mappedBy = "centroTitulacion")
+	@ManyToMany(mappedBy = "centroTitulacion",cascade=CascadeType.REMOVE)
 	private List<Titulacion> titulacionCentro;	
 	
 	//Getters and Setters
@@ -63,5 +63,46 @@ public class Centro implements Serializable{
 	public void setTelefono_conserjeria(String telefonoConserjeria) {
 		this.telefonoConserjeria = telefonoConserjeria;
 	}
+
+	//toString
+	
+	@Override
+	public String toString() {
+		return "Centro [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+	//equals y hashcode
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Centro other = (Centro) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }
