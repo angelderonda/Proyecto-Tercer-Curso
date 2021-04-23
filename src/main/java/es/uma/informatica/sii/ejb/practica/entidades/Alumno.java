@@ -60,7 +60,7 @@ public class Alumno implements Serializable {
 
 	
 	
-	@OneToMany(mappedBy = "alumnoExpediente")
+	@OneToMany(mappedBy = "alumnoExpediente",cascade=CascadeType.REMOVE)
 	private List<Expediente> expedienteAlumno;
 	
 	//Getter y setters

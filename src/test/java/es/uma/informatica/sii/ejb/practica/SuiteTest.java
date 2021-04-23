@@ -14,8 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import es.uma.informatica.sii.ejb.practica.entidades.*;
 
 @RunWith(Suite.class)
-//@SuiteClasses({AsignaturaPrueba.class,CentroPrueba.class,ExpedientePrueba.class, GrupoPrueba.class, MatriculaPrueba.class, TitulacionPrueba.class})
-@SuiteClasses( {ExpedientePrueba.class})
+@SuiteClasses({AlumnoPrueba.class, AsignaturaPrueba.class,CentroPrueba.class,ExpedientePrueba.class, GrupoPrueba.class, MatriculaPrueba.class, TitulacionPrueba.class})
 public class SuiteTest {
 	
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";

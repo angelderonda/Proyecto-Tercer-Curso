@@ -21,7 +21,9 @@ public class GruposAsignaturaEJB implements GestionGruposAsignatura{
 	public void createGruposAsignatura(GruposAsignatura gruposAsignatura) throws ObjetoYaExistenteException {
 		
 		Asignatura asignatura = gruposAsignatura.getAsignaturaGruposAsignatura();
-		
+		if(asignatura == null) {
+			throw new ObjetoYaExistenteException("La asignatura asignatura no existe");
+		}
 		GruposAsignatura aux = em.find(GruposAsignatura.class, new GruposAsignaturaId(gruposAsignatura.getCursoAcademico()
 				,gruposAsignatura.getGrupoGruposAsignatura().getId(),
 				new AsignaturaId(asignatura.getReferencia(),asignatura.getTitulacionAsignatura().getCodigo())));
