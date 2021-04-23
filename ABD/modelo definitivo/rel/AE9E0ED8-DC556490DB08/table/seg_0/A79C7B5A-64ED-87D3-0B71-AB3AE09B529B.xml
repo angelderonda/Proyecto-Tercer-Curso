@@ -48,8 +48,8 @@
 <ownerDesignName>modelo definitivo</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <use>0</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<domain>C01A78D4-3181-7C43-D7BB-7ED04DF8348F</domain>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>2E389EC8-6B55-BA55-D451-D8B3ADCC8918</domain>
 <defaultValue>&apos;0&apos;</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>

@@ -13,6 +13,7 @@ import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.informatica.sii.ejb.practica.ejb.GruposAsignaturaEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
+import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
 import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
@@ -29,7 +30,7 @@ public class GruposAsignaturaPrueba {
 	private GruposAsignaturaEJB gestionGruposAsignatura;
 	
 	//RF 4 - CREATE
-	/* 
+
 	@Requisitos({"RF4"})
 	@Test
 	public void testCrearGrupoAsignatura(){
@@ -43,11 +44,22 @@ public class GruposAsignaturaPrueba {
 			
 			Grupo grupo = new Grupo();
 			grupo.setId(1231546);
+			grupo.setLetra('A');
+			grupo.setCurso(2021);
 			grupo.setTitulacionGrupo(t);
 			
 	        //Creamos el mismo expediente que tenemos en BaseDatos.java
+			
+			Alumno a = new Alumno();
+			a.setId(1);
+			a.setDni("254789E");
+			a.setNombreCompleto("Pepito");
+			
 			Expediente expediente = new Expediente();				
 			expediente.setNumeroExpediente(102474112);
+			expediente.setTitulacionExpediente(t);
+			expediente.setAlumnoExpediente(a);
+			
 	        // Encuesta
 			Encuesta encuesta = new Encuesta();
 			encuesta.setFechaEnvio(new Date(18 / 05 / 2021));
@@ -57,21 +69,23 @@ public class GruposAsignaturaPrueba {
 			
 			GruposAsignatura ga = new GruposAsignatura();
 			ga.setCursoAcademico("2020/2021");
+			ga.setOferta('1');
 			ga.setGrupoGruposAsignatura(grupo);
 	        ga.setAsignaturaGruposAsignatura(asignatura);
 	        ga.setEncuestaGruposAsignatura(listaEncuesta);
-	        
+	      
 	        gestionGruposAsignatura.createGruposAsignatura(ga); 
 		}catch(ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
-	}
+	}	/* 
 	@Requisitos({"RF4"})
 	@Test
 	public void testCrearGrupoAsignaturaYaExistente(){
 		try {
 			GruposAsignatura ga = new GruposAsignatura();
 			ga.setCursoAcademico("2020/2021");
+			
 			Grupo grupo = new Grupo();
 			grupo.setCurso(2020);
 			grupo.setId(1231546);

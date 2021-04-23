@@ -40,7 +40,7 @@ public interface GestionAlumno {
 	 * @param lista
 	 * @throws ProyectoException
 	 */
-	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista) throws ProyectoException;
+	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista) throws ObjetoYaExistenteException,ObjetoNoExistenteException;
 	
 	
 	

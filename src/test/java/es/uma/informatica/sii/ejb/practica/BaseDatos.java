@@ -160,6 +160,7 @@ public class BaseDatos {
 		gruposAsignatura.setGrupoGruposAsignatura(grupo);
 		gruposAsignatura.setAsignaturaGruposAsignatura(asignatura);
 		gruposAsignatura.setEncuestaGruposAsignatura(listaEncuesta);
+		
 		em.persist(gruposAsignatura);
 
 		// AsignaturasMatricula

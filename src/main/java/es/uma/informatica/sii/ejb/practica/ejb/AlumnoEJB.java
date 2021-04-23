@@ -108,7 +108,7 @@ public class AlumnoEJB implements GestionAlumno {
 	}
 
 	@Override
-	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista) throws ProyectoException {
+	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista) throws ObjetoNoExistenteException, ObjetoYaExistenteException {
 		// TODO Auto-generated method stub
 		Alumno aux = em.find(Alumno.class, idAlumno);
 		if (aux == null) {
@@ -130,7 +130,7 @@ public class AlumnoEJB implements GestionAlumno {
 		// Obtenemos el expediente activo
 		Expediente exp = aux.getExpedienteActivo();
 		if (exp == null)
-			throw new ProyectoException();
+			throw new ObjetoNoExistenteException("El expediente no existe");
 		encuesta.setExpedienteEncuesta(exp);
 		// Obtenemos la lista de encuestas del expediente y añadimos la encuesta recien
 		// creada
