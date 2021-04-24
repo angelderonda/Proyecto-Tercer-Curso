@@ -20,3 +20,154 @@ Sea una relación entre la clase 'A' y la clase 'B':
 ## Aclaración sobre scripts generados
 
 * El archivo con nombre *generacion-DM.ddl* es el que genera el DataModeler y el que tiene el nombre *proyecto.sql* es el que genera Eclipse.
+
+
+## Cambios en los requisitos respecto a la primera entrega:
+
+
+* RF-11 -> Gestionar listado de alumnos: el listado según los grupos era opcional en un principio y hemos decidido finalmente no implementarlo. Hemos añadido mostrar un listado de todos los alumnos y un listado de los alumnos con una nota media provisional mayor a una dada.
+
+* RF-12 -> Solicitar cambio de grupo: tal y como habíamos planteado este requisito no tuvimos en cuenta que era necesario modelar la entidad 'Documentacion' y que también sería necesario en un futuro crear una página web desde el lado del alumno para solicitar el cambio. Por cuestiones de tiempo y de como lo hemos querido implementar, pensamos que es mejor que la solicitud del cambio se gestione una vez que el alumno haya entregado la documentación presencialmente en secretaría. Por ello, no son necesarios ni este requisito ni la página web y bastaría con el RF-9 gestionar cambio de grupo.
+
+
+* RF-13 -> Notificar colisión de horario: era un requisito opcional y,tras una reunión con el profesor, nos hemos dado cuenta de que áun no se nos han entregado los horarios disponibles aún para implementarlo. Intentaremos en el futuro dentro de las posibilidades y el tiempo disponible implementar este requisito, aunque no es seguro.
+
+
+## Cambios entidades JPA respecto a la primera entrega:
+
+
+* Cambios de la clase Alumno:
+
+	-Incluidos los NamedQueries de la clase para buscar alumnos en la base de datos.
+	-Hemos separado el atributo nombreCompleto en nombre, apellido1 y apellido2 de tipo string todos.
+	-Hemos añadido el atributo numeroArchivo de tipo String.
+	-Los atributos numeroMovil y numeroTelefono cambian de tipo Long a tipo String.
+	-Añadidos los atributos direccion, localidad y provincia de tipo String.
+	-Añadido el atributo cp de tipo Integer.
+	-La relación expedienteAlumno incluye un "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados para los nuevos atributos.
+	-toString actualizado.
+	-Nuevo método getExpedienteActivo para obtener los expedientes con el atributo activo en '1'.
+
+
+* Cambios de la clase Asignatura:
+
+	-Creación de una IdClass AsignaturaId que recoge referencia y titulacionAsignatura. También incluye constructor con los atributos por parámetros y hashCode e equals.
+	-Cambio del InheritanceType de SINGLE_TABLE a TABLE_PER_CLASS.
+	-El atributo referencia (primary key) cambia de tipo Long a Integer.
+	-Se ha eliminado el atributo creditos y se han añadido dos nuevos llamados creditosPracticas y creditosTeoria de tipo Integer.
+	-El atributo duracion pasa a ser "nullable = false".
+	-El atributo ofertada pasa de tipo Boolean a tipo String.
+	-Dos nuevos atributos plazas y otro_idioma tipos String.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-La relación titulacion asignatura pasa a ser @Id de forma que esta clase pasa a ser una weak entity.
+	-Getters y Setters actualizados para los nuevos atributos.
+	-toString actualizado.
+	-hashCode e equals actualizados.
+
+
+* Cambios de la clase AsignaturasMatricula:
+
+	-La subclase AsignaturasMatriculaId incluye ahora hashCode e equals.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters añadidos.
+	-hashCode e equals añadidos.
+
+
+* Cambios de la clase Centro:
+
+	-El atributo telefonoConserjeria pasa de tipo Long a tipo String.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString añadido.
+	-hashCode e equals añadidos.
+
+
+* Cambios de la clase Clase:
+
+	-Creación de una IdClass ClaseId que recoge hora, diaInicio y grupoClase. También incluye hashCode e equals.
+	-Se ha eliminado el atributo ClaseId.
+	-Se ha cambiado el atributo horaFin de "TemporalType.TIME" a "TemporalType.DATE".
+	-Se ha añadido nuevo atributo horaInicio tipo Date, con "nullable = false", "TemporalType.DATE" e @Id.
+	-Se ha añadido nuevo atributo dia tipo Date, con "nullable = false", "TemporalType.DATE" e @Id.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados para los nuevos atributos.
+	-toString actualizado.
+	-hashCode e equals actualizados.
+
+
+* Cambios de la clase ClaseId:
+
+	*ESTA CLASE HA SIDO ELIMINADA Y AÑADIDA COMO SUBCLASE DE LA CLASE: Clase.*
+
+
+* Cambios de la clase Encuesta:
+
+	-La subclase EncuestaId incluye ahora hashCode e equals y 2 nuevos constructores añadidos, 1 con parámetros y otro sin parámetros.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString actualizado.
+	-hashCode e equals actualizados.
+
+
+* Cambios de la clase Expediente:
+
+	-El atributo numeroExpediente pasa de tipo Long a tipo Integer.
+	-El atributo activo pasa de tipo Boolean a tipo char e incluye columnDefinition = "char(1) default '1'".
+	-El atributo notaMediaProvisional pasa de tipo Integer a Float.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString actualizado.
+	-hashCode e equals actualizados.
+	-Hemos añadido un nuevo método getMatriculaActiva para obtener la matrícula activa del expediente.
+
+
+* Cambios de la clase Grupo:
+
+	-El atributo ingles pasa de tipo Boolean a tipo char e incluye columnDefinition = "char(1) default '0' not null".
+	-El atributo letra incluye columnDefinition = "char(1) not null".
+	-El atributo plazas pasa de tipo Integer a tipo String.
+	-El atributo visible incluye columnDefinition = "char(1) default '0'".
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString actualizado.
+
+
+* Cambios de la clase GruposAsignatura:
+
+	-La subclase GruposAsignaturaId incluye ahora hashCode e equals y 2 nuevos constructores añadidos, 1 con parámetros y otro sin parámetros. El atributo cursoAcademico pasa de 		 tipo Integer a String. El atributo asignaturaGruposAsignatura pasa de tipo Long a AsignaturaId.
+	-El atributo cursoAcademico pasa de tipo Integer a tipo String.
+	-El atributo oferta ahora incluye columnDefinition = "char(1)".
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString actualizado.
+
+
+* Cambios de la clase Matricula:
+
+	-La subclase MatriculaId incluye ahora hashCode e equals y 2 nuevos constructores añadidos, 1 con parámetros y otro sin parámetros. El atributo cursoAcademico pasa de tipo 		 Integer a String. El atributo expedienteMatricula pasa de tipo Long a Integer.
+	-El atributo cursoAcademico pasa de tipo Integer a tipo String.
+	-El atributo estado ahora incluye columnDefinition = "VARCHAR2(100) DEFAULT 'Activa'".
+	-El atributo fechaMatricula pasa de tipo String a tipo Date.
+	-El atributo nuevoIngreso pasa de tipo Boolean a tipo Integer e incluye columnDefinition = "number(1) default 1".
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString actualizado.
+	-hashCode e equals actualizados.
+
+
+* Cambios de la clase Optativa:
+
+	-@DiscriminatorValue("O") quitado.
+	-El atributo plazas pasa de tipo Integer a tipoString.
+	-Getters y Setters actualizados.
+
+
+* Cambios de la clase Titulacion:
+
+	-El atributo codigo pasa de tipo Long a tipo Integer.
+	-Todas las relaciones pasan a añadir "cascade=CascadeType.REMOVE".
+	-Getters y Setters actualizados.
+	-toString actualizado.
+
+

@@ -3,7 +3,6 @@ package es.uma.informatica.sii.ejb.practica;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.Date;
 import java.util.logging.Logger;
 
 import javax.naming.NamingException;
@@ -12,39 +11,30 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
-import es.uma.informatica.sii.ejb.practica.ejb.AsignaturaEJB;
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAsignatura;
-import es.uma.informatica.sii.ejb.practica.ejb.GestionTitulacion;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
-import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura.GruposAsignaturaId;
-import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
-import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class AsignaturaPrueba {
 
-	private GestionAsignatura gestionAsignatura;	
-	
-	
-	
+	private GestionAsignatura gestionAsignatura;
+
 	private static final Logger LOG = Logger.getLogger(AsignaturaPrueba.class.getCanonicalName());
 	private static final String ASIGNATURA_EJB = "java:global/classes/AsignaturaEJB";
 	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
-	
+
 	@Before
-	public void setUp() throws NamingException{
+	public void setUp() throws NamingException {
 		gestionAsignatura = (GestionAsignatura) SuiteTest.ctx.lookup(ASIGNATURA_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
 	}
-	
 
-	//RF 1 - CREATE
-	@Requisitos({"RF1"})
+	@Requisitos({ "RF1" })
 	@Test
-	public void testCrearAsignatura(){
+	public void testCrearAsignatura() {
 		try {
 			Asignatura a = new Asignatura();
 			a.setReferencia(564846680);
@@ -57,15 +47,16 @@ public class AsignaturaPrueba {
 			Titulacion t = new Titulacion();
 			t.setCodigo(1041);
 			a.setTitulacionAsignatura(t);
-			gestionAsignatura.createAsignatura(a); 
-			
-		}catch(ObjetoYaExistenteException e) {
+			gestionAsignatura.createAsignatura(a);
+
+		} catch (ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testCrearAsignaturaYaExistente(){
+	public void testCrearAsignaturaYaExistente() {
 		try {
 			Asignatura asignatura = new Asignatura();
 			asignatura.setCodigo(1456156);
@@ -79,87 +70,87 @@ public class AsignaturaPrueba {
 			asignatura.setPlazas("25");
 			asignatura.setReferencia(564846687);
 			asignatura.setTipo("Obligatoria");
-	        Titulacion titulacion = new Titulacion();
-	        titulacion.setCodigo(1041);
-	        asignatura.setTitulacionAsignatura(titulacion);     
-	        gestionAsignatura.createAsignatura(asignatura);
-	        fail("No debería lanzarse excepción");
-		}catch(ObjetoYaExistenteException e) {
-			//OK
+			Titulacion titulacion = new Titulacion();
+			titulacion.setCodigo(1041);
+			asignatura.setTitulacionAsignatura(titulacion);
+			gestionAsignatura.createAsignatura(asignatura);
+			fail("No debería lanzarse excepción");
+		} catch (ObjetoYaExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 1 - READ
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testLeerAsignatura(){
+	public void testLeerAsignatura() {
 		try {
-			AsignaturaId asignatura = new AsignaturaId(564846687,1041);
+			AsignaturaId asignatura = new AsignaturaId(564846687, 1041);
 			Asignatura asigna = gestionAsignatura.readAsignatura(asignatura);
-			assertEquals(Integer.valueOf(1041),asigna.getTitulacionAsignatura().getCodigo());
-			assertEquals("Si",asigna.getOfertada());
-		}catch(ObjetoNoExistenteException e) {
+			assertEquals(Integer.valueOf(1041), asigna.getTitulacionAsignatura().getCodigo());
+			assertEquals("Si", asigna.getOfertada());
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testLeerAsignaturaNoExistente(){
+	public void testLeerAsignaturaNoExistente() {
 		try {
-			AsignaturaId asignatura = new AsignaturaId(1,1041);
+			AsignaturaId asignatura = new AsignaturaId(1, 1041);
 			Asignatura asigna = gestionAsignatura.readAsignatura(asignatura);
 			fail("Debería lanzarse excepción.");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 1 - UPDATE
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testModificarAsignatura(){
+	public void testModificarAsignatura() {
 		try {
-			AsignaturaId asignatura = new AsignaturaId(564846687,1041);
+			AsignaturaId asignatura = new AsignaturaId(564846687, 1041);
 			Asignatura asigna = gestionAsignatura.readAsignatura(asignatura);
 			asigna.setOfertada("No");
 			gestionAsignatura.updateAsignatura(asigna);
-		}catch(ObjetoNoExistenteException e) {
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testModificarAsignaturaNoExistente(){
+	public void testModificarAsignaturaNoExistente() {
 		try {
-			AsignaturaId asignatura = new AsignaturaId(564846687,1041);
+			AsignaturaId asignatura = new AsignaturaId(564846687, 1041);
 			Asignatura asigna = gestionAsignatura.readAsignatura(asignatura);
 			asigna.setReferencia(5648460);
 			gestionAsignatura.updateAsignatura(asigna);
 			fail("Debería lanzarse excepción.");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 1 - DELETE
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testEliminarAsignatura(){
+	public void testEliminarAsignatura() {
 		try {
-			
-			gestionAsignatura.deleteAsignatura(new AsignaturaId(564846687,1041));
-			
-		}catch(ObjetoNoExistenteException e) {
+
+			gestionAsignatura.deleteAsignatura(new AsignaturaId(564846687, 1041));
+
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF1"})
+
+	@Requisitos({ "RF1" })
 	@Test
-	public void testEliminarAsignaturaNoExistente(){
+	public void testEliminarAsignaturaNoExistente() {
 		try {
-			gestionAsignatura.deleteAsignatura(new AsignaturaId(56484000,1043));
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+			gestionAsignatura.deleteAsignatura(new AsignaturaId(56484000, 1043));
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
 }

@@ -4,15 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.Properties;
-
-import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
 
 import java.util.logging.Logger;
 
@@ -25,115 +20,112 @@ import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 public class TitulacionPrueba {
 
 	private GestionTitulacion gestionTitulacion;
-	
-	
-	//private static final Logger LOG = Logger.getLogger(TitulacionPrueba.class.getCanonicalName());
+
+	private static final Logger LOG = Logger.getLogger(TitulacionPrueba.class.getCanonicalName());
 	private static final String TITULACION_EJB = "java:global/classes/TitulacionEJB";
 	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
-	
+
 	@Before
-	public void setUp() throws NamingException{
+	public void setUp() throws NamingException {
 		gestionTitulacion = (GestionTitulacion) SuiteTest.ctx.lookup(TITULACION_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
 	}
-	
-	
-	//RF 7 - CREATE
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testCrearTitulacion(){
+	public void testCrearTitulacion() {
 		try {
 			Titulacion t = new Titulacion();
 			t.setCodigo(123);
 			t.setCreditos(6);
 			t.setNombre("pablo");
 			gestionTitulacion.createTitulacion(t);
-		}catch(ObjetoYaExistenteException e) {
+		} catch (ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testCrearTitulacionYaExistente(){
+	public void testCrearTitulacionYaExistente() {
 		try {
 			Titulacion t = new Titulacion();
-			t.setCodigo(1041);			
+			t.setCodigo(1041);
 			gestionTitulacion.createTitulacion(t);
 			fail("Debería lanzarse una excepción");
-		}catch(ObjetoYaExistenteException e) {
-			//OK
+		} catch (ObjetoYaExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 7 - READ
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testLeerTitulacion(){
+	public void testLeerTitulacion() {
 		try {
 			Titulacion t = gestionTitulacion.readTitulacion(1041);
-			assertTrue(Integer.valueOf(240).compareTo(t.getCreditos())==0);
+			assertTrue(Integer.valueOf(240).compareTo(t.getCreditos()) == 0);
 			assertEquals("Informatica", t.getNombre());
-		}catch(ObjetoNoExistenteException e) {
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testLeerTitulacionNoExistente(){
+	public void testLeerTitulacionNoExistente() {
 		try {
 			Titulacion t = gestionTitulacion.readTitulacion(291643562);
 			fail("Debería lanzarse una excepción");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 7 - UPDATE
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testModificarTitulacion(){
+	public void testModificarTitulacion() {
 		try {
 			Titulacion t = gestionTitulacion.readTitulacion(1041);
 			t.setCreditos(9);
 			t.setNombre("Tecno");
 			gestionTitulacion.updateTitulacion(t);
-		}catch(ObjetoNoExistenteException e) {
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testModificarTitulacionNoExistente(){
+	public void testModificarTitulacionNoExistente() {
 		try {
 			Titulacion t = gestionTitulacion.readTitulacion(1041);
-			t.setCodigo(415);			
+			t.setCodigo(415);
 			gestionTitulacion.updateTitulacion(t);
 			fail("Debería lanzarse una excepción");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 7 - DELETE
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testEliminarTitulacion(){
+	public void testEliminarTitulacion() {
 		try {
 			gestionTitulacion.deleteTitulacion(1041);
-		}catch(ObjetoNoExistenteException e) {
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF7"})
+
+	@Requisitos({ "RF7" })
 	@Test
-	public void testEliminarTitulacionNoExistente(){
+	public void testEliminarTitulacionNoExistente() {
 		try {
 			gestionTitulacion.deleteTitulacion(291643562);
 			fail("Debería lanzarse una excepción");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	
+
 }

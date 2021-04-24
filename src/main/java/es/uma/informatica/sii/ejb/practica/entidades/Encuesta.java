@@ -6,33 +6,35 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+
 /**
-* @author Los Datografos 
-* Clase: Encuesta
-* Hace referencia a las encuestas de preferencia que los alumnos rellenan con sus asignaturas prioritarias y sus elecciones.
-*/
+ * @author Los Datografos Clase: Encuesta Hace referencia a las encuestas de
+ *         preferencia que los alumnos rellenan con sus asignaturas prioritarias
+ *         y sus elecciones.
+ */
 
 @Entity
 @IdClass(Encuesta.EncuestaId.class)
-public class Encuesta implements Serializable{
+public class Encuesta implements Serializable {
 
-	public static class EncuestaId implements Serializable{
+	public static class EncuestaId implements Serializable {
 
 		private static final long serialVersionUID = 1L;
-		
+
 		private Date fechaEnvio;
-		
+
 		private Integer expedienteEncuesta;
-		
+
 		public EncuestaId() {
 			super();
 		}
-		
+
 		public EncuestaId(Date fechaEnvio, Integer expedienteEncuesta) {
 			super();
 			this.fechaEnvio = fechaEnvio;
 			this.expedienteEncuesta = expedienteEncuesta;
 		}
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -41,6 +43,7 @@ public class Encuesta implements Serializable{
 			result = prime * result + ((fechaEnvio == null) ? 0 : fechaEnvio.hashCode());
 			return result;
 		}
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -62,29 +65,25 @@ public class Encuesta implements Serializable{
 				return false;
 			return true;
 		}
-		
-		
-		
+
 	}
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@Temporal(TemporalType.DATE)
-	@Column(name="FECHA_ENVIO", nullable = false)
+	@Column(name = "FECHA_ENVIO", nullable = false)
 	private Date fechaEnvio;
-		
-	@ManyToMany(mappedBy = "encuestaGruposAsignatura",cascade=CascadeType.REMOVE)
+
+	@ManyToMany(mappedBy = "encuestaGruposAsignatura", cascade = CascadeType.REMOVE)
 	private List<GruposAsignatura> gruposAsignaturaEncuesta;
-	
+
 	@Id
-	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
+	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Expediente expedienteEncuesta;
-	
-	
-	//Getters and Setters
-	
-	
+
+	// Getters and Setters
+
 	public Date getFechaEnvio() {
 		return fechaEnvio;
 	}
@@ -109,16 +108,15 @@ public class Encuesta implements Serializable{
 		this.expedienteEncuesta = expedienteEncuesta;
 	}
 
-	//toString
-	
+	// toString
+
 	@Override
 	public String toString() {
 		return "Encuesta [fechaEnvio=" + fechaEnvio + "]";
-	}	
-	
-	//HashCode and Equals
-	
-	
+	}
+
+	// HashCode and Equals
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -149,9 +147,5 @@ public class Encuesta implements Serializable{
 			return false;
 		return true;
 	}
-
-
-	
-	
 
 }

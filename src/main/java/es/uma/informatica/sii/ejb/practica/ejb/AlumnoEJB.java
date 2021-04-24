@@ -6,10 +6,8 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.persistence.NamedQueries;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura.GruposAsignaturaId;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
@@ -20,7 +18,6 @@ import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
-import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 
@@ -89,18 +86,12 @@ public class AlumnoEJB implements GestionAlumno {
 			query = em.createNamedQuery("NOTA_MEDIA", Alumno.class);
 			res = query.setParameter("nota", parametro).getResultList();
 			break;
-		/*
-		 * case CREDITOS_SUPERADOS: query = em.createNamedQuery("CREDITOS_SUPERADOS",
-		 * Alumno.class); res = query.getResultList(); break;
-		 */
+		
 		case TITULACION:
 			query = em.createNamedQuery("TITULACION", Alumno.class);
 			res = query.setParameter("codigo", parametro).getResultList();
 			break;
-		/*
-		 * case GRUPO: query = em.createNamedQuery("TITULACION", Alumno.class); res =
-		 * query.setParameter("codigo", parametro).getResultList(); break;
-		 */
+		
 		default:// TODOS
 			query = em.createNamedQuery("TODOS", Alumno.class);
 			res = query.getResultList();
@@ -112,7 +103,6 @@ public class AlumnoEJB implements GestionAlumno {
 	@Override
 	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista)
 			throws ObjetoNoExistenteException, ObjetoYaExistenteException {
-		// TODO Auto-generated method stub
 		Alumno aux = em.find(Alumno.class, idAlumno);
 		if (aux == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
@@ -195,8 +185,7 @@ public class AlumnoEJB implements GestionAlumno {
 		return aux.getGruposAsignaturaEncuesta();
 	}
 
-	private void asignaGrupo(Integer idAlumno, List<GruposAsignatura> lista)
-			throws ObjetoNoExistenteException {
+	private void asignaGrupo(Integer idAlumno, List<GruposAsignatura> lista) throws ObjetoNoExistenteException {
 		Alumno alumno = em.find(Alumno.class, idAlumno);
 		for (GruposAsignatura ga : lista) {
 			GruposAsignatura auxga = em.find(GruposAsignatura.class,

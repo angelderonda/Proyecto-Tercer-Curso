@@ -6,34 +6,33 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
-* @author Los Datografos 
-* Clase: Asignatura
-* Esta clase identifica todas las asignaturas ofertadas en el centro (materia que se imparte en las clases) con sus atributos como créditos o duración.
-*/
+ * @author Los Datografos Clase: Asignatura Esta clase identifica todas las
+ *         asignaturas ofertadas en el centro (materia que se imparte en las
+ *         clases) con sus atributos como créditos o duración.
+ */
 
 @Entity
 @IdClass(Asignatura.AsignaturaId.class)
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name="DISCRIMINANTE_OPTATIVA", discriminatorType = DiscriminatorType.CHAR )
 //@DiscriminatorValue("A")
-public class Asignatura implements Serializable{
+public class Asignatura implements Serializable {
 
-	
-	public static class AsignaturaId implements Serializable{
+	public static class AsignaturaId implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 		private Integer referencia;
 		private Integer titulacionAsignatura;
-		
+
 		public AsignaturaId() {
 			super();
 		}
-				
+
 		public AsignaturaId(Integer referencia, Integer titulacionAsignatura) {
 			this.referencia = referencia;
 			this.titulacionAsignatura = titulacionAsignatura;
 		}
-		
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -42,6 +41,7 @@ public class Asignatura implements Serializable{
 			result = prime * result + ((titulacionAsignatura == null) ? 0 : titulacionAsignatura.hashCode());
 			return result;
 		}
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -63,56 +63,53 @@ public class Asignatura implements Serializable{
 				return false;
 			return true;
 		}
-		
-		
-		
+
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="REFERENCIA", nullable = false)
+	@Column(name = "REFERENCIA", nullable = false)
 	private Integer referencia;
-	@Column(name="CODIGO", nullable = false)
+	@Column(name = "CODIGO", nullable = false)
 	private Integer codigo;
-	@Column(name="CURSO")
+	@Column(name = "CURSO")
 	private Integer curso;
-	@Column(name="CREDITOS_TEORIA", nullable = false)
+	@Column(name = "CREDITOS_TEORIA", nullable = false)
 	private Integer creditosTeoria;
-	@Column(name="CREDITOS_PRACTICAS", nullable = false)
+	@Column(name = "CREDITOS_PRACTICAS", nullable = false)
 	private Integer creditosPracticas;
-	@Column(name="NOMBRE", nullable = false)
+	@Column(name = "NOMBRE", nullable = false)
 	private String nombre;
-	@Column(name="DURACION", nullable = false)
+	@Column(name = "DURACION", nullable = false)
 	private String duracion;
-	@Column(name="OFERTADA", nullable = false)
+	@Column(name = "OFERTADA", nullable = false)
 	private String ofertada;
-	@Column(name="TIPO")
-	private String tipo; //Mat basica, optativa,tfg...
-	@Column(name="PLAZAS")
+	@Column(name = "TIPO")
+	private String tipo; // Mat basica, optativa,tfg...
+	@Column(name = "PLAZAS")
 	private String plazas;
-	@Column(name="OTRO_IDIOMAS")
+	@Column(name = "OTRO_IDIOMAS")
 	private String otro_idioma;
 
-	
-	//Relacion muchos a uno con titulacion
+	// Relacion muchos a uno con titulacion
 	@Id
-	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
+	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Titulacion titulacionAsignatura;
-	
-	//Relacion uno a muchos con clase
-	@OneToMany(mappedBy="asignaturaClase",cascade=CascadeType.REMOVE)
+
+	// Relacion uno a muchos con clase
+	@OneToMany(mappedBy = "asignaturaClase", cascade = CascadeType.REMOVE)
 	private List<Clase> claseAsignatura;
 
-	//Relacion uno a muchos con gruposAsignatura
-	@OneToMany(mappedBy="asignaturaGruposAsignatura",cascade=CascadeType.REMOVE)
+	// Relacion uno a muchos con gruposAsignatura
+	@OneToMany(mappedBy = "asignaturaGruposAsignatura", cascade = CascadeType.REMOVE)
 	private List<GruposAsignatura> gruposAsignaturaAsignatura;
-		
-	//Relacion uno a muchos con asignaturaMatricula
-	@OneToMany(mappedBy="asignaturaAsignaturasMatricula",cascade=CascadeType.REMOVE)
+
+	// Relacion uno a muchos con asignaturaMatricula
+	@OneToMany(mappedBy = "asignaturaAsignaturasMatricula", cascade = CascadeType.REMOVE)
 	private List<AsignaturasMatricula> asignaturasMatriculaAsignatura;
 
-	//Getters and Setters
-	
+	// Getters and Setters
+
 	public Integer getReferencia() {
 		return referencia;
 	}
@@ -233,16 +230,15 @@ public class Asignatura implements Serializable{
 		this.asignaturasMatriculaAsignatura = asignaturasMatriculaAsignatura;
 	}
 
-	
-	//toString
-	
+	// toString
+
 	@Override
 	public String toString() {
 		return "Asignatura [referencia=" + referencia + "]";
 	}
 
-	//HashCode and Equals
-	
+	// HashCode and Equals
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -274,10 +270,4 @@ public class Asignatura implements Serializable{
 		return true;
 	}
 
-	
-
-
-	
-	
-	
 }

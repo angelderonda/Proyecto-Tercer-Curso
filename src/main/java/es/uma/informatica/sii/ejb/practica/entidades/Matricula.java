@@ -7,31 +7,31 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
-* @author Los Datografos 
-* Clase: Matricula
-* Indica la elección del alumnado para turnos y asignaturas.
-*/
+ * @author Los Datografos Clase: Matricula Indica la elección del alumnado para
+ *         turnos y asignaturas.
+ */
 
 @Entity
 @IdClass(Matricula.MatriculaId.class)
-public class Matricula implements Serializable{
-	
-	public static class MatriculaId implements Serializable{
+public class Matricula implements Serializable {
+
+	public static class MatriculaId implements Serializable {
 
 		private static final long serialVersionUID = 1L;
-	
-		private String cursoAcademico;		
+
+		private String cursoAcademico;
 		private Integer expedienteMatricula;
-		
+
 		public MatriculaId() {
 			super();
 		}
-		
+
 		public MatriculaId(String cursoAcademico, Integer expedienteMatricula) {
 			super();
 			this.cursoAcademico = cursoAcademico;
 			this.expedienteMatricula = expedienteMatricula;
 		}
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -40,6 +40,7 @@ public class Matricula implements Serializable{
 			result = prime * result + ((expedienteMatricula == null) ? 0 : expedienteMatricula.hashCode());
 			return result;
 		}
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -61,10 +62,9 @@ public class Matricula implements Serializable{
 				return false;
 			return true;
 		}
-		
-		
+
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
@@ -73,29 +73,23 @@ public class Matricula implements Serializable{
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
 	private Date fechaMatricula;
-	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 1" )
+	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 1")
 	private Integer nuevoIngreso;
 	@Column(name = "NUMERO_ARCHIVO")
 	private Integer numeroArchivo;
 	@Column(name = "TURNO_PREFERENTE")
 	private String turnoPreferente;
 
-	
-
-
-	//Relacion muchos a uno con expediente
+	// Relacion muchos a uno con expediente
 	@Id
-	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)	
+	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Expediente expedienteMatricula;
-	
-	//Relacion uno a muchos con asignaturaMatricula
-	@OneToMany(mappedBy="matriculaAsignaturasMatricula",cascade=CascadeType.REMOVE)
-	private List<AsignaturasMatricula> asignaturasMatriculaMatricula;
-	
 
-	
-	
-	//Getters y Setters
+	// Relacion uno a muchos con asignaturaMatricula
+	@OneToMany(mappedBy = "matriculaAsignaturasMatricula", cascade = CascadeType.REMOVE)
+	private List<AsignaturasMatricula> asignaturasMatriculaMatricula;
+
+	// Getters y Setters
 
 	public String getCursoAcademico() {
 		return cursoAcademico;
@@ -160,17 +154,15 @@ public class Matricula implements Serializable{
 	public void setAsignaturasMatriculaMatricula(List<AsignaturasMatricula> asignaturasMatriculaMatricula) {
 		this.asignaturasMatriculaMatricula = asignaturasMatriculaMatricula;
 	}
-	
-	
-	//toString
-	
+
+	// toString
+
 	@Override
 	public String toString() {
 		return "Matricula [cursoAcademico=" + cursoAcademico + "]";
 	}
-	
-	
-	//HashCode & Equals	
+
+	// HashCode & Equals
 
 	@Override
 	public int hashCode() {
@@ -202,7 +194,5 @@ public class Matricula implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

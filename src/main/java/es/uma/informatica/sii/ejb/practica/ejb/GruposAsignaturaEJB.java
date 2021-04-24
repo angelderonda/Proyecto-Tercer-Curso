@@ -12,66 +12,66 @@ import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura.GruposAsignaturaId;
 
 @Stateless
-public class GruposAsignaturaEJB implements GestionGruposAsignatura{
+public class GruposAsignaturaEJB implements GestionGruposAsignatura {
 
-	@PersistenceContext(name="Secretaria")
+	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-	
+
 	@Override
 	public void createGruposAsignatura(GruposAsignatura gruposAsignatura) throws ObjetoYaExistenteException {
-		
+
 		Asignatura asignatura = gruposAsignatura.getAsignaturaGruposAsignatura();
-		if(asignatura == null) {
+		if (asignatura == null) {
 			throw new ObjetoYaExistenteException("La asignatura asignatura no existe");
 		}
-		GruposAsignatura aux = em.find(GruposAsignatura.class, new GruposAsignaturaId(gruposAsignatura.getCursoAcademico()
-				,gruposAsignatura.getGrupoGruposAsignatura().getId(),
-				new AsignaturaId(asignatura.getReferencia(),asignatura.getTitulacionAsignatura().getCodigo())));
-		
-		if(aux != null) {
+		GruposAsignatura aux = em.find(GruposAsignatura.class, new GruposAsignaturaId(
+				gruposAsignatura.getCursoAcademico(), gruposAsignatura.getGrupoGruposAsignatura().getId(),
+				new AsignaturaId(asignatura.getReferencia(), asignatura.getTitulacionAsignatura().getCodigo())));
+
+		if (aux != null) {
 			throw new ObjetoYaExistenteException("Este grupo asignatura ya existe");
 		}
 		em.persist(gruposAsignatura);
-		
+
 	}
 
 	@Override
 	public GruposAsignatura readGrupoAsignatura(GruposAsignaturaId idGrupoAsignatura)
 			throws ObjetoNoExistenteException {
-		
+
 		GruposAsignatura aux = em.find(GruposAsignatura.class, idGrupoAsignatura);
-		if(aux == null) {
+		if (aux == null) {
 			throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 		}
-		
+
 		return aux;
 	}
 
 	@Override
 	public void updateGrupoAsignatura(GruposAsignatura gruposAsignatura) throws ObjetoNoExistenteException {
-		
+
 		Asignatura asignatura = gruposAsignatura.getAsignaturaGruposAsignatura();
-		
-		GruposAsignatura aux = em.find(GruposAsignatura.class, new GruposAsignaturaId(gruposAsignatura.getCursoAcademico()
-				,gruposAsignatura.getGrupoGruposAsignatura().getId(),
-				new AsignaturaId(asignatura.getReferencia(),asignatura.getTitulacionAsignatura().getCodigo())));
-		if(aux == null) {
+
+		GruposAsignatura aux = em.find(GruposAsignatura.class, new GruposAsignaturaId(
+				gruposAsignatura.getCursoAcademico(), gruposAsignatura.getGrupoGruposAsignatura().getId(),
+				new AsignaturaId(asignatura.getReferencia(), asignatura.getTitulacionAsignatura().getCodigo())));
+		if (aux == null) {
 			throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 		}
-		//aux = asignatura;
+		// aux = asignatura;
 		em.merge(aux);
-		
+
 	}
 
 	@Override
 	public void deleteGrupoAsignatura(GruposAsignaturaId idGrupoAsignatura) throws ObjetoNoExistenteException {
-		
-		GruposAsignatura aux = em.find(GruposAsignatura.class,idGrupoAsignatura);
-		if(aux == null) {
+
+		GruposAsignatura aux = em.find(GruposAsignatura.class, idGrupoAsignatura);
+		if (aux == null) {
 			throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 		}
 		em.remove(aux);
-		
+
 	}
 
 }

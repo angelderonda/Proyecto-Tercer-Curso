@@ -22,118 +22,116 @@ import es.uma.informatica.sii.ejb.practica.entidades.Centro;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 public class CentroPrueba {
-	private GestionCentro gestionCentro;	
-	
-	
-	
-	//private static final Logger LOG = Logger.getLogger(CentroPrueba.class.getCanonicalName());
+	private GestionCentro gestionCentro;
+
+	// private static final Logger LOG =
+	// Logger.getLogger(CentroPrueba.class.getCanonicalName());
 	private static final String CENTRO_EJB = "java:global/classes/CentroEJB";
 	private static final String UNIDAD_PERSISTENCIA_PRUEBAS = "SecretariaTest";
-	
+
 	@Before
-	public void setUp() throws NamingException{
+	public void setUp() throws NamingException {
 		gestionCentro = (GestionCentro) SuiteTest.ctx.lookup(CENTRO_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSISTENCIA_PRUEBAS);
 	}
-	
 
-	//RF 8 - CREATE
-	@Requisitos({"RF8"})
+	@Requisitos({ "RF8" })
 	@Test
-	public void testCrearCentro(){
+	public void testCrearCentro() {
 		try {
 			Centro centro = new Centro();
 			centro.setId(4969);
 			centro.setDireccion("Calle Miramar");
 			centro.setNombre("E.T.S.I");
 			gestionCentro.createCentro(centro);
-		}catch(ObjetoYaExistenteException e) {
+		} catch (ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
 	}
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testCrearCentroYaExistente(){
+	public void testCrearCentroYaExistente() {
 		try {
 			Centro centro = new Centro();
 			centro.setId(1041);
 			gestionCentro.createCentro(centro);
 			fail("No debería lanzarse excepción");
-		}catch(ObjetoYaExistenteException e) {
-			//OK
+		} catch (ObjetoYaExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 8 - READ
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testLeerCentro(){
+	public void testLeerCentro() {
 		try {
 			Centro centro = gestionCentro.readCentro(1041);
-			assertTrue(Integer.valueOf(1041).compareTo(centro.getId())==0);			
-			assertEquals("Calle Malaga",centro.getDireccion());
-			assertEquals("Centro Informatica",centro.getNombre());
-			assertEquals("690329116",centro.getTelefonoConserjeria());
-		
-		}catch(ObjetoNoExistenteException e) {
+			assertTrue(Integer.valueOf(1041).compareTo(centro.getId()) == 0);
+			assertEquals("Calle Malaga", centro.getDireccion());
+			assertEquals("Centro Informatica", centro.getNombre());
+			assertEquals("690329116", centro.getTelefonoConserjeria());
+
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testLeerCentroNoExistente(){
+	public void testLeerCentroNoExistente() {
 		try {
 			Centro centro = gestionCentro.readCentro(5789);
 			fail("Debería lanzarse una excepción");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 8 - UPDATE
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testModificarCentro(){
+	public void testModificarCentro() {
 		try {
 			Centro centro = gestionCentro.readCentro(1041);
 			centro.setNombre("Salud");
 			centro.setTelefono_conserjeria("7458710");
 			gestionCentro.updateCentro(centro);
-		}catch(ObjetoNoExistenteException e) {
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testModificarCentroNoExistente(){
+	public void testModificarCentroNoExistente() {
 		try {
 			Centro centro = gestionCentro.readCentro(1041);
 			centro.setId(4178);
 			gestionCentro.updateCentro(centro);
 			fail("No debería lanzarse excepción");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
-	
-	//RF 8 - DELETE
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testEliminarCentro(){
+	public void testEliminarCentro() {
 		try {
 			gestionCentro.deleteCentro(1041);
-		}catch(ObjetoNoExistenteException e) {
+		} catch (ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	@Requisitos({"RF8"})
+
+	@Requisitos({ "RF8" })
 	@Test
-	public void testEliminarCentroNoExistente(){
+	public void testEliminarCentroNoExistente() {
 		try {
 			gestionCentro.deleteCentro(6574);
 			fail("No debería lanzarse excepción");
-		}catch(ObjetoNoExistenteException e) {
-			//OK
+		} catch (ObjetoNoExistenteException e) {
+			// OK
 		}
 	}
 

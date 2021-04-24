@@ -5,16 +5,14 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
 /**
-* @author Los Datografos 
-* Clase: Expediente
-* La forma de identificar al alumno dentro de la universidad. Un alumno tiene un expediente asociado a él (por cada titulación en la que esté).
-*/
-
+ * @author Los Datografos Clase: Expediente La forma de identificar al alumno
+ *         dentro de la universidad. Un alumno tiene un expediente asociado a él
+ *         (por cada titulación en la que esté).
+ */
 
 @Entity
-public class Expediente implements Serializable{
+public class Expediente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -31,32 +29,30 @@ public class Expediente implements Serializable{
 	@Column(name = "CREDITOS_OP")
 	private Integer creditosOP;
 	@Column(name = "CREDITOS_PE")
-	private Integer creditosPE;	
+	private Integer creditosPE;
 	@Column(name = "CREDITOS_TF")
 	private Integer creditosTF;
 	@Column(name = "NOTA_MEDIA_PROVISIONAL")
 	private Float notaMediaProvisional;
 
-
-
 	// Relacion muchos a uno con titulacion
-	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
+	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Titulacion titulacionExpediente;
 
 	// Relacion muchos a uno con Alumnos
-	@ManyToOne(optional = false,cascade=CascadeType.REMOVE)
+	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Alumno alumnoExpediente;
 
-	//Relacion uno a muchos con Encuesta
-	@OneToMany(mappedBy = "expedienteEncuesta",cascade=CascadeType.REMOVE)
+	// Relacion uno a muchos con Encuesta
+	@OneToMany(mappedBy = "expedienteEncuesta", cascade = CascadeType.REMOVE)
 	private List<Encuesta> encuestaExpediente;
-	
+
 	// Relacion uno a muchos con Matricula
-	@OneToMany(mappedBy = "expedienteMatricula",cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy = "expedienteMatricula", cascade = CascadeType.REMOVE)
 	private List<Matricula> matriculaExpediente;
 
-	//Getters y Setters
-	
+	// Getters y Setters
+
 	public Integer getNumeroExpediente() {
 		return numeroExpediente;
 	}
@@ -113,7 +109,6 @@ public class Expediente implements Serializable{
 		this.creditosPE = creditosPE;
 	}
 
-	
 	public Integer getCreditosTF() {
 		return creditosTF;
 	}
@@ -162,18 +157,17 @@ public class Expediente implements Serializable{
 		this.matriculaExpediente = matriculaExpediente;
 	}
 
-	//toString
-	
+	// toString
+
 	@Override
 	public String toString() {
 		return "Expediente [numeroExpediente=" + numeroExpediente + ", activo=" + activo + ", creditosCF=" + creditosCF
 				+ ", creditosFB=" + creditosFB + ", creditosMO=" + creditosMO + ", creditosOP=" + creditosOP
-				+ ", creditosPE=" + creditosPE + ", creditosTF="
-				+ creditosTF + ", notaMediaProvisional=" + notaMediaProvisional + "]";
+				+ ", creditosPE=" + creditosPE + ", creditosTF=" + creditosTF + ", notaMediaProvisional="
+				+ notaMediaProvisional + "]";
 	}
-	
-	//HashCode and Equals
-	
+
+	// HashCode and Equals
 
 	@Override
 	public int hashCode() {
@@ -199,16 +193,17 @@ public class Expediente implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * Obtiene la Matricula activa del expediente
+	 * 
 	 * @param aux
 	 * @return
 	 */
 	public Matricula getMatriculaActiva() {
-		Matricula res=null;
-		for(Matricula m : matriculaExpediente) {
-			if(m.getEstado().contentEquals("Activa")) { 
+		Matricula res = null;
+		for (Matricula m : matriculaExpediente) {
+			if (m.getEstado().contentEquals("Activa")) {
 				res = m;
 				break;
 			}
@@ -217,4 +212,3 @@ public class Expediente implements Serializable{
 	}
 
 }
-

@@ -6,13 +6,13 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
-* @author Los Datografos 
-* Clase: Titulacion
-* Indica el grado de tipo de estudios en el que hay distintos grupos y está compuesto por muchas asignaturas.
-*/
+ * @author Los Datografos Clase: Titulacion Indica el grado de tipo de estudios
+ *         en el que hay distintos grupos y está compuesto por muchas
+ *         asignaturas.
+ */
 
 @Entity
-public class Titulacion implements Serializable{
+public class Titulacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -23,25 +23,24 @@ public class Titulacion implements Serializable{
 	@Column(name = "NOMBRE", nullable = false)
 	private String nombre;
 
-	
-	//Relacion uno a muchos con asignatura
-	@OneToMany(mappedBy="titulacionAsignatura",cascade=CascadeType.REMOVE)
+	// Relacion uno a muchos con asignatura
+	@OneToMany(mappedBy = "titulacionAsignatura", cascade = CascadeType.REMOVE)
 	private List<Asignatura> asignaturaTitulacion;
-	
-	//Relacion uno a muchos con expediente
-	@OneToMany(mappedBy="titulacionExpediente",cascade=CascadeType.REMOVE)
+
+	// Relacion uno a muchos con expediente
+	@OneToMany(mappedBy = "titulacionExpediente", cascade = CascadeType.REMOVE)
 	private List<Expediente> expedienteTitulacion;
-	
-	//Relacion muchos a muchos con centro
-	@ManyToMany(cascade=CascadeType.REMOVE)
+
+	// Relacion muchos a muchos con centro
+	@ManyToMany(cascade = CascadeType.REMOVE)
 	private List<Centro> centroTitulacion;
-	
-	//Relacion uno a muchos con grupo
-	@OneToMany(mappedBy = "titulacionGrupo",cascade=CascadeType.REMOVE)
+
+	// Relacion uno a muchos con grupo
+	@OneToMany(mappedBy = "titulacionGrupo", cascade = CascadeType.REMOVE)
 	private List<Grupo> grupoTitulacion;
-	
-	//Getters y Setters
-	
+
+	// Getters y Setters
+
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -97,18 +96,16 @@ public class Titulacion implements Serializable{
 	public void setGrupoTitulacion(List<Grupo> grupoTitulacion) {
 		this.grupoTitulacion = grupoTitulacion;
 	}
-	
-	
-	//toString
+
+	// toString
 
 	@Override
 	public String toString() {
-		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre +  "]";
+		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre + "]";
 	}
-	
-	
-	//HashCode & Equals
-	
+
+	// HashCode & Equals
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -134,5 +131,4 @@ public class Titulacion implements Serializable{
 		return true;
 	}
 
-	
 }
