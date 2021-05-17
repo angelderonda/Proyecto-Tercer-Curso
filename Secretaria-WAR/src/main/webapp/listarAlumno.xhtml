@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f = "http://java.sun.com/jsf/core">
     <h:head>
         <title>Listado de Alumnos</title>
     </h:head>
@@ -11,11 +12,11 @@
 		<h4>Introduce el filtro y pulsa filtrar</h4>
 		
 		 <h:selectOneMenu value = "#{lista.filtro}"> 
-		   <c:selectItem itemValue = "NUEVOS_O_VETERANOS" itemLabel = "Nuevo O Veterano" /> 
-		   <c:selectItem itemValue = "FECHA_DE_MATRICULACIÓN" itemLabel = "Fecha de matriculación" /> 
-		   <c:selectItem itemValue = "TITULACION" itemLabel = "Titulación" /> 
-		   <c:selectItem itemValue = "TODOS" itemLabel = "Todos" /> 
-		   <c:selectItem itemValue = "NOTA_MEDIA" itemLabel = "Nota media" />    
+		   <f:selectItem itemValue = "NUEVOS_O_VETERANOS" itemLabel = "Nuevo O Veterano" /> 
+		   <f:selectItem itemValue = "FECHA_DE_MATRICULACIÓN" itemLabel = "Fecha de matriculación" /> 
+		   <f:selectItem itemValue = "TITULACION" itemLabel = "Titulación" /> 
+		   <f:selectItem itemValue = "TODOS" itemLabel = "Todos" /> 
+		   <f:selectItem itemValue = "NOTA_MEDIA" itemLabel = "Nota media" />    
 		</h:selectOneMenu>
 		
     </h:body>
