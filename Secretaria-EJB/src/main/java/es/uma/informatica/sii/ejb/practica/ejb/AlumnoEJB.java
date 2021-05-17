@@ -70,7 +70,7 @@ public class AlumnoEJB implements GestionAlumno {
 	}
 
 	@Override
-	public List<Alumno> listarAlumnos(TipoFiltro filtro, int parametro) throws ProyectoException {
+	public List<Alumno> listarAlumnos(TipoFiltro filtro, double parametro) throws ProyectoException {
 		List<Alumno> res = new ArrayList<Alumno>();
 		TypedQuery<Alumno> query;
 		switch (filtro) {
@@ -89,7 +89,7 @@ public class AlumnoEJB implements GestionAlumno {
 		
 		case TITULACION:
 			query = em.createNamedQuery("TITULACION", Alumno.class);
-			res = query.setParameter("codigo", parametro).getResultList();
+			res = query.setParameter("codigo", (int) parametro).getResultList();
 			break;
 		
 		default:// TODOS
