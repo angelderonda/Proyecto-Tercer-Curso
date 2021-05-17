@@ -17,5 +17,6 @@
 		<module>Secretaria-EJB</module>
 		<module>Secretaria-WAR</module>
 		<module>Secretaria-EAR</module>
+		<module>Secretaria-tests</module>
 	</modules>
 </project>
