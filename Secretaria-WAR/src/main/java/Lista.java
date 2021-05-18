@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,7 +24,11 @@ public class Lista {
 	
 	private double parametro;
 	
+	private static final Logger LOGGER = Logger.getLogger(Lista.class.getCanonicalName());
+	
 	private List<Alumno> lista;
+	
+	
 
 	public String getFiltro() {
 		return filtro;
@@ -47,13 +54,31 @@ public class Lista {
 		this.lista = lista;
 	}
 
-	public void mostrar() {
-		try {
-			lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), parametro);
-		} catch (ProyectoException e) {
+	public String mostrar() {
+		//try {
+			//lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), parametro);
+			Alumno alumno = new Alumno();
+			alumno.setId(1);
+			alumno.setDni("254789E");
+			alumno.setNombreCompleto("Pepito");
+			alumno.setApellido1("Palotes");
+			alumno.setApellido2("Perez");
+			alumno.setEmailInstitucional("pepe@uma.es");
+			alumno.setEmailPersonal("pepito12@gmail.com");
+			alumno.setNumeroArchivo("1245785");
+			alumno.setNumeroMovil("66548447");
+			alumno.setNumeroTelefono("957412784");
+			alumno.setDireccion("Calle Margarita");
+			alumno.setLocalidad("Benaoján");
+			alumno.setProvincia("Málaga");
+			alumno.setCp(29514);
+			
+			LOGGER.info("Angelete \n");
+		//} catch (ProyectoException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			//e.printStackTrace();
+		//}
+		return null;
 	}
 	
 	

@@ -1,4 +1,7 @@
 
+
+import java.util.logging.Logger;
+
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -12,6 +15,9 @@ import javax.inject.Inject;
 public class Login {
 	
 	private String nombre,contrasenia;
+	
+	private static final Logger LOGGER = Logger.getLogger(Login.class.getCanonicalName());
+
 	
 	private UIComponent mybutton;
 
@@ -32,11 +38,13 @@ public class Login {
 	}
 
     public String entrar() {
-    
-        if(nombre.equals("admin") && contrasenia.equals("admin")) return "inicio.xhtml";
+    	LOGGER.info("Angelete guapo \n");
+        if(nombre.equals("admin") && contrasenia.equals("admin")) {
+        	return "inicio.xhtml";
+        }
         else  
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Username or password is incorrect"));
+        
         return null;
     }
-
 }
