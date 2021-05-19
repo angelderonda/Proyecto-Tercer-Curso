@@ -1,23 +1,38 @@
-package es.uma.informatica.sii.ejb.practica;
+package es.uma.informatica.sii.ejb.practica.ejb;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
-import es.uma.informatica.sii.ejb.practica.entidades.*;
+import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
+import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
+import es.uma.informatica.sii.ejb.practica.entidades.Centro;
+import es.uma.informatica.sii.ejb.practica.entidades.Clase;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
+import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
+import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
+import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
+import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
-public class BaseDatos {
-	public static void inicializaBaseDatos(String nombreUnidadPersistencia) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory(nombreUnidadPersistencia);
-		EntityManager em = emf.createEntityManager();
-
-		em.getTransaction().begin();
-		
+@Startup
+@Singleton
+public class BaseDatoEJB implements GestionBD{
+	
+	@PersistenceContext(unitName = "Secretaria")
+    private EntityManager em;
+	
+	@PostConstruct
+	public void construyeBD() {
 		// Alumno
+		
 		Alumno alumno = new Alumno();
 		List<Alumno> listaAlumno = new ArrayList<Alumno>();
 		listaAlumno.add(alumno);
@@ -38,7 +53,7 @@ public class BaseDatos {
 		alumno.setCp(29514);
 		em.persist(alumno);
 		// alumno.setExpedienteAlumno(listaExpediente);
-
+		/*
 		// Centro
 		Centro centro = new Centro();
 		List<Centro> listaCentro = new ArrayList<Centro>();
@@ -227,10 +242,6 @@ public class BaseDatos {
 		 * 
 		 * 
 		 */
-
-		em.getTransaction().commit();
-
-		em.close();
-		emf.close();
+		
 	}
 }

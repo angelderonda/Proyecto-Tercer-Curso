@@ -12,7 +12,6 @@
 	<h4>Introduce el filtro y pulsa filtrar</h4>
 	<h:form id="listaForm">
 
-
 		<h:selectOneMenu value="#{lista.filtro}">
 			<f:selectItem itemValue="NUEVOS_O_VETERANOS"
 				itemLabel="Nuevo O Veterano" />
@@ -22,11 +21,13 @@
 			<f:selectItem itemValue="TODOS" itemLabel="Todos" />
 			<f:selectItem itemValue="NOTA_MEDIA" itemLabel="Nota media" />
 		</h:selectOneMenu>
-
+		
 		<br></br>
 		<h:commandButton value="Mostrar lista" action="#{lista.mostrar()}" />
-
-		<h:dataTable value="#{lista.lista}" var="alumno">
+		
+	</h:form>
+	
+	<h:dataTable value="#{lista.lista}" var="alumno">
 
             <h:column>
                 <f:facet name="header">Id</f:facet>
@@ -99,7 +100,7 @@
            
         </h:dataTable>
 
-	</h:form>
+	
 
 
 </h:body>

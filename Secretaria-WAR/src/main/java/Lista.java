@@ -55,9 +55,9 @@ public class Lista {
 	}
 
 	public String mostrar() {
-		//try {
-			//lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), parametro);
-			Alumno alumno = new Alumno();
+		try {
+			lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), 0.0);
+			/*Alumno alumno = new Alumno();
 			alumno.setId(1);
 			alumno.setDni("254789E");
 			alumno.setNombreCompleto("Pepito");
@@ -72,12 +72,13 @@ public class Lista {
 			alumno.setLocalidad("Benaoján");
 			alumno.setProvincia("Málaga");
 			alumno.setCp(29514);
-			
+			lista = new ArrayList<>();
+			lista.add(alumno);*/
 			LOGGER.info("Angelete \n");
-		//} catch (ProyectoException e) {
+		} catch (ProyectoException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
