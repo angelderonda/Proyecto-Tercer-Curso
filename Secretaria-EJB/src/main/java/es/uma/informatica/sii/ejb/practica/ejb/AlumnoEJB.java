@@ -70,12 +70,13 @@ public class AlumnoEJB implements GestionAlumno {
 	}
 
 	@Override
-	public List<Alumno> listarAlumnos(TipoFiltro filtro, double parametro) throws ProyectoException {
+	public List<Alumno> listarAlumnos(TipoFiltro filtro, float parametro) throws ProyectoException {
 		List<Alumno> res = new ArrayList<Alumno>();
 		TypedQuery<Alumno> query;
 		switch (filtro) {
 		case NUEVOS_O_VETERANOS:
 			query = em.createNamedQuery("NUEVOS_O_VETERANOS", Alumno.class);
+			res = query.setParameter("nuevoOveterano", (int) parametro).getResultList();
 			res = query.getResultList();
 			break;
 		case FECHA_DE_MATRICULACIÓN:

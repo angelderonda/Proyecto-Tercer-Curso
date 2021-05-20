@@ -25,7 +25,7 @@ public class GruposAsignatura implements Serializable {
 
 		private Integer grupoGruposAsignatura;
 
-		private AsignaturaId asignaturaGruposAsignatura;
+		private AsignaturaId asig;
 
 		public GruposAsignaturaId() {
 			super();
@@ -35,7 +35,7 @@ public class GruposAsignatura implements Serializable {
 				AsignaturaId asignaturaGruposAsignatura) {
 			this.cursoAcademico = cursoAcademico;
 			this.grupoGruposAsignatura = grupoGruposAsignatura;
-			this.asignaturaGruposAsignatura = asignaturaGruposAsignatura;
+			this.asig = asignaturaGruposAsignatura;
 		}
 
 		@Override
@@ -43,7 +43,7 @@ public class GruposAsignatura implements Serializable {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result
-					+ ((asignaturaGruposAsignatura == null) ? 0 : asignaturaGruposAsignatura.hashCode());
+					+ ((asig == null) ? 0 : asig.hashCode());
 			result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
 			result = prime * result + ((grupoGruposAsignatura == null) ? 0 : grupoGruposAsignatura.hashCode());
 			return result;
@@ -58,10 +58,10 @@ public class GruposAsignatura implements Serializable {
 			if (getClass() != obj.getClass())
 				return false;
 			GruposAsignaturaId other = (GruposAsignaturaId) obj;
-			if (asignaturaGruposAsignatura == null) {
-				if (other.asignaturaGruposAsignatura != null)
+			if (asig == null) {
+				if (other.asig != null)
 					return false;
-			} else if (!asignaturaGruposAsignatura.equals(other.asignaturaGruposAsignatura))
+			} else if (!asig.equals(other.asig))
 				return false;
 			if (cursoAcademico == null) {
 				if (other.cursoAcademico != null)
@@ -93,7 +93,7 @@ public class GruposAsignatura implements Serializable {
 	// Relacion muchos a uno con asignatura
 	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
-	private Asignatura asignaturaGruposAsignatura;
+	private Asignatura asig;
 
 	// Relacion muchos a muchos con encuesta
 	@ManyToMany(cascade = CascadeType.REMOVE)
@@ -126,11 +126,11 @@ public class GruposAsignatura implements Serializable {
 	}
 
 	public Asignatura getAsignaturaGruposAsignatura() {
-		return asignaturaGruposAsignatura;
+		return asig;
 	}
 
 	public void setAsignaturaGruposAsignatura(Asignatura asignaturaGruposAsignatura) {
-		this.asignaturaGruposAsignatura = asignaturaGruposAsignatura;
+		this.asig = asignaturaGruposAsignatura;
 	}
 
 	public List<Encuesta> getEncuestaGruposAsignatura() {

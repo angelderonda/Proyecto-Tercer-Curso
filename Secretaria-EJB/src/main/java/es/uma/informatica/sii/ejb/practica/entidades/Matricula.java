@@ -69,11 +69,11 @@ public class Matricula implements Serializable {
 	@Id
 	@Column(name = "CURSO_ACADEMICO", nullable = false)
 	private String cursoAcademico;
-	@Column(name = "ESTADO", nullable = false, columnDefinition = "VARCHAR2(100) DEFAULT 'Activa'")
+	@Column(name = "ESTADO", nullable = false, columnDefinition = "VARCHAR(100) DEFAULT 'Activa'")
 	private String estado;
 	@Column(name = "FECHA_MATRICULA", nullable = false)
 	private Date fechaMatricula;
-	@Column(name = "NUEVO_INGRESO", columnDefinition = "number(1) default 1")
+	@Column(name = "NUEVO_INGRESO", columnDefinition = "INT(1) default 1")
 	private Integer nuevoIngreso;
 	@Column(name = "NUMERO_ARCHIVO")
 	private Integer numeroArchivo;
@@ -86,7 +86,7 @@ public class Matricula implements Serializable {
 	private Expediente expedienteMatricula;
 
 	// Relacion uno a muchos con asignaturaMatricula
-	@OneToMany(mappedBy = "matriculaAsignaturasMatricula", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "mat", cascade = CascadeType.REMOVE)
 	private List<AsignaturasMatricula> asignaturasMatriculaMatricula;
 
 	// Getters y Setters

@@ -22,7 +22,7 @@ public class Lista {
 	
 	private String filtro;
 	
-	private double parametro;
+	private float parametro;
 	
 	private static final Logger LOGGER = Logger.getLogger(Lista.class.getCanonicalName());
 	
@@ -38,11 +38,11 @@ public class Lista {
 		this.filtro = filtro;
 	}
 
-	public double getParametro() {
+	public float getParametro() {
 		return parametro;
 	}
 
-	public void setParametro(double parametro) {
+	public void setParametro(float parametro) {
 		this.parametro = parametro;
 	}
 
@@ -56,7 +56,7 @@ public class Lista {
 
 	public String mostrar() {
 		try {
-			lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), 0.0);
+			lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), parametro);
 			/*Alumno alumno = new Alumno();
 			alumno.setId(1);
 			alumno.setDni("254789E");

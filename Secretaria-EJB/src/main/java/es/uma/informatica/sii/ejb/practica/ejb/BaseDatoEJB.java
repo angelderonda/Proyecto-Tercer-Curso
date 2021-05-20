@@ -53,7 +53,7 @@ public class BaseDatoEJB implements GestionBD{
 		alumno.setCp(29514);
 		em.persist(alumno);
 		// alumno.setExpedienteAlumno(listaExpediente);
-		/*
+		
 		// Centro
 		Centro centro = new Centro();
 		List<Centro> listaCentro = new ArrayList<Centro>();
@@ -190,57 +190,20 @@ public class BaseDatoEJB implements GestionBD{
 		em.persist(asignaturasMatricula);
 
 		/*
-		 * 
 		 * matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
 		 * grupo.setGruposAsignaturaGrupo(listaGruposAsignatura);
 		 * grupo.setClasesGrupo(listaClase);
 		 * grupo.setAsignaturasMatriculaGrupo(listaAsignaturasMatricula);
 		 * //grupo.setGrupoGrupo(); //grupo.setGrupoReflexiva();
-		 * 
-		 * 
 		 * asignatura.setGruposAsignaturaAsignatura(listaGruposAsignatura);
 		 * asignatura.setAsignaturasMatriculaAsignatura(listaAsignaturasMatricula);
 		 * asignatura.setAsignaturasMatriculaAsignatura(listaAsignaturasMatricula);
 		 * asignatura.setClaseAsignatura(listaClase);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
 		 * expediente.setEncuestaExpediente(listaEncuesta);
 		 * expediente.setMatriculaExpediente(listaMatricula);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
 		 * titulacion.setAsignaturaTitulacion(listaAsignatura);
 		 * titulacion.setExpedienteTitulacion(listaExpediente);
 		 * titulacion.setGrupoTitulacion(listaGrupo);
-		 * 
-		 * 
-		 * 
-		 * 
 		 */
 		
 	}

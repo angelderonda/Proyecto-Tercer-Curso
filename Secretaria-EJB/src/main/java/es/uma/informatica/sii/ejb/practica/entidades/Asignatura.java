@@ -101,7 +101,7 @@ public class Asignatura implements Serializable {
 	private List<Clase> claseAsignatura;
 
 	// Relacion uno a muchos con gruposAsignatura
-	@OneToMany(mappedBy = "asignaturaGruposAsignatura", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "asig", cascade = CascadeType.REMOVE)
 	private List<GruposAsignatura> gruposAsignaturaAsignatura;
 
 	// Relacion uno a muchos con asignaturaMatricula

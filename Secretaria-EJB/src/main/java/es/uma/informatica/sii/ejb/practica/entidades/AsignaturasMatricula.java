@@ -20,7 +20,7 @@ public class AsignaturasMatricula implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 
-		private MatriculaId matriculaAsignaturasMatricula;
+		private MatriculaId mat;
 		private AsignaturaId asignaturaAsignaturasMatricula;
 
 		@Override
@@ -30,7 +30,7 @@ public class AsignaturasMatricula implements Serializable {
 			result = prime * result
 					+ ((asignaturaAsignaturasMatricula == null) ? 0 : asignaturaAsignaturasMatricula.hashCode());
 			result = prime * result
-					+ ((matriculaAsignaturasMatricula == null) ? 0 : matriculaAsignaturasMatricula.hashCode());
+					+ ((mat == null) ? 0 : mat.hashCode());
 			return result;
 		}
 
@@ -48,10 +48,10 @@ public class AsignaturasMatricula implements Serializable {
 					return false;
 			} else if (!asignaturaAsignaturasMatricula.equals(other.asignaturaAsignaturasMatricula))
 				return false;
-			if (matriculaAsignaturasMatricula == null) {
-				if (other.matriculaAsignaturasMatricula != null)
+			if (mat == null) {
+				if (other.mat != null)
 					return false;
-			} else if (!matriculaAsignaturasMatricula.equals(other.matriculaAsignaturasMatricula))
+			} else if (!mat.equals(other.mat))
 				return false;
 			return true;
 		}
@@ -68,7 +68,7 @@ public class AsignaturasMatricula implements Serializable {
 	// Relacion muchos a uno con matricula
 	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
-	private Matricula matriculaAsignaturasMatricula;
+	private Matricula mat;
 
 	// Relacion muchos a uno con grupo
 	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
@@ -85,11 +85,11 @@ public class AsignaturasMatricula implements Serializable {
 	}
 
 	public Matricula getMatriculaAsignaturasMatricula() {
-		return matriculaAsignaturasMatricula;
+		return mat;
 	}
 
 	public void setMatriculaAsignaturasMatricula(Matricula matriculaAsignaturasMatricula) {
-		this.matriculaAsignaturasMatricula = matriculaAsignaturasMatricula;
+		this.mat = matriculaAsignaturasMatricula;
 	}
 
 	public Grupo getGrupoAsignaturasMatricula() {
@@ -107,7 +107,7 @@ public class AsignaturasMatricula implements Serializable {
 		result = prime * result
 				+ ((asignaturaAsignaturasMatricula == null) ? 0 : asignaturaAsignaturasMatricula.hashCode());
 		result = prime * result
-				+ ((matriculaAsignaturasMatricula == null) ? 0 : matriculaAsignaturasMatricula.hashCode());
+				+ ((mat == null) ? 0 : mat.hashCode());
 		return result;
 	}
 
@@ -125,10 +125,10 @@ public class AsignaturasMatricula implements Serializable {
 				return false;
 		} else if (!asignaturaAsignaturasMatricula.equals(other.asignaturaAsignaturasMatricula))
 			return false;
-		if (matriculaAsignaturasMatricula == null) {
-			if (other.matriculaAsignaturasMatricula != null)
+		if (mat == null) {
+			if (other.mat != null)
 				return false;
-		} else if (!matriculaAsignaturasMatricula.equals(other.matriculaAsignaturasMatricula))
+		} else if (!mat.equals(other.mat))
 			return false;
 		return true;
 	}

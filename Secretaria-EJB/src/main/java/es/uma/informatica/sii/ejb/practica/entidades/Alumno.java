@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({ @NamedQuery(name = "TODOS", query = "SELECT a FROM Alumno a"),
 		@NamedQuery(name = "NUEVOS_O_VETERANOS", query = "SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
-				+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND m.nuevoIngreso = 1 "),
+				+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND m.nuevoIngreso = :nuevoOveterano"),
 		@NamedQuery(name = "FECHA_DE_MATRICULACIÓN", query = "SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
 				+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente ORDER BY m.fechaMatricula ASC"), // COMPROBAR
 																																					// QUE

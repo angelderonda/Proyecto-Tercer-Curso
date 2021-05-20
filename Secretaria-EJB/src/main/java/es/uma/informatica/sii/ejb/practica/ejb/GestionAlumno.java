@@ -41,7 +41,7 @@ public interface GestionAlumno {
 	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, EncuestaId idEncuesta, boolean manualmente)
 			throws ObjetoNoExistenteException;
 
-	public List<Alumno> listarAlumnos(TipoFiltro filtro, double parametro) throws ProyectoException;
+	public List<Alumno> listarAlumnos(TipoFiltro filtro, float parametro) throws ProyectoException;
 
 	/**
 	 * LOS PARAMETROS ESCOGIDOS SON EL ALUMNO Y LA LISTA DE LOS GRUPOASIGNATURA

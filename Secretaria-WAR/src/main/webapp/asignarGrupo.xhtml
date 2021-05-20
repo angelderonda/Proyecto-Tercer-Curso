@@ -4,10 +4,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Inicio de usuario</title>
+        <title>Asignación de grupos</title>
     </h:head>
     <h:body>
-		<h1>HOLA</h1>
+		<h1>Pulse para asignar grupos</h1>
+		
+		<h:commandButton value="Asignar manual" action="#{lista.mostrar()}" />
+		<h:commandButton value="Asignar automáticamente" action="#{lista.mostrar()}" />
+	
+		
     </h:body>
 </html>
 

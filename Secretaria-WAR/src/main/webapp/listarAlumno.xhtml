@@ -5,7 +5,7 @@
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Listado de Alumnos</title>
+	<title>Listar alumnos</title>
 </h:head>
 <h:body>
 	<h1>Listado de Alumnos</h1>
@@ -24,6 +24,9 @@
 		
 		<br></br>
 		<h:commandButton value="Mostrar lista" action="#{lista.mostrar()}" />
+		<h:inputText id= "parametro_filtro"	value = "#{lista.parametro}">	</h:inputText>
+
+                       
 		
 	</h:form>
 	
@@ -99,8 +102,9 @@
            </h:column>
            
         </h:dataTable>
-
 	
+		
+		<h:button id= "Volver" value="Volver" outcome="inicio.xhtml" />
 
 
 </h:body>
