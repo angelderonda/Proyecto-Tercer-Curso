@@ -158,7 +158,6 @@ public class AlumnoEJB implements GestionAlumno {
 	public void asignarGrupo(Integer idAlumno, List<GruposAsignatura> lista, EncuestaId idEncuesta, boolean manualmente)
 			throws ObjetoNoExistenteException {
 		// TODO Auto-generated method stub
-		GrupoEJB grupoEjb = new GrupoEJB();
 		if (!manualmente) {
 			List<GruposAsignatura> listaAlgoritmo = algoritmo(idAlumno, idEncuesta);
 			asignaGrupo(idAlumno, listaAlgoritmo);
@@ -224,19 +223,21 @@ public class AlumnoEJB implements GestionAlumno {
 			asignaturaMatricula.setAsignaturaAsignaturasMatricula(grupoAsignatura.getAsignaturaGruposAsignatura());
 			asignaturaMatricula.setMatriculaAsignaturasMatricula(matricula);
 			asignaturaMatricula.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());
-			listaAsignaturasMatricula.add(asignaturaMatricula);
-
-			matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
-			listaMatriculasExpediente.add(matricula);
-			// listaMatriculasExpediente.add
-			expediente.setMatriculaExpediente(listaMatriculasExpediente);
-			listaExpedienteAlumno.add(expediente);
-			alumno.setExpedienteAlumno(listaExpedienteAlumno);
-			// Merge
-			em.merge(alumno);
-			em.merge(expediente);
-			em.merge(matricula);
+			listaAsignaturasMatricula.add(asignaturaMatricula);			
 		}
+		matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
+		listaMatriculasExpediente.add(matricula);
+		// listaMatriculasExpediente.add
+		expediente.setMatriculaExpediente(listaMatriculasExpediente);
+		listaExpedienteAlumno.add(expediente);
+		alumno.setExpedienteAlumno(listaExpedienteAlumno);
+		// Merge
+		em.merge(alumno);
+		em.merge(expediente);
+		em.merge(matricula);
+		
+		
+		
 	}
 
 }
