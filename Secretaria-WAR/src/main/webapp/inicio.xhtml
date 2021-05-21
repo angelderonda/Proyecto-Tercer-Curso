@@ -10,8 +10,9 @@
 		<h1>Página de Inicio</h1>
 		
 		<h4>Asignar grupo</h4>
-		
-		<h:button outcome="asignarGrupo.xhtml" value="Entrar" />
+		<h:form>
+		 <h:commandButton value="Entrar" action="#{asignar.inicializarLista()}" />
+		</h:form>
 		
 		<h4>Gestionar cambio de grupo</h4>
 		

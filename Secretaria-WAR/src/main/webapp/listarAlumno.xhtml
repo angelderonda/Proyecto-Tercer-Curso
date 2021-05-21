@@ -24,10 +24,7 @@
 		
 		<br></br>
 		<h:commandButton value="Mostrar lista" action="#{lista.mostrar()}" />
-		<h:inputText id= "parametro_filtro"	value = "#{lista.parametro}">	</h:inputText>
-
-                       
-		
+		<h:inputText id= "parametro_filtro"	value = "#{lista.parametro}">	</h:inputText>	
 	</h:form>
 	
 	<h:dataTable value="#{lista.lista}" var="alumno">

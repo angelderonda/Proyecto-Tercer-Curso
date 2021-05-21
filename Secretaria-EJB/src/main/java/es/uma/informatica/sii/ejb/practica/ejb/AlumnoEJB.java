@@ -92,6 +92,10 @@ public class AlumnoEJB implements GestionAlumno {
 			query = em.createNamedQuery("TITULACION", Alumno.class);
 			res = query.setParameter("codigo", (int) parametro).getResultList();
 			break;
+		case ALUMNOS_POR_ASIGNAR:
+			query = em.createNamedQuery("ALUMNOS_POR_ASIGNAR", Alumno.class);
+			res = query.getResultList();
+			break;
 		
 		default:// TODOS
 			query = em.createNamedQuery("TODOS", Alumno.class);
@@ -235,9 +239,6 @@ public class AlumnoEJB implements GestionAlumno {
 		em.merge(alumno);
 		em.merge(expediente);
 		em.merge(matricula);
-		
-		
-		
 	}
 
 }

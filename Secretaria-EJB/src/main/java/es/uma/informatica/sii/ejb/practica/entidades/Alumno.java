@@ -20,6 +20,8 @@ import javax.persistence.*;
 																																					// ASC
 																																					// ESTA
 																																					// OK
+		@NamedQuery(name = "ALUMNOS_POR_ASIGNAR", query = "SELECT a FROM Alumno a, Expediente e, Matricula m WHERE "
+				+ "e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND m.asignaturasMatriculaMatricula is empty"),
 		@NamedQuery(name = "NOTA_MEDIA", query = "SELECT a FROM Alumno a, Expediente e WHERE e.alumnoExpediente.id = a.id AND e.notaMediaProvisional > :nota"),
 		@NamedQuery(name = "TITULACION", query = "SELECT a FROM Alumno a, Expediente e, Titulacion t WHERE"
 				+ " e.alumnoExpediente.id = a.id AND e.titulacionExpediente = t AND t.codigo = :codigo"), })
