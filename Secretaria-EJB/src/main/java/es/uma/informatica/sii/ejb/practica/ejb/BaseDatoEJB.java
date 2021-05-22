@@ -180,7 +180,7 @@ public class BaseDatoEJB implements GestionBD{
 
 		encuesta.setGruposAsignaturaEncuesta(listaGruposAsignatura);
 		// AsignaturasMatricula
-		/*AsignaturasMatricula asignaturasMatricula = new AsignaturasMatricula();
+		AsignaturasMatricula asignaturasMatricula = new AsignaturasMatricula();
 		List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();
 		listaAsignaturasMatricula.add(asignaturasMatricula);
 
