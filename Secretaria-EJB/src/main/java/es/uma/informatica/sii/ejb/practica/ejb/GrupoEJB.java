@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
@@ -115,6 +116,8 @@ public class GrupoEJB implements GestionGrupo {
 			em.merge(matricula);
 		}
 	}
+	
+	
 
 //	@Override
 //	public void incluirAlumno(Alumno alumno, Grupo grupo) throws ProyectoException {
