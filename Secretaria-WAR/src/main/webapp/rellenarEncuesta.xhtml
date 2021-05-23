@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Encuesta</title>
+    </h:head>
+    <h:body>
+    	<h2>Por favor rellene la encuesta con sus preferencias.</h2>
+        <h:form id="rellenarEncuestaForm">
+        	<h3>Introduzca su número de expediente.</h3>
+        	<h:inputText id="NumeroExpediente" value="#{rellenarencuesta.numeroexpediente}" required="true" requiredMessage="Por favor introduce el número de expediente" />
+			<h:message for="NumeroExpediente" errorClass="errorMessage"/> <!-- Message for DNIAlumno -->
+			<br></br>
+			
+			<h3>Rellene el siguiente campo de texto con sus grupos de preferencia</h3>
+   			<h:inputTextarea value="#{rellenarencuesta.gruposAsignaturas}"/>
+			<br></br>
+			
+		    <h:commandButton value="Enviar Encuesta" action="#{rellenarencuesta.enviarEncuesta()}" />
+			<br></br>
+			<br></br>
+			<h:commandButton value="RellenarEncuesta" action="#{rellenarencuesta.devolveraLogin()}" />
+			
+		<h:messages globalOnly="true" /> <!-- Global messages -->
+		
+	  </h:form>
+    </h:body>
+</html>
+
