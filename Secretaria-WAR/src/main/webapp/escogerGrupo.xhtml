@@ -20,6 +20,22 @@
                 <f:facet name="header">Grupo</f:facet>
               #{asigMatricula.grupoAsignaturasMatricula.letra}
            </h:column> 
+      
+           <h:column>
+               <h:form>
+        			<h:commandButton value="Mostrar Grupos" action="#{escoger.mostrarGrupos(asigMatricula)}">
+        				<f:ajax execute="@form" render=":letras"/>
+        			</h:commandButton>	
+        		</h:form>
+           </h:column> 
+           <h:column>
+           		<h:form>
+	               	<h:selectOneMenu value = "#{escoger.letra}" >
+						<f:selectItems value="#{escoger.letras}" />
+						<f:ajax listener = "#{escoger.metodoSelect()}"/>
+					</h:selectOneMenu>
+				</h:form>
+           </h:column> 
         </h:dataTable>
         
         <br></br>

@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -18,18 +21,43 @@ import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
 import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
+import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
+import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 
 @Named
 @RequestScoped
 public class Escoger {
+	
+	private static final Logger LOGGER = Logger.getLogger(Escoger.class.getCanonicalName());
 	
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
 	
 	private static Alumno a;
 	
+	private List<GruposAsignatura> listaGruposAsignatura;
 	
 	private List<AsignaturasMatricula> lista;
+	
+	private List<String> letras;
+	
+	private String letra;
+	
+	public String getLetra() {
+		return letra;
+	}
+
+	public void setLetra(String letra) {
+		this.letra = letra;
+	}
+
+	public List<String> getLetras() {
+		return letras;
+	}
+
+	public void setLetras(List<String> letras) {
+		this.letras = letras;
+	}
 
 	public List<AsignaturasMatricula> getLista() {
 		return lista;
@@ -45,10 +73,18 @@ public class Escoger {
 	
 	public String inicializarLista() {
 		try {
+			listaGruposAsignatura = new ArrayList<>();
 			TypedQuery<AsignaturasMatricula> query = em.createQuery("SELECT am FROM AsignaturasMatricula am, Alumno a, Expediente e, Matricula m WHERE " + 
 			"a = :alumno AND e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND am.mat = m", AsignaturasMatricula.class);
 			query.setParameter("alumno", a);
 			lista = query.getResultList(); 
+			for(AsignaturasMatricula am : lista) {
+				GruposAsignatura grupoAsig = new GruposAsignatura();
+				grupoAsig.setAsignaturaGruposAsignatura(am.getAsignaturaAsignaturasMatricula());
+				grupoAsig.setGrupoGruposAsignatura(am.getGrupoAsignaturasMatricula());
+				listaGruposAsignatura.add(grupoAsig);
+			}
+			letras = Arrays.asList("A","B","C");
 		}catch (Exception e) {
 			// TODO: handle exception
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERROR -- El alumno no tiene ningun grupo asignado"));
@@ -56,8 +92,21 @@ public class Escoger {
 		return "escogerGrupo.xhtml";
 	}
 	
+	public String mostrarGrupos(AsignaturasMatricula asigMatricula) {
+		TypedQuery<AsignaturasMatricula> query = em.createQuery("SELECT am FROM AsignaturasMatricula am WHERE am.asignaturaAsignaturasMatricula = :asignatura", AsignaturasMatricula.class);
+		query.setParameter("asigMatricula", asigMatricula.getAsignaturaAsignaturasMatricula());
+		for(AsignaturasMatricula am : query.getResultList()) {
+			letras.add(am.getGrupoAsignaturasMatricula().getLetra()+"");
+		}
+		return null;
+	}
+	
 	public String cambio() {
 		return null;
+	}
+	
+	public void metodoSelect() {
+		LOGGER.info("ANGELETE ERES FEOOOOOOOOOOOOOOOOOOOOOOO LETRA: " + letra);
 	}
 	
 }
