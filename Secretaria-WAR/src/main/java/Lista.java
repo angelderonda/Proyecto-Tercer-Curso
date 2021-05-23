@@ -24,7 +24,6 @@ public class Lista {
 	
 	private float parametro;
 	
-	private static final Logger LOGGER = Logger.getLogger(Lista.class.getCanonicalName());
 	
 	private List<Alumno> lista;
 	
@@ -74,7 +73,6 @@ public class Lista {
 			alumno.setCp(29514);
 			lista = new ArrayList<>();
 			lista.add(alumno);*/
-			LOGGER.info("Angelete \n");
 		} catch (ProyectoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

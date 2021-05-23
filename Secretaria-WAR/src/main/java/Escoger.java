@@ -24,7 +24,7 @@ import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 
-@Named
+@Named("escoger")
 @RequestScoped
 public class Escoger {
 	
@@ -104,9 +104,13 @@ public class Escoger {
 	public String cambio() {
 		return null;
 	}
-	
+	/*
 	public void metodoSelect() {
-		LOGGER.info("ANGELETE ERES FEOOOOOOOOOOOOOOOOOOOOOOO LETRA: " + letra);
+		LOGGER.info("ANGELETE ERES FEOOOOOOOOOOOOOOOOOOOOOOO LETRA: ");
+	}*/
+	
+	public void valueChanged(ValueChangeEvent event) {
+		LOGGER.info("ANGELETE ERES FEOOOOOOOOOOOOOOOOOOOOOOO LETRA: ");
 	}
 	
 }

@@ -16,7 +16,6 @@ public class Login {
 	
 	private String nombre,contrasenia;
 	
-	private static final Logger LOGGER = Logger.getLogger(Login.class.getCanonicalName());
 
 	
 	private UIComponent mybutton;
@@ -38,7 +37,6 @@ public class Login {
 	}
 
     public String entrar() {
-    	LOGGER.info("Angelete guapo \n");
         if(nombre.equals("admin") && contrasenia.equals("admin")) {
         	return "inicio.xhtml";
         }
