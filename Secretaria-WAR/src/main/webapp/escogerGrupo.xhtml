@@ -22,15 +22,13 @@
            </h:column>
 
 			<h:column>
-				<h:commandButton value="Asignar automáticamente" action="#{escoger.mostrarGrupos(asigMatricula)}" />
+				<h:commandButton value="Mostrar Grupos" action="#{escoger.mostrarGrupos(asigMatricula)}" />
 			</h:column>
 			<h:column>
 
 				<h:selectOneMenu valueChangeListener="#{escoger.valueChanged}"
 					onchange="submit()">
-					<!-- <f:selectItems value="#{escoger.letras}" />-->
-					<f:selectItem itemValue="1" itemLabel="First" />
-					<f:selectItem itemValue="2" itemLabel="Second" />
+					<f:selectItems value="#{escoger.letras}" />
 				</h:selectOneMenu>
 
 			</h:column>

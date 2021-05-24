@@ -88,10 +88,11 @@ public class Escoger {
 	}
 	
 	public String mostrarGrupos(AsignaturasMatricula asigMatricula) {
-		TypedQuery<AsignaturasMatricula> query = em.createQuery("SELECT am FROM AsignaturasMatricula am WHERE am.asignaturaAsignaturasMatricula = :asignatura", AsignaturasMatricula.class);
-		query.setParameter("asigMatricula", asigMatricula.getAsignaturaAsignaturasMatricula());
-		for(AsignaturasMatricula am : query.getResultList()) {
-			letras.add(am.getGrupoAsignaturasMatricula().getLetra()+"");
+		letras = new ArrayList<String>();
+		TypedQuery<Grupo> query = em.createQuery("SELECT ga.grupoGruposAsignatura FROM GruposAsignatura ga WHERE ga.asig = :asignatura", Grupo.class);
+		query.setParameter("asignatura", asigMatricula.getAsignaturaAsignaturasMatricula());
+		for(Grupo g : query.getResultList()) {
+			letras.add(g.getLetra()+"");
 		}
 		return null;
 	}
