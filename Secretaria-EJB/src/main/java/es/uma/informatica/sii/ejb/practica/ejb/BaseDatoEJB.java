@@ -92,8 +92,11 @@ public class BaseDatoEJB implements GestionBD{
 		expediente.setNumeroExpediente(102474112);
 		expediente.setAlumnoExpediente(alumno);
 		expediente.setTitulacionExpediente(titulacion);
+		
 		em.persist(expediente);
 
+		
+		
 		// Matricula
 		Matricula matricula = new Matricula();
 		List<Matricula> listaMatricula = new ArrayList<Matricula>();

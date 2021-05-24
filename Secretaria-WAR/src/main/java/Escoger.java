@@ -60,18 +60,6 @@ public class Escoger {
 	}
 
 	public List<AsignaturasMatricula> getLista() {
-		return lista;
-	}
-
-	public void setLista(List<AsignaturasMatricula> lista) {
-		this.lista = lista;
-	}
-	
-	public static void setAlumno(Alumno al) {
-		a = al;
-	}
-	
-	public String inicializarLista() {
 		try {
 			listaGruposAsignatura = new ArrayList<>();
 			TypedQuery<AsignaturasMatricula> query = em.createQuery("SELECT am FROM AsignaturasMatricula am, Alumno a, Expediente e, Matricula m WHERE " + 
@@ -84,12 +72,19 @@ public class Escoger {
 				grupoAsig.setGrupoGruposAsignatura(am.getGrupoAsignaturasMatricula());
 				listaGruposAsignatura.add(grupoAsig);
 			}
-			letras = Arrays.asList("A","B","C");
 		}catch (Exception e) {
 			// TODO: handle exception
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERROR -- El alumno no tiene ningun grupo asignado"));
 		}	
-		return "escogerGrupo.xhtml";
+		return lista;
+	}
+
+	public void setLista(List<AsignaturasMatricula> lista) {
+		this.lista = lista;
+	}
+	
+	public static void setAlumno(Alumno al) {
+		a = al;
 	}
 	
 	public String mostrarGrupos(AsignaturasMatricula asigMatricula) {

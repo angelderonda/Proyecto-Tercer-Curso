@@ -227,6 +227,7 @@ public class AlumnoEJB implements GestionAlumno {
 			asignaturaMatricula.setAsignaturaAsignaturasMatricula(grupoAsignatura.getAsignaturaGruposAsignatura());
 			asignaturaMatricula.setMatriculaAsignaturasMatricula(matricula);
 			asignaturaMatricula.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());
+			em.persist(asignaturaMatricula);
 			listaAsignaturasMatricula.add(asignaturaMatricula);			
 		}
 		matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);

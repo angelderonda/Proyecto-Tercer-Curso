@@ -58,7 +58,8 @@ public class Alumno implements Serializable {
 	@Column(name = "CP")
 	private Integer cp;
 
-	@OneToMany(mappedBy = "alumnoExpediente", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "alumnoExpediente", cascade = CascadeType.REMOVE,fetch=FetchType.EAGER)
+	
 	private List<Expediente> expedienteAlumno;
 
 	// Getter y setters

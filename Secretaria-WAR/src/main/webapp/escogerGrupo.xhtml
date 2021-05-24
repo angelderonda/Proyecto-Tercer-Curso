@@ -22,12 +22,7 @@
            </h:column>
 
 			<h:column>
-				<h:form>
-					<h:commandButton value="Mostrar Grupos"
-						action="#{escoger.mostrarGrupos(asigMatricula)}">
-						<f:ajax execute="@form" render=":letras" />
-					</h:commandButton>
-				</h:form>
+				<h:commandButton value="Asignar automáticamente" action="#{escoger.mostrarGrupos(asigMatricula)}" />
 			</h:column>
 			<h:column>
 
@@ -40,15 +35,6 @@
 
 			</h:column>
 		</h:dataTable>
-	</h:form>
-
-	<h:form>
-		<h:selectOneMenu valueChangeListener="#{escoger.valueChanged}"
-			onchange="submit()">
-			<!-- <f:selectItems value="#{escoger.letras}" />-->
-			<f:selectItem itemValue="1" itemLabel="First" />
-			<f:selectItem itemValue="2" itemLabel="Second" />
-		</h:selectOneMenu>
 	</h:form>
 	<h:messages style="color:red;margin:8px;" />
 </h:body>

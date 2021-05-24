@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -20,6 +21,8 @@ import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 @Named(value = "asignar")
 @RequestScoped
 public class Asignar {
+	
+	private static final Logger LOGGER = Logger.getLogger(Asignar.class.getCanonicalName());
 	
 	@Inject 
 	private GestionAlumno alumnoEJB;
@@ -53,19 +56,21 @@ public class Asignar {
 	}
 	
 	public String asignarAutomatico(Integer id) {
-		
-		/*try {
+		LOGGER.info("Entramos en el metodo asignar Automatico, ID del alumno: " + id);
+		try {
 			Alumno a = em.find(Alumno.class, id); //COmrpboar si el alumno es nulls
-			List<Encuesta> listaEncuesta = a.getExpedienteActivo().getEncuestaExpediente();
-			Encuesta encuesta =  listaEncuesta.get(listaEncuesta.size()-1);
-			EncuestaId encuestaId = new EncuestaId(encuesta.getFechaEnvio(), encuesta.getExpedienteEncuesta().getNumeroExpediente());
-			if(listaEncuesta != null) alumnoEJB.asignarGrupo(a.getId(), null, encuestaId, false);
+			if(a != null) {
+				List<Encuesta> listaEncuesta = a.getExpedienteActivo().getEncuestaExpediente();
+				Encuesta encuesta =  listaEncuesta.get(listaEncuesta.size()-1);
+				EncuestaId encuestaId = new EncuestaId(encuesta.getFechaEnvio(), encuesta.getExpedienteEncuesta().getNumeroExpediente());
+				if(listaEncuesta != null) alumnoEJB.asignarGrupo(a.getId(), null, encuestaId, false);
+			}
 		} catch (ObjetoNoExistenteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return null;
-		*/
 	}
 	
 	public String asignarManual(Alumno a) {

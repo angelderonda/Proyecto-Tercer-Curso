@@ -44,7 +44,7 @@ public class Expediente implements Serializable {
 	private Alumno alumnoExpediente;
 
 	// Relacion uno a muchos con Encuesta
-	@OneToMany(mappedBy = "expedienteEncuesta", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "expedienteEncuesta", cascade = CascadeType.REMOVE,fetch=FetchType.EAGER)
 	private List<Encuesta> encuestaExpediente;
 
 	// Relacion uno a muchos con Matricula
