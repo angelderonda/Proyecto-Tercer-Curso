@@ -2,8 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAlumno;
@@ -21,6 +24,9 @@ public class Asignar {
 	@Inject 
 	private GestionAlumno alumnoEJB;
 	
+	@PersistenceContext(name = "Secretaria")
+	private EntityManager em;
+	
 	private List<Alumno> lista;
 	
 	public GestionAlumno getAlumno() {
@@ -32,26 +38,24 @@ public class Asignar {
 	}
 
 	public List<Alumno> getLista() {
-		return lista;
+		try {
+			lista = alumnoEJB.listarAlumnos(TipoFiltro.ALUMNOS_POR_ASIGNAR,0f);
+			return lista;
+		} catch (ProyectoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null; //Ir a pagina error
+		}
 	}
 
 	public void setLista(List<Alumno> lista) {
 		this.lista = lista;
 	}
 	
-	public String inicializarLista() {
-		try {
-			lista = alumnoEJB.listarAlumnos(TipoFiltro.ALUMNOS_POR_ASIGNAR,0f);
-			return "asignarGrupo.xhtml";
-		} catch (ProyectoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	public String asignarAutomatico(Alumno a) {
-		try {
+	public String asignarAutomatico(Integer id) {
+		
+		/*try {
+			Alumno a = em.find(Alumno.class, id); //COmrpboar si el alumno es nulls
 			List<Encuesta> listaEncuesta = a.getExpedienteActivo().getEncuestaExpediente();
 			Encuesta encuesta =  listaEncuesta.get(listaEncuesta.size()-1);
 			EncuestaId encuestaId = new EncuestaId(encuesta.getFechaEnvio(), encuesta.getExpedienteEncuesta().getNumeroExpediente());
@@ -61,6 +65,7 @@ public class Asignar {
 			e.printStackTrace();
 		}
 		return null;
+		*/
 	}
 	
 	public String asignarManual(Alumno a) {
