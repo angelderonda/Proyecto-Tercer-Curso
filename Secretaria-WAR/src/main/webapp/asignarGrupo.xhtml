@@ -46,11 +46,11 @@
            </h:column>
            
            <h:column>
-                <h:commandButton value="Asignar automáticamente" action="#{asignar.asignarAutomatico(alumno)}" />
+                <h:commandButton value="Asignar automáticamente" action="#{asignar.asignarAutomatico(alumno.id)}" />
            </h:column>
            
            <h:column>
-                <h:commandButton value="Asignar manual" action="#{asignar.asignarManual(alumno)}" />
+                <h:commandButton value="Asignar manual" action="#{asignar.asignarManual(alumno.id)}" />
            </h:column>
         </h:dataTable>
         </h:form>
