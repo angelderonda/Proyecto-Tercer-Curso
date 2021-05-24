@@ -9,23 +9,21 @@
     <h:body>
     	<h2>Por favor rellene la encuesta con sus preferencias.</h2>
         <h:form id="rellenarEncuestaForm">
-        	<h3>Introduzca su número de expediente.</h3>
-        	<h:inputText id="NumeroExpediente" value="#{rellenarencuesta.numeroexpediente}" required="true" requiredMessage="Por favor introduce el número de expediente" />
-			<h:message for="NumeroExpediente" errorClass="errorMessage"/> <!-- Message for DNIAlumno -->
+        
+        	<h:outputText value="Dni del alumno: " />
+        	<h:inputText id="Dni" value="#{encuesta.dni}" required="true" requiredMessage="Por favor introduce el dni" />
+			<h:message for="Dni" errorClass="errorMessage"/> 
 			<br></br>
 			
-			<h3>Rellene el siguiente campo de texto con sus grupos de preferencia</h3>
-   			<h:inputTextarea value="#{rellenarencuesta.gruposAsignaturas}"/>
-			<br></br>
+			<h:commandButton value="Enviar dni del alumno" action="#{encuesta.enviarDniAlumno()}" /><h:messages globalOnly="true" style="color:red;margin:8px;"/> <!-- Global messages --><br></br>
 			
-		    <h:commandButton value="Enviar Encuesta" action="#{rellenarencuesta.enviarEncuesta()}" />
-			<br></br>
-			<br></br>
-			<h:commandButton value="RellenarEncuesta" action="#{rellenarencuesta.devolveraLogin()}" />
+			<h:commandButton value="Enviar Encuesta" action="#{encuesta.rellenarEncuesta()}" /><br></br>
 			
-		<h:messages globalOnly="true" /> <!-- Global messages -->
+		
 		
 	  </h:form>
+	  
+	  <h:button id= "Login" value="Login" outcome="login.xhtml" />
     </h:body>
 </html>
 
