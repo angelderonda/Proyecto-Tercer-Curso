@@ -5,31 +5,46 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Login de usuario</title>
+        <link rel="stylesheet" href="login.css" type="text/css"/>
     </h:head>
     <h:body>
-    	<h2>Login Secretaria</h2>
+      <h:panelGroup id="caja0" layout="block">
+        <h1>Secretaría</h1> 
+      </h:panelGroup>
+      <!-- No podrá ver este texto. 
+      <div class="gradient">
+  
+    </div>-->
+      
+      <h:panelGroup id="caja" layout="block">
+      <h2>
+      <h:outputText value="Identifícate" id="login"/>
+      </h2>
+  
+        
         <h:form id="loginForm">
 
-   		
+      
 
-		       <h:outputText value="Username" />
-		       <h:inputText id="username" value="#{login.nombre}" 
-		                  required="true" requiredMessage="Please enter your username" />
-		       <h:message for="username" errorClass="errorMessage" /> <!-- Message for username --><br></br>
-		
-		       <h:outputText value="Password" />
-		       <h:inputSecret id="password" value="#{login.contrasenia}" 
-		                  required="true" requiredMessage="Please enter your password" />
-		       <h:message for="password" errorClass="errorMessage" /> <!-- Message for password --><br></br>
-		
-		
-		       <h:commandButton value="Login" action="#{login.entrar()}" /><br></br>
+           <h:outputText value="Usuario" class="text"/>
+           <h:inputText class="username" value="#{login.nombre}" 
+                      required="true" requiredMessage="Usuario incorrecto" color="red" />
+           <h:message for="username" errorClass="errorMessage" style="color:red" /> <!-- Message for username --><br></br>
+    
+           <h:outputText value="Contraseña" class="text"/>
+           <h:inputSecret class="username" value="#{login.contrasenia}" 
+                      required="true" requiredMessage="Contraseña incorrecta" color="red"/>
+           <h:message for="password" errorClass="errorMessage" style="color:red"/> <!-- Message for password --><br></br>
+    
+    
+           <h:commandButton class= "boton" value="Entrar" action="#{login.entrar()}" /><br></br>
 
-   		
+      
 
-   		<h:messages globalOnly="true" /> <!-- Global messages -->
-
-	  </h:form>
+      <h:messages globalOnly="true" /> <!-- Global messages -->
+    
+    </h:form>
+    </h:panelGroup>
     </h:body>
 </html>
 

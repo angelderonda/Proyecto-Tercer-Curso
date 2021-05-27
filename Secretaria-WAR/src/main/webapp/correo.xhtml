@@ -4,14 +4,19 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<title>Enviar encuesta</title>
+	<link rel="stylesheet" href="correo.css" type="text/css"/>
 </h:head>
 <h:body>
 	<h1>Introduzca un correo para enviar el link de la encuesta</h1>
 	<h:form>
-		<h:inputText id = "correo" value="#{controladorCorreo.toMail}"  required="true" requiredMessage="Porfavor introduzca un correo"  />
-		<h:commandButton value="Send" action="#{controladorCorreo.send()}" />
-		 <h:message for="correo" errorClass="errorMessage" /><br></br>
-		 <h:button id= "Volver" value="Volver" outcome="inicio.xhtml" />
+	<div class= "caja">
+		<p>Para: </p>
+		<h:inputText class = "correo" id="correo" value="#{controladorCorreo.toMail}"  required="true" requiredMessage="Porfavor introduzca un correo"  />
+		<h:commandButton class="boton" value="Send" action="#{controladorCorreo.send()}" />
+		 <br></br>
+		 <h:button class= "Volver" value="Volver" outcome="inicio.xhtml" /><br></br>
+		  <h:message for="correo" errorClass="errorMessage" style="color:red" />
+	</div>
 	</h:form>
 </h:body>
 </html>
