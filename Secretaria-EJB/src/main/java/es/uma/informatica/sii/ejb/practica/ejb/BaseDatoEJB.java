@@ -128,7 +128,7 @@ public class BaseDatoEJB implements GestionBD {
 		expediente1.setCreditosOP(0);
 		expediente1.setCreditosPE(0);
 		expediente1.setCreditosTF(0);
-		expediente1.setNotaMediaProvisional((float) 0.00);
+		expediente1.setNotaMediaProvisional((float) 7.00);
 		expediente1.setNumeroExpediente(102474113);
 		expediente1.setAlumnoExpediente(alumno1);
 		expediente1.setTitulacionExpediente(titulacion);

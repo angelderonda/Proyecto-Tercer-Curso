@@ -148,13 +148,13 @@ public class GruposAsignatura implements Serializable {
 		return "GruposAsignatura [curso_academico=" + cursoAcademico + "]";
 	}
 
-	// HashCode and Equals
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((asig == null) ? 0 : asig.hashCode());
 		result = prime * result + ((cursoAcademico == null) ? 0 : cursoAcademico.hashCode());
+		result = prime * result + ((grupoGruposAsignatura == null) ? 0 : grupoGruposAsignatura.hashCode());
 		return result;
 	}
 
@@ -167,12 +167,26 @@ public class GruposAsignatura implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		GruposAsignatura other = (GruposAsignatura) obj;
+		if (asig == null) {
+			if (other.asig != null)
+				return false;
+		} else if (!asig.equals(other.asig))
+			return false;
 		if (cursoAcademico == null) {
 			if (other.cursoAcademico != null)
 				return false;
 		} else if (!cursoAcademico.equals(other.cursoAcademico))
 			return false;
+		if (grupoGruposAsignatura == null) {
+			if (other.grupoGruposAsignatura != null)
+				return false;
+		} else if (!grupoGruposAsignatura.equals(other.grupoGruposAsignatura))
+			return false;
 		return true;
 	}
+
+	// HashCode and Equals
+	
+	
 
 }

@@ -72,7 +72,7 @@ public class GrupoEJB implements GestionGrupo {
 							new AsignaturaId(ga.getAsignaturaGruposAsignatura().getReferencia(),
 									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
 			if (auxga == null) {
-				throw new ObjetoNoExistenteException("El grupo asignatura no existe: " + auxga);
+				throw new ObjetoNoExistenteException("El grupo asignatura " + ga + "no existe: " + auxga);
 			}
 		}
 		if (alumno == null) {

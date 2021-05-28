@@ -62,6 +62,7 @@ public class GestionarCambio {
 			query.setParameter("dni", dni);
 			alumno = query.getSingleResult(); 
 			Escoger.setAlumno(alumno);
+			Escoger2.setAlumno(alumno);
 		}catch (Exception e) {
 			// TODO: handle exception
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("DNI doesn´t exist"));

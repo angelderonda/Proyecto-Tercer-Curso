@@ -73,5 +73,7 @@ public class GruposAsignaturaEJB implements GestionGruposAsignatura {
 		em.remove(aux);
 
 	}
+	
+	
 
 }
