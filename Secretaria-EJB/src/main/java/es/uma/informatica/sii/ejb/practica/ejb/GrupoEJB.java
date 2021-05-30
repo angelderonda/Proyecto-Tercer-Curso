@@ -73,7 +73,7 @@ public class GrupoEJB implements GestionGrupo {
 									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
 			if (auxga == null) {
 				throw new ObjetoNoExistenteException("El grupo asignatura " + ga + "no existe: " + auxga);
-			}
+			}				
 		}
 		if (alumno == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
@@ -83,12 +83,17 @@ public class GrupoEJB implements GestionGrupo {
 			throw new ObjetoNoExistenteException("El expediente que buscas no existe");
 		}
 		List<Expediente> listaExpedienteAlumno = alumno.getExpedienteAlumno();
+		
+		//QUITAMOS EL EXPEDIENTE (DSPS SE AÑADIRA)
 		listaExpedienteAlumno.remove(expediente);
+		
 		Matricula matricula = expediente.getMatriculaActiva();
 		if (matricula == null) {
 			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}
 		List<Matricula> listaMatriculasExpediente = expediente.getMatriculaExpediente();
+		
+		//QUITAMOS LA MATRICULA(DSPS SE AÑADIRA)
 		listaMatriculasExpediente.remove(matricula);
 		if (cambioAceptado) { // Cambiamos al alumno de grupo
 			// tenemos la lista de asignaturas y grupo al que vamos a cambiar al alumno
@@ -101,19 +106,30 @@ public class GrupoEJB implements GestionGrupo {
 				AsignaturasMatricula asignaturaMatricula = new AsignaturasMatricula();
 				asignaturaMatricula.setAsignaturaAsignaturasMatricula(grupoAsignatura.getAsignaturaGruposAsignatura());
 				asignaturaMatricula.setMatriculaAsignaturasMatricula(matricula);
-				asignaturaMatricula.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());
-				listaAsignaturasMatricula.add(asignaturaMatricula);
+				asignaturaMatricula.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());				
+				listaAsignaturasMatricula.add(asignaturaMatricula);		
+				em.merge(asignaturaMatricula);
 			}
+			
+			
+					
 			matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
+			
 			listaMatriculasExpediente.add(matricula);
-			// listaMatriculasExpediente.add
+			
 			expediente.setMatriculaExpediente(listaMatriculasExpediente);
+			
 			listaExpedienteAlumno.add(expediente);
+			
+			
 			alumno.setExpedienteAlumno(listaExpedienteAlumno);
+			
+			
 			// Merge
+			
 			em.merge(alumno);
 			em.merge(expediente);
-			em.merge(matricula);
+			em.merge(matricula);	
 		}
 	}
 	

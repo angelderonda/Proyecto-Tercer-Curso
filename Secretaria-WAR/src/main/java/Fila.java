@@ -32,6 +32,14 @@ public class Fila {
 	private List<String> letras;
 	private String letraSeleccionada;
 	
+	private Grupo grupo;
+	
+	public Grupo getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
 	public Asignatura getAsignatura() {
 		return asignatura;
 	}

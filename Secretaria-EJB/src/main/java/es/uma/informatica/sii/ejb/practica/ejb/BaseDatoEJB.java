@@ -178,7 +178,8 @@ public class BaseDatoEJB implements GestionBD {
 		asignatura.setCodigo(1456156);
 		asignatura.setCreditosPracticas(6);
 		asignatura.setCreditosTeoria(6);
-		asignatura.setCurso(2021);
+		//asignatura.setCurso(2021);
+		asignatura.setCurso(1);
 		asignatura.setDuracion("1º cuatrimestre");
 		asignatura.setNombre("Cálculo");
 		asignatura.setOfertada("Si");
@@ -195,8 +196,9 @@ public class BaseDatoEJB implements GestionBD {
 
 		asignatura2.setCodigo(1456152);
 		asignatura2.setCreditosPracticas(6);
-		asignatura2.setCreditosTeoria(6);
-		asignatura2.setCurso(2021);
+		asignatura2.setCreditosTeoria(6);		
+		//asignatura.setCurso(2021);
+		asignatura.setCurso(1);
 		asignatura2.setDuracion("1º cuatrimestre");
 		asignatura2.setNombre("Programación");
 		asignatura2.setOfertada("Si");
@@ -214,7 +216,7 @@ public class BaseDatoEJB implements GestionBD {
 
 		grupo.setAsignar("Si");
 
-		grupo.setCurso(2021);
+		//grupo.setCurso(2021);
 		grupo.setCurso(1);
 		grupo.setId(1231546);
 		grupo.setIngles('0');
@@ -231,7 +233,7 @@ public class BaseDatoEJB implements GestionBD {
 
 		grupo1.setAsignar("Si");
 		grupo1.setCurso(1);
-		grupo1.setCurso(2021);
+		//grupo1.setCurso(2021);
 		grupo1.setId(1231540);
 		grupo1.setIngles('0');
 		grupo1.setLetra('B');
@@ -257,7 +259,7 @@ public class BaseDatoEJB implements GestionBD {
 		GruposAsignatura gruposAsignatura = new GruposAsignatura();
 		List<GruposAsignatura> listaGruposAsignatura = new ArrayList<GruposAsignatura>();
 		listaGruposAsignatura.add(gruposAsignatura);
-		gruposAsignatura.setCursoAcademico("2021");
+		gruposAsignatura.setCursoAcademico("2020/2021");
 		gruposAsignatura.setOferta('1');
 		gruposAsignatura.setGrupoGruposAsignatura(grupo);
 		gruposAsignatura.setAsignaturaGruposAsignatura(asignatura);
@@ -269,7 +271,7 @@ public class BaseDatoEJB implements GestionBD {
 		GruposAsignatura gruposAsignatura1 = new GruposAsignatura();
 		listaGruposAsignatura.add(gruposAsignatura1);
 
-		gruposAsignatura1.setCursoAcademico("2021");
+		gruposAsignatura1.setCursoAcademico("2020/2021");
 		gruposAsignatura1.setOferta('1');
 		gruposAsignatura1.setGrupoGruposAsignatura(grupo1);
 		gruposAsignatura1.setAsignaturaGruposAsignatura(asignatura);
@@ -281,7 +283,7 @@ public class BaseDatoEJB implements GestionBD {
 		GruposAsignatura gruposAsignatura2 = new GruposAsignatura();
 		listaGruposAsignatura.add(gruposAsignatura1);
 
-		gruposAsignatura2.setCursoAcademico("2021");
+		gruposAsignatura2.setCursoAcademico("2020/2021");
 		gruposAsignatura2.setOferta('1');
 		gruposAsignatura2.setGrupoGruposAsignatura(grupo1);
 		gruposAsignatura2.setAsignaturaGruposAsignatura(asignatura2);
@@ -293,7 +295,7 @@ public class BaseDatoEJB implements GestionBD {
 		GruposAsignatura gruposAsignatura3 = new GruposAsignatura();
 		listaGruposAsignatura.add(gruposAsignatura1);
 
-		gruposAsignatura3.setCursoAcademico("2021");
+		gruposAsignatura3.setCursoAcademico("2020/2021");
 		gruposAsignatura3.setOferta('1');
 		gruposAsignatura3.setGrupoGruposAsignatura(grupo);
 		gruposAsignatura3.setAsignaturaGruposAsignatura(asignatura2);

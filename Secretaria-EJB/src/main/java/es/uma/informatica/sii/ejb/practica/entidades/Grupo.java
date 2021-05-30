@@ -19,11 +19,11 @@ public class Grupo implements Serializable {
 	private Integer id;
 	@Column(name = "ASIGNAR")
 	private String asignar;
-	@Column(name = "CURSO", nullable = false, unique = true)
+	@Column(name = "CURSO", nullable = false, unique = false)
 	private Integer curso;
 	@Column(name = "INGLES", columnDefinition = "char(1) default '0' not null")
 	private char ingles;
-	@Column(name = "LETRA", unique = true, columnDefinition = "char(1) not null")
+	@Column(name = "LETRA", unique = false, columnDefinition = "char(1) not null")
 	private char letra;
 	@Column(name = "PLAZAS", nullable = false)
 	private String plazas;
