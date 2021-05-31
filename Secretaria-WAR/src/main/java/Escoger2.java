@@ -33,7 +33,6 @@ public class Escoger2 implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger LOGGER = Logger.getLogger(Escoger.class.getCanonicalName());
 
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
@@ -92,11 +91,7 @@ public class Escoger2 implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("ERROR -- El alumno no tiene ningun grupo asignado"));
 		}
-		listaFila = listaDeFilas;
-		for (Fila f : listaFila) {
-			LOGGER.info("FILA: " + f);
-		}
-		LOGGER.info("FIN DEL METODO INIT");
+		listaFila = listaDeFilas;		
 	}
 
 	public static void setAlumno(Alumno al) {
@@ -112,7 +107,6 @@ public class Escoger2 implements Serializable {
 	}
 
 	public void onRowEdit(RowEditEvent<Fila> event) {
-		LOGGER.info("Metodo OnRowEdit");
 		FacesMessage msg = new FacesMessage("Fila editada",
 				"Asignatura " + String.valueOf(event.getObject().getAsignatura().getNombre()) + " cambiada al grupo "
 						+ String.valueOf(event.getObject().getLetraSeleccionada()));
@@ -120,13 +114,11 @@ public class Escoger2 implements Serializable {
 	}
 
 	public void onRowCancel(RowEditEvent<Fila> event) {
-		LOGGER.info("Metodo OnRowCancel");
 		FacesMessage msg = new FacesMessage("No se ha modificado la fila");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public void onCellEdit(CellEditEvent<Fila> event) {
-		LOGGER.info("Metodo OnCellEdit");
 		Object oldValue = event.getOldValue();
 		Object newValue = event.getNewValue();
 

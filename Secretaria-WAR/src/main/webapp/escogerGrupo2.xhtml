@@ -11,10 +11,9 @@
 <h:body>
 	<h1>Asignaturas del alumno</h1>
 	<h:form id="form">
-		<p:growl id="msgs" showDetail="true"/>
-		<p:dataTable id="products1" var="fila"
-			value="#{escoger2.listaFila}" editable="true"
-			style="margin-bottom:20px">
+		<p:growl id="msgs" showDetail="true" />
+		<p:dataTable id="products1" var="fila" value="#{escoger2.listaFila}"
+			editable="true" style="margin-bottom:20px">
 
 			<p:ajax event="rowEdit" listener="#{escoger2.onRowEdit}"
 				update=":form:msgs" />
@@ -40,7 +39,7 @@
 					<f:facet name="input">
 						<h:selectOneMenu value="#{fila.letraSeleccionada}"
 							style="width:100%">
-							<f:selectItems value="#{fila.letras}"/>
+							<f:selectItems value="#{fila.letras}" />
 						</h:selectOneMenu>
 					</f:facet>
 				</p:cellEditor>
@@ -51,9 +50,11 @@
 					saveTitle="Save Row" />
 			</p:column>
 		</p:dataTable>
-		
-		<h:commandButton value="Confirmar cambios" action="#{escoger2.confirmarCambio()}" />
+
+		<h:commandButton value="Confirmar cambios"
+			action="#{escoger2.confirmarCambio()}" />		
 	</h:form>
+		<h:button id="Volver" value="Volver" outcome="inicio.xhtml" />
 </h:body>
 </html>
 

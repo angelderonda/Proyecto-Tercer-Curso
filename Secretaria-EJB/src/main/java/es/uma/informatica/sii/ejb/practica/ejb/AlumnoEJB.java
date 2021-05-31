@@ -124,12 +124,13 @@ public class AlumnoEJB implements GestionAlumno {
 		// Creamos la encuesta
 		Encuesta encuesta = new Encuesta();
 		encuesta.setGruposAsignaturaEncuesta(lista);
-		encuesta.setFechaEnvio(new Date());
+		encuesta.setFechaEnvio(new Date());		
 		// Obtenemos el expediente activo
 		Expediente exp = aux.getExpedienteActivo();
 		if (exp == null)
 			throw new ObjetoNoExistenteException("El expediente no existe");
 		encuesta.setExpedienteEncuesta(exp);
+		em.persist(encuesta);
 		// Obtenemos la lista de encuestas del expediente y añadimos la encuesta recien
 		// creada
 		List<Encuesta> listEncuesta = exp.getEncuestaExpediente();
