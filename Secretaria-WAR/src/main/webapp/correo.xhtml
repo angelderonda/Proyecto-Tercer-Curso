@@ -6,15 +6,21 @@
 	<title>Enviar encuesta</title>
 	<link rel="stylesheet" href="correo.css" type="text/css"/>
 </h:head>
+ <h:panelGroup id="caja0" layout="block">
+      <h1>Secretaría-Enviar encuesta</h1>
+      <img src="Logo-UMA.jpg" alt="logo uma"/>
+ </h:panelGroup>
+ 
+ <hr></hr>
+ 
 <h:body>
-	<h1>Introduzca un correo para enviar el link de la encuesta</h1>
 	<h:form>
 	<div class= "caja">
-		<p>Para: </p>
+		<p>Introduzca un correo para enviar la encuesta: </p>
 		<h:inputText class = "correo" id="correo" value="#{controladorCorreo.toMail}"  required="true" requiredMessage="Porfavor introduzca un correo"  />
-		<h:commandButton class="boton" value="Send" action="#{controladorCorreo.send()}" />
+		<h:commandButton class="boton" value="Enviar" action="#{controladorCorreo.send()}" />
 		 <br></br>
-		 <h:button class= "Volver" value="Volver" outcome="inicio.xhtml" /><br></br>
+		 <h:button class="Volver" value="Volver" outcome="inicio.xhtml" /><br></br>
 		  <h:message for="correo" errorClass="errorMessage" style="color:red" />
 	</div>
 	</h:form>

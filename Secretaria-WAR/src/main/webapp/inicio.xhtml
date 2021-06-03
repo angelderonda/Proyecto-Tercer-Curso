@@ -5,34 +5,48 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Inicio de usuario</title>
+        <link rel="stylesheet" href="inicio.css" type="text/css"/>
     </h:head>
     <h:body>
-		<h1>Página de Inicio</h1>
-		
-		<h4>Asignar grupo</h4>
-		
-		<h:button outcome="asignarGrupo.xhtml" value="Entrar" />
-		
-		
-		<h4>Gestionar cambio de grupo</h4>
-		
-		<h:button outcome="gestionarCambio.xhtml" value="Entrar" />
-		
-		<h4>Listar alumnos</h4>
-		
-		<h:button outcome="listarAlumno.xhtml" value="Entrar" />
-		
-		<h4>Gestionar entidades</h4>
-		
-		<h:button outcome="gestionarEntidades.xhtml" value="Entrar" />
-		
-		<h4>Enviar encuesta</h4>
-		
-		<h:button outcome="correo.xhtml" value="Entrar" />
-		
-		<h4>Cerrar sesión</h4>
-		
-		<h:button value="Salir" outcome="login.xhtml" />
+    
+    <h:panelGroup id="caja0" layout="block">
+        <h1>Secretaría-Página de Inicio</h1>
+        <img src="Logo-UMA.jpg" alt="logo uma"/>
+      </h:panelGroup>
+
+        <hr></hr>
+        <br></br>
+		<table style="width:100%" class = "tabla">
+		  <tr>
+		   <th>
+			<!-- <h:panelGroup class="caja1" id="primer" layout="block">
+				<h4>Asignar grupo</h4>-->
+				<h:button class= "boton" outcome="asignarGrupo.xhtml" value="Asignar grupo" />
+			<!--</h:panelGroup>-->
+		   </th>
+		   <th>
+			
+				<h:button outcome="gestionarCambio.xhtml" class= "boton" value="Gestionar cambio de grupo" />
+			
+		   </th>
+		   <th>
+			
+				<h:button outcome="listarAlumno.xhtml" class= "boton" value="Listar alumnos" />
+			
+			</th>
+			<th>
+			
+				<h:button outcome="correo.xhtml" class= "boton" value="Enviar encuesta" /> 
+			
+			</th>
+			<th>
+			
+				<h:button outcome="gestionarEntidades.xhtml" class= "boton" value="Gestionar entidades"/> 
+			
+			</th>
+			</tr>
+			
+		</table>
+		<h:button class="botonS" value="Cerrar Sesión" outcome="login.xhtml" />
     </h:body>
 </html>
-

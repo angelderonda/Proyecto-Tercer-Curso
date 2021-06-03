@@ -5,9 +5,15 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Gestionar entidades</title>
+         <link rel="stylesheet" href="gestionarEntidades.css" type="text/css"/>
     </h:head>
     <h:body>
-		<h1>Gestionar entidades</h1>
+		<h:panelGroup id="caja0" layout="block">
+	      <h1>Secretaría-Gestionar entidades</h1>
+	      <img src="Logo-UMA.jpg" alt="logo uma"/>
+  		</h:panelGroup>
+  
+  		<hr></hr>
 		
 		<h4>Asignatura</h4>
 		
@@ -41,9 +47,7 @@
 		
 		<h:button outcome="crudCentro.xhtml" value="Entrar" />
 		
-		<h4>Volver</h4>
-		
-		<h:button value="Volver" outcome="inicio.xhtml" />
+		 <h:button class = "botonS" value="Volver" outcome="inicio.xhtml" />
     </h:body>
 </html>
 

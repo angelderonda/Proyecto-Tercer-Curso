@@ -6,9 +6,16 @@
 	  xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Asignación de grupos</title>
+        <link rel="stylesheet" href="login.css" type="text/css"/>
     </h:head>
     <h:body>
-		<h1>Pulse para asignar grupos</h1>
+    <h:panelGroup id="caja0" layout="block">
+      <h1>Secretaría-Asignación de grupos</h1>
+      <img src="Logo-UMA.jpg" alt="logo uma"/>
+  </h:panelGroup>
+  
+  <hr></hr>
+		<h2>Pulse para asignar grupos</h2>
 		<h:form>
 		<h:dataTable value="#{asignar.lista}" var="alumno">
             <h:column>
@@ -55,7 +62,7 @@
         </h:dataTable>
         </h:form>
 	
-		<h:button id= "Volver" value="Volver" outcome="inicio.xhtml" />
+		<h:button class = "botonS" value="Volver" outcome="inicio.xhtml" />
 		
 		
     </h:body>

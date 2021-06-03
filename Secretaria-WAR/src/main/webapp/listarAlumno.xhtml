@@ -6,13 +6,20 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Listar alumnos</title>
+	<link rel="stylesheet" href="listarAlumno.css" type="text/css"/>
 </h:head>
 <h:body>
-	<h1>Listado de Alumnos</h1>
+
+	<h:panelGroup id="caja0" layout="block">
+      <h1>Secretaría-Listado de alumnos</h1>
+      <img src="Logo-UMA.jpg" alt="logo uma"/>
+  </h:panelGroup>
+  <hr></hr>
+  <h:panelGroup id="caja1" layout="block">
 	<h4>Introduce el filtro y pulsa filtrar</h4>
 	<h:form id="listaForm">
-
-		<h:selectOneMenu value="#{lista.filtro}">
+		<h:inputText class= "parametro_filtro"	value = "#{lista.parametro}">	</h:inputText> <br></br>
+		<h:selectOneMenu class="select" value="#{lista.filtro}">
 			<f:selectItem itemValue="NUEVOS_O_VETERANOS"
 				itemLabel="Nuevo O Veterano" />
 			<f:selectItem itemValue="FECHA_DE_MATRICULACIÓN"
@@ -21,21 +28,22 @@
 			<f:selectItem itemValue="TODOS" itemLabel="Todos" />
 			<f:selectItem itemValue="NOTA_MEDIA" itemLabel="Nota media" />
 		</h:selectOneMenu>
-		
 		<br></br>
-		<h:commandButton value="Mostrar lista" action="#{lista.mostrar()}" />
-		<h:inputText id= "parametro_filtro"	value = "#{lista.parametro}">	</h:inputText>	
+		<h:commandButton value="Mostrar lista" class= "boton" action="#{lista.mostrar()}" />
 	</h:form>
-	
-	<h:dataTable value="#{lista.lista}" var="alumno">
+  </h:panelGroup>
+	<h:dataTable value="#{lista.lista}" var="alumno" 
+	styleClass = "alumnoTable"
+   headerClass = "alumnoTableHeader"
+   rowClasses = "alumnoTableOddRow,alumnoTableEvenRow">
 
             <h:column>
-                <f:facet name="header">Id</f:facet>
+                <f:facet name="header">ID</f:facet>
               #{alumno.id}
             </h:column>
 
             <h:column>
-                <f:facet name="header">Dni</f:facet>
+                <f:facet  name="header">DNI</f:facet>
               #{alumno.dni}
            </h:column>
            
@@ -45,36 +53,36 @@
            </h:column>
            
             <h:column>
-                <f:facet name="header">APELLIDO1</f:facet>
+                <f:facet  name="header">APELLIDO1</f:facet>
               #{alumno.apellido1}
            </h:column>
             <h:column>
-                <f:facet name="header">APELLIDO2</f:facet>
+                <f:facet  name="header">APELLIDO2</f:facet>
               #{alumno.apellido2}
            </h:column>
            
             <h:column>
-                <f:facet name="header">EMAIL_INSTITUCIONAL</f:facet>
+                <f:facet name="header">EMAIL INSTITUCIONAL</f:facet>
               #{alumno.emailInstitucional}
            </h:column>
            
             <h:column>
-                <f:facet name="header">EMAIL_PERSONAL</f:facet>
+                <f:facet  name="header">EMAIL PERSONAL</f:facet>
               #{alumno.emailPersonal}
            </h:column>
            
             <h:column>
-                <f:facet name="header">NUMERO_ARCHIVO</f:facet>
+                <f:facet  name="header">NUMERO ARCHIVO</f:facet>
               #{alumno.numeroArchivo}
            </h:column>
            
            <h:column>
-                <f:facet name="header">NUMERO_MOVIL</f:facet>
+                <f:facet name="header">NUMERO MOVIL</f:facet>
               #{alumno.numeroMovil}
            </h:column>
            
            <h:column>
-                <f:facet name="header">NUMERO_TELEFONO</f:facet>
+                <f:facet  name="header">NUMERO TELEFONO</f:facet>
               #{alumno.numeroTelefono}
            </h:column>
            
@@ -84,26 +92,26 @@
            </h:column>
            
            <h:column>
-                <f:facet name="header">LOCALIDAD</f:facet>
+                <f:facet  name="header">LOCALIDAD</f:facet>
               #{alumno.localidad}
            </h:column>
            
            <h:column>
-                <f:facet name="header">PROVINCIA</f:facet>
+                <f:facet  name="header">PROVINCIA</f:facet>
               #{alumno.provincia}
            </h:column>
            
            <h:column>
-                <f:facet name="header">CP</f:facet>
+                <f:facet  name="header">CP</f:facet>
               #{alumno.cp}
            </h:column>
-           
-        </h:dataTable>
-	
-		
-		<h:button id= "Volver" value="Volver" outcome="inicio.xhtml" />
-
+          
+	        </h:dataTable>
+			<h:panelGroup id="caja" layout="block">
+				<h:button class="volver" value="Volver" outcome="inicio.xhtml" />
+			</h:panelGroup>
 
 </h:body>
+
 </html>
 

@@ -6,9 +6,16 @@
 		xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Gestionar cambio de grupo</title>
+        <link rel="stylesheet" href="gestionarCambio.css" type="text/css"/>
     </h:head>
     <h:body>
-    	<h1>Gestionar cambio de grupo</h1>
+    	 <h:panelGroup id="caja0" layout="block">
+	      <h1>Secretaría-Gestionar cambio de grupo</h1>
+	      <img src="Logo-UMA.jpg" alt="logo uma"/>
+  		</h:panelGroup>
+  
+  		<hr></hr>
+    	
 		<h:form id="GestionForm">
 			
 			<h2>Escriba el DNI del alumno que quiere cambiar</h2>
@@ -95,7 +102,7 @@
         <br></br>
      
         <h:button outcome="escogerGrupo2.xhtml" value="Escoger nuevo grupo" />
-       
+       <h:button class = "botonS" value="Volver" outcome="inicio.xhtml" />
     </h:body>
 </html>
 

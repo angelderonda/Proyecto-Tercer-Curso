@@ -1,20 +1,30 @@
 @charset "UTF-8";
 body{
   font-family: 'Open Sans', sans-serif;
-  background:#C1F1FF;
+  background:#00000;
   margin: 0 auto 0 auto;  
   width:100%; 
   text-align:center;  
 }
-
+#caja0{
+  background:white; 
+  height: 70px;
+  margin-bottom: 5px; 
+  padding-top:10px;  
+}
 h1{
   font-size:2em;
-  color:#1177d1;
+  color:#094679;
+  font-weight: 800;
   text-align: center;
+  background: -webkit-linear-gradient(90deg, rgba(9,0,163,1) 0%, rgba(9,70,121,1) 0%, rgba(0,212,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .boton{
  background:#2ecc71;
-  width:125px;
+  width:150px;
   padding-top:5px;
   padding-bottom:5px;
   color:white;
@@ -25,12 +35,14 @@ h1{
   margin-bottom:20px;
   margin-left:16px;
   font-weight:800;
-  font-size:0.8em;
-
+  font-size:0.9em;
+  position:absolute;
+  top: 230px;
+  left:20px;
  }
  .Volver{
   background:#FF0000;
-  width:125px;
+  width:150px;
   padding-top:5px;
   padding-bottom:5px;
   color:white;
@@ -41,7 +53,10 @@ h1{
   margin-bottom:20px;
   margin-left:16px;
   font-weight:800;
-  font-size:0.8em;
+  font-size:0.9em;
+  position:absolute;
+  top: 230px;
+  right:20px;
  
  }
  .boton:active {
@@ -59,28 +74,50 @@ h1{
 }
 
 .correo{
-  background:#ecf0f1;
+  background:white;
   border: #ccc 1px solid;
   border-bottom: #ccc 2px solid;
   padding: 8px;
-  width:250px;
-  color:#AAAAAA;
+  width:300px;
+  color:black;
   margin-top:1px;
   font-size:1em;
   border-radius:4px;
+  position:absolute;
+  top:130px;
+  left:140px;
 }
 p{
 	font-weight:bold; 
-            color:gray;
-            font-size: 10pt;
-            text-align: left;
+    color:#094679; 
+    font-size: 12pt;
+    position:absolute;
+    top: 80px;
+    left: 0;
+	right: 0;
 }
 .caja{
-  background:white;
+  background:#C2FBFF;
   width:600px;
+  height:350px;
   border-radius:6px;
   margin: 0 auto 0 auto;
   padding:10px 10px 10px 10px;
-  border: #CDCDCD 2px solid; 
-	
+  border: #094679 4px solid;	
+  position:relative;
+  top: 10px;
 }
+img{
+	width:150px;
+	position:fixed;
+	top:15px;
+	left:0;
+}
+
+hr {
+  background: rgb(9,0,163);
+background: linear-gradient(90deg, rgba(9,0,163,1) 0%, rgba(9,70,121,1) 0%, rgba(0,212,255,1) 100%);
+  height: 5px;
+}
+
+
