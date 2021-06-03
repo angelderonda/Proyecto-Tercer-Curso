@@ -131,6 +131,7 @@ public class AlumnoEJB implements GestionAlumno {
 			throw new ObjetoNoExistenteException("El expediente no existe");
 		encuesta.setExpedienteEncuesta(exp);
 		em.persist(encuesta);
+		/*
 		// Obtenemos la lista de encuestas del expediente y añadimos la encuesta recien
 		// creada
 		List<Encuesta> listEncuesta = exp.getEncuestaExpediente();
@@ -141,7 +142,7 @@ public class AlumnoEJB implements GestionAlumno {
 		// Merge
 		em.merge(aux);
 		em.merge(exp);
-		em.merge(encuesta);
+		em.merge(encuesta);*/
 	}
 
 	/**

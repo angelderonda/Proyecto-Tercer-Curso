@@ -275,25 +275,25 @@ public class BaseDatoEJB implements GestionBD {
 
 		// GruposAsignatura2
 		GruposAsignatura gruposAsignatura2 = new GruposAsignatura();
-		listaGruposAsignatura.add(gruposAsignatura1);
+		listaGruposAsignatura.add(gruposAsignatura2);
 
 		gruposAsignatura2.setCursoAcademico("2020/2021");
 		gruposAsignatura2.setOferta('1');
 		gruposAsignatura2.setGrupoGruposAsignatura(grupo1);
 		gruposAsignatura2.setAsignaturaGruposAsignatura(asignatura2);
-		gruposAsignatura2.setEncuestaGruposAsignatura(listaEncuesta);
+		//gruposAsignatura2.setEncuestaGruposAsignatura(listaEncuesta);
 
 		em.persist(gruposAsignatura2);
 
 		// GruposAsignatura3
 		GruposAsignatura gruposAsignatura3 = new GruposAsignatura();
-		listaGruposAsignatura.add(gruposAsignatura1);
+		listaGruposAsignatura.add(gruposAsignatura3);
 
 		gruposAsignatura3.setCursoAcademico("2020/2021");
 		gruposAsignatura3.setOferta('1');
 		gruposAsignatura3.setGrupoGruposAsignatura(grupo);
 		gruposAsignatura3.setAsignaturaGruposAsignatura(asignatura2);
-		gruposAsignatura3.setEncuestaGruposAsignatura(listaEncuesta);
+		//gruposAsignatura3.setEncuestaGruposAsignatura(listaEncuesta);
 
 		em.persist(gruposAsignatura3);
 
@@ -325,7 +325,7 @@ public class BaseDatoEJB implements GestionBD {
 		listaAsignaturasMatricula2.add(asignaturasMatricula2);
 
 		asignaturasMatricula2.setAsignaturaAsignaturasMatricula(asignatura);
-		asignaturasMatricula2.setGrupoAsignaturasMatricula(grupo);
+		asignaturasMatricula2.setGrupoAsignaturasMatricula(null);
 		asignaturasMatricula2.setMatriculaAsignaturasMatricula(matricula1);
 
 		em.persist(asignaturasMatricula2);
@@ -335,7 +335,7 @@ public class BaseDatoEJB implements GestionBD {
 		listaAsignaturasMatricula3.add(asignaturasMatricula3);
 
 		asignaturasMatricula3.setAsignaturaAsignaturasMatricula(asignatura2);
-		asignaturasMatricula3.setGrupoAsignaturasMatricula(grupo);
+		asignaturasMatricula3.setGrupoAsignaturasMatricula(null);
 		asignaturasMatricula3.setMatriculaAsignaturasMatricula(matricula1);
 		em.persist(asignaturasMatricula3);
 

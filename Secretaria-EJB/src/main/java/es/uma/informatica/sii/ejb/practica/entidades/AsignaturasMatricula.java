@@ -71,7 +71,7 @@ public class AsignaturasMatricula implements Serializable {
 	private Matricula mat;
 
 	// Relacion muchos a uno con grupo
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = true, cascade = CascadeType.REMOVE)
 	private Grupo grupoAsignaturasMatricula;
 
 	// Getters y Setters

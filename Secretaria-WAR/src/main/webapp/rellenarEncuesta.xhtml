@@ -26,46 +26,19 @@
 		<br></br>
 
 		<p:growl id="msgs" showDetail="true" />
-		<p:dataTable id="tablaAsignaturas" var="fila"
-			value="#{encuesta.listaFila}" editable="true"
-			style="margin-bottom:20px">
-
-			<p:ajax event="rowEdit" listener="#{encuesta.onRowEdit}"
-				update=":form:msgs" />
-			<p:ajax event="rowEditCancel" listener="#{encuesta.onRowCancel}"
-				update=":form:msgs" />
-
-			<p:column headerText="Asignatura">
-				<p:cellEditor>
-					<f:facet name="output">
-						<h:outputText value="#{fila.asignatura.nombre}" />
-					</f:facet>
-					<f:facet name="input">
-						<h:outputText value="#{fila.asignatura.nombre}" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-
-			<p:column headerText="Grupo">
-				<p:cellEditor>
-					<f:facet name="output">
-						<h:outputText value="#{fila.letraSeleccionada}" />
-					</f:facet>
-					<f:facet name="input">
-						<h:selectOneMenu value="#{fila.letraSeleccionada}"
-							style="width:100%">
-							<f:selectItems value="#{fila.letras}" />
-						</h:selectOneMenu>
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-
-			<p:column style="width:6rem">
-				<p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit"
-					saveTitle="Save Row" />
-			</p:column>
-		</p:dataTable>
-
+		
+		<h:dataTable id="tablaEncuesta" value="#{encuesta.listaFila}" var="fila" style="margin-bottom:20px">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+              #{fila.asignatura.nombre}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Grupos a escoger</f:facet>
+              	<h:selectOneMenu value="#{fila.letraSeleccionada}" style="width:100%">
+					<f:selectItems value="#{fila.letras}" />
+				</h:selectOneMenu>
+           </h:column>
+        </h:dataTable>
 		<h:commandButton value="Enviar Encuesta"
 			action="#{encuesta.rellenarEncuesta()}" />
 		<br></br>
