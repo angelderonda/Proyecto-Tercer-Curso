@@ -75,7 +75,7 @@ public class Encuesta implements Serializable {
 	@Column(name = "FECHA_ENVIO", nullable = false)
 	private Date fechaEnvio;
 
-	@ManyToMany(mappedBy = "encuestaGruposAsignatura", cascade = CascadeType.REMOVE)
+	@ManyToMany(mappedBy = "encuestaGruposAsignatura", cascade = CascadeType.MERGE)
 	private List<GruposAsignatura> gruposAsignaturaEncuesta;
 
 	@Id
