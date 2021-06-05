@@ -35,5 +35,24 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/alumno/.m2/repository/org/hibernate/hibernate-core/5.3.13.Final/hibernate-core-5.3.13.Final.jar" sourcepath="/home/alumno/.m2/repository/org/hibernate/hibernate-core/5.3.13.Final/hibernate-core-5.3.13.Final-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.groupId" value="org.hibernate"/>
+			<attribute name="maven.artifactId" value="hibernate-core"/>
+			<attribute name="maven.version" value="5.3.13.Final"/>
+			<attribute name="maven.scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/alumno/.m2/repository/org/eclipse/persistence/eclipselink/2.7.6/eclipselink-2.7.6.jar" sourcepath="/home/alumno/.m2/repository/org/eclipse/persistence/eclipselink/2.7.6/eclipselink-2.7.6-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.eclipse.persistence"/>
+			<attribute name="maven.artifactId" value="eclipselink"/>
+			<attribute name="maven.version" value="2.7.6"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
