@@ -87,12 +87,12 @@ public class GruposAsignatura implements Serializable {
 
 	// Relacion muchos a uno con grupo
 	@Id
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Grupo grupoGruposAsignatura;
 
 	// Relacion muchos a uno con asignatura
 	@Id
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Asignatura asig;
 
 	// Relacion muchos a muchos con encuesta

@@ -17,9 +17,10 @@ public class AsignaturaEJB implements GestionAsignatura {
 
 	@Override
 	public void createAsignatura(Asignatura asignatura) throws ObjetoYaExistenteException {
-
+		System.out.println("ASIGNATURA A CREAR " + asignatura);
 		Asignatura aux = em.find(Asignatura.class,
 				new AsignaturaId(asignatura.getReferencia(), asignatura.getTitulacionAsignatura().getCodigo()));
+		System.out.println("ASIGNATURA FIND" + aux);
 		if (aux != null) {
 			throw new ObjetoYaExistenteException("Esta asignatura ya ha sido creada");
 		}
@@ -47,7 +48,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 		if (aux == null) {
 			throw new ObjetoNoExistenteException("La asignatura que buscas no existe");
 		}
-		// aux = asignatura;
+		aux = asignatura;
 		em.merge(aux);
 
 	}

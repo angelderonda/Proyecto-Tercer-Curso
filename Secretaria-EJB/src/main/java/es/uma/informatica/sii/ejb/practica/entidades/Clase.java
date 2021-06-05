@@ -76,12 +76,12 @@ public class Clase implements Serializable {
 	private Date dia;
 
 	// Relacion muchos a uno con Asignatura
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Asignatura asignaturaClase;
 
 	// Relacion muchos a uno con Grupo
 	@Id
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Grupo grupoClase;
 
 	// Getters and Setters

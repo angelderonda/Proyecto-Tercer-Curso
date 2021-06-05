@@ -93,7 +93,7 @@ public class Asignatura implements Serializable {
 
 	// Relacion muchos a uno con titulacion
 	@Id
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Titulacion titulacionAsignatura;
 
 	// Relacion uno a muchos con clase

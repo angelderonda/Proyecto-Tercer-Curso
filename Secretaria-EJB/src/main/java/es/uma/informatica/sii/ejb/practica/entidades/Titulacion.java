@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+
 /**
  * @author Los Datografos Clase: Titulacion Indica el grado de tipo de estudios
  *         en el que hay distintos grupos y está compuesto por muchas
@@ -101,7 +102,7 @@ public class Titulacion implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre + "]";
+		return "Titulacion [codigo=" + codigo + ", creditos=" + creditos + ", nombre=" + nombre+ "]";
 	}
 
 	// HashCode & Equals

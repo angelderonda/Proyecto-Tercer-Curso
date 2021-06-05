@@ -200,7 +200,6 @@ public class asignaturaCRUD {
 	
 	public String crearAsignatura() {
 		Asignatura asignatura = new Asignatura();
-
 		asignatura.setCodigo(codigo);
 		asignatura.setCreditosPracticas(creditosTeoria);
 		asignatura.setCreditosTeoria(creditosPracticas);
@@ -213,11 +212,16 @@ public class asignaturaCRUD {
 		asignatura.setReferencia(referencia);
 		asignatura.setTipo(tipo);
 		try {
-			asignatura.setTitulacionAsignatura(gestionTitulacion.readTitulacion(titulacionAsignatura));
+			Titulacion tit = gestionTitulacion.readTitulacion(titulacionAsignatura);
+			LOGGER.info("TITULACION: " + tit);
+			//for(Asignatura a : tit.getAsignaturaTitulacion()) {
+				//LOGGER.info(a.toString());
+			//}
+			asignatura.setTitulacionAsignatura(tit);
 			gestionAsignatura.createAsignatura(asignatura);
 			LOGGER.info("CREADO CORRECTAMENTE");
 		}catch(Exception e) {
-			LOGGER.info("NO CREADO");
+			LOGGER.info("NO CREADO"+e.getMessage());
 		}
 		return null;
 	}

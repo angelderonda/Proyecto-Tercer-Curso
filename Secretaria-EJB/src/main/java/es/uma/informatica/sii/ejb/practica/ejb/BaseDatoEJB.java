@@ -192,7 +192,7 @@ public class BaseDatoEJB implements GestionBD {
 		asignatura2.setCreditosPracticas(6);
 		asignatura2.setCreditosTeoria(6);
 		// asignatura.setCurso(2021);
-		asignatura.setCurso(1);
+		asignatura2.setCurso(1);
 		asignatura2.setDuracion("1º cuatrimestre");
 		asignatura2.setNombre("Programación");
 		asignatura2.setOfertada("Si");
