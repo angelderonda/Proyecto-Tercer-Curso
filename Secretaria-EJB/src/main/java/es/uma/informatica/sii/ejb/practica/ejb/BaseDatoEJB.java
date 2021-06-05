@@ -137,7 +137,7 @@ public class BaseDatoEJB implements GestionBD {
 		matricula.setCursoAcademico("2020/2021");
 		matricula.setEstado("Activa");
 		matricula.setExpedienteMatricula(expediente);
-		matricula.setFechaMatricula(new Date(14 / 11 / 2021));
+		matricula.setFechaMatricula(new java.util.Date());
 		matricula.setNuevoIngreso(1);
 		matricula.setNumeroArchivo(123344556);
 		matricula.setTurnoPreferente("Mañana");
@@ -149,7 +149,7 @@ public class BaseDatoEJB implements GestionBD {
 		matricula1.setCursoAcademico("2020/2021");
 		matricula1.setEstado("Activa");
 		matricula1.setExpedienteMatricula(expediente1);
-		matricula1.setFechaMatricula(new Date(14 / 9 / 2021));
+		matricula1.setFechaMatricula(new java.util.Date());
 		matricula1.setNuevoIngreso(1);
 		matricula1.setNumeroArchivo(1245780);
 		matricula1.setTurnoPreferente("Mañana");
@@ -160,7 +160,7 @@ public class BaseDatoEJB implements GestionBD {
 		List<Encuesta> listaEncuesta = new ArrayList<Encuesta>();
 		listaEncuesta.add(encuesta);
 
-		encuesta.setFechaEnvio(new Date(18 / 05 / 2021));
+		encuesta.setFechaEnvio(new java.util.Date());
 		encuesta.setExpedienteEncuesta(expediente);
 		em.persist(encuesta);
 

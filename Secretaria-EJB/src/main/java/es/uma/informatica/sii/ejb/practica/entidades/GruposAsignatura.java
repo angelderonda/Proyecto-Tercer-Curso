@@ -96,7 +96,7 @@ public class GruposAsignatura implements Serializable {
 	private Asignatura asig;
 
 	// Relacion muchos a muchos con encuesta
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany()
 	private List<Encuesta> encuestaGruposAsignatura;
 
 	// Getters and Setters

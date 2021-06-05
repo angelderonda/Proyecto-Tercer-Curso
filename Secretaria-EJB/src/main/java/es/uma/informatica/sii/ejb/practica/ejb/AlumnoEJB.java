@@ -112,15 +112,18 @@ public class AlumnoEJB implements GestionAlumno {
 		if (aux == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
 		}
+		
 		for (GruposAsignatura ga : lista) {
 			GruposAsignatura auxga = em.find(GruposAsignatura.class,
 					new GruposAsignaturaId(ga.getCursoAcademico(), ga.getGrupoGruposAsignatura().getId(),
 							new AsignaturaId(ga.getAsignaturaGruposAsignatura().getReferencia(),
 									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
+			
 			if (auxga == null) {
 				throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 			}
 		}
+		
 		// Creamos la encuesta
 		Encuesta encuesta = new Encuesta();
 		encuesta.setGruposAsignaturaEncuesta(lista);
@@ -131,6 +134,27 @@ public class AlumnoEJB implements GestionAlumno {
 			throw new ObjetoNoExistenteException("El expediente no existe");
 		encuesta.setExpedienteEncuesta(exp);
 		em.persist(encuesta);
+		
+		for (GruposAsignatura ga : lista) {
+			GruposAsignatura auxga = em.find(GruposAsignatura.class,
+					new GruposAsignaturaId(ga.getCursoAcademico(), ga.getGrupoGruposAsignatura().getId(),
+							new AsignaturaId(ga.getAsignaturaGruposAsignatura().getReferencia(),
+									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
+			
+			if (auxga == null) {
+				throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
+			}
+			
+			List<Encuesta> listaEncuesta = auxga.getEncuestaGruposAsignatura();
+			if (listaEncuesta == null) listaEncuesta = new ArrayList<>();
+			System.out.println("GRUPOASIG" + auxga.getAsignaturaGruposAsignatura() + " " + auxga.getGrupoGruposAsignatura());
+			System.out.println(listaEncuesta);
+			listaEncuesta.add(encuesta);
+			auxga.setEncuestaGruposAsignatura(listaEncuesta);
+			em.merge(auxga);
+		}
+		
+		
 		/*
 		// Obtenemos la lista de encuestas del expediente y añadimos la encuesta recien
 		// creada

@@ -168,6 +168,7 @@ public class RellenarEncuesta implements Serializable{
 			gestionAlumno.rellenarEncuesta(alumno.getId(), listaGruposAsignatura);
 		}catch(Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido rellenar la encuesta."));
+			LOGGER.info(e.getMessage());
 		}
 		return null;
 	}

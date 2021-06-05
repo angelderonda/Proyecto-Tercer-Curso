@@ -71,11 +71,10 @@ public class Encuesta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Temporal(TemporalType.DATE)
 	@Column(name = "FECHA_ENVIO", nullable = false)
 	private Date fechaEnvio;
 
-	@ManyToMany(mappedBy = "encuestaGruposAsignatura", cascade = CascadeType.MERGE)
+	@ManyToMany(mappedBy = "encuestaGruposAsignatura")
 	private List<GruposAsignatura> gruposAsignaturaEncuesta;
 
 	@Id
