@@ -22,7 +22,7 @@ import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
-//@Startup
+@Startup
 @Singleton
 public class BaseDatoEJB implements GestionBD {
 
