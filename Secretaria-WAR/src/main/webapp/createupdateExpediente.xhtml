@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Crear y modificar Expediente</title>
+    </h:head>
+    <h:body>
+		
+		<div class="card ui-fluid ">
+    		<h:form>	
+	        <h2>Expediente</h2>
+	        <div>
+	              <h:outputLabel value="Numero Expediente*"/>
+	              <h:inputText id="numeroExpediente" value="#{expedientecu.numeroExpediente}" required="true" requiredMessage="Introduce el expediente" />
+	              <h:message for="numeroExpediente" errorClass="errorMessage"/> 
+				  <br></br>
+	              <h:outputLabel value="Id del alumno*"/>
+	              <h:inputText id="alumnoExpediente" value="#{expedientecu.alumnoExpediente}" required="true" requiredMessage="Introduce el id del alumno" />
+	        	  <h:message for="alumnoExpediente" errorClass="errorMessage"/> 
+				  <br></br>	        	  
+	        	  <h:outputLabel value="Código de la titulación*"/>
+	              <h:inputText id="titulacionExpediente" value="#{expedientecu.titulacionExpediente}" required="true" requiredMessage="Introduce el codigo de la titulación"/>
+	              <h:message for="titulacionExpediente" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Creditos CF"/>
+	              <h:inputText id="creditosCF" value="#{expedientecu.creditosCF}" required="false" />
+				  <br></br>	              
+	              <h:outputLabel value="Creditos FB"/>
+	              <h:inputText id="creditosFB" value="#{expedientecu.creditosFB}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Creditos MO"/>
+	              <h:inputText id="creditosMO" value="#{expedientecu.creditosMO}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Creditos OP"/>
+	              <h:inputText id="creditosOP" value="#{expedientecu.creditosOP}" required="false"  /> 
+	              <br></br>	
+	              <h:outputLabel value="Creditos PE"/>
+	              <h:inputText id="creditosPE" value="#{expedientecu.creditosPE}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Creditos TF"/>
+	              <h:inputText id="creditosTF" value="#{expedientecu.creditosTF}" required="false"  /> 
+	              <br></br>  
+	              <h:outputLabel value="Nota media provisional"/>
+	              <h:inputText id="notaMediaProvisional" value="#{expedientecu.notaMediaProvisional}" required="false"  /> 
+	              <br></br>   
+	        </div>
+	        
+	        <br></br>
+	        <h:commandButton value="Crear expediente" action="#{expedientecu.crearExpediente()}" />
+	       	<h:commandButton value="Modificar expediente" action="#{expedientecu.modificarExpediente()}" /><br></br>
+			<br></br>
+			
+    		</h:form>
+		</div>
+		<h:messages globalOnly="true" /> <!-- Global messages -->
+		<br></br>
+		<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+    </h:body>
+</html>

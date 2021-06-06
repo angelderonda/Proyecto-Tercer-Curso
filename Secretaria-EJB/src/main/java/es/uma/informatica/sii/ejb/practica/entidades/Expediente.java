@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import org.eclipse.persistence.annotations.FetchGroup;
-
 
 /**
  * @author Los Datografos Clase: Expediente La forma de identificar al alumno
