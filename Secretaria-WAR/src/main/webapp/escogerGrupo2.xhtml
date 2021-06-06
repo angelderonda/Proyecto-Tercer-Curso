@@ -6,22 +6,22 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Gestionar cambio de grupo</title>
+	<title>Escoger Grupos</title>
 </h:head>
 <h:body>
 	<h1>Asignaturas del alumno</h1>
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
-		<p:dataTable id="products1" var="fila" value="#{escoger2.listaFila}"
+		<p:dataTable id="listaFilas" var="fila" value="#{escoger2.listaFila}"
 			editable="true" style="margin-bottom:20px">
 
-			<p:ajax event="rowEdit" listener="#{escoger2.onRowEdit}"
+			<p:ajax id="editarFila" event="rowEdit" listener="#{escoger2.onRowEdit}"
 				update=":form:msgs" />
-			<p:ajax event="rowEditCancel" listener="#{escoger2.onRowCancel}"
+			<p:ajax id="cancelar" event="rowEditCancel" listener="#{escoger2.onRowCancel}"
 				update=":form:msgs" />
 
 			<p:column headerText="Asignatura">
-				<p:cellEditor>
+				<p:cellEditor id="edicion">
 					<f:facet name="output">
 						<h:outputText value="#{fila.asignatura.nombre}" />
 					</f:facet>
@@ -32,29 +32,28 @@
 			</p:column>
 
 			<p:column headerText="Grupo">
-				<p:cellEditor>
-					<f:facet name="output">
-						<h:outputText value="#{fila.letraSeleccionada}" />
+				<p:cellEditor id="edit">
+					<f:facet id="face1" name="output">
+						<h:outputText id="filaSelec" value="#{fila.letraSeleccionada}" />
 					</f:facet>
-					<f:facet name="input">
-						<h:selectOneMenu value="#{fila.letraSeleccionada}"
+					<f:facet id="entrada" name="input">
+						<h:selectOneMenu id="letraSeleccion" value="#{fila.letraSeleccionada}"
 							style="width:100%">
-							<f:selectItems value="#{fila.letras}" />
+							<f:selectItems id="letra" value="#{fila.letras}" />
 						</h:selectOneMenu>
 					</f:facet>
 				</p:cellEditor>
 			</p:column>
 
-			<p:column style="width:6rem">
-				<p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit"
+			<p:column id="columnaEdicion" style="width:6rem">
+				<p:rowEditor id="filaEdicion" editTitle="Edit Row" cancelTitle="Cancel Edit"
 					saveTitle="Save Row" />
 			</p:column>
 		</p:dataTable>
 
-		<h:commandButton value="Confirmar cambios"
+		<h:commandButton id="confirmar" value="Confirmar cambios"
 			action="#{escoger2.confirmarCambio()}" />		
 	</h:form>
 		<h:button id="Volver" value="Volver" outcome="inicio.xhtml" />
 </h:body>
 </html>
-

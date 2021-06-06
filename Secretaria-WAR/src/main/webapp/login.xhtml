@@ -27,18 +27,18 @@
 
       
 
-           <h:outputText value="Usuario" class="text"/>
-           <h:inputText class="username" value="#{login.nombre}" 
+           <h:outputText id = "userOutput" value="Usuario" class="text"/>
+           <h:inputText id = "userInput" class="username" value="#{login.nombre}" 
                       required="true" requiredMessage="Usuario incorrecto" color="red" />
            <h:message for="username" errorClass="errorMessage" style="color:red" /> <!-- Message for username --><br></br>
     
-           <h:outputText value="Contraseña" class="text"/>
-           <h:inputSecret class="username" value="#{login.contrasenia}" 
+           <h:outputText id = "passwordOutput" value="Contraseña" class="text"/>
+           <h:inputSecret id="passwordInput" class="username" value="#{login.contrasenia}" 
                       required="true" requiredMessage="Contraseña incorrecta" color="red"/>
            <h:message for="password" errorClass="errorMessage" style="color:red"/> <!-- Message for password --><br></br>
     
     
-           <h:commandButton class= "boton" value="Entrar" action="#{login.entrar()}" /><br></br>
+           <h:commandButton id="boton" class= "boton" value="Entrar" action="#{login.entrar()}" /><br></br>
 
       
 

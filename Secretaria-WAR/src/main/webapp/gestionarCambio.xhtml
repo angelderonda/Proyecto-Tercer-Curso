@@ -22,7 +22,7 @@
 			<h:inputText id="DNIAlumno" value="#{gestion.dni}" required="true" requiredMessage="Please enter dni" />
 			<h:message for="DNIAlumno" errorClass="errorMessage"/> <!-- Message for DNIAlumno -->
 			<br></br>
-			<h:commandButton value="Buscar" action="#{gestion.buscarAlumno()}" />
+			<h:commandButton id="botonBuscar" value="Buscar" action="#{gestion.buscarAlumno()}" />
 			<h:messages globalOnly="true" /> <!-- Global messages -->
 		</h:form>
 		
@@ -101,8 +101,8 @@
         
         <br></br>
      
-        <h:button outcome="escogerGrupo2.xhtml" value="Escoger nuevo grupo" />
-       <h:button class = "botonS" value="Volver" outcome="inicio.xhtml" />
+        <h:button id = "escoger" outcome="escogerGrupo2.xhtml" value="Escoger nuevo grupo" />
+       <h:button id = "volver" class = "botonS" value="Volver" outcome="inicio.xhtml" />
     </h:body>
 </html>
 
