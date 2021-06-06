@@ -29,7 +29,7 @@ public class Titulacion implements Serializable {
 	private List<Asignatura> asignaturaTitulacion;
 
 	// Relacion uno a muchos con expediente
-	@OneToMany(mappedBy = "titulacionExpediente", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "titulacionExpediente")
 	private List<Expediente> expedienteTitulacion;
 
 	// Relacion muchos a muchos con centro

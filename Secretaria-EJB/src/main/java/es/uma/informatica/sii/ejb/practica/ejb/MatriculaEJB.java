@@ -1,11 +1,14 @@
 package es.uma.informatica.sii.ejb.practica.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
+import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula.MatriculaId;
 
@@ -57,7 +60,16 @@ public class MatriculaEJB implements GestionMatricula {
 			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}
 		em.remove(aux);
-
+	}
+	
+	@Override
+	public List<AsignaturasMatricula> getAsignaturas(Matricula matricula) throws ObjetoNoExistenteException{
+		Matricula aux = em.find(Matricula.class, new MatriculaId(matricula.getCursoAcademico(),
+				matricula.getExpedienteMatricula().getNumeroExpediente()));
+		if (aux == null) {
+			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
+		}	
+		return aux.getAsignaturasMatriculaMatricula();
 	}
 
 }

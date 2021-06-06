@@ -53,7 +53,8 @@ public class MatriculaRD {
 	private Integer nexpediente;
 
 	private Matricula matricula;
-
+	
+	private List<AsignaturasMatricula> lista;
 	// getters y setters
 
 	public String getCursoAcademico() {
@@ -79,9 +80,25 @@ public class MatriculaRD {
 	public void setMatricula(Matricula matricula) {
 		this.matricula = matricula;
 	}
+	
+	public List<AsignaturasMatricula> getLista() {
+		try {
+			if(matricula!=null)lista = gestionMatricula.getAsignaturas(matricula);
+			else lista = null;
+			return lista;
+		} catch (ObjetoNoExistenteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 
+	public void setLista(List<AsignaturasMatricula> lista) {
+		this.lista = lista;
+	}
+	
 	// métodos
-
+	
 	public String leerMatricula() {
 		try {
 			matricula = gestionMatricula.readMatricula(new MatriculaId(cursoAcademico, nexpediente));
@@ -95,7 +112,6 @@ public class MatriculaRD {
 	public String eliminarMatricula() {
 		try {
 			gestionMatricula.deleteMatricula(new MatriculaId(cursoAcademico, nexpediente));
-			
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula eliminada correctamente"));
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null,

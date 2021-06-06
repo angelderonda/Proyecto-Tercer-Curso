@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Leer y Eliminar Matricula</title>
 </h:head>
@@ -54,6 +55,23 @@
 			<h:outputLabel value="Nuevo Ingreso: " />
 			<h:outputText value="#{matriculard.matricula.getNuevoIngreso()}" />
 			<br></br>
+			
+			<h:dataTable value="#{matriculard.lista}" var="asignaturasMatricula">
+	            <h:column>
+	                <f:facet name="header">Asignatura</f:facet>
+	              #{asignaturasMatricula.asignaturaAsignaturasMatricula}
+	            </h:column>
+	
+	            <h:column>
+	                <f:facet  name="header">Matricula</f:facet>
+	                <h:outputText id="matricula" value="#{asignaturasMatricula.mat}"/>
+	           </h:column>
+	           
+	            <h:column>
+	                <f:facet name="header">Grupo</f:facet>
+	                <h:outputText id="grupo" value="#{asignaturasMatricula.grupoAsignaturasMatricula}"/>
+	           </h:column>
+	        </h:dataTable>
 
 		</h:form>
 	</div>
