@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Leer y Eliminar GruposAsignatura</title>
+    </h:head>
+    <h:body>
+		
+		<div class="card ui-fluid ">
+    		<h:form>	
+	        <h2>Grupos-Asignatura</h2>
+	        <div>
+	              <h:outputLabel value="Curso Académico*"/>
+	              <h:inputText id="cursoAcademico" value="#{gruposasignaturard.cursoAcademico}" required="true" requiredMessage="Introduce el curso académico" />
+	              <h:message for="cursoAcademico" errorClass="errorMessage"/> 
+				  <br></br>
+	              <h:outputLabel value="Código de la titulación*"/>
+	              <h:inputText id="titulacion" value="#{gruposasignaturard.titulacion}" required="true" requiredMessage="Introduce el código de la titulación" />
+	        	  <h:message for="titulacion" errorClass="errorMessage"/> 
+	        	  <br></br>
+	        	  <h:outputLabel value="Referencia de la asignatura*"/>
+	              <h:inputText id="asignatura" value="#{gruposasignaturard.asignatura}" required="true" requiredMessage="Introduce la referencia de la asignatura" />
+	              <h:message for="asignatura" errorClass="errorMessage"/> 
+				  <br></br>
+	              <h:outputLabel value="Id del grupo*"/>
+	              <h:inputText id="grupoGruposAsignatura" value="#{gruposasignaturard.grupoGruposAsignatura}" required="true" requiredMessage="Introduce el id del grupo" />
+	        	  <h:message for="grupoGruposAsignatura" errorClass="errorMessage"/> 
+	        </div>
+	        
+	        <br></br>
+	        <h:commandButton value="Eliminar grupo-asignatura" action="#{gruposasignaturard.eliminarGruposAsignatura()}" />
+	        <h:commandButton value="Leer grupo-asignatura" action="#{gruposasignaturard.leerGruposAsignatura()}" /><br></br>
+			<br></br>
+
+	        	  <h:outputLabel value="Curso Académico: "/>
+	              <h:outputText value="#{gruposasignaturard.gruposAsignatura.getCursoAcademico()}" />
+				  <br></br>
+	              <h:outputLabel value="Titulación: "/>
+	              <h:outputText value="#{gruposasignaturard.gruposAsignatura.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo()}" />
+				  <br></br>	        	  
+	        	  <h:outputLabel value="Asignatura: "/>
+	              <h:outputText value="#{gruposasignaturard.gruposAsignatura.getAsignaturaGruposAsignatura().getReferencia()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Grupo: "/>
+	              <h:outputText value="#{gruposasignaturard.gruposAsignatura.getGrupoGruposAsignatura().getId()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Oferta: "/>
+	              <h:outputText value="#{gruposasignaturard.gruposAsignatura.getOferta()}" />
+	    	<br></br>        
+		
+			</h:form>
+		</div>
+		<h:messages globalOnly="true" /> <!-- Global messages -->
+		<br></br>
+		<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+    </h:body>
+</html>
