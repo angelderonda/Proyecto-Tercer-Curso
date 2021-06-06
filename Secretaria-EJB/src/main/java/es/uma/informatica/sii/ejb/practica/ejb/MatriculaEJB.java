@@ -22,7 +22,7 @@ public class MatriculaEJB implements GestionMatricula {
 				matricula.getExpedienteMatricula().getNumeroExpediente()));
 
 		if (aux != null) {
-			throw new ObjetoYaExistenteException("Esta asignatura ya ha sido creada");
+			throw new ObjetoYaExistenteException("Esta matricula ya ha sido creada");
 		}
 		em.persist(matricula);
 	}
@@ -32,7 +32,7 @@ public class MatriculaEJB implements GestionMatricula {
 
 		Matricula aux = em.find(Matricula.class, idMatricula);
 		if (aux == null) {
-			throw new ObjetoNoExistenteException("La asignatura que buscas no existe");
+			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}
 
 		return aux;
@@ -43,10 +43,9 @@ public class MatriculaEJB implements GestionMatricula {
 		Matricula aux = em.find(Matricula.class, new MatriculaId(matricula.getCursoAcademico(),
 				matricula.getExpedienteMatricula().getNumeroExpediente()));
 		if (aux == null) {
-			throw new ObjetoNoExistenteException("La asignatura que buscas no existe");
-		}
-		// aux = asignatura;
-		em.merge(aux);
+			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
+		}	
+		em.merge(matricula);
 
 	}
 
@@ -55,7 +54,7 @@ public class MatriculaEJB implements GestionMatricula {
 
 		Matricula aux = em.find(Matricula.class, idMatricula);
 		if (aux == null) {
-			throw new ObjetoNoExistenteException("La asignatura que buscas no existe");
+			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}
 		em.remove(aux);
 

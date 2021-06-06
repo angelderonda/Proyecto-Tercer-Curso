@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+	<title>Crear y modificar Matricula</title>
+</h:head>
+<h:body>
+
+	<div class="card ui-fluid ">
+		<h:form>
+			<h2>Matricula</h2>
+			<div>
+				<h:outputLabel value="Curso Académico*" />
+				<h:inputText id="cursoAcademico"
+					value="#{matriculacu.cursoAcademico}" required="true"
+					requiredMessage="Introduce el curso academico" />
+				<h:message for="cursoAcademico" errorClass="errorMessage" />
+				<br></br>
+				<h:outputLabel value="Expediente*" />
+				<h:inputText id="expediente" value="#{matriculacu.nexpediente}"
+					required="true" requiredMessage="Introduce el numero de expediente" />
+				<h:message for="expediente" errorClass="errorMessage" />
+				<br></br>
+				<h:outputLabel value="Turno Preferente" />
+				<h:inputText id="turno" value="#{matriculacu.turnoPreferente}" />
+				<h:message for="turno" errorClass="errorMessage" />
+				<br></br>
+				<h:outputLabel value="Numero de Archivo" />
+				<h:inputText id="archivo" value="#{matriculacu.numeroArchivo}" />
+				<h:message for="archivo" errorClass="errorMessage" />
+				<br></br>
+			</div>
+
+			<br></br>
+			<h:commandButton value="Crear matricula"
+				action="#{matriculacu.crearMatricula()}" />
+			<h:commandButton value="Modificar matricula"
+				action="#{matriculacu.modificarMatricula()}" />
+			<br></br>
+			<br></br>
+
+		</h:form>
+	</div>
+	<h:messages globalOnly="true" />
+	<!-- Global messages -->
+	<br></br>
+	<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+</h:body>
+</html>

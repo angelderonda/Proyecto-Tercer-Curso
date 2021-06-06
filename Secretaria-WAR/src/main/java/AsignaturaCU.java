@@ -1,4 +1,5 @@
 
+
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,13 +37,13 @@ import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
-@Named(value = "asignatura")
+@Named(value = "asignaturacu")
 @RequestScoped
-public class asignaturaCRUD {
+public class AsignaturaCU{
 	
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-	private static final Logger LOGGER = Logger.getLogger(asignaturaCRUD.class.getCanonicalName());
+	private static final Logger LOGGER = Logger.getLogger(AsignaturaCU.class.getCanonicalName());
 	
 	@Inject 
 	private GestionAsignatura gestionAsignatura;
@@ -214,33 +215,13 @@ public class asignaturaCRUD {
 		try {
 			Titulacion tit = gestionTitulacion.readTitulacion(titulacionAsignatura);
 			LOGGER.info("TITULACION: " + tit);
-			//for(Asignatura a : tit.getAsignaturaTitulacion()) {
-				//LOGGER.info(a.toString());
-			//}
 			asignatura.setTitulacionAsignatura(tit);
 			gestionAsignatura.createAsignatura(asignatura);
-			LOGGER.info("CREADO CORRECTAMENTE");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Asignatura creada correctamente"));
 		}catch(Exception e) {
-			LOGGER.info("NO CREADO"+e.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido crear la asignatura"));
 		}
 		return null;
-	}
-	
-	public String leerAsignatura() {
-		return null;
-	}
-	
-	public String eliminarAsignatura() {
-		AsignaturaId id = new AsignaturaId(referencia,titulacionAsignatura);
-		
-		try {
-			gestionAsignatura.deleteAsignatura(id);
-			LOGGER.info("ELIMINADO CORRECTAMENTE");
-		}catch(Exception e) {
-			LOGGER.info("NO ELIMINADO");
-		}
-		return null;
-		
 	}
 	
 	public String modificarAsignatura() {
@@ -260,9 +241,9 @@ public class asignaturaCRUD {
 		try {
 			asignatura.setTitulacionAsignatura(gestionTitulacion.readTitulacion(titulacionAsignatura));
 			gestionAsignatura.updateAsignatura(asignatura);
-			LOGGER.info("MODIFICADO CORRECTAMENTE");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Asignatura modificada correctamente"));
 		}catch(Exception e) {
-			LOGGER.info("NO MODIFICADO");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido modificar la asignatura"));
 		}
 		return null;
 	}

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Leer y Eliminar Asignatura</title>
+    </h:head>
+    <h:body>
+		
+		<div class="card ui-fluid ">
+    		<h:form>	
+	        <h2>Asignatura</h2>
+	        <div>
+	              <h:outputLabel value="Referencia*"/>
+	              <h:inputText id="referencia" value="#{asignaturard.referencia}" required="true" requiredMessage="Introduce la referencia" />
+	              <h:message for="referencia" errorClass="errorMessage"/> 
+				  <br></br>
+	              <h:outputLabel value="Código de la titulación*"/>
+	              <h:inputText id="titulacionAsignatura" value="#{asignaturard.titulacionAsignatura}" required="true" requiredMessage="Introduce el código de la titulación" />
+	        	  <h:message for="titulacionAsignatura" errorClass="errorMessage"/> 
+	        </div>
+	        
+	        <br></br>
+	        <h:commandButton value="Eliminar asignatura" action="#{asignaturard.eliminarAsignatura()}" />
+	        <h:commandButton value="Leer asignatura" action="#{asignaturard.leerAsignatura()}" /><br></br>
+			<br></br>
+
+	        	  <h:outputLabel value="Referencia: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getReferencia()}" />
+				  <br></br>
+	              <h:outputLabel value="Código de la titulación: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getTitulacionAsignatura().getCodigo()}" />
+				  <br></br>	        	  
+	        	  <h:outputLabel value="Código de la asignatura: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getCodigo()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Créditos Teoria: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getCreditosTeoria()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Créditos Practicas: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getCreditosPracticas()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Nombre: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getNombre()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Duración: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getDuracion()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Ofertada: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getOfertada()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Curso: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getCurso()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Tipo: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getTipo()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Plazas: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getPlazas()}" />
+				  <br></br>	              
+	              <h:outputLabel value="Otro idioma: "/>
+	              <h:outputText value="#{asignaturard.asignatura.getOtro_idioma()}" />
+	    	<br></br>        
+		
+			</h:form>
+		</div>
+		<h:messages globalOnly="true" /> <!-- Global messages -->
+		<br></br>
+		<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+    </h:body>
+</html>

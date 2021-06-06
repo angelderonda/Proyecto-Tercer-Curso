@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Crear y modificar Asignatura</title>
+    </h:head>
+    <h:body>
+		
+		<div class="card ui-fluid ">
+    		<h:form>	
+	        <h2>Asignatura</h2>
+	        <div>
+	              <h:outputLabel value="Referencia*"/>
+	              <h:inputText id="referencia" value="#{asignaturacu.referencia}" required="true" requiredMessage="Introduce la referencia" />
+	              <h:message for="referencia" errorClass="errorMessage"/> 
+				  <br></br>
+	              <h:outputLabel value="Código de la titulación*"/>
+	              <h:inputText id="titulacionAsignatura" value="#{asignaturacu.titulacionAsignatura}" required="true" requiredMessage="Introduce el código de la titulación" />
+	        	  <h:message for="titulacionAsignatura" errorClass="errorMessage"/> 
+				  <br></br>	        	  
+	        	  <h:outputLabel value="Código de la asignatura*"/>
+	              <h:inputText id="codigo" value="#{asignaturacu.codigo}" required="true" requiredMessage="Introduce el codigo"/>
+	              <h:message for="codigo" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Créditos Teoria*"/>
+	              <h:inputText id="creditosTeoria" value="#{asignaturacu.creditosTeoria}" required="true" requiredMessage="Introduce los créditos de teoría" />
+	              <h:message for="creditosTeoria" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Créditos Practicas*"/>
+	              <h:inputText id="creditosPracticas" value="#{asignaturacu.creditosPracticas}" required="true" requiredMessage="Introduce los créditos de prácticas" />
+	              <h:message for="creditosPracticas" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Nombre*"/>
+	              <h:inputText id="nombre" value="#{asignaturacu.nombre}" required="true" requiredMessage="Introduce el nombre" />
+	              <h:message for="nombre" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Duración*"/>
+	              <h:inputText id="duracion" value="#{asignaturacu.duracion}" required="true" requiredMessage="Introduce la duracion" />
+	              <h:message for="duracion" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Ofertada*"/>
+	              <h:inputText id="ofertada" value="#{asignaturacu.ofertada}" required="true" requiredMessage="Introduce ofertada" />
+	              <h:message for="ofertada" errorClass="errorMessage"/> 
+				  <br></br>	              
+	              <h:outputLabel value="Curso"/>
+	              <h:inputText id="curso" value="#{asignaturacu.curso}" required="false" />
+				  <br></br>	              
+	              <h:outputLabel value="Tipo"/>
+	              <h:inputText id="tipo" value="#{asignaturacu.tipo}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Plazas"/>
+	              <h:inputText id="plazas" value="#{asignaturacu.plazas}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Otro idioma"/>
+	              <h:inputText id="otro_idioma" value="#{asignaturacu.otro_idioma}" required="false"  /> 
+	              <br></br>	   
+	        </div>
+	        
+	        <br></br>
+	        <h:commandButton value="Crear asignatura" action="#{asignaturacu.crearAsignatura()}" />
+	       	<h:commandButton value="Modificar asignatura" action="#{asignaturacu.modificarAsignatura()}" /><br></br>
+			<br></br>
+			
+    		</h:form>
+		</div>
+		<h:messages globalOnly="true" /> <!-- Global messages -->
+		<br></br>
+		<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+    </h:body>
+</html>

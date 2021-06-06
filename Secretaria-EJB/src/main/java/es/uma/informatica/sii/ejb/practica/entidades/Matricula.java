@@ -82,7 +82,7 @@ public class Matricula implements Serializable {
 
 	// Relacion muchos a uno con expediente
 	@Id
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Expediente expedienteMatricula;
 
 	// Relacion uno a muchos con asignaturaMatricula

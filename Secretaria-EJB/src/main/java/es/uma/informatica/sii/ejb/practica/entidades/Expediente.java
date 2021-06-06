@@ -36,19 +36,19 @@ public class Expediente implements Serializable {
 	private Float notaMediaProvisional;
 
 	// Relacion muchos a uno con titulacion
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Titulacion titulacionExpediente;
 
 	// Relacion muchos a uno con Alumnos
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Alumno alumnoExpediente;
 
 	// Relacion uno a muchos con Encuesta
-	@OneToMany(mappedBy = "expedienteEncuesta", cascade = CascadeType.REMOVE,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "expedienteEncuesta",fetch=FetchType.EAGER)
 	private List<Encuesta> encuestaExpediente;
 
 	// Relacion uno a muchos con Matricula
-	@OneToMany(mappedBy = "expedienteMatricula", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "expedienteMatricula")
 	private List<Matricula> matriculaExpediente;
 
 	// Getters y Setters
