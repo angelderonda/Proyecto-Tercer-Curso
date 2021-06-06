@@ -1,64 +1,44 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.primefaces.event.CellEditEvent;
-import org.primefaces.event.RowEditEvent;
-
 import es.uma.informatica.sii.ejb.practica.ejb.GestionAlumno;
+import es.uma.informatica.sii.ejb.practica.ejb.TipoFiltro;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProyectoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 
-
-@Named(value = "encuesta")
-@ViewScoped
-public class RellenarEncuesta implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Named(value = "asignarManual")
+@RequestScoped
+public class AsignarManual {
+	
+	private static final Logger LOGGER = Logger.getLogger(Asignar.class.getCanonicalName());
+	
+	@Inject 
+	private GestionAlumno alumnoEJB;
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
+	private static Alumno alumno;
 	private List<Fila> listaFila;
 	private List<GruposAsignatura> listaGruposAsignatura;
 	private ArrayList<String> letras;
-	private String dni;
-	private Alumno alumno;
 	
-	private static final Logger LOGGER = Logger.getLogger(RellenarEncuesta.class.getCanonicalName());
-	
-	@Inject 
-	private GestionAlumno gestionAlumno;
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
-	public Alumno getAlumno() {
-		return alumno;
-	}
-
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
-	}
-
 	public List<Fila> getListaFila() {
 		return listaFila;
 	}
@@ -67,6 +47,12 @@ public class RellenarEncuesta implements Serializable{
 		this.listaFila = listaFila;
 	}
 	
+	
+	public static void setAlumnoId(Alumno al) {
+		alumno = al;
+	}
+	
+	@PostConstruct
 	public void init() {
 		List<AsignaturasMatricula> lista;		
 		List<Fila> listaDeFilas = new ArrayList<Fila>();
@@ -102,7 +88,6 @@ public class RellenarEncuesta implements Serializable{
 				f.setLetras(letras);
 				//f.setGrupo(am.getGrupoAsignaturasMatricula());
 				listaDeFilas.add(f);
-
 			}
 
 		} catch (Exception e) {
@@ -112,44 +97,8 @@ public class RellenarEncuesta implements Serializable{
 		listaFila = listaDeFilas;		
 	}
 	
-	public String enviarDniAlumno(){
-		try {
-			TypedQuery<Alumno> query = em.createQuery("SELECT a FROM Alumno a WHERE a.dni = :dni", Alumno.class);
-			query.setParameter("dni", this.dni);
-			setAlumno(query.getSingleResult()); 
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Alumno encontrado"));
-			init();
-		}catch(Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Alumno no encontrado"));
-		}
-		return null;
-	}
-	
-	public void onRowEdit(RowEditEvent<Fila> event) {
-		FacesMessage msg = new FacesMessage("Fila editada",
-				"Asignatura " + String.valueOf(event.getObject().getAsignatura().getNombre()) + " cambiada al grupo "
-						+ String.valueOf(event.getObject().getLetraSeleccionada()));
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
-	public void onRowCancel(RowEditEvent<Fila> event) {
-		FacesMessage msg = new FacesMessage("No se ha modificado la fila");
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
-	public void onCellEdit(CellEditEvent<Fila> event) {
-		Object oldValue = event.getOldValue();
-		Object newValue = event.getNewValue();
-
-		if (newValue != null && !newValue.equals(oldValue)) {
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed",
-					"Old: " + oldValue + ", New:" + newValue);
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}
-	}
-	
-	public String rellenarEncuesta() {
-		LOGGER.info("--------------------Entramos RELLENAR ENCUESTA --------------------");
+	public String confirmar() {
+		LOGGER.info("--------------------Entramos CONFIRMAR--------------------");
 		for (int i = 0; i < listaGruposAsignatura.size(); i++) {
 			LOGGER.info("Grupo ASIG: " + listaGruposAsignatura.get(i));
 			LOGGER.info("FILA: " + listaFila.get(i));
@@ -164,11 +113,12 @@ public class RellenarEncuesta implements Serializable{
 			listaGruposAsignatura.get(i).setGrupoGruposAsignatura(queryGrupo.getSingleResult());
 		}
 		try {
-			gestionAlumno.rellenarEncuesta(alumno.getId(), listaGruposAsignatura);
+			alumnoEJB.asignarGrupo(alumno.getId(), listaGruposAsignatura,null,true);
 		}catch(Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido rellenar la encuesta."));
 			LOGGER.info(e.getMessage());
 		}
 		return null;
 	}
+	
 }

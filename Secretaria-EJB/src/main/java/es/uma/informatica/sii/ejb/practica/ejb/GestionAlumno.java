@@ -57,4 +57,11 @@ public interface GestionAlumno {
 	public void rellenarEncuesta(Integer idAlumno, List<GruposAsignatura> lista)
 			throws ObjetoYaExistenteException, ObjetoNoExistenteException;
 
+	/**
+	 * 
+	 * @return lista de  alumnos cuyas asignaturas matriculas no tengan grupo asignado
+	 * @throws ProyectoException 
+	 */
+	public List<Alumno> getAlumnoSinGrupo();
+
 }

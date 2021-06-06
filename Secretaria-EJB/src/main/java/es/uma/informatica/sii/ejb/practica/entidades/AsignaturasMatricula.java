@@ -133,6 +133,13 @@ public class AsignaturasMatricula implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "AsignaturasMatricula [asignatura=" + asignaturaAsignaturasMatricula + ", mat=" + mat
+				+ ", grupo=" + grupoAsignaturasMatricula + "]";
+	}
+
 	// NO NECESITA DE TO STRING AL SER UNA TABLA INTERMEDIA
+	
 
 }

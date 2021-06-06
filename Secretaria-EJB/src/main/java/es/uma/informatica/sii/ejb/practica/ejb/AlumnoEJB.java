@@ -2,6 +2,7 @@ package es.uma.informatica.sii.ejb.practica.ejb;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -87,7 +88,7 @@ public class AlumnoEJB implements GestionAlumno {
 			query = em.createNamedQuery("NOTA_MEDIA", Alumno.class);
 			res = query.setParameter("nota", parametro).getResultList();
 			break;
-		
+
 		case TITULACION:
 			query = em.createNamedQuery("TITULACION", Alumno.class);
 			res = query.setParameter("codigo", (int) parametro).getResultList();
@@ -96,7 +97,7 @@ public class AlumnoEJB implements GestionAlumno {
 			query = em.createNamedQuery("ALUMNOS_POR_ASIGNAR", Alumno.class);
 			res = query.getResultList();
 			break;
-		
+
 		default:// TODOS
 			query = em.createNamedQuery("TODOS", Alumno.class);
 			res = query.getResultList();
@@ -112,61 +113,57 @@ public class AlumnoEJB implements GestionAlumno {
 		if (aux == null) {
 			throw new ObjetoNoExistenteException("El alumno que buscas no existe");
 		}
-		
+
 		for (GruposAsignatura ga : lista) {
 			GruposAsignatura auxga = em.find(GruposAsignatura.class,
 					new GruposAsignaturaId(ga.getCursoAcademico(), ga.getGrupoGruposAsignatura().getId(),
 							new AsignaturaId(ga.getAsignaturaGruposAsignatura().getReferencia(),
 									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
-			
+
 			if (auxga == null) {
 				throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 			}
 		}
-		
+
 		// Creamos la encuesta
 		Encuesta encuesta = new Encuesta();
 		encuesta.setGruposAsignaturaEncuesta(lista);
-		encuesta.setFechaEnvio(new Date());		
+		encuesta.setFechaEnvio(new Date());
 		// Obtenemos el expediente activo
 		Expediente exp = aux.getExpedienteActivo();
 		if (exp == null)
 			throw new ObjetoNoExistenteException("El expediente no existe");
 		encuesta.setExpedienteEncuesta(exp);
 		em.persist(encuesta);
-		
+
 		for (GruposAsignatura ga : lista) {
 			GruposAsignatura auxga = em.find(GruposAsignatura.class,
 					new GruposAsignaturaId(ga.getCursoAcademico(), ga.getGrupoGruposAsignatura().getId(),
 							new AsignaturaId(ga.getAsignaturaGruposAsignatura().getReferencia(),
 									ga.getAsignaturaGruposAsignatura().getTitulacionAsignatura().getCodigo())));
-			
+
 			if (auxga == null) {
 				throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 			}
-			
+
 			List<Encuesta> listaEncuesta = auxga.getEncuestaGruposAsignatura();
-			if (listaEncuesta == null) listaEncuesta = new ArrayList<>();
-			System.out.println("GRUPOASIG" + auxga.getAsignaturaGruposAsignatura() + " " + auxga.getGrupoGruposAsignatura());
+			if (listaEncuesta == null)
+				listaEncuesta = new ArrayList<>();
+			System.out.println(
+					"GRUPOASIG" + auxga.getAsignaturaGruposAsignatura() + " " + auxga.getGrupoGruposAsignatura());
 			System.out.println(listaEncuesta);
 			listaEncuesta.add(encuesta);
 			auxga.setEncuestaGruposAsignatura(listaEncuesta);
 			em.merge(auxga);
 		}
-		
-		
+
 		/*
-		// Obtenemos la lista de encuestas del expediente y añadimos la encuesta recien
-		// creada
-		List<Encuesta> listEncuesta = exp.getEncuestaExpediente();
-		if (listEncuesta == null)
-			new ArrayList<Encuesta>();
-		listEncuesta.add(encuesta);
-		exp.setEncuestaExpediente(listEncuesta);
-		// Merge
-		em.merge(aux);
-		em.merge(exp);
-		em.merge(encuesta);*/
+		 * // Obtenemos la lista de encuestas del expediente y añadimos la encuesta
+		 * recien // creada List<Encuesta> listEncuesta = exp.getEncuestaExpediente();
+		 * if (listEncuesta == null) new ArrayList<Encuesta>();
+		 * listEncuesta.add(encuesta); exp.setEncuestaExpediente(listEncuesta); // Merge
+		 * em.merge(aux); em.merge(exp); em.merge(encuesta);
+		 */
 	}
 
 	/**
@@ -233,39 +230,51 @@ public class AlumnoEJB implements GestionAlumno {
 		if (expediente == null) {
 			throw new ObjetoNoExistenteException("El expediente que buscas no existe");
 		}
-		List<Expediente> listaExpedienteAlumno = alumno.getExpedienteAlumno();
-		listaExpedienteAlumno.remove(expediente);
 		Matricula matricula = expediente.getMatriculaActiva();
 		if (matricula == null) {
 			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}
-		List<Matricula> listaMatriculasExpediente = expediente.getMatriculaExpediente();
-		listaMatriculasExpediente.remove(matricula);
-
-		// tenemos la lista de asignaturas y grupo al que vamos a cambiar al alumno
-		List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();
-		for (GruposAsignatura grupoAsignatura : lista) {
-			// accedemos a su expediente, su matricula, y en su matricula cambiamos la lista
-			// de asignaturasMatricula
-			// Por las que creamos usando las que aparecen en el param lista. Ahi
-			// modificamos su matricula su expediente y el alumno y listo
-			AsignaturasMatricula asignaturaMatricula = new AsignaturasMatricula();
-			asignaturaMatricula.setAsignaturaAsignaturasMatricula(grupoAsignatura.getAsignaturaGruposAsignatura());
-			asignaturaMatricula.setMatriculaAsignaturasMatricula(matricula);
-			asignaturaMatricula.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());
-			em.persist(asignaturaMatricula);
-			listaAsignaturasMatricula.add(asignaturaMatricula);			
+		List<AsignaturasMatricula> listAm = matricula.getAsignaturasMatriculaMatricula();
+		for (AsignaturasMatricula am : listAm) {
+			for (GruposAsignatura grupoAsignatura : lista) {
+				if (am.getAsignaturaAsignaturasMatricula().equals(grupoAsignatura.getAsignaturaGruposAsignatura())) {
+					System.out.println("A la asignatura " + am.getAsignaturaAsignaturasMatricula());
+					am.setGrupoAsignaturasMatricula(grupoAsignatura.getGrupoGruposAsignatura());
+					System.out.println("Le ponemos el grupo: " + am.getGrupoAsignaturasMatricula());
+					em.merge(am);
+				}
+			}
 		}
-		matricula.setAsignaturasMatriculaMatricula(listaAsignaturasMatricula);
-		listaMatriculasExpediente.add(matricula);
-		// listaMatriculasExpediente.add
-		expediente.setMatriculaExpediente(listaMatriculasExpediente);
-		listaExpedienteAlumno.add(expediente);
-		alumno.setExpedienteAlumno(listaExpedienteAlumno);
 		// Merge
 		em.merge(alumno);
 		em.merge(expediente);
 		em.merge(matricula);
+	}
+
+	public List<Alumno> getAlumnoSinGrupo() {
+		List<Alumno> lista = new ArrayList<>();
+		try {
+			for (Alumno a : listarAlumnos(TipoFiltro.ALUMNOS_POR_ASIGNAR, 0f)) {
+				Expediente e = a.getExpedienteActivo();
+				if (e != null) {
+					Matricula m = e.getMatriculaActiva();
+					if (m != null) {
+						int cont = 0;
+						List<AsignaturasMatricula> listAm = m.getAsignaturasMatriculaMatricula();
+						for (AsignaturasMatricula am : listAm) {
+							if (am.getGrupoAsignaturasMatricula() == null)
+								cont++;
+						}
+						if (cont > 0 && cont == listAm.size())
+							lista.add(a);
+					}
+				}
+			}
+		} catch (ProyectoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 }

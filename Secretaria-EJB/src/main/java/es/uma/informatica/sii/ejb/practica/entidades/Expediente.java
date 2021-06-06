@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.eclipse.persistence.annotations.FetchGroup;
+
+
 /**
  * @author Los Datografos Clase: Expediente La forma de identificar al alumno
  *         dentro de la universidad. Un alumno tiene un expediente asociado a él
@@ -202,7 +205,9 @@ public class Expediente implements Serializable {
 	 */
 	public Matricula getMatriculaActiva() {
 		Matricula res = null;
+		//System.out.println("LISTA DE MATRICULAS "+matriculaExpediente);
 		for (Matricula m : matriculaExpediente) {
+			//System.out.println("MATRICULA EN FOR" + m);
 			if (m.getEstado().contentEquals("Activa")) {
 				res = m;
 				break;
