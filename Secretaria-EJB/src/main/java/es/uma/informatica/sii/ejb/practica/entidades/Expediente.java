@@ -205,9 +205,9 @@ public class Expediente implements Serializable {
 	 */
 	public Matricula getMatriculaActiva() {
 		Matricula res = null;
-		System.out.println("LISTA DE MATRICULAS "+matriculaExpediente);
+		//System.out.println("LISTA DE MATRICULAS "+matriculaExpediente);
 		for (Matricula m : matriculaExpediente) {
-			System.out.println("MATRICULA EN FOR" + m);
+			//System.out.println("MATRICULA EN FOR" + m);
 			if (m.getEstado().contentEquals("Activa")) {
 				res = m;
 				break;

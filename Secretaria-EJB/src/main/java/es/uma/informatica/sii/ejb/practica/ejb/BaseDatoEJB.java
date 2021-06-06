@@ -72,8 +72,8 @@ public class BaseDatoEJB implements GestionBD {
 		em.persist(alumno1);
 		// alumno.setExpedienteAlumno(listaExpediente);
 
-		//ALUMNO 3
-		
+		// ALUMNO 3
+
 		Alumno alumno3 = new Alumno();
 
 		alumno3.setId(3);
@@ -91,9 +91,9 @@ public class BaseDatoEJB implements GestionBD {
 		alumno3.setProvincia("Málaga");
 		alumno3.setCp(29515);
 		em.persist(alumno3);
-		//alumno.setExpedienteAlumno(listaExpediente);
-		
-		//ALUMNO 4
+		// alumno.setExpedienteAlumno(listaExpediente);
+
+		// ALUMNO 4
 
 		Alumno alumno4 = new Alumno();
 
@@ -113,7 +113,7 @@ public class BaseDatoEJB implements GestionBD {
 		alumno4.setCp(29510);
 		em.persist(alumno4);
 		// alumno.setExpedienteAlumno(listaExpediente);
-		
+
 		// Centro
 		Centro centro = new Centro();
 		List<Centro> listaCentro = new ArrayList<Centro>();
@@ -172,7 +172,7 @@ public class BaseDatoEJB implements GestionBD {
 		expediente1.setAlumnoExpediente(alumno1);
 		expediente1.setTitulacionExpediente(titulacion);
 		em.persist(expediente1);
-		
+
 		// Expediente 3
 		Expediente expediente3 = new Expediente();
 		listaExpediente.add(expediente3);
@@ -190,7 +190,6 @@ public class BaseDatoEJB implements GestionBD {
 		expediente3.setTitulacionExpediente(titulacion);
 		em.persist(expediente3);
 
-		
 		// Expediente 4
 		Expediente expediente4 = new Expediente();
 		listaExpediente.add(expediente4);
@@ -207,7 +206,7 @@ public class BaseDatoEJB implements GestionBD {
 		expediente4.setAlumnoExpediente(alumno4);
 		expediente4.setTitulacionExpediente(titulacion);
 		em.persist(expediente4);
-		
+
 		// Matricula
 		Matricula matricula = new Matricula();
 
@@ -231,11 +230,10 @@ public class BaseDatoEJB implements GestionBD {
 		matricula1.setNumeroArchivo(1245780);
 		matricula1.setTurnoPreferente("Mañana");
 		em.persist(matricula1);
-		
-		
+
 		// Matricula 3
 		Matricula matricula3 = new Matricula();
-		
+
 		matricula3.setCursoAcademico("2020/2021");
 		matricula3.setEstado("Activa");
 		matricula3.setExpedienteMatricula(expediente3);
@@ -244,10 +242,10 @@ public class BaseDatoEJB implements GestionBD {
 		matricula3.setNumeroArchivo(123344553);
 		matricula3.setTurnoPreferente("Mañana");
 		em.persist(matricula3);
-		
+
 		// Matricula 4
 		Matricula matricula4 = new Matricula();
-		
+
 		matricula4.setCursoAcademico("2020/2021");
 		matricula4.setEstado("Activa");
 		matricula4.setExpedienteMatricula(expediente4);
@@ -265,21 +263,27 @@ public class BaseDatoEJB implements GestionBD {
 		encuesta.setFechaEnvio(new java.util.Date());
 		encuesta.setExpedienteEncuesta(expediente);
 		em.persist(encuesta);
-		
-		//Encuesta1
+
+		// Encuesta1
 		Encuesta encuesta1 = new Encuesta();
-		//listaEncuesta.add(encuesta1);
-	
+		// listaEncuesta.add(encuesta1);
+
 		encuesta1.setFechaEnvio(new java.util.Date());
-		encuesta1.setExpedienteEncuesta(expediente3);
+		encuesta1.setExpedienteEncuesta(expediente1);
 		em.persist(encuesta1);
-		
+
+		// Encuesta4
+		Encuesta encuesta4 = new Encuesta();
+		// listaEncuesta.add(encuesta1);
+
+		encuesta4.setFechaEnvio(new java.util.Date());
+		encuesta4.setExpedienteEncuesta(expediente4);
+		em.persist(encuesta4);
 		List<Encuesta> listaEncuesta1 = new ArrayList<Encuesta>();
-		
+		listaEncuesta1.add(encuesta4);
 		listaEncuesta1.add(encuesta1);
 		listaEncuesta1.add(encuesta);
-		
-		
+
 		// Asignatura
 		Asignatura asignatura = new Asignatura();
 		List<Asignatura> listaAsignatura = new ArrayList<Asignatura>();
@@ -373,7 +377,7 @@ public class BaseDatoEJB implements GestionBD {
 		gruposAsignatura.setOferta('1');
 		gruposAsignatura.setGrupoGruposAsignatura(grupo);
 		gruposAsignatura.setAsignaturaGruposAsignatura(asignatura);
-		gruposAsignatura.setEncuestaGruposAsignatura(listaEncuesta);
+		// gruposAsignatura.setEncuestaGruposAsignatura(listaEncuesta);
 
 		em.persist(gruposAsignatura);
 
@@ -397,10 +401,10 @@ public class BaseDatoEJB implements GestionBD {
 		gruposAsignatura2.setOferta('1');
 		gruposAsignatura2.setGrupoGruposAsignatura(grupo1);
 		gruposAsignatura2.setAsignaturaGruposAsignatura(asignatura2);
-		//gruposAsignatura2.setEncuestaGruposAsignatura(listaEncuesta);
+		// gruposAsignatura2.setEncuestaGruposAsignatura(listaEncuesta);
 
 		em.persist(gruposAsignatura2);
-		
+
 		// GruposAsignatura3
 		GruposAsignatura gruposAsignatura3 = new GruposAsignatura();
 		listaGruposAsignatura.add(gruposAsignatura3);
@@ -454,23 +458,39 @@ public class BaseDatoEJB implements GestionBD {
 		asignaturasMatricula3.setGrupoAsignaturasMatricula(null);
 		asignaturasMatricula3.setMatriculaAsignaturasMatricula(matricula1);
 		em.persist(asignaturasMatricula3);
-		
-		
 
-		
+		// AsignaturasMatricula del Alumno 4
+		AsignaturasMatricula asignaturasMatricula4 = new AsignaturasMatricula();
+		List<AsignaturasMatricula> listaAsignaturasMatricula4 = new ArrayList<AsignaturasMatricula>();
+		listaAsignaturasMatricula4.add(asignaturasMatricula4);
+
+		asignaturasMatricula4.setAsignaturaAsignaturasMatricula(asignatura);
+		asignaturasMatricula4.setGrupoAsignaturasMatricula(null);
+		asignaturasMatricula4.setMatriculaAsignaturasMatricula(matricula4);
+
+		em.persist(asignaturasMatricula4);
+
+		AsignaturasMatricula asignaturasMatricula5 = new AsignaturasMatricula();
+		List<AsignaturasMatricula> listaAsignaturasMatricula5 = new ArrayList<AsignaturasMatricula>();
+		listaAsignaturasMatricula5.add(asignaturasMatricula5);
+
+		asignaturasMatricula5.setAsignaturaAsignaturasMatricula(asignatura2);
+		asignaturasMatricula5.setGrupoAsignaturasMatricula(null);
+		asignaturasMatricula5.setMatriculaAsignaturasMatricula(matricula4);
+		em.persist(asignaturasMatricula5);
+
 		/*
-		encuesta.setGruposAsignaturaEncuesta(listaGruposAsignatura);
-		// AsignaturasMatricula
-		AsignaturasMatricula asignaturasMatricula = new AsignaturasMatricula();
-		List<AsignaturasMatricula> listaAsignaturasMatricula = new ArrayList<AsignaturasMatricula>();
-		listaAsignaturasMatricula.add(asignaturasMatricula);
-
-		asignaturasMatricula.setAsignaturaAsignaturasMatricula(asignatura);
-		asignaturasMatricula.setGrupoAsignaturasMatricula(grupo);
-		asignaturasMatricula.setMatriculaAsignaturasMatricula(matricula);
-		em.persist(asignaturasMatricula);*/
-		
-		
+		 * encuesta.setGruposAsignaturaEncuesta(listaGruposAsignatura); //
+		 * AsignaturasMatricula AsignaturasMatricula asignaturasMatricula = new
+		 * AsignaturasMatricula(); List<AsignaturasMatricula> listaAsignaturasMatricula
+		 * = new ArrayList<AsignaturasMatricula>();
+		 * listaAsignaturasMatricula.add(asignaturasMatricula);
+		 * 
+		 * asignaturasMatricula.setAsignaturaAsignaturasMatricula(asignatura);
+		 * asignaturasMatricula.setGrupoAsignaturasMatricula(grupo);
+		 * asignaturasMatricula.setMatriculaAsignaturasMatricula(matricula);
+		 * em.persist(asignaturasMatricula);
+		 */
 
 		/*
 		 * AsignaturasMatricula asignaturasMatricula1 = new AsignaturasMatricula();
