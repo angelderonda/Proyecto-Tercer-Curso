@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Crear y modificar Alumno</title>
+    </h:head>
+    <h:body>
+		
+		<div class="card ui-fluid ">
+    		<h:form>	
+	        <h2>Alumno</h2>
+	        <div>
+	              <h:outputLabel value="Id*"/>
+	              <h:inputText id="id" value="#{alumnocu.id}" required="true" requiredMessage="Introduce el id" />
+	              <h:message for="id" errorClass="errorMessage"/> 
+				  <br></br>
+	              <h:outputLabel value="Dni*"/>
+	              <h:inputText id="dni" value="#{alumnocu.dni}" required="true" requiredMessage="Introduce el dni" />
+	        	  <h:message for="dni" errorClass="errorMessage"/> 
+				  <br></br>	        	           
+	              <h:outputLabel value="Nombre"/>
+	              <h:inputText id="nombre" value="#{alumnocu.nombre}" required="false" />
+				  <br></br>	              
+	              <h:outputLabel value="Primer apellido"/>
+	              <h:inputText id="apellido1" value="#{alumnocu.apellido1}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Segundo apellido"/>
+	              <h:inputText id="apellido2" value="#{alumnocu.apellido2}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Email Institucional"/>
+	              <h:inputText id="emailInstitucional" value="#{alumnocu.emailInstitucional}" required="false"  /> 
+	              <br></br>	   
+	              <h:outputLabel value="Email Personal"/>
+	              <h:inputText id="emailPersonal" value="#{alumnocu.emailPersonal}" required="false" />
+				  <br></br>	              
+	              <h:outputLabel value="Numero Archivo"/>
+	              <h:inputText id="numeroArchivo" value="#{alumnocu.numeroArchivo}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Numero Movil"/>
+	              <h:inputText id="numeroMovil" value="#{alumnocu.numeroMovil}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Numero Telefono"/>
+	              <h:inputText id="numeroTelefono" value="#{alumnocu.numeroTelefono}" required="false"  /> 
+	              <br></br>
+	              <h:outputLabel value="Direccion"/>
+	              <h:inputText id="direccion" value="#{alumnocu.direccion}" required="false" />
+				  <br></br>	              
+	              <h:outputLabel value="Localidad"/>
+	              <h:inputText id="localidad" value="#{alumnocu.localidad}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="Provincia"/>
+	              <h:inputText id="provincia" value="#{alumnocu.provincia}" required="false"/>
+				  <br></br>	              
+	              <h:outputLabel value="CP"/>
+	              <h:inputText id="cp" value="#{alumnocu.cp}" required="false"  /> 
+	              <br></br>	  	  
+	        </div>
+	        
+	        <br></br>
+	        <h:commandButton value="Crear alumno" action="#{alumnocu.crearAlumno()}" />
+	       	<h:commandButton value="Modificar alumno" action="#{alumnocu.modificarAlumno()}" /><br></br>
+			<br></br>
+			
+    		</h:form>
+		</div>
+		<h:messages globalOnly="true" /> <!-- Global messages -->
+		<br></br>
+		<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+    </h:body>
+</html>
