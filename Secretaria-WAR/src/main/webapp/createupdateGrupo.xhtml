@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+	<title>Crear y modificar Grupo</title>
+</h:head>
+
+<h:body>
+	<div class="card ui-fluid ">
+		<h:form>
+			<h2>Grupo</h2>
+			<div>
+				<h:outputLabel value="Id*"/>
+	            <h:inputText id="id" value="#{grupocu.id}" required="true" requiredMessage="Introduce el id" />
+	            <h:message for="id" errorClass="errorMessage"/> 
+				<br></br>
+				<h:outputLabel value="Curso*"/>
+	            <h:inputText id="curso" value="#{grupocu.curso}" required="true" requiredMessage="Introduce el curso" />
+	            <h:message for="curso" errorClass="errorMessage"/> 
+				<br></br>
+				<h:outputLabel value="Inglés*"/>
+	            <h:inputText id="ingles" value="#{grupocu.ingles}" required="true" requiredMessage="Introduce si se da en ingles" />
+	            <h:message for="ingles" errorClass="errorMessage"/> 
+	            <br></br>
+				<h:outputLabel value="Letra*"/>
+	            <h:inputText id="letra" value="#{grupocu.letra}" required="true" requiredMessage="Introduce la letra" />
+	            <h:message for="letra" errorClass="errorMessage"/> 
+	            <br></br>
+				<h:outputLabel value="Plazas*"/>
+	            <h:inputText id="plaza" value="#{grupocu.plazas}" required="true" requiredMessage="Introduce las plazas" />
+	            <h:message for="plaza" errorClass="errorMessage"/> 
+				<br></br>
+				<h:outputLabel value="Turno*"/>
+	            <h:inputText id="turno" value="#{grupocu.turno_mañana_tarde}" required="true" requiredMessage="Introduce el turno" />
+	            <h:message for="turno" errorClass="errorMessage"/> 
+	            <br></br>
+				<h:outputLabel value="Visible*"/>
+	            <h:inputText id="visible" value="#{grupocu.visible}" required="true" requiredMessage="Introduce la visibilidad" />
+	            <h:message for="visible" errorClass="errorMessage"/> 
+				<br></br>
+				<h:outputLabel value="Titulación*"/>
+	            <h:inputText id="titulacion" value="#{grupocu.titulacionGrupo}" required="true" requiredMessage="Introduce el código de la titulacion" />
+	            <h:message for="titulacion" errorClass="errorMessage"/> 
+				<br></br>
+				<h:outputLabel value="Asignar"/>
+	            <h:inputText id="asignar" value="#{grupocu.asignar}" required="false"/>
+	            <br></br>
+			</div>
+
+			<br></br>
+			<h:commandButton value="Crear grupo"
+				action="#{grupocu.crearGrupo()}" />
+			<h:commandButton value="Modificar grupo"
+				action="#{grupocu.modificarGrupo()}" />
+			<br></br>
+			<br></br>
+
+		</h:form>
+	</div>
+	<h:messages globalOnly="true" />
+	<!-- Global messages -->
+	<br></br>
+	<h:button value="Volver" outcome="gestionarEntidades.xhtml" />
+</h:body>
+</html>
