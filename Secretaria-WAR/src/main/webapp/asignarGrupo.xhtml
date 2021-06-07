@@ -17,7 +17,7 @@
   <hr></hr>
 		<h2>Pulse para asignar grupos</h2>
 		<h:form>
-		<h:dataTable value="#{asignar.lista}" var="alumno">
+		<h:dataTable id="tablaAsignarGrupo" value="#{asignar.lista}" var="alumno">
             <h:column>
                 <f:facet name="header">Id</f:facet>
               #{alumno.id}
@@ -53,16 +53,16 @@
            </h:column>
            
            <h:column>
-                <h:commandButton value="Asignar automáticamente" action="#{asignar.asignarAutomatico(alumno.id)}" />
+                <h:commandButton id="botonAutomatico" value="Asignar automáticamente" action="#{asignar.asignarAutomatico(alumno.id)}" />
            </h:column>
            
            <h:column>
-                <h:commandButton value="Asignar manual" action="#{asignar.asignarManual(alumno)}" />
+                <h:commandButton id="botonManual" value="Asignar manual" action="#{asignar.asignarManual(alumno)}" />
            </h:column>
         </h:dataTable>
         </h:form>
 	
-		<h:button class = "botonS" value="Volver" outcome="inicio.xhtml" />
+		<h:button id="botonVolver" class = "botonS" value="Volver" outcome="inicio.xhtml" />
 		
 		
     </h:body>

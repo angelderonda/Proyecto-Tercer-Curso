@@ -19,17 +19,17 @@
             </h:column>
             <h:column>
                 <f:facet name="header">Grupos a escoger</f:facet>
-              	<h:selectOneMenu value="#{fila.letraSeleccionada}" style="width:100%">
-					<f:selectItems value="#{fila.letras}" />
+              	<h:selectOneMenu id="letraSeleccionada" value="#{fila.letraSeleccionada}" style="width:100%">
+					<f:selectItems id="letra" value="#{fila.letras}" />
 				</h:selectOneMenu>
            </h:column>
         </h:dataTable>
-		<h:commandButton value="Confirmar"
+		<h:commandButton id="botonConfirmar" value="Confirmar"
 			action="#{asignarManual.confirmar()}" />
 		<br></br>
 		<br></br>
 	</h:form>
-	<h:button class = "botonS" value="Volver" outcome="asignarGrupo.xhtml" />
+	<h:button id="botonVolver" class = "botonS" value="Volver" outcome="asignarGrupo.xhtml" />
 </h:body>
 </html>
 

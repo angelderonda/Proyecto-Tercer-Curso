@@ -45,8 +45,10 @@ public class MatriculaPrueba {
 			expediente.setNumeroExpediente(102474112);
 			m.setExpedienteMatricula(expediente);
 
-			gestionMatricula.createMatricula(m);
-		} catch (ObjetoYaExistenteException e) {
+			gestionMatricula.createMatricula(m, expediente.getNumeroExpediente());
+		} catch (ObjetoYaExistenteException e ) {
+			fail("No debería lanzarse excepción.");
+		} catch(ObjetoNoExistenteException e ) {
 			fail("No debería lanzarse excepción.");
 		}
 
@@ -64,10 +66,12 @@ public class MatriculaPrueba {
 			Expediente expediente = new Expediente();
 			expediente.setNumeroExpediente(102474112);
 			m.setExpedienteMatricula(expediente);
-			gestionMatricula.createMatricula(m);
+			gestionMatricula.createMatricula(m, expediente.getNumeroExpediente());
 			fail("Debería lanzar excepción");
 		} catch (ObjetoYaExistenteException e) {
 			// OK
+		}catch(ObjetoNoExistenteException e ) {
+			fail("No debería lanzarse excepción.");
 		}
 	}
 

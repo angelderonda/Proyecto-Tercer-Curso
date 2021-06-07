@@ -45,11 +45,11 @@ public class AsignaturaPrueba {
 			a.setDuracion("1º cuatrimestre");
 			a.setOfertada("Sí");
 			Titulacion t = new Titulacion();
-			t.setCodigo(1041);
+			//t.setCodigo(1041);
 			a.setTitulacionAsignatura(t);
-			gestionAsignatura.createAsignatura(a);
+			gestionAsignatura.createAsignatura(a,1041);
 
-		} catch (ObjetoYaExistenteException e) {
+		} catch (ObjetoYaExistenteException | ObjetoNoExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
 	}
@@ -71,11 +71,10 @@ public class AsignaturaPrueba {
 			asignatura.setReferencia(564846687);
 			asignatura.setTipo("Obligatoria");
 			Titulacion titulacion = new Titulacion();
-			titulacion.setCodigo(1041);
 			asignatura.setTitulacionAsignatura(titulacion);
-			gestionAsignatura.createAsignatura(asignatura);
+			gestionAsignatura.createAsignatura(asignatura,1041);
 			fail("No debería lanzarse excepción");
-		} catch (ObjetoYaExistenteException e) {
+		} catch (ObjetoYaExistenteException | ObjetoNoExistenteException e) {
 			// OK
 		}
 	}
