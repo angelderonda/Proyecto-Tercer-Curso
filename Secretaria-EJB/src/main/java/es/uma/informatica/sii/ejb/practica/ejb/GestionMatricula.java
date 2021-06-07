@@ -15,8 +15,6 @@ public interface GestionMatricula {
 
 	//CRUD (CREAR, LEER, ACTUALIZAR Y ELIMINAR) MATRICULA
 	
-	public void createMatricula(Matricula matricula) throws ObjetoYaExistenteException;
-
 	public Matricula readMatricula(MatriculaId idMatricula) throws ObjetoNoExistenteException;
 
 	public void updateMatricula(Matricula matricula) throws ObjetoNoExistenteException;
@@ -24,5 +22,7 @@ public interface GestionMatricula {
 	public void deleteMatricula(MatriculaId idMatricula) throws ObjetoNoExistenteException;
 	
 	public List<AsignaturasMatricula> getAsignaturas(Matricula matricula) throws ObjetoNoExistenteException;
+
+	public void createMatricula(Matricula matricula, Integer expedienteID) throws ObjetoYaExistenteException,ObjetoNoExistenteException;
 
 }

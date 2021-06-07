@@ -12,7 +12,7 @@ public interface GestionAsignatura {
 	
 	//CRUD (CREAR, LEER, ACTUALIZAR Y ELIMINAR) ASIGNATURA
 
-	public void createAsignatura(Asignatura asignatura) throws ObjetoYaExistenteException;
+	public void createAsignatura(Asignatura asignatura, Integer titulacionId) throws ObjetoYaExistenteException, ObjetoNoExistenteException;
 
 	public Asignatura readAsignatura(AsignaturaId idAsignatura) throws ObjetoNoExistenteException;
 

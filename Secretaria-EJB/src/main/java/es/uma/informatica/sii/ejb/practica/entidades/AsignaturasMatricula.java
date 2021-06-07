@@ -84,7 +84,7 @@ public class AsignaturasMatricula implements Serializable {
 		this.asignaturaAsignaturasMatricula = asignaturaAsignaturasMatricula;
 	}
 
-	public Matricula getMatriculaAsignaturasMatricula() {
+	public Matricula getMat() {
 		return mat;
 	}
 

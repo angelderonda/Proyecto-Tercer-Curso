@@ -114,6 +114,25 @@ public class BaseDatoEJB implements GestionBD {
 		em.persist(alumno4);
 		// alumno.setExpedienteAlumno(listaExpediente);
 
+		// Alumno 5
+		Alumno alumno5 = new Alumno();
+
+		alumno5.setId(5);
+		alumno5.setDni("254789K");
+		alumno5.setNombreCompleto("Angelito");
+		alumno5.setApellido1("García");
+		alumno5.setApellido2("Lorca");
+		alumno5.setEmailInstitucional("angelito@uma.es");
+		alumno5.setEmailPersonal("angel00@gmail.com");
+		alumno5.setNumeroArchivo("124570");
+		alumno5.setNumeroMovil("66548445");
+		alumno5.setNumeroTelefono("957412780");
+		alumno5.setDireccion("Calle Amapola");
+		alumno5.setLocalidad("Ronda");
+		alumno5.setProvincia("Málaga");
+		alumno5.setCp(29510);
+		em.persist(alumno5);
+
 		// Centro
 		Centro centro = new Centro();
 		List<Centro> listaCentro = new ArrayList<Centro>();
@@ -207,6 +226,23 @@ public class BaseDatoEJB implements GestionBD {
 		expediente4.setTitulacionExpediente(titulacion);
 		em.persist(expediente4);
 
+		// Expediente 5
+		Expediente expediente5 = new Expediente();
+		listaExpediente.add(expediente5);
+
+		expediente5.setActivo('1');
+		expediente5.setCreditosCF(0);
+		expediente5.setCreditosFB(0);
+		expediente5.setCreditosMO(0);
+		expediente5.setCreditosOP(0);
+		expediente5.setCreditosPE(0);
+		expediente5.setCreditosTF(0);
+		expediente5.setNotaMediaProvisional((float) 8);
+		expediente5.setNumeroExpediente(102474120);
+		expediente5.setAlumnoExpediente(alumno5);
+		expediente5.setTitulacionExpediente(titulacion);
+		em.persist(expediente5);
+		
 		// Matricula
 		Matricula matricula = new Matricula();
 

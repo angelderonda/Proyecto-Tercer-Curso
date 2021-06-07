@@ -51,7 +51,6 @@ public class MatriculaCU {
 
 	@Inject
 	private GestionMatricula gestionMatricula;
-
 	private String cursoAcademico;
 	private Integer nexpediente;
 	private String turnoPreferente;
@@ -99,25 +98,21 @@ public class MatriculaCU {
 		matricula.setCursoAcademico(cursoAcademico);
 		matricula.setTurnoPreferente(turnoPreferente);
 		matricula.setNumeroArchivo(numeroArchivo);
-
 		matricula.setNuevoIngreso(ingreso);
 		matricula.setEstado("Activo");
 		matricula.setFechaMatricula(new java.util.Date());
-
-		
-
 		Expediente expediente = em.find(Expediente.class, nexpediente);
 		if (expediente == null) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha encontrado el expediente"));
 		} else {
-			matricula.setExpedienteMatricula(expediente);
+			try {
+				gestionMatricula.createMatricula(matricula,nexpediente);
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula creada correctamente"));
+			} catch (Exception e) {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido crear la matricula"));
+			}
 		}
-		try {
-			gestionMatricula.createMatricula(matricula);
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula creada correctamente"));
-		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido crear la matricula"));
-		}
+		
 		return null;
 	}
 
@@ -126,7 +121,6 @@ public class MatriculaCU {
 		matricula.setCursoAcademico(cursoAcademico);
 		matricula.setTurnoPreferente(turnoPreferente);
 		matricula.setNumeroArchivo(numeroArchivo);
-		
 		matricula.setNuevoIngreso(ingreso);
 		matricula.setEstado("Activo");
 		matricula.setFechaMatricula(new java.util.Date());

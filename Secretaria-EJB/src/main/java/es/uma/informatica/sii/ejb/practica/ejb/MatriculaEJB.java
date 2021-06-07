@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.AsignaturasMatricula;
+import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula.MatriculaId;
 
@@ -17,18 +18,6 @@ public class MatriculaEJB implements GestionMatricula {
 
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-
-	@Override
-	public void createMatricula(Matricula matricula) throws ObjetoYaExistenteException {
-
-		Matricula aux = em.find(Matricula.class, new MatriculaId(matricula.getCursoAcademico(),
-				matricula.getExpedienteMatricula().getNumeroExpediente()));
-
-		if (aux != null) {
-			throw new ObjetoYaExistenteException("Esta matricula ya ha sido creada");
-		}
-		em.persist(matricula);
-	}
 
 	@Override
 	public Matricula readMatricula(MatriculaId idMatricula) throws ObjetoNoExistenteException {
@@ -69,7 +58,27 @@ public class MatriculaEJB implements GestionMatricula {
 		if (aux == null) {
 			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
 		}	
-		return aux.getAsignaturasMatriculaMatricula();
+		List<AsignaturasMatricula> list = aux.getAsignaturasMatriculaMatricula();
+		list.size();
+		return list;
+	}
+
+	@Override
+	public void createMatricula(Matricula matricula, Integer expedienteID)
+			throws ObjetoYaExistenteException, ObjetoNoExistenteException {
+		Expediente expediente = em.find(Expediente.class, expedienteID);
+		if (expediente == null) {
+			throw new ObjetoNoExistenteException("Esta matricula ya ha sido creada");
+		}
+		matricula.setExpedienteMatricula(expediente);
+		Matricula aux = em.find(Matricula.class, new MatriculaId(matricula.getCursoAcademico(),
+				matricula.getExpedienteMatricula().getNumeroExpediente()));
+
+		if (aux != null) {
+			throw new ObjetoYaExistenteException("Esta matricula ya ha sido creada");
+		}
+		em.persist(matricula);
+		
 	}
 
 }

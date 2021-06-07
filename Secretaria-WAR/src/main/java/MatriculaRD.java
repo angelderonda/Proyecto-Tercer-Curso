@@ -83,11 +83,10 @@ public class MatriculaRD {
 	
 	public List<AsignaturasMatricula> getLista() {
 		try {
-			if(matricula!=null)lista = gestionMatricula.getAsignaturas(matricula);
+			if(matricula!=null) lista = gestionMatricula.getAsignaturas(matricula);
 			else lista = null;
 			return lista;
-		} catch (ObjetoNoExistenteException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}

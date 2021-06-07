@@ -213,10 +213,7 @@ public class AsignaturaCU{
 		asignatura.setReferencia(referencia);
 		asignatura.setTipo(tipo);
 		try {
-			Titulacion tit = gestionTitulacion.readTitulacion(titulacionAsignatura);
-			LOGGER.info("TITULACION: " + tit);
-			asignatura.setTitulacionAsignatura(tit);
-			gestionAsignatura.createAsignatura(asignatura);
+			gestionAsignatura.createAsignatura(asignatura,titulacionAsignatura);
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Asignatura creada correctamente"));
 		}catch(Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido crear la asignatura"));

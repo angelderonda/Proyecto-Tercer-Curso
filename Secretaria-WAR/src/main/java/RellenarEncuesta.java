@@ -83,7 +83,7 @@ public class RellenarEncuesta implements Serializable{
 				GruposAsignatura grupoAsig = new GruposAsignatura();
 				grupoAsig.setAsignaturaGruposAsignatura(am.getAsignaturaAsignaturasMatricula());
 				grupoAsig.setGrupoGruposAsignatura(am.getGrupoAsignaturasMatricula());
-				grupoAsig.setCursoAcademico(am.getMatriculaAsignaturasMatricula().getCursoAcademico());
+				grupoAsig.setCursoAcademico(am.getMat().getCursoAcademico());
 				listaGruposAsignatura.add(grupoAsig);
 
 				letras = new ArrayList<String>();

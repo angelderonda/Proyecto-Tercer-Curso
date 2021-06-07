@@ -40,7 +40,7 @@ public class Grupo implements Serializable {
 	private List<Grupo> grupoGrupo;
 
 	// Relacion muchos a uno con titulacion
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
 	private Titulacion titulacionGrupo;
 
 	// Relacion uno a muchos con clase
