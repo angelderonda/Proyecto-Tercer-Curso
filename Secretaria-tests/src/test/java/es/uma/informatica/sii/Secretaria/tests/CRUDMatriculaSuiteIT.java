@@ -80,86 +80,52 @@ public class CRUDMatriculaSuiteIT{
   @Test
   public void updateMatriculaIT() {
     driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
-    driver.manage().window().setSize(new Dimension(810, 891));
+    driver.manage().window().setSize(new Dimension(926, 861));
+    driver.findElement(By.cssSelector("input:nth-child(19)")).click();
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
+    driver.findElement(By.id("j_idt6:turno")).sendKeys("Tarde");
+    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2021/2022");
+    driver.findElement(By.id("j_idt6:archivo")).sendKeys("1233446677");
+    driver.findElement(By.name("j_idt6:j_idt20")).click();
+    driver.findElement(By.cssSelector("ul")).click();
+    assertThat(driver.findElement(By.cssSelector("li")).getText(), is("Matricula creada correctamente"));
+    driver.findElement(By.cssSelector("input:nth-child(4)")).click();
     driver.findElement(By.cssSelector("input:nth-child(19)")).click();
     driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-    driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-    {
-      WebElement element = driver.findElement(By.id("j_idt6:cursoAcademico"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
+    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2021/2022");
     driver.findElement(By.id("j_idt6:expediente")).click();
-    driver.findElement(By.id("j_idt6:expediente")).click();
-    {
-      WebElement element = driver.findElement(By.id("j_idt6:expediente"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("j_idt6:expediente")).click();
-    driver.findElement(By.id("j_idt6:expediente")).click();
-    driver.findElement(By.cssSelector("div:nth-child(3)")).click();
-    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
-    driver.findElement(By.id("j_idt6:turno")).click();
-    driver.findElement(By.id("j_idt6:turno")).sendKeys("Tarde");
-    driver.findElement(By.id("j_idt6:archivo")).click();
-    driver.findElement(By.id("j_idt6:archivo")).sendKeys("12345");
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
+    driver.findElement(By.id("j_idt6:turno")).sendKeys("MaÃ±ana");
+    driver.findElement(By.id("j_idt6:archivo")).sendKeys("1233446677");
     driver.findElement(By.name("j_idt6:j_idt21")).click();
-    driver.findElement(By.cssSelector("ul")).click();
-    assertEquals(driver.findElement(By.cssSelector("li")).getText(),("Matricula modificada correctamente"));
-    driver.findElement(By.cssSelector("input:nth-child(4)")).click();
-    driver.findElement(By.cssSelector("input:nth-child(20)")).click();
-    driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-    driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-    {
-      WebElement element = driver.findElement(By.id("j_idt6:cursoAcademico"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
-    driver.findElement(By.id("j_idt6:expediente")).click();
-    driver.findElement(By.id("j_idt6:expediente")).click();
-    {
-      WebElement element = driver.findElement(By.id("j_idt6:expediente"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
-    driver.findElement(By.name("j_idt6:j_idt15")).click();
     driver.findElement(By.cssSelector("li")).click();
-    assertEquals(driver.findElement(By.cssSelector("li")).getText(),("Matricula leida correctamente, el alumno tiene grupos asignados."));
+    assertThat(driver.findElement(By.cssSelector("li")).getText(), is("Matricula modificada correctamente"));
   }
 
 
   @Requisitos({ "RF6" })
   @Test
   public void deleteMatriculaIT() {
-    driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
-    driver.manage().window().setSize(new Dimension(810, 891));
+   driver.get("http://localhost:8080/Secretaria-WAR/faces/createupdateMatricula.xhtml");
+    driver.manage().window().setSize(new Dimension(1050, 841));
+    driver.findElement(By.id("j_idt6:cursoAcademico")).click();
+    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2021/2022");
+    driver.findElement(By.id("j_idt6:expediente")).click();
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
+    driver.findElement(By.id("j_idt6:turno")).click();
+    driver.findElement(By.id("j_idt6:turno")).sendKeys("Tarde");
+    driver.findElement(By.id("j_idt6:archivo")).click();
+    driver.findElement(By.id("j_idt6:archivo")).sendKeys("456789");
+    driver.findElement(By.name("j_idt6:j_idt20")).click();
+    driver.findElement(By.cssSelector("input:nth-child(4)")).click();
     driver.findElement(By.cssSelector("input:nth-child(20)")).click();
     driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-    driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-    {
-      WebElement element = driver.findElement(By.id("j_idt6:cursoAcademico"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
+    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2021/2022");
     driver.findElement(By.id("j_idt6:expediente")).click();
-    driver.findElement(By.id("j_idt6:expediente")).click();
-    {
-      WebElement element = driver.findElement(By.id("j_idt6:expediente"));
-      Actions builder = new Actions(driver);
-      builder.doubleClick(element).perform();
-    }
-    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
     driver.findElement(By.name("j_idt6:j_idt14")).click();
-    driver.findElement(By.id("MensajeGlobal")).click();
-    assertEquals(driver.findElement(By.cssSelector("li")).getText(),("Matricula eliminada correctamente"));
-    driver.findElement(By.name("j_idt6:j_idt15")).click();
-    driver.findElement(By.id("MensajeGlobal")).click();
-    assertEquals(driver.findElement(By.cssSelector("li")).getText(),("No se ha podido leer la Matricula"));
+    driver.findElement(By.cssSelector("li")).click();
+    assertThat(driver.findElement(By.cssSelector("li")).getText(), is("Matricula eliminada correctamente"));
   }
 
 }
