@@ -255,9 +255,9 @@ Sea una relación entre la clase 'A' y la clase 'B':
 
 ## JSF añadidos 
 
-* 'createupdate*nombre de entidad'. Página de creación y modificación de entidades con el mismo nombre.
+* createupdate'nombre de entidad'. Página de creación y modificación de entidades con el mismo nombre.
 
-* 'readdelete*nombre de entidad'. Página de lectura y eliminación de entidades con el mismo nombre.
+* readdelete'nombre de entidad'. Página de lectura y eliminación de entidades con el mismo nombre.
 
 * asignarGrupo. Página para la asignación de grupo.
 
