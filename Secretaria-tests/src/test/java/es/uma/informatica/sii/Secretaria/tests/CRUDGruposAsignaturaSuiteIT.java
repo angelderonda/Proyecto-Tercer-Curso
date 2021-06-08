@@ -118,82 +118,26 @@ public class CRUDGruposAsignaturaSuiteIT {
 	@Test
 	public void updateGruposAsignaturaIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
-		driver.manage().window().setSize(new Dimension(1651, 911));
-		driver.findElement(By.cssSelector("input:nth-child(13)")).click();
-		driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-		driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
-		driver.findElement(By.id("j_idt6:titulacion")).click();
-		driver.findElement(By.id("j_idt6:titulacion")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:titulacion"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:titulacion")).sendKeys("1041");
-		driver.findElement(By.id("j_idt6:asignatura")).click();
-		driver.findElement(By.id("j_idt6:asignatura")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:asignatura"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:asignatura")).sendKeys("564846687");
-		driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).click();
-		driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:grupoGruposAsignatura"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).sendKeys("1231540");
-		driver.findElement(By.id("j_idt6:oferta")).click();
-		driver.findElement(By.id("j_idt6:oferta")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:oferta"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:oferta")).sendKeys("9");
-		driver.findElement(By.name("j_idt6:j_idt23")).click();
-		driver.findElement(By.cssSelector("li")).click();
-		assertEquals(driver.findElement(By.cssSelector("li")).getText(), ("Grupo-asignatura modificado correctamente"));
-		driver.findElement(By.cssSelector("input:nth-child(4)")).click();
-		driver.findElement(By.cssSelector("input:nth-child(14)")).click();
-		driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-		driver.findElement(By.id("j_idt6:cursoAcademico")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:cursoAcademico"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
-		driver.findElement(By.id("j_idt6:titulacion")).click();
-		driver.findElement(By.id("j_idt6:titulacion")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:titulacion"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:titulacion")).sendKeys("1041");
-		driver.findElement(By.id("j_idt6:asignatura")).click();
-		driver.findElement(By.id("j_idt6:asignatura")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:asignatura"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:asignatura")).sendKeys("564846687");
-		driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).click();
-		driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).click();
-		{
-			WebElement element = driver.findElement(By.id("j_idt6:grupoGruposAsignatura"));
-			Actions builder = new Actions(driver);
-			builder.doubleClick(element).perform();
-		}
-		driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).sendKeys("1231540");
-		driver.findElement(By.name("j_idt6:j_idt21")).click();
-		driver.findElement(By.cssSelector("ul")).click();
-		assertEquals(driver.findElement(By.cssSelector("li")).getText(), ("Grupo-Asignatura leido correctamente"));
+	    driver.manage().window().setSize(new Dimension(926, 861));
+	    driver.findElement(By.cssSelector("input:nth-child(13)")).click();
+	    driver.findElement(By.id("j_idt6:cursoAcademico")).click();
+	    driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2022/2023");
+	    driver.findElement(By.id("j_idt6:titulacion")).sendKeys("1041");
+	    driver.findElement(By.id("j_idt6:asignatura")).click();
+	    driver.findElement(By.id("j_idt6:asignatura")).sendKeys("564846687");
+	    driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).click();
+	    driver.findElement(By.id("j_idt6:grupoGruposAsignatura")).sendKeys("1231546");
+	    driver.findElement(By.id("j_idt6:oferta")).click();
+	    driver.findElement(By.id("j_idt6:oferta")).sendKeys("1");
+	    driver.findElement(By.name("j_idt6:j_idt22")).click();
+	    driver.findElement(By.cssSelector("ul")).click();
+	    assertEquals(driver.findElement(By.cssSelector("li")).getText(), "Grupo-asignatura creado correctamente");
+	    driver.findElement(By.id("j_idt6:oferta")).click();
+	    driver.findElement(By.id("j_idt6:oferta")).sendKeys("0");
+	    driver.findElement(By.name("j_idt6:j_idt23")).click();
+	    driver.findElement(By.cssSelector("li")).click();
+	    assertEquals(driver.findElement(By.cssSelector("li")).getText(), "Grupo-asignatura modificado correctamente");
+	    driver.findElement(By.cssSelector("input:nth-child(4)")).click();
 	}
 
 	@Requisitos({ "RF4" })
