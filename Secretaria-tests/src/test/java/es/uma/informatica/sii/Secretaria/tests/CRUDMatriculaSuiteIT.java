@@ -100,7 +100,7 @@ public class CRUDMatriculaSuiteIT{
     driver.findElement(By.id("j_idt6:expediente")).click();
     driver.findElement(By.id("j_idt6:expediente")).click();
     driver.findElement(By.cssSelector("div:nth-child(3)")).click();
-    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
     driver.findElement(By.id("j_idt6:turno")).click();
     driver.findElement(By.id("j_idt6:turno")).sendKeys("Tarde");
     driver.findElement(By.id("j_idt6:archivo")).click();
@@ -125,7 +125,7 @@ public class CRUDMatriculaSuiteIT{
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
-    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
     driver.findElement(By.name("j_idt6:j_idt15")).click();
     driver.findElement(By.cssSelector("li")).click();
     assertEquals(driver.findElement(By.cssSelector("li")).getText(),("Matricula leida correctamente, el alumno tiene grupos asignados."));
@@ -153,7 +153,7 @@ public class CRUDMatriculaSuiteIT{
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
-    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
+    driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
     driver.findElement(By.name("j_idt6:j_idt14")).click();
     driver.findElement(By.id("MensajeGlobal")).click();
     assertEquals(driver.findElement(By.cssSelector("li")).getText(),("Matricula eliminada correctamente"));
