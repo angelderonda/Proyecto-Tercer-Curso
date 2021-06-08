@@ -77,8 +77,26 @@ public class MatriculaEJB implements GestionMatricula {
 		if (aux != null) {
 			throw new ObjetoYaExistenteException("Esta matricula ya ha sido creada");
 		}
-		em.persist(matricula);
-		
+		em.persist(matricula);	
 	}
+
+	@Override
+	public boolean conGrupos(Matricula matricula) throws ObjetoNoExistenteException {
+		Matricula aux = em.find(Matricula.class, new MatriculaId(matricula.getCursoAcademico(),
+				matricula.getExpedienteMatricula().getNumeroExpediente()));
+		if (aux == null) {
+			throw new ObjetoNoExistenteException("La matricula que buscas no existe");
+		}	
+		List<AsignaturasMatricula> list = aux.getAsignaturasMatriculaMatricula();
+		
+		for(AsignaturasMatricula am : list) {
+			if(am.getGrupoAsignaturasMatricula() != null) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 
 }

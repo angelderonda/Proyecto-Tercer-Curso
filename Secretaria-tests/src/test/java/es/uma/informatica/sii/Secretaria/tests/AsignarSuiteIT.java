@@ -40,7 +40,7 @@ public class AsignarSuiteIT {
   @Test
   public void asignarSuiteIT() {
     driver.get("http://localhost:8080/Secretaria-WAR/faces/readdeleteMatricula.xhtml");
-    driver.manage().window().setSize(new Dimension(735, 573));
+    driver.manage().window().setSize(new Dimension(1855, 930));
     driver.findElement(By.id("j_idt6:cursoAcademico")).click();
     driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
     driver.findElement(By.id("j_idt6:expediente")).click();
@@ -53,8 +53,8 @@ public class AsignarSuiteIT {
     driver.findElement(By.xpath("//input[@value=\'Volver\']")).click();
     driver.findElement(By.cssSelector(".botonS")).click();
     driver.findElement(By.cssSelector("th:nth-child(1) > .boton")).click();
-    driver.findElement(By.xpath("//form[@id=\'j_idt7\']/table/tbody/tr/td[8]/input")).click();
-    driver.findElement(By.cssSelector(".botonS")).click();
+    driver.findElement(By.id("j_idt7:tablaAsignarGrupo:0:botonAutomatico")).click();
+    driver.findElement(By.id("botonVolver")).click();
     driver.findElement(By.cssSelector("th:nth-child(5) > .boton")).click();
     driver.findElement(By.cssSelector("input:nth-child(20)")).click();
     driver.findElement(By.id("j_idt6:cursoAcademico")).click();
@@ -62,8 +62,8 @@ public class AsignarSuiteIT {
     driver.findElement(By.id("j_idt6:expediente")).click();
     driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474113");
     driver.findElement(By.name("j_idt6:j_idt15")).click();
-    driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(3)")).click();
-    assertEquals(driver.findElement(By.id("j_idt6:j_idt38:0:grupo")).getText(), "Grupo [id=1231540, curso=1, letra=B]");
+    driver.findElement(By.xpath("//ul[@id=\'MensajeGlobal\']/li")).click();
+    assertEquals(driver.findElement(By.xpath("//ul[@id=\'MensajeGlobal\']/li")).getText(), "Matricula leida correctamente, el alumno tiene grupos asignados.");
     driver.findElement(By.id("j_idt6:expediente")).click();
     driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474119");
     driver.findElement(By.name("j_idt6:j_idt15")).click();
@@ -74,12 +74,12 @@ public class AsignarSuiteIT {
     driver.findElement(By.xpath("//input[@value=\'Volver\']")).click();
     driver.findElement(By.cssSelector(".botonS")).click();
     driver.findElement(By.cssSelector("th:nth-child(1) > .boton")).click();
-    driver.findElement(By.xpath("//form[@id=\'j_idt7\']/table/tbody/tr/td[9]/input")).click();
+    driver.findElement(By.id("j_idt7:tablaAsignarGrupo:0:botonManual")).click();
     {
       WebElement dropdown = driver.findElement(By.id("form:tablaAsignarManual:0:letraSeleccionada"));
       dropdown.findElement(By.xpath("//option[. = 'A']")).click();
     }
-    /*{
+    {
       WebElement element = driver.findElement(By.id("form:tablaAsignarManual:0:letraSeleccionada"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).clickAndHold().perform();
@@ -93,14 +93,13 @@ public class AsignarSuiteIT {
       WebElement element = driver.findElement(By.id("form:tablaAsignarManual:0:letraSeleccionada"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).release().perform();
-    }*/
+    }
     driver.findElement(By.id("form:tablaAsignarManual:0:letraSeleccionada")).click();
-    
     {
       WebElement dropdown = driver.findElement(By.id("form:tablaAsignarManual:1:letraSeleccionada"));
       dropdown.findElement(By.xpath("//option[. = 'A']")).click();
     }
-    /*{
+    {
       WebElement element = driver.findElement(By.id("form:tablaAsignarManual:1:letraSeleccionada"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).clickAndHold().perform();
@@ -114,19 +113,19 @@ public class AsignarSuiteIT {
       WebElement element = driver.findElement(By.id("form:tablaAsignarManual:1:letraSeleccionada"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).release().perform();
-    }*/
+    }
     driver.findElement(By.id("form:tablaAsignarManual:1:letraSeleccionada")).click();
-    driver.findElement(By.xpath("//form[@id=\'form\']/input[3]")).click();
-    driver.findElement(By.cssSelector(".botonS")).click();
-    driver.findElement(By.cssSelector(".botonS")).click();
+    driver.findElement(By.id("form:botonConfirmar")).click();
+    driver.findElement(By.id("botonVolver")).click();
+    driver.findElement(By.id("botonVolver")).click();
     driver.findElement(By.cssSelector("th:nth-child(5) > .boton")).click();
     driver.findElement(By.cssSelector("input:nth-child(20)")).click();
     driver.findElement(By.id("j_idt6:cursoAcademico")).click();
     driver.findElement(By.id("j_idt6:cursoAcademico")).sendKeys("2020/2021");
     driver.findElement(By.id("j_idt6:expediente")).click();
     driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474119");
-    driver.findElement(By.xpath("//form[@id=\'j_idt6\']/input[3]")).click();
-    driver.findElement(By.id("j_idt6:j_idt38:0:grupo")).click();
-    assertEquals(driver.findElement(By.id("j_idt6:j_idt38:0:grupo")).getText(), "Grupo [id=1231546, curso=1, letra=A]");
+    driver.findElement(By.name("j_idt6:j_idt15")).click();
+    driver.findElement(By.xpath("//ul[@id=\'MensajeGlobal\']/li")).click();
+    assertEquals(driver.findElement(By.xpath("//ul[@id=\'MensajeGlobal\']/li")).getText(), "Matricula leida correctamente, el alumno tiene grupos asignados.");
   }
 }

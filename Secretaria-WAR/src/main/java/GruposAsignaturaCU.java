@@ -121,17 +121,10 @@ public class GruposAsignaturaCU{
 		gruposAsignatura.setCursoAcademico(cursoAcademico);
 		gruposAsignatura.setOferta(oferta);
 		try {
-			Grupo grupo = gestionGrupo.readGrupo(grupoGruposAsignatura);
-			gruposAsignatura.setGrupoGruposAsignatura(grupo);
-			
-			AsignaturaId asignaturaId = new AsignaturaId(asignatura,titulacion);
-			Asignatura asig = gestionAsignatura.readAsignatura(asignaturaId);
-			gruposAsignatura.setAsignaturaGruposAsignatura(asig);
-			
-			gestionGruposAsignatura.createGruposAsignatura(gruposAsignatura);
+			gestionGruposAsignatura.createGruposAsignatura(gruposAsignatura,titulacion,grupoGruposAsignatura,asignatura);
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Grupo-asignatura creado correctamente"));
 		}catch(Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido crear el grupo-asignatura"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()+"No se ha podido crear el grupo-asignatura"));
 		}
 		return null;
 	}

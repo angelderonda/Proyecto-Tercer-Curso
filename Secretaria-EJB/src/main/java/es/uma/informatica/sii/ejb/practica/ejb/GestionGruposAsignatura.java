@@ -9,12 +9,12 @@ public interface GestionGruposAsignatura {
 	
 	//CRUD (CREAR, LEER, ACTUALIZAR Y ELIMINAR) GRUPOSASIGNATURA
 
-	public void createGruposAsignatura(GruposAsignatura gruposAsignatura) throws ObjetoYaExistenteException;
-
 	public GruposAsignatura readGrupoAsignatura(GruposAsignaturaId idGrupoAsignatura) throws ObjetoNoExistenteException;
 
 	public void updateGrupoAsignatura(GruposAsignatura gruposAsignatura) throws ObjetoNoExistenteException;
 
 	public void deleteGrupoAsignatura(GruposAsignaturaId idGrupoAsignatura) throws ObjetoNoExistenteException;
+
+	void createGruposAsignatura(GruposAsignatura gruposAsignatura, Integer titulacionId, Integer grupoId, Integer referencia) throws ObjetoYaExistenteException;
 
 }

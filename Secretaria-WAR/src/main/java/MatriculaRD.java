@@ -46,6 +46,8 @@ public class MatriculaRD {
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
 
+	private static final Logger LOGGER = Logger.getLogger(MatriculaRD.class.getCanonicalName());
+	
 	@Inject
 	private GestionMatricula gestionMatricula;
 
@@ -55,6 +57,7 @@ public class MatriculaRD {
 	private Matricula matricula;
 	
 	private List<AsignaturasMatricula> lista;
+	
 	// getters y setters
 
 	public String getCursoAcademico() {
@@ -101,7 +104,8 @@ public class MatriculaRD {
 	public String leerMatricula() {
 		try {
 			matricula = gestionMatricula.readMatricula(new MatriculaId(cursoAcademico, nexpediente));
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula leida correctamente"));
+			if(gestionMatricula.conGrupos(matricula)) FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula leida correctamente, el alumno tiene grupos asignados."));
+			else FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula leida correctamente, el alumno no tiene grupos asignados."));
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido leer la Matricula"));
 		}

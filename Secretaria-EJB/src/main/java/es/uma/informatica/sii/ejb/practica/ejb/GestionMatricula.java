@@ -25,4 +25,6 @@ public interface GestionMatricula {
 
 	public void createMatricula(Matricula matricula, Integer expedienteID) throws ObjetoYaExistenteException,ObjetoNoExistenteException;
 
+	public boolean conGrupos(Matricula matricula) throws ObjetoNoExistenteException;
+
 }

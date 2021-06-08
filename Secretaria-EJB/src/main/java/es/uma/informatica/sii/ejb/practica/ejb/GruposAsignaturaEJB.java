@@ -7,9 +7,11 @@ import javax.persistence.PersistenceContext;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoNoExistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ObjetoYaExistenteException;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura.AsignaturaId;
 import es.uma.informatica.sii.ejb.practica.entidades.GruposAsignatura.GruposAsignaturaId;
+import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
 @Stateless
 public class GruposAsignaturaEJB implements GestionGruposAsignatura {
@@ -18,19 +20,24 @@ public class GruposAsignaturaEJB implements GestionGruposAsignatura {
 	private EntityManager em;
 
 	@Override
-	public void createGruposAsignatura(GruposAsignatura gruposAsignatura) throws ObjetoYaExistenteException {
-
-		Asignatura asignatura = gruposAsignatura.getAsignaturaGruposAsignatura();
-		if (asignatura == null) {
+	public void createGruposAsignatura(GruposAsignatura gruposAsignatura, Integer titulacionId, Integer grupoId, Integer referencia) throws ObjetoYaExistenteException {
+		
+		Grupo grupo = em.find(Grupo.class,grupoId);
+		AsignaturaId asignaturaId = new AsignaturaId(referencia,titulacionId);
+		Asignatura asig = em.find(Asignatura.class,asignaturaId);
+		if (asig == null) {
 			throw new ObjetoYaExistenteException("La asignatura asignatura no existe");
 		}
+		
 		GruposAsignatura aux = em.find(GruposAsignatura.class, new GruposAsignaturaId(
-				gruposAsignatura.getCursoAcademico(), gruposAsignatura.getGrupoGruposAsignatura().getId(),
-				new AsignaturaId(asignatura.getReferencia(), asignatura.getTitulacionAsignatura().getCodigo())));
+				gruposAsignatura.getCursoAcademico(), grupo.getId(),
+				asignaturaId));
 
 		if (aux != null) {
 			throw new ObjetoYaExistenteException("Este grupo asignatura ya existe");
 		}
+		gruposAsignatura.setAsignaturaGruposAsignatura(asig);
+		gruposAsignatura.setGrupoGruposAsignatura(grupo);
 		em.persist(gruposAsignatura);
 
 	}
@@ -59,7 +66,7 @@ public class GruposAsignaturaEJB implements GestionGruposAsignatura {
 			throw new ObjetoNoExistenteException("El grupo asignatura que buscas no existe");
 		}
 		// aux = asignatura;
-		em.merge(aux);
+		em.merge(gruposAsignatura);
 
 	}
 

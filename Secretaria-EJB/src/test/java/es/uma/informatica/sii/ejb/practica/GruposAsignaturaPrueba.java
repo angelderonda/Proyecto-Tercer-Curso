@@ -47,16 +47,6 @@ public class GruposAsignaturaPrueba {
 			Titulacion t = new Titulacion();
 			t.setCodigo(1041);
 
-			Asignatura asignatura = new Asignatura();
-			asignatura.setReferencia(564846687);
-			asignatura.setTitulacionAsignatura(t);
-
-			Grupo grupo = new Grupo();
-			grupo.setId(1231546);
-			grupo.setLetra('A');
-			grupo.setCurso(2021);
-			grupo.setTitulacionGrupo(t);
-
 			// Creamos el mismo expediente que tenemos en BaseDatos.java
 
 			Alumno a = new Alumno();
@@ -79,11 +69,8 @@ public class GruposAsignaturaPrueba {
 			GruposAsignatura ga = new GruposAsignatura();
 			ga.setCursoAcademico("2020/2021");
 			ga.setOferta('1');
-			ga.setGrupoGruposAsignatura(grupo);
-			ga.setAsignaturaGruposAsignatura(asignatura);
 			ga.setEncuestaGruposAsignatura(listaEncuesta);
-
-			gestionGruposAsignatura.createGruposAsignatura(ga);
+			gestionGruposAsignatura.createGruposAsignatura(ga,1041,1231546,564846687);
 		} catch (ObjetoYaExistenteException e) {
 			fail("No debería lanzarse excepción.");
 		}
@@ -95,30 +82,11 @@ public class GruposAsignaturaPrueba {
 		try {
 			GruposAsignatura ga = new GruposAsignatura();
 			ga.setCursoAcademico("2021");
-
-			Grupo grupo = new Grupo();
-			grupo.setCurso(2020);
-			grupo.setId(1231546);
-			grupo.setIngles('0');
-			grupo.setLetra('A');
-			grupo.setPlazas("25");
-			grupo.setTurno_mañana_tarde("Mañana");
-			ga.setGrupoGruposAsignatura(grupo);
-			Asignatura asignatura = new Asignatura();
-			asignatura.setCodigo(1456156);
-			asignatura.setCreditosPracticas(6);
-			asignatura.setCreditosTeoria(6);
-			asignatura.setDuracion("1º cuatrimestre");
-			asignatura.setNombre("Cálculo");
-			asignatura.setOfertada("Si");
-			asignatura.setReferencia(564846687);
 			Titulacion t = new Titulacion();
 			t.setCodigo(1041);
 			t.setCreditos(240);
 			t.setNombre("Informatica");
-			asignatura.setTitulacionAsignatura(t);
-			ga.setAsignaturaGruposAsignatura(asignatura);
-			gestionGruposAsignatura.createGruposAsignatura(ga);
+			gestionGruposAsignatura.createGruposAsignatura(ga,1041,1231546,564846687);
 			fail("Debería lanzarse excepción.");
 		} catch (ObjetoYaExistenteException e) {
 			// OK
