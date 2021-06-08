@@ -55,26 +55,8 @@ public class Lista {
 
 	public String mostrar() {
 		try {
-			lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), parametro);
-			/*Alumno alumno = new Alumno();
-			alumno.setId(1);
-			alumno.setDni("254789E");
-			alumno.setNombreCompleto("Pepito");
-			alumno.setApellido1("Palotes");
-			alumno.setApellido2("Perez");
-			alumno.setEmailInstitucional("pepe@uma.es");
-			alumno.setEmailPersonal("pepito12@gmail.com");
-			alumno.setNumeroArchivo("1245785");
-			alumno.setNumeroMovil("66548447");
-			alumno.setNumeroTelefono("957412784");
-			alumno.setDireccion("Calle Margarita");
-			alumno.setLocalidad("Benaoján");
-			alumno.setProvincia("Málaga");
-			alumno.setCp(29514);
-			lista = new ArrayList<>();
-			lista.add(alumno);*/
+			lista = alumno.listarAlumnos(TipoFiltro.valueOf(filtro), parametro);			
 		} catch (ProyectoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

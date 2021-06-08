@@ -99,7 +99,7 @@ public class CRUDMatriculaSuiteIT{
     driver.findElement(By.id("j_idt6:archivo")).sendKeys("1233446677");
     driver.findElement(By.name("j_idt6:j_idt21")).click();
     driver.findElement(By.cssSelector("li")).click();
-    assertThat(driver.findElement(By.cssSelector("li")).getText(), is("Matricula modificada correctamente"));
+    assertEquals(driver.findElement(By.cssSelector("li")).getText(), ("Matricula modificada correctamente"));
   }
 
 
@@ -125,7 +125,7 @@ public class CRUDMatriculaSuiteIT{
     driver.findElement(By.id("j_idt6:expediente")).sendKeys("102474112");
     driver.findElement(By.name("j_idt6:j_idt14")).click();
     driver.findElement(By.cssSelector("li")).click();
-    assertThat(driver.findElement(By.cssSelector("li")).getText(), is("Matricula eliminada correctamente"));
+    assertEquals(driver.findElement(By.cssSelector("li")).getText(), ("Matricula eliminada correctamente"));
   }
 
 }

@@ -165,9 +165,7 @@ public class GrupoCU{
 		grupo.setVisible(visible);
 		
 		try {
-			//Grupo gr = gestionGrupo.readGrupo(grupoReflexiva);
-			//grupo.setGrupoReflexiva(gr);
-			
+						
 			Titulacion tit = gestionTitulacion.readTitulacion(titulacionGrupo);
 			grupo.setTitulacionGrupo(tit);
 			

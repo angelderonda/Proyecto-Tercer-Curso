@@ -45,8 +45,6 @@ import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 public class MatriculaRD {
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-
-	private static final Logger LOGGER = Logger.getLogger(MatriculaRD.class.getCanonicalName());
 	
 	@Inject
 	private GestionMatricula gestionMatricula;

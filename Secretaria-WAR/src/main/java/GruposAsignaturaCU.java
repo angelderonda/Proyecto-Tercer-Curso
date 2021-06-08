@@ -46,7 +46,6 @@ public class GruposAsignaturaCU{
 	
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-	private static final Logger LOGGER = Logger.getLogger(AsignaturaCU.class.getCanonicalName());
 	
 	@Inject 
 	private GestionAsignatura gestionAsignatura;

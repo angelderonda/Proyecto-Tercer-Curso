@@ -43,7 +43,6 @@ import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 public class AsignaturaRD {
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-	private static final Logger LOGGER = Logger.getLogger(AsignaturaCU.class.getCanonicalName());
 	
 	@Inject 
 	private GestionAsignatura gestionAsignatura;

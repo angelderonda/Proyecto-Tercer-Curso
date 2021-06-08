@@ -26,8 +26,6 @@ import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 @RequestScoped
 public class Asignar {
 
-	private static final Logger LOGGER = Logger.getLogger(Asignar.class.getCanonicalName());
-
 	@Inject
 	private GestionAlumno alumnoEJB;
 
@@ -45,24 +43,7 @@ public class Asignar {
 	}
 
 	public List<Alumno> getLista() {
-		// try {
 		lista = alumnoEJB.getAlumnoSinGrupo();
-		/*
-		 * List<Alumno> alumnos =
-		 * alumnoEJB.listarAlumnos(TipoFiltro.ALUMNOS_POR_ASIGNAR, 0f); lista = new
-		 * ArrayList<>(); for (Alumno a : alumnos) { TypedQuery<AsignaturasMatricula>
-		 * query = em.
-		 * createQuery("SELECT am FROM AsignaturasMatricula am, Alumno a, Expediente e, Matricula m WHERE "
-		 * +
-		 * "a = :alumno AND e.alumnoExpediente.id = a.id AND m.expedienteMatricula.numeroExpediente = e.numeroExpediente AND am.mat = m"
-		 * , AsignaturasMatricula.class); query.setParameter("alumno", a);
-		 * List<AsignaturasMatricula> listAm = query.getResultList(); int cont = 0; for
-		 * (AsignaturasMatricula am : listAm) { if (am.getGrupoAsignaturasMatricula() ==
-		 * null) cont++; } if (cont > 0 && cont == listAm.size()) lista.add(a); }
-		 */
-		// } catch (Exception e) {
-		// TODO: handle exception
-		// }
 		return lista;
 	}
 
@@ -71,7 +52,6 @@ public class Asignar {
 	}
 
 	public String asignarAutomatico(Integer id) {
-		LOGGER.info("Entramos en el metodo asignar Automatico, ID del alumno: " + id);
 		try {
 			Alumno a = em.find(Alumno.class, id);
 			if (a != null) {
@@ -83,7 +63,6 @@ public class Asignar {
 					alumnoEJB.asignarGrupo(a.getId(), null, encuestaId, false);
 			}
 		} catch (ObjetoNoExistenteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

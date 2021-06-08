@@ -43,7 +43,6 @@ public class AsignaturaCU{
 	
 	@PersistenceContext(name = "Secretaria")
 	private EntityManager em;
-	private static final Logger LOGGER = Logger.getLogger(AsignaturaCU.class.getCanonicalName());
 	
 	@Inject 
 	private GestionAsignatura gestionAsignatura;
@@ -80,12 +79,7 @@ public class AsignaturaCU{
 
 	private Integer titulacionAsignatura;
 	
-	//private List<Clase> claseAsignatura;
-	
-	//private List<GruposAsignatura> gruposAsignaturaAsignatura;
-	
-	//private List<AsignaturasMatricula> asignaturasMatriculaAsignatura;
-	
+		
 	
 	//getters y setters
 

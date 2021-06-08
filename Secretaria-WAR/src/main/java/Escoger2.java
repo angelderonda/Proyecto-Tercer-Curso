@@ -143,7 +143,6 @@ public class Escoger2 implements Serializable {
 		try {
 			grupoEJB.gestionarCambioGrupo(a.getId(), listaGruposAsignatura, true);
 		} catch (ObjetoNoExistenteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

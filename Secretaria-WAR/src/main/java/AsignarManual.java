@@ -28,7 +28,6 @@ import es.uma.informatica.sii.ejb.practica.entidades.Encuesta.EncuestaId;
 @RequestScoped
 public class AsignarManual {
 	
-	private static final Logger LOGGER = Logger.getLogger(Asignar.class.getCanonicalName());
 	
 	@Inject 
 	private GestionAlumno alumnoEJB;
@@ -83,10 +82,8 @@ public class AsignarManual {
 				}
 				Fila f = new Fila();
 				f.setAsignatura(am.getAsignaturaAsignaturasMatricula());
-				//f.setLetra(am.getGrupoAsignaturasMatricula().getLetra() + "");
 				f.setLetraSeleccionada(letras.get(0));
 				f.setLetras(letras);
-				//f.setGrupo(am.getGrupoAsignaturasMatricula());
 				listaDeFilas.add(f);
 			}
 
@@ -98,25 +95,18 @@ public class AsignarManual {
 	}
 	
 	public String confirmar() {
-		LOGGER.info("--------------------Entramos CONFIRMAR--------------------");
 		for (int i = 0; i < listaGruposAsignatura.size(); i++) {
-			LOGGER.info("Grupo ASIG: " + listaGruposAsignatura.get(i));
-			LOGGER.info("FILA: " + listaFila.get(i));
 			TypedQuery<Grupo> queryGrupo = em
 					.createQuery("SELECT g FROM Grupo g WHERE g.curso = :curso AND g.letra = :letra ", Grupo.class);
 			String codigo = String.valueOf((listaFila.get(i).getAsignatura().getCodigo()));
 			queryGrupo.setParameter("curso",  Integer.parseInt(codigo.substring(0, 1)));
 			queryGrupo.setParameter("letra", listaFila.get(i).getLetraSeleccionada().toCharArray()[0]);
-			
-			LOGGER.info("CURSO: " + Integer.parseInt(codigo.substring(0, 1)) + " LETRA: " + listaFila.get(i).getLetraSeleccionada().toCharArray()[0]);
-			
 			listaGruposAsignatura.get(i).setGrupoGruposAsignatura(queryGrupo.getSingleResult());
 		}
 		try {
 			alumnoEJB.asignarGrupo(alumno.getId(), listaGruposAsignatura,null,true);
 		}catch(Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se ha podido rellenar la encuesta."));
-			LOGGER.info(e.getMessage());
 		}
 		return null;
 	}
