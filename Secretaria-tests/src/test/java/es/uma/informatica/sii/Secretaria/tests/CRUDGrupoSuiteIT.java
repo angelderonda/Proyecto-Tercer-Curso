@@ -16,6 +16,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 public class CRUDGrupoSuiteIT {
 	 private WebDriver driver;
 	  private Map<String, Object> vars;
@@ -30,6 +32,8 @@ public class CRUDGrupoSuiteIT {
 	  public void tearDown() {
 	    driver.quit();
 	  }
+	  
+	  @Requisitos({"RF3"})
 	  @Test
 	  public void createGrupoIT() {
 	    driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
@@ -68,6 +72,7 @@ public class CRUDGrupoSuiteIT {
 	    driver.findElement(By.cssSelector("input:nth-child(4)")).click();
 	  }
 	  
+	  @Requisitos({"RF3"})
 	  @Test
 	  public void updateGrupoIT() {
 	    driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
@@ -111,6 +116,7 @@ public class CRUDGrupoSuiteIT {
 	    driver.findElement(By.cssSelector("input:nth-child(4)")).click();
 	  }
 	  
+	  @Requisitos({"RF3"})
 	  @Test
 	  public void deleteGrupoIT() {
 	    driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");

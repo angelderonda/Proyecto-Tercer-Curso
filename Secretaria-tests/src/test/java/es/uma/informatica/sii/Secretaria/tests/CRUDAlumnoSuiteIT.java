@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -42,6 +45,7 @@ public class CRUDAlumnoSuiteIT {
 		driver.quit();
 	}
 
+	@Requisitos({"RF2"})
 	@Test
 	public void createAlumnoIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
@@ -93,6 +97,7 @@ public class CRUDAlumnoSuiteIT {
 		}
 	}
 
+	@Requisitos({"RF2"})
 	@Test
 	public void updateAlumnoIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
@@ -145,6 +150,7 @@ public class CRUDAlumnoSuiteIT {
 
 	}
 	
+	@Requisitos({"RF2"})
 	@Test
 	public void deleteAlumnoIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");

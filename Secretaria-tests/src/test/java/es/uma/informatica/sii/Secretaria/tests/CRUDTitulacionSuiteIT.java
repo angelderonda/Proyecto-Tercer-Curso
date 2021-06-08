@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -42,6 +45,7 @@ public class CRUDTitulacionSuiteIT {
 		driver.quit();
 	}
 
+	@Requisitos({ "RF7" })
 	@Test
 	public void createTitulacionIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
@@ -67,6 +71,7 @@ public class CRUDTitulacionSuiteIT {
 		driver.findElement(By.cssSelector("input:nth-child(4)")).click();
 	}
 
+	@Requisitos({ "RF7" })
 	@Test
 	public void updateTitulacionIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");
@@ -94,6 +99,7 @@ public class CRUDTitulacionSuiteIT {
 		driver.findElement(By.cssSelector("input:nth-child(4)")).click();
 	}
 
+	@Requisitos({ "RF7" })
 	@Test
 	public void deleteTitulacionIT() {
 		driver.get("http://localhost:8080/Secretaria-WAR/faces/gestionarEntidades.xhtml");

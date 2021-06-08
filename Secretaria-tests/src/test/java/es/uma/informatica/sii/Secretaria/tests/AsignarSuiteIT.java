@@ -17,6 +17,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -37,6 +40,8 @@ public class AsignarSuiteIT {
   public void tearDown() {
     driver.quit();
   }
+  
+  @Requisitos({"RF10"})
   @Test
   public void asignarSuiteIT() {
     driver.get("http://localhost:8080/Secretaria-WAR/faces/readdeleteMatricula.xhtml");
